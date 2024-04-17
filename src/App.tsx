@@ -1,8 +1,15 @@
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+
 function App() {
   return (
-    <div className="rtl container ">
-      <h1 className="text-black ">ویلا</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
+   
   );
 }
 
