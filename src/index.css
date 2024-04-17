@@ -29,5 +29,8 @@
   scrollbar-color: rgb(68, 65, 65) rgb(87, 83, 82);
   scroll-behavior: smooth;
   font-family: 'vazir';
+}
+
+body {
   font-size: 15px;
 }

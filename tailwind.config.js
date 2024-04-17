@@ -9,10 +9,14 @@ export default {
         BKoodak: ['BKoodak', 'sans-serif'],
       },
     },
+
     container: {
       center: true,
       padding: '12px',
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: ['light', 'dark'],
+  },
+  plugins: [require('daisyui')],
 };
