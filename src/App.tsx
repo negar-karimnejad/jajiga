@@ -1,9 +1,7 @@
 function App() {
   return (
-    <div className="dark:bg-white bg-red-500 text-white">
-      <h1 className="text-xl text-black dark:bg-stone-600 hover:text-rose-500">
-        Hi world
-      </h1>
+    <div className="rtl container ">
+      <h1 className="text-black ">ویلا</h1>
     </div>
   );
 }

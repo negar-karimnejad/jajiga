@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        vazirBold: ['vazirBold', 'sans-serif'],
+        vazirMedium: ['vazirMedium', 'sans-serif'],
+        BKoodak: ['BKoodak', 'sans-serif'],
+      },
+    },
+    container: {
+      center: true,
+      padding: '12px',
+    },
   },
   plugins: [],
-}
+};

@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'vazir';
+  src:
+    local('vazir'),
+    url('./fonts/Vazir.ttf') format('truetype');
+}
+
+@layer components {
+  @font-face {
+    font-family: 'vazirBold';
+    src: url('./fonts/Vazir-Bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'vazirMedium';
+    src: url('./fonts/Vazir-Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'BKoodak';
+    src: url('./fonts/BKoodak.ttf') format('truetype');
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(68, 65, 65) rgb(87, 83, 82);
+  scroll-behavior: smooth;
+  font-family: 'vazir';
+  font-size: 15px;
+}
