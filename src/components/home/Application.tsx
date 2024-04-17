@@ -1,10 +1,10 @@
 function Application() {
   return (
-    <div className="">
-      <div className=" -top-5 right-0  w-full rounded-t-2xl bg-blue-950 bg-[url('/images/patterns/pattern.svg')]">
+    <div className="relative md:hidden">
+      <div className="absolute -top-5 right-0 z-30 w-full rounded-t-2xl bg-blue-950 bg-[url('/images/patterns/pattern.svg')]">
         <div className="container flex h-14 justify-between pt-3 text-[12px] text-white">
           <p>نصب اپلیکیشن جاجیگا</p>
-          <button className="flex h-6 cursor-pointer items-center gap-1 rounded-full bg-gray-50 px-4 text-gray-800 transition-all hover:bg-red-400">
+          <button className="flex h-6 cursor-pointer items-center gap-1 rounded-full bg-gray-50 px-4 text-gray-800 transition-all hover:bg-gray-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

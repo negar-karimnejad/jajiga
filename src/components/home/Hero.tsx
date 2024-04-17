@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Hero() {
   return (
-    <div>
+    <div className="relative h-[500px] max-xl:h-[400px]">
       <Swiper
         preventInteractionOnTransition={true}
         spaceBetween={0}
@@ -39,7 +39,7 @@ function Hero() {
           />
         </SwiperSlide>
       </Swiper>
-      <div className="absolute bottom-10 left-0 right-0 z-40 mx-auto h-[500px] w-full text-white max-xl:h-[400px]">
+      <div className="absolute left-0 right-0 top-40 z-40 mx-auto h-fit w-full text-white ">
         <form className="flex flex-col items-center justify-center gap-4">
           <label htmlFor="" className="text-lg">
             اجاره ویلا در شمال و سراسر ایران زیبا
