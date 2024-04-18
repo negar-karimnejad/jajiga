@@ -11,8 +11,11 @@ export default {
     },
 
     container: {
+      screens: {
+        700: '1100px',
+      },
       center: true,
-      padding: '12px',
+      padding: '15px',
     },
   },
   daisyui: {

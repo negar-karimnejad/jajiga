@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
+interface LogoProps {
+  withTitle: boolean;
+}
 
-function Logo() {
+function Logo({ withTitle }: LogoProps) {
   return (
     <Link to="/">
-      <img src="/images/logo.png" className="" alt="" />
+      {withTitle ? (
+        <img src="/images/logo1.png" className="w-36" alt="" />
+      ) : (
+        <img src="/images/logo.png" className="w-12" alt="" />
+      )}
     </Link>
   );
 }

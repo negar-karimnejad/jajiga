@@ -9,8 +9,8 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/app" element={<Appstore />} />
         </Route>
+        <Route path="/app" element={<Appstore />} />
       </Routes>
     </BrowserRouter>
   );

@@ -98,7 +98,7 @@ function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="rounded-full border px-2">
+    <>
       <div className="flex items-center" onClick={() => setIsMenuOpen(true)}>
         <div className="w-8 rounded-full">
           <svg
@@ -107,7 +107,7 @@ function NavMenu() {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="h-6 w-6"
+            className="mr-2 h-6 w-6"
           >
             <path
               stroke-linecap="round"
@@ -121,8 +121,8 @@ function NavMenu() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="#ccc"
+            stroke-width="1"
+            stroke="#e6e6e6"
             className="h-9 w-9"
           >
             <path
@@ -137,14 +137,14 @@ function NavMenu() {
         className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 ${isMenuOpen ? 'visible z-50 opacity-100' : 'invisible z-0 opacity-0'}`}
         onClick={() => setIsMenuOpen(false)}
       >
-        <div className="relative sm:w-[350px] w-[450px] max-[490px]:w-[330px]">
+        <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
           <button className="absolute -left-3 top-2 font-vazirBold text-4xl text-white">
             &times;
           </button>
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
-            className={`absolute top-0 z-50 h-screen  overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 sm:w-[320px] w-[420px] max-[490px]:w-[300px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+            className={`absolute top-0 z-50 h-screen  w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
           >
             <header
               style={{ direction: 'rtl' }}
@@ -206,7 +206,7 @@ function NavMenu() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
