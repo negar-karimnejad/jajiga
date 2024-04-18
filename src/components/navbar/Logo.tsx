@@ -7,9 +7,9 @@ function Logo({ withTitle }: LogoProps) {
   return (
     <Link to="/">
       {withTitle ? (
-        <img src="/images/logo1.png" className="w-36" alt="" />
+        <img src="/images/logo/logo1.png" className="w-36" alt="" />
       ) : (
-        <img src="/images/logo.png" className="w-12" alt="" />
+        <img src="/images/logo/logo.png" className="w-12" alt="" />
       )}
     </Link>
   );

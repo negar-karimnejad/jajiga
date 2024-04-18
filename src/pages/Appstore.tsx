@@ -69,7 +69,7 @@ function Appstore() {
           <NavSearch />
         </div>
         <div className="shrink-0 max-lg:hidden">
-          <img src="/images/logo2.png" className="w-36" alt="" />
+          <img src="/images/logo/logo2.png" className="w-36" alt="" />
         </div>
         <div className="w-12 shrink-0 lg:hidden">
           <Logo withTitle={false} />
