@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Appstore() {
   return (
-    <div className="flex items-center justify-center bg-[#f0c807] py-10 lg:min-h-[548px]">
+    <div className="flex items-center justify-center bg-[#f0c807] py-9 lg:min-h-[548px]">
       <div className="container flex flex-col items-center justify-center gap-5 lg:flex-row-reverse">
         <img src="/images/app-store/phone.png" className="w-72" alt="phone" />
         <div className="flex flex-col justify-center gap-4 max-lg:items-center">
