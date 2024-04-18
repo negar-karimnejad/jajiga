@@ -61,7 +61,7 @@ function Hero() {
           </div>
         </form>
         <div className="mt-10 text-center">
-          <p className="font-vazirBold text-xl tracking-widest">جاجیـــگا</p>
+          <p className="text-xl tracking-widest">جاجیـــگا</p>
           <p className="mt-3 text-sm">(: مثل خونه خودته</p>
         </div>
       </div>
