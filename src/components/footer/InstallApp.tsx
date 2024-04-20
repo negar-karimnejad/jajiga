@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Heading from './Heading';
 
 interface InstallAppLinkProps {
   to?: string;
@@ -30,11 +31,9 @@ const InstallAppLink = ({ to, image }: InstallAppLinkProps) => {
 function InstallApp() {
   return (
     <div>
-      <p className="mb-5 text-center font-vazirBold text-sm text-gray-700">
-        نصب اپلیکیشن جاجیگا
-      </p>
-      <div className="flex gap-3">
-        <div className="flex w-full flex-col gap-3">
+      <Heading>نصب اپلیکیشن جاجیگا</Heading>
+      <div className="flex gap-2">
+        <div className="flex w-full flex-col gap-2">
           <InstallAppLink
             to="https://cafebazaar.ir/app/com.jajiga.app"
             image="/images/app-store/Bazzar.png"
@@ -44,7 +43,7 @@ function InstallApp() {
             image="/images/app-store/Myket.png"
           />
         </div>
-        <div className="flex w-full flex-col gap-3">
+        <div className="flex w-full flex-col gap-2">
           <InstallAppLink
             to="https://play.google.com/store/apps/details?id=com.jajiga.app"
             image="/images/app-store/PlayStore.png"

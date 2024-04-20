@@ -58,7 +58,7 @@ function Hero() {
       </Swiper>
       <div className="absolute left-0 right-0 top-40 z-40 mx-auto h-fit w-full text-white ">
         <form className="flex flex-col items-center justify-center gap-4">
-          <label htmlFor="" className="text-lg">
+          <label htmlFor="" className="font-vazirMedium text-lg">
             اجاره ویلا در شمال و سراسر ایران زیبا
           </label>
           <div className="input input-bordered flex w-2/3 items-center gap-2 rounded-full pl-1">
@@ -78,8 +78,8 @@ function Hero() {
           </div>
         </form>
         <div className="mt-10 text-center">
-          <p className="text-xl tracking-widest">جاجیـــگا</p>
-          <p className="mt-3 text-sm">(: مثل خونه خودته</p>
+          <p className="font-vazirMedium text-xl tracking-widest">جاجیـــگا</p>
+          <p className="mt-3 font-vazirMedium text-sm">مثل خونه خودته :)</p>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Heading from './Heading';
 
 const enamadLinks = [
   {
@@ -43,10 +44,8 @@ function Enamad() {
 
   return (
     <div className="col-span-12 flex flex-col items-center lg:col-span-3">
-      <p className="mb-5 text-center font-vazirBold text-sm text-gray-700">
-        با خیال راحت به جاجیگا اعتماد کنید
-      </p>
-      <div className="grid grid-cols-12 sm:gap-4 gap-2">
+      <Heading>با خیال راحت به جاجیگا اعتماد کنید</Heading>
+      <div className="grid grid-cols-12 gap-2 sm:gap-4">
         {enamadLinks.map((link) => (
           <Link
             to={link.to}
@@ -59,7 +58,7 @@ function Enamad() {
             <img
               title={link.title}
               src={link.image}
-              className="sm:h-20 sm:w-20 h-16 w-16 p-1"
+              className="h-16 w-16 p-1 sm:h-20 sm:w-20"
               alt={link.title}
             />
             {mcth === link.id && (

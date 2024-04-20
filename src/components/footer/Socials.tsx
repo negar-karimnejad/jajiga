@@ -1,12 +1,11 @@
 import { PiInstagramLogo, PiTelegramLogo } from 'react-icons/pi';
 import SocialLink from './SocialLink';
+import Heading from './Heading';
 
 function Socials() {
   return (
     <div>
-      <p className="mb-5 text-center font-vazirBold text-sm text-gray-700">
-        با ما همراه شوید
-      </p>
+      <Heading>با ما همراه شوید</Heading>
       <div className="flex w-full justify-center gap-2 md:flex-col">
         <SocialLink
           style="from-purple-600 via-red-600 to-orange-500"
