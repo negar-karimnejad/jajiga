@@ -77,7 +77,6 @@ function Appstore() {
           <Logo withTitle={false} />
         </div>
       </div>
-      {/* lg:min-h-[548px] */}
       <div className="h-screen bg-[#f0c807] py-9">
         <div className="container flex flex-col items-center justify-center gap-5 lg:flex-row-reverse">
           <img

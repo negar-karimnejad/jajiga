@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Hero() {
   return (
-    <div className="relative h-[500px] max-xl:h-[400px]">
+    <div className="fixed top-0 right-0 left-0 mx-auto h-[500px] max-xl:h-[400px]">
       <Swiper
         preventInteractionOnTransition={true}
         spaceBetween={0}
