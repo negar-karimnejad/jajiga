@@ -18,13 +18,11 @@ function Navbar() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  // Now the vertical position is available with `scrollYPosition`
   console.log(scrollYPosition);
 
   return (
     <>
-      {scrollYPosition > 486 && (
+      {scrollYPosition > 470 && (
         <div className="container fixed left-0 right-0 top-0 z-50 mx-auto flex w-full items-center justify-between gap-x-3 bg-white py-2 lg:gap-x-10">
           <WhiteBgNavbar />
         </div>

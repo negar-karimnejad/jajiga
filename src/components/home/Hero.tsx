@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Hero() {
+  const [scrollYPosition, setScrollYPosition] = useState(0);
+
+  const handleScroll = () => {
+    const newScrollYPosition = window.pageYOffset;
+    setScrollYPosition(newScrollYPosition);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+  if (scrollYPosition > 500) return;
+  
   return (
-    <div className="fixed top-0 right-0 left-0 mx-auto h-[500px] max-xl:h-[400px]">
+    <div className="fixed left-0 right-0 top-0 mx-auto h-[500px] max-xl:h-[400px] ">
       <Swiper
         preventInteractionOnTransition={true}
         spaceBetween={0}

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Popular() {
   return (
-    <div className="relative z-30 mt-[485px] h-[96rem] rounded-t-2xl bg-white max-xl:mt-[385px]">
+    <div className="relative z-30 mt-[485px] rounded-t-2xl h-[96rem] bg-white max-xl:mt-[405px]">
       <div className="container">
         <h3>مقاصد پرطرفدار</h3>
         <Swiper

@@ -72,7 +72,7 @@ function WhiteBgNavbar() {
       <Link to="/" className="max-lg:hidden sm:shrink-0">
         <img src="/images/logo/logo2.png" className="w-36" alt="" />
       </Link>
-      <div className="w-12 sm:shrink-0 lg:hidden">
+      <div className=" sm:shrink-0 lg:hidden">
         <Logo withTitle={false} />
       </div>
     </>
