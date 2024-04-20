@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiSupport } from 'react-icons/bi';
 import { BsExclamationSquare } from 'react-icons/bs';
 import { CiGift } from 'react-icons/ci';
@@ -97,6 +97,15 @@ const navMenuLinks = [
 function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   return (
     <>
       <div className="flex items-center" onClick={() => setIsMenuOpen(true)}>
@@ -133,6 +142,8 @@ function NavMenu() {
           </svg>
         </div>
       </div>
+
+      {/* NavMenue Modal */}
       <div
         className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 ${isMenuOpen ? 'visible z-50 opacity-100' : 'invisible z-0 opacity-0'}`}
         onClick={() => setIsMenuOpen(false)}
@@ -144,7 +155,7 @@ function NavMenu() {
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
-            className={`absolute top-0 z-50 h-screen  w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+            className={`absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
           >
             <header
               style={{ direction: 'rtl' }}
