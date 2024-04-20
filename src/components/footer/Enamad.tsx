@@ -1,3 +1,10 @@
+const enamadLinks = [
+  { id: 1, image: 'images/footer/enamad.png' },
+  { id: 2, image: 'images/footer/ecunion.png' },
+  { id: 3, image: 'images/footer/vmfg.png' },
+  { id: 4, image: 'images/footer/mjwm.png' },
+];
+
 function Enamad() {
   return (
     <div className="col-span-12 flex flex-col items-center lg:col-span-3">
@@ -5,26 +12,14 @@ function Enamad() {
         با خیال راحت به جاجیگا اعتماد کنید
       </p>
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-3 flex h-[94px] w-[94px] items-center justify-center rounded-[30px] bg-white shadow lg:col-span-6">
-          <img
-            src="images/footer/enamad.png"
-            className="h-20 w-20 p-1"
-            alt=""
-          />
-        </div>
-        <div className="col-span-3 flex h-[94px] w-[94px] items-center justify-center rounded-[30px] bg-white shadow lg:col-span-6">
-          <img
-            src="images/footer/ecunion.png"
-            className="h-20 w-20 p-1"
-            alt=""
-          />
-        </div>
-        <div className="col-span-3 flex h-[94px] w-[94px] items-center justify-center rounded-[30px] bg-white shadow lg:col-span-6">
-          <img src="images/footer/vmfg.png" className="h-20 w-20 p-1" alt="" />
-        </div>
-        <div className="col-span-3 flex h-[94px] w-[94px] items-center justify-center rounded-[30px] bg-white shadow lg:col-span-6">
-          <img src="images/footer/mjwm.png" className="h-20 w-20 p-1" alt="" />
-        </div>
+        {enamadLinks.map((link) => (
+          <div
+            key={link.id}
+            className="col-span-3 flex h-[94px] w-[94px] items-center justify-center rounded-[30px] bg-white shadow lg:col-span-6"
+          >
+            <img src={link.image} className="h-20 w-20 p-1" alt="" />
+          </div>
+        ))}
       </div>
     </div>
   );
