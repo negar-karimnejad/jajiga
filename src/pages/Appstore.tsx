@@ -7,13 +7,15 @@ import NavSearch from '../components/navbar/NavSearch';
 function Appstore() {
   return (
     <>
-      <div className="container flex items-center justify-between gap-x-3 py-2 lg:gap-x-10 lg:py-0">
+      <div className="container flex w-full items-center justify-between gap-x-3 py-2 lg:gap-x-10">
         <div className="cursor-pointer rounded-full border px-2">
           <NavMenu />
         </div>
-        <NavLinks />
-        <div className="flex w-full items-center gap-2">
-          <div className="h-10 w-10 shrink-0 rounded-full border p-1 max-md:hidden">
+        <div className="flex shrink-0 gap-8 text-gray-500 max-md:hidden">
+          <NavLinks />
+        </div>
+        <div className="flex items-center gap-2 sm:w-full">
+          <div className="h-10 w-10 rounded-full border p-1 max-md:hidden">
             <svg
               className="sc-679cb2a8-0 iBzALU sc-31312756-1 cbqNKi"
               fill="none"
@@ -68,27 +70,28 @@ function Appstore() {
           </div>
           <NavSearch />
         </div>
-        <div className="shrink-0 max-lg:hidden">
+        <div className="max-lg:hidden sm:shrink-0">
           <img src="/images/logo/logo2.png" className="w-36" alt="" />
         </div>
-        <div className="w-12 shrink-0 lg:hidden">
+        <div className="w-12 sm:shrink-0 lg:hidden">
           <Logo withTitle={false} />
         </div>
       </div>
-      <div className="flex items-center justify-center bg-[#f0c807] py-9 lg:min-h-[548px]">
+      {/* lg:min-h-[548px] */}
+      <div className="h-screen bg-[#f0c807] py-9">
         <div className="container flex flex-col items-center justify-center gap-5 lg:flex-row-reverse">
           <img
             src="/images/app-store/phone.png"
-            className="w-72 max-sm:w-52"
+            className="w-72 "
             alt="phone"
           />
           <div className="flex flex-col justify-center gap-4 max-lg:items-center">
             <h3 className="font-vazirBold text-2xl ">نصب اپلیکیشن جاجیگا</h3>
-            <p className="text-lg text-gray-700 max-sm:w-52 max-sm:text-center">
+            <p className="text-lg text-gray-700  ">
               بیش از <span className="font-BKoodak text-xl">21000</span>{' '}
               اقامتگاه در دستان شماست
             </p>
-            <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 max-sm:grid-cols-1">
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
               <Link
                 target="_blank"
                 to="https://cafebazaar.ir/app/com.jajiga.app"

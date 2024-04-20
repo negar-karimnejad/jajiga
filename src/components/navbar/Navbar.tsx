@@ -9,7 +9,9 @@ function Navbar() {
         <div className="cursor-pointer rounded-full bg-gray-300/50 px-2">
           <NavMenu />
         </div>
-        <NavLinks />
+        <div className="flex shrink-0 gap-8 text-gray-50 max-md:hidden">
+          <NavLinks />
+        </div>
       </div>
       {/* <NavSearch /> */}
       <Logo withTitle={true} />
