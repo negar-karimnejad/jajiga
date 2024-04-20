@@ -2,11 +2,11 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 interface SocialLinkProps {
-    style: string;
-    to: string;
-    followers: string;
-    icon: ReactNode;
-  }
+  style: string;
+  to: string;
+  followers: string;
+  icon: ReactNode;
+}
 
 const SocialLink = ({ style, to, followers, icon }: SocialLinkProps) => {
   return (

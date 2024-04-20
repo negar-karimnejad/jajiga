@@ -46,7 +46,7 @@ function Enamad() {
       <p className="mb-5 text-center font-vazirBold text-sm text-gray-700">
         با خیال راحت به جاجیگا اعتماد کنید
       </p>
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-12 sm:gap-4 gap-2">
         {enamadLinks.map((link) => (
           <Link
             to={link.to}
@@ -54,12 +54,12 @@ function Enamad() {
             key={link.id}
             onClick={() => clickHandler(link.id)}
             onMouseLeave={() => setMscth(0)}
-            className="relative col-span-3 flex h-[94px] w-[94px] items-center justify-center rounded-[30px] bg-white shadow lg:col-span-6"
+            className="relative col-span-3 flex h-[78px] w-[78px] items-center justify-center rounded-[30px] bg-white shadow sm:h-[94px] sm:w-[94px] lg:col-span-6"
           >
             <img
               title={link.title}
               src={link.image}
-              className="h-20 w-20 p-1"
+              className="sm:h-20 sm:w-20 h-16 w-16 p-1"
               alt={link.title}
             />
             {mcth === link.id && (

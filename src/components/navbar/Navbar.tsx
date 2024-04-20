@@ -37,7 +37,6 @@ function Navbar() {
             <NavLinks />
           </div>
         </div>
-        {/* <NavSearch /> */}
         <Logo withTitle={true} />
       </div>
     </>

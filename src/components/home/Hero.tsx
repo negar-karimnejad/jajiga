@@ -18,9 +18,8 @@ function Hero() {
     };
   }, []);
 
-
   if (scrollYPosition > 500) return;
-  
+
   return (
     <div className="fixed left-0 right-0 top-0 mx-auto h-[500px] max-xl:h-[400px] ">
       <Swiper

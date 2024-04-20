@@ -1,5 +1,32 @@
 import { Link } from 'react-router-dom';
 
+interface InstallAppLinkProps {
+  to?: string;
+  image: string;
+}
+
+const InstallAppLink = ({ to, image }: InstallAppLinkProps) => {
+  return (
+    <>
+      {to ? (
+        <Link target="_blank" to={to}>
+          <img
+            src={image}
+            className="h-12 w-full rounded-md bg-black object-contain md:h-10"
+            alt="phone"
+          />
+        </Link>
+      ) : (
+        <img
+          src={image}
+          className="h-12 w-full rounded-md bg-black object-contain md:h-10"
+          alt="phone"
+        />
+      )}
+    </>
+  );
+};
+
 function InstallApp() {
   return (
     <div>
@@ -8,38 +35,21 @@ function InstallApp() {
       </p>
       <div className="flex gap-3">
         <div className="flex w-full flex-col gap-3">
-          <Link target="_blank" to="https://cafebazaar.ir/app/com.jajiga.app">
-            <img
-              src="/images/app-store/Bazzar.png"
-              className="h-12 w-full rounded-md bg-black object-contain md:h-10"
-              alt="phone"
-            />
-          </Link>
-          <Link target="_blank" to="https://myket.ir/app/com.jajiga.app">
-            <img
-              src="/images/app-store/Myket.png"
-              className="h-12 w-full rounded-md bg-black object-contain md:h-10"
-              alt="phone"
-            />
-          </Link>
+          <InstallAppLink
+            to="https://cafebazaar.ir/app/com.jajiga.app"
+            image="/images/app-store/Bazzar.png"
+          />
+          <InstallAppLink
+            to="https://myket.ir/app/com.jajiga.app"
+            image="/images/app-store/Myket.png"
+          />
         </div>
         <div className="flex w-full flex-col gap-3">
-          <Link
-            target="_blank"
+          <InstallAppLink
             to="https://play.google.com/store/apps/details?id=com.jajiga.app"
-          >
-            <img
-              src="/images/app-store/PlayStore.png"
-              className="h-12 w-full rounded-md bg-black object-contain md:h-10"
-              alt="phone"
-            />
-          </Link>
-
-          <img
-            src="/images/app-store/WebApp.png"
-            className="h-12 w-full rounded-md bg-black object-contain md:h-10"
-            alt="phone"
+            image="/images/app-store/PlayStore.png"
           />
+          <InstallAppLink image="/images/app-store/WebApp.png" />
         </div>
       </div>
     </div>
