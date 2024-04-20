@@ -1,5 +1,5 @@
 import { PiInstagramLogo, PiTelegramLogo } from 'react-icons/pi';
-import { Link } from 'react-router-dom';
+import SocialLink from './SocialLink';
 
 function Socials() {
   return (
@@ -8,32 +8,18 @@ function Socials() {
         با ما همراه شوید
       </p>
       <div className="flex w-full justify-center gap-2 md:flex-col">
-        <Link
-          target="_blank"
-          className="flex h-12 w-full items-center justify-center gap-3 rounded-md bg-black bg-gradient-to-r from-purple-600 via-red-600 to-orange-500 shadow md:h-10 md:w-40"
+        <SocialLink
+          style="from-purple-600 via-red-600 to-orange-500"
           to="https://www.instagram.com/jajiga.iran"
-        >
-          <span
-            className="font-vazirMedium text-base text-white"
-            style={{ direction: 'ltr' }}
-          >
-            700 k
-          </span>
-          <PiInstagramLogo size={30} className="text-white" />
-        </Link>
-        <Link
-          target="_blank"
-          className="flex h-12 w-full items-center justify-center gap-3 rounded-md bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 shadow md:h-10 md:w-40"
+          followers="700"
+          icon={<PiInstagramLogo size={30} className="text-white" />}
+        />
+        <SocialLink
+          style="from-sky-400 via-sky-500 to-sky-600"
           to="https://t.me/jajiga"
-        >
-          <span
-            className="font-vazirMedium text-base text-white"
-            style={{ direction: 'ltr' }}
-          >
-            20 k
-          </span>
-          <PiTelegramLogo size={25} className="text-white" />
-        </Link>
+          followers="20"
+          icon={<PiTelegramLogo size={25} className="text-white" />}
+        />
       </div>
     </div>
   );
