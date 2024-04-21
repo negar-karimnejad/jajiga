@@ -8,7 +8,7 @@ function Logo({ withTitle, magLogo }: LogoProps) {
   return (
     <>
       {magLogo ? (
-        <Link to="/">
+        <Link to="/mag">
           <img src="/images/logo/jajiga_mag.png" className="w-38" alt="logo" />
         </Link>
       ) : (

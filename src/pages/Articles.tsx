@@ -4,6 +4,7 @@ import ArticlesHeader from '../components/articles/ArticlesHeader';
 import { useAppSelector } from '../hooks';
 import { AppDispatch } from '../redux/store';
 import { getArticlesFromServer } from '../redux/store/articles';
+import ArticlesFooter from '../components/articles/ArticlesFooter';
 
 function Articles() {
   const dispatch: AppDispatch = useDispatch();
@@ -18,6 +19,7 @@ function Articles() {
   return (
     <>
       <ArticlesHeader />
+      <ArticlesFooter />
     </>
   );
 }

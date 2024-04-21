@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { FaInstagram, FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { IoClose, IoSearch } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import Logo from '../navbar/Logo';
+import ArticlesSocials from './ArticlesSocials';
 
 function ArticlesHeader() {
   const [activeNavLink, setActiveNavLink] = useState('main');
@@ -183,38 +182,11 @@ function ArticlesHeader() {
                     className="mt-8 bg-white p-4 shadow-lg"
                     style={{ direction: 'rtl' }}
                   >
-                    <h3 className="font-vazirBold text-lg">
+                    <h3 className="mb-8 font-vazirBold text-lg">
                       جاجیگا را دنبال کنید
                     </h3>
-                    <div className="mt-8 flex items-center justify-center gap-2">
-                      <Link
-                        target="_blank"
-                        to="https://t.me/jajiga"
-                        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
-                      >
-                        <FaTelegramPlane size={19} />
-                      </Link>
-                      <Link
-                        target="_blank"
-                        to="https://www.instagram.com/jajiga.iran"
-                        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
-                      >
-                        <FaInstagram size={19} />
-                      </Link>
-                      <Link
-                        target="_blank"
-                        to="https://twitter.com/i/flow/login?redirect_after_login=%2FJajiga_Iran"
-                        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
-                      >
-                        <FaXTwitter size={19} />
-                      </Link>
-                      <Link
-                        target="_blank"
-                        to="https://www.linkedin.com/company/jajiga/"
-                        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
-                      >
-                        <FaLinkedinIn size={19} />
-                      </Link>
+                    <div className="flex justify-center">
+                      <ArticlesSocials />
                     </div>
                   </div>
                 </div>
@@ -222,7 +194,6 @@ function ArticlesHeader() {
             </div>
           </div>
           {/* Finish NavMenue Modal */}
-          
         </div>
 
         {/* Start NavLinks */}
@@ -273,9 +244,7 @@ function ArticlesHeader() {
         {/* Finish NavLinks */}
 
         {/* NavLogo */}
-        <div className="">
-          <Logo magLogo={true} />
-        </div>
+        <Logo magLogo={true} />
       </div>
     </div>
   );
