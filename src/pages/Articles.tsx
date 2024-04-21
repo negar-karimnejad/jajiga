@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import ArticlesHeader from '../components/articles/ArticlesHeader';
 import { useAppSelector } from '../hooks';
-import { getArticlesFromServer } from '../redux/store/articles';
 import { AppDispatch } from '../redux/store';
+import { getArticlesFromServer } from '../redux/store/articles';
 
 function Articles() {
   const dispatch: AppDispatch = useDispatch();
@@ -14,7 +15,11 @@ function Articles() {
 
   console.log(articles);
 
-  return <div>Articles</div>;
+  return (
+    <>
+      <ArticlesHeader />
+    </>
+  );
 }
 
 export default Articles;
