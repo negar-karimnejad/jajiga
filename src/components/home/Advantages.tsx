@@ -145,7 +145,7 @@ function Advantages() {
                 تسویه با میزبان پس از تحویل اقامتگاه
               </p>
             </div>
-          </div>{' '}
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex gap-5 rounded-2xl border p-4">
@@ -204,7 +204,7 @@ function Advantages() {
                 اقامت با کیفیت تر و با هزینه کمتر
               </p>
             </div>
-          </div>{' '}
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>
