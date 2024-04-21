@@ -1,18 +1,24 @@
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import Appstore from './pages/Appstore';
 import AppLayout from './pages/AppLayout';
+import Appstore from './pages/Appstore';
+import Articles from './pages/Articles';
+import HomePage from './pages/HomePage';
+import { store } from './redux/store';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<HomePage />} />
-        </Route>
-        <Route path="/app" element={<Appstore />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/mag" element={<Articles />} />
+          </Route>
+          <Route path="/app" element={<Appstore />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
