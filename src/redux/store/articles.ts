@@ -14,7 +14,19 @@ interface Article {
   keyword: string;
 }
 
-export const getArticlesFromServer = createAsyncThunk<Article[], void>(
+interface ArticleState {
+  loading: boolean;
+  error: string | null;
+  articles: Article[];
+}
+
+const initialState: ArticleState = {
+  loading: true,
+  error: null,
+  articles: [],
+};
+
+export const getArticlesFromServer = createAsyncThunk(
   'articles/getArticlesFromServer',
   async () => {
     const { data: articles, error } = await supabase
@@ -24,18 +36,30 @@ export const getArticlesFromServer = createAsyncThunk<Article[], void>(
       throw error;
     }
 
-    return articles || [];
+    return articles;
   },
 );
 
-const slice = createSlice({
+const articleSlice = createSlice({
   name: 'articles',
-  initialState: [] as Article[],
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getArticlesFromServer.fulfilled, (_, action) => {
-      return action.payload;
+    builder.addCase(getArticlesFromServer.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getArticlesFromServer.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = null;
+      state.articles = action.payload;
+    });
+    builder.addCase(getArticlesFromServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error =
+        action.error.message ?? 'Something went wrong. Please try again later.';
+      state.articles = [];
     });
   },
 });
-export default slice.reducer;
+
+export default articleSlice.reducer;

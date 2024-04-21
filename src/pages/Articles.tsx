@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../hooks';
 import { getArticlesFromServer } from '../redux/store/articles';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from '@reduxjs/toolkit';
+import { AppDispatch } from '../redux/store';
 
 function Articles() {
-  const articles = useSelector((state: RootState) => state.articles);
-  const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
+  const articles = useAppSelector((state) => state.articles);
 
   useEffect(() => {
-    dispatch(getArticlesFromServer()); // Explicitly cast to any to resolve type mismatch
+    dispatch(getArticlesFromServer());
   }, [dispatch]);
 
   console.log(articles);

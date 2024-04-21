@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/mag" element={<Articles />} />
           </Route>
+          <Route path="/mag" element={<Articles />} />
           <Route path="/app" element={<Appstore />} />
         </Routes>
       </BrowserRouter>
