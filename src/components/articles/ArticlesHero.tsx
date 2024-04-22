@@ -8,7 +8,7 @@ import { useArticles } from '../../hooks/useArticles';
 function ArticlesHero() {
   const navigate = useNavigate();
   const { articles } = useArticles();
-  
+
   return (
     <Swiper
       spaceBetween={0}
@@ -38,10 +38,10 @@ function ArticlesHero() {
                 >
                   سفر به کجا؟
                 </Link>
-                <h3 className="mt-4 text-3xl font-extrabold leading-[50px] text-white sm:w-[500px]">
+                <h3 className="mt-4 text-3xl font-extrabold sm:leading-[50px] text-white sm:w-[500px]">
                   {article.title}
                 </h3>
-                <p className="mt-6 line-clamp-4 text-justify font-vazirMedium leading-7 text-white sm:w-96">
+                <p className="mt-6 line-clamp-4 text-justify font-vazirMedium sm:leading-7 text-white sm:w-96">
                   {article.description}
                 </p>
               </div>
@@ -49,13 +49,13 @@ function ArticlesHero() {
           </div>
         </SwiperSlide>
       ))}
-      <div className="swiper-button-prev">
+      <div className="swiper-button-prev absolute bottom-5 left-16 z-40 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100/50 sm:bottom-16 sm:left-32">
         <FaChevronRight
           size={23}
           className="text-white transition-all duration-500 hover:text-red-600"
         />
       </div>
-      <div className="swiper-button-next">
+      <div className="swiper-button-next absolute bottom-5 left-5 z-40 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100/50 sm:bottom-16 sm:left-20">
         <FaChevronLeft
           size={23}
           className="text-white transition-all duration-500 hover:text-red-600"

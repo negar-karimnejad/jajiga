@@ -13,8 +13,12 @@ const useArticles = () => {
   useEffect(() => {
     dispatch(getArticlesFromServer());
   }, [dispatch]);
+  const wherewhy = articles.filter((article) => article.category_id === 1);
+  const knowing = articles.filter((article) => article.category_id === 2);
+  const travelers = articles.filter((article) => article.category_id === 3);
+  const hosting = articles.filter((article) => article.category_id === 4);
 
-  return { articles, loading, error };
+  return { articles, loading, error, wherewhy, knowing, travelers, hosting };
 };
 
 export { useArticles };

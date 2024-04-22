@@ -1,7 +1,7 @@
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../redux/store';
-import { useAppSelector } from '../hooks';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../hooks';
+import { AppDispatch } from '../redux/store';
 import { getAuthorsFromServer } from '../redux/store/authors';
 
 const useAthors = () => {

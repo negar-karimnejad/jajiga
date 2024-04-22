@@ -20,7 +20,7 @@ function ArticlesHeader() {
   }, [isMenuOpen]);
 
   return (
-    <div className="shadow-md">
+    <div className="shadow-md bg-white">
       <div className="container flex w-full items-center justify-between">
         <div>
           {/* Start Search&Menu Icon */}
