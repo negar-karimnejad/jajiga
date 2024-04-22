@@ -1,36 +1,51 @@
 import { CiCalendarDate } from 'react-icons/ci';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthor } from '../../hooks/useAuthor';
 import { Article } from '../../redux/store/articles';
+import convertToPersianDate from '../../utilities/convertToPersianDate';
 
 function MagPost({ article }: { article: Article }) {
+  const navigate = useNavigate();
+
+  const { author } = useAuthor(article.author_id);
+
   return (
-    <div className="relative lg:col-span-4 flex-shrink w-[350px] bg-white shadow-md shadow-gray-300 max-sm:col-span-12 sm:col-span-6">
-      <Link to={`/${article.title}`}>
-        <img src="1.jpg" alt="" className="h-40" />
-        <div className="absolute left-0 top-0 h-40 w-full bg-black/10 transition-all duration-500 hover:bg-black/50"></div>
-      </Link>
-      <div className="px-3 py-5">
-        <Link
-          to={`/${article.title}`}
-          className="font-vazirBold text-lg transition-all hover:text-sky-600"
+    <div className="card w-96 overflow-hidden bg-base-100 shadow-xl">
+      <figure className="relative h-40">
+        <div
+          className="cursor-pointer"
+          onClick={() => navigate(`/${article.title}`)}
         >
-          روستای سراوان گیلان و تجربه آرامشی از جنس طبیعت
-        </Link>
-        <div className="mt-10 flex items-center gap-3 text-[12px]">
+          <img src={article.cover} alt={article.title} />
+          <div className="absolute left-0 top-0 h-full w-full bg-black/10 transition-all duration-500 hover:bg-black/50"></div>
+        </div>
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">
+          <Link
+            to={`/${article.title}`}
+            className="transition-all hover:text-sky-600"
+          >
+            {article.title}
+          </Link>
+        </h2>
+        <div className="mt-8 flex items-center gap-3 text-[14px]">
           <img
-            src="1.jpg"
+            src={author?.profile}
             alt=""
             className="h-7 w-7 rounded-full object-cover"
           />
           <Link
-            to={`/author/${article.author_id}`}
-            className="text-gray-500 transition-all hover:text-gray-900"
+            to={`/author/${author?.fullname}`}
+            className="font-BKoodak text-gray-500 transition-all hover:text-gray-900"
           >
-            معصومه ذاکراکبری
+            {author?.fullname}
           </Link>
           <div className="flex items-center gap-1">
             <CiCalendarDate size={17} className="text-gray-600" />
-            <p className="text-gray-500">۱ اردیبهشت ۱۴۰۳</p>
+            <p className="font-BKoodak text-gray-500">
+              {convertToPersianDate(article.created_at)}
+            </p>
           </div>
         </div>
       </div>
