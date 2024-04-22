@@ -33,7 +33,7 @@ function ArticlesHero() {
             <div className="absolute right-0 top-0 h-full w-full cursor-pointer bg-black/25 transition-all duration-700 hover:bg-black/75 max-xl:p-5 xl:px-24 xl:pt-16">
               <div className="">
                 <Link
-                  to="/category/wherewhy"
+                  to="category/wherewhy"
                   className="w-fit rounded-full bg-sky-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700"
                 >
                   سفر به کجا؟

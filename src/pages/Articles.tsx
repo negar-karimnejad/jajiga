@@ -11,7 +11,7 @@ function Articles() {
     <>
       <ArticlesHeader />
       <ArticlesHero />
-      <div className="container my-20 flex flex-wrap gap-5">
+      <div className="container my-20 grid-cols-12 grid gap-5">
         {articles.map((article) => (
           <MagPost key={article.id} article={article} />
         ))}
