@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
-interface Article {
+export interface Article {
   id: number;
   created_at: Date;
   title: string;

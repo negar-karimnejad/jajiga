@@ -1,24 +1,14 @@
-import { useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useAppSelector } from '../../hooks';
-import { AppDispatch } from '../../redux/store';
-import { getArticlesFromServer } from '../../redux/store/articles';
+import { useArticles } from '../../hooks/useArticles';
 
 function ArticlesHero() {
-  const dispatch: AppDispatch = useDispatch();
-  const { articles } = useAppSelector((state) => state.articles);
-
-  useEffect(() => {
-    dispatch(getArticlesFromServer());
-  }, [dispatch]);
-
-  console.log(articles);
-
+  const navigate = useNavigate();
+  const { articles } = useArticles();
+  
   return (
     <Swiper
       spaceBetween={0}
@@ -32,7 +22,9 @@ function ArticlesHero() {
     >
       {articles.map((article) => (
         <SwiperSlide key={article.id} className="relative">
-          <Link to={`${article.title.replaceAll(' ', '-')}`}>
+          <div
+            onClick={() => navigate(`${article.title.replaceAll(' ', '-')}`)}
+          >
             <img
               src={article.cover}
               className="h-[500px] w-screen object-cover max-xl:h-[400px]"
@@ -54,7 +46,7 @@ function ArticlesHero() {
                 </p>
               </div>
             </div>
-          </Link>
+          </div>
         </SwiperSlide>
       ))}
       <div className="swiper-button-prev">

@@ -91,24 +91,24 @@
             <path
               d="m138.585 19.178-12.903 5.848"
               stroke="#fff"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               clip-rule="evenodd"
               d="M128.141 7.061v0a7.4 7.4 0 0 1 7.498 6.305l.037.242a1.767 1.767 0 0 1-1.705 2.027l-11.239.27a1.767 1.767 0 0 1-1.801-1.943l.024-.243a7.401 7.401 0 0 1 7.186-6.658Z"
               stroke="#fff"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="m128.141 7.061.591.75a9.43 9.43 0 0 1 1.796 7.907v0M128.141 7.061l-.555.778a9.435 9.435 0 0 0-1.413 7.984v0M128.349 15.768l.196 7.96"
               stroke="#fff"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               fill-rule="evenodd"
@@ -125,24 +125,24 @@
             <path
               d="M157.999 9.77a.23.23 0 1 0 .003.458.23.23 0 0 0-.003-.457M158 1.75v1.375M158 18.25v-1.375M166.25 10h-1.375M149.75 10h1.375"
               stroke="#fff"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               clip-rule="evenodd"
               d="m91.386 62.045 5.862 1.525c.18.047.287.23.24.41l-.593 2.28a1.346 1.346 0 0 1-1.641.963l-3.908-1.016a1.346 1.346 0 0 1-.964-1.642l.594-2.28a.337.337 0 0 1 .41-.24ZM95.334 58.9c2.302.6 5.232-2.997 6.542-8.032 1.311-5.036.507-9.604-1.796-10.203-2.303-.6-5.232 2.997-6.542 8.032-1.311 5.036-.507 9.603 1.796 10.203Z"
               stroke="#fff"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="m101.009 60.377-11.35-2.954M92.55 62.347l-4.333-7.382a9.853 9.853 0 0 1-1.224-6.599v0c.946-5.718 6.598-9.39 12.208-7.93l1.76.458c5.609 1.46 8.754 7.422 6.792 12.876v0a9.862 9.862 0 0 1-4.285 5.165l-7.384 4.332"
               stroke="#fff"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               fill-rule="evenodd"
