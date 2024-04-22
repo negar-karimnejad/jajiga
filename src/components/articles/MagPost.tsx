@@ -4,6 +4,7 @@ import { useAuthor } from '../../hooks/useAuthor';
 import { useCategory } from '../../hooks/useCategory';
 import { Article } from '../../redux/store/articles';
 import convertToPersianDate from '../../utilities/convertToPersianDate';
+import MagAuthor from './MagAuthor';
 
 function MagPost({ article }: { article: Article }) {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function MagPost({ article }: { article: Article }) {
             <div title={article.title} className="absolute right-5 top-5">
               <Link
                 to="category/wherewhy"
-                className="w-fit rounded-full bg-sky-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700"
+                className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700 ${category?.id === 1 ? 'bg-sky-600' : 'bg-orange-600'}`}
               >
                 {category?.title}
               </Link>
@@ -48,22 +49,10 @@ function MagPost({ article }: { article: Article }) {
           </Link>
         </h2>
         <div className="mt-8 flex items-center gap-3 text-[14px]">
-          <Link
-            to={`/author/${author?.fullname}`}
-            className="group flex items-center gap-2"
-          >
-            <img
-              src={author?.profile}
-              alt=""
-              className="h-7 w-7 cursor-pointer rounded-full object-cover"
-            />
-            <p className="whitespace-nowrap font-BKoodak text-gray-500 transition-all group-hover:text-gray-900">
-              {author?.fullname}
-            </p>
-          </Link>
+          <MagAuthor author={author} />
           <div className="flex items-center gap-1">
             <CiCalendarDate size={17} className="text-gray-600" />
-            <p className="whitespace-nowrap font-BKoodak text-gray-500">
+            <p className="whitespace-nowrap font-BKoodak text-gray-400">
               {convertToPersianDate(article.created_at)}
             </p>
           </div>

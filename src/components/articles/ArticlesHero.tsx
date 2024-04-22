@@ -7,20 +7,21 @@ import { useArticles } from '../../hooks/useArticles';
 
 function ArticlesHero() {
   const navigate = useNavigate();
-  const { articles } = useArticles();
+  const { wherewhy } = useArticles();
 
   return (
     <Swiper
       spaceBetween={0}
       centeredSlides={true}
       modules={[Navigation]}
+      loop={true}
       navigation={{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       }}
       className="articles-hero"
     >
-      {articles.map((article) => (
+      {wherewhy.map((article) => (
         <SwiperSlide key={article.id} className="relative">
           <div
             onClick={() => navigate(`${article.title.replaceAll(' ', '-')}`)}
@@ -30,7 +31,7 @@ function ArticlesHero() {
               className="h-[500px] w-screen object-cover max-xl:h-[400px]"
               alt="hero"
             />
-            <div className="absolute right-0 top-0 h-full w-full cursor-pointer bg-black/25 transition-all duration-700 hover:bg-black/75 max-xl:p-5 xl:px-24 xl:pt-16">
+            <div className="absolute right-0 top-0 h-full w-full cursor-pointer bg-black/40 transition-all duration-700 hover:bg-black/75 max-xl:p-5 xl:px-24 xl:pt-16">
               <div className="">
                 <Link
                   to="category/wherewhy"
@@ -38,10 +39,10 @@ function ArticlesHero() {
                 >
                   سفر به کجا؟
                 </Link>
-                <h3 className="mt-4 text-3xl font-extrabold sm:leading-[50px] text-white sm:w-[500px]">
+                <h3 className="mt-4 text-3xl font-extrabold text-white sm:w-[500px] sm:leading-[50px]">
                   {article.title}
                 </h3>
-                <p className="mt-6 line-clamp-4 text-justify font-vazirMedium sm:leading-7 text-white sm:w-96">
+                <p className="mt-6 line-clamp-4 text-justify font-vazirMedium text-white sm:w-96 sm:leading-7">
                   {article.description}
                 </p>
               </div>

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
-interface Author {
+export interface Author {
   id: number;
   created_at: Date;
   fullname: string;
