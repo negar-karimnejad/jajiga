@@ -4,7 +4,7 @@ function DarkMode() {
   const { theme, handleToggle } = useDarkMode();
 
   return (
-    <div className="group fixed bottom-0 right-0 z-50 flex h-8 w-16 items-start justify-center rounded-tl-lg bg-black p-1 opacity-50 transition-all duration-500 hover:h-14 hover:opacity-100">
+    <div className="group fixed bottom-0 left-0 z-50 flex h-8 w-16 items-start justify-center rounded-tr-lg bg-black p-1 opacity-50 transition-all duration-500 hover:h-14 hover:opacity-100">
       <label className="swap swap-rotate transition-all">
         <input
           onChange={handleToggle}

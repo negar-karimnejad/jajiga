@@ -13,14 +13,14 @@ const InstallAppLink = ({ to, image }: InstallAppLinkProps) => {
         <Link target="_blank" to={to}>
           <img
             src={image}
-            className="h-12 w-full rounded-md bg-black object-contain md:h-10"
+            className="h-12 w-full rounded-md bg-black object-contain md:h-10 dark:border dark:border-gray-900"
             alt="phone"
           />
         </Link>
       ) : (
         <img
           src={image}
-          className="h-12 w-full rounded-md bg-black object-contain md:h-10"
+          className="h-12 w-full rounded-md bg-black object-contain md:h-10 dark:border dark:border-gray-900"
           alt="phone"
         />
       )}

@@ -47,10 +47,10 @@ const AccessLinksArray = [
 function AccessLinks() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <p className="mb-5 text-center font-vazirBold text-sm text-gray-700">
+      <p className="mb-5 text-center font-vazirBold text-sm text-gray-700 dark:text-gray-100">
         لینک های دسترسی
       </p>
-      <div className="flex justify-center gap-20 text-[12px] text-blue-600 md:justify-between md:gap-16">
+      <div className="flex justify-center gap-20 text-[12px] text-blue-600 dark:text-gray-400 md:justify-between md:gap-16">
         <div className="flex flex-col gap-y-2">
           {AccessLinksArray.slice(0, 4).map((link) => (
             <Link

@@ -31,7 +31,7 @@ export const QuickSearchLinks = [
 function QuickSearch() {
   return (
     <div>
-      <p className="text-center font-vazirBold text-sm text-gray-700 md:hidden">
+      <p className="text-center font-vazirBold text-sm text-gray-700 md:hidden dark:text-gray-100">
         جستجوی سریع
       </p>
       <div className="overflow-auto py-4">
@@ -39,7 +39,7 @@ function QuickSearch() {
           {QuickSearchLinks.map((link, index) => (
             <Link
               key={index}
-              className="w-36 rounded-full bg-white px-2 py-1 font-vazirMedium text-[12px] text-gray-500 shadow"
+              className="w-36 rounded-full bg-white px-2 py-1 font-vazirMedium text-[12px] text-gray-500 shadow dark:bg-white/10"
               to={link.to}
             >
               {link.title}

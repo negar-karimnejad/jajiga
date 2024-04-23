@@ -61,7 +61,7 @@ function Hero() {
           <label htmlFor="" className="font-vazirMedium text-lg">
             اجاره ویلا در شمال و سراسر ایران زیبا
           </label>
-          <div className="input input-bordered flex w-2/3 items-center gap-2 rounded-full pl-1">
+          <div className="input input-bordered flex w-96 max-sm:w-72 items-center gap-2 rounded-full pl-1">
             <input type="text" className="grow" placeholder="میخوای کجا بری؟" />
             <svg
               xmlns="http://www.w3.org/2000/svg"

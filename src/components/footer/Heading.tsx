@@ -6,7 +6,7 @@ interface HeadingProps {
 
 function Heading({ children }: HeadingProps) {
   return (
-    <p className="mb-3 text-center font-vazirBold text-sm text-gray-700">
+    <p className="mb-3 text-center font-vazirBold text-sm dark:text-gray-100 text-gray-700">
       {children}
     </p>
   );

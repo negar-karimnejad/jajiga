@@ -53,7 +53,7 @@ function Enamad() {
             key={link.id}
             onClick={() => clickHandler(link.id)}
             onMouseLeave={() => setMscth(0)}
-            className="relative col-span-3 flex h-[78px] w-[78px] items-center justify-center rounded-[30px] bg-white shadow sm:h-[94px] sm:w-[94px] lg:col-span-6"
+            className="relative col-span-3 flex h-[78px] w-[78px] items-center justify-center rounded-[30px] bg-white shadow sm:h-[94px] sm:w-[94px] lg:col-span-6 dark:bg-white/50"
           >
             <img
               title={link.title}

@@ -4,8 +4,10 @@ import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 function Appstore() {
   return (
     <>
-      <div className="container flex w-full items-center justify-between gap-x-3 py-2 lg:gap-x-10">
-        <WhiteBgNavbar />
+      <div className="mx-auto w-full border-b bg-white py-2 lg:gap-x-10 dark:border-0 dark:bg-gray-800">
+        <div className="container flex items-center justify-between gap-x-3">
+          <WhiteBgNavbar />
+        </div>
       </div>
       <div className="h-screen bg-[#f0c807] py-9">
         <div className="container flex flex-col items-center justify-center gap-5 lg:flex-row-reverse">
@@ -15,7 +17,9 @@ function Appstore() {
             alt="phone"
           />
           <div className="flex flex-col justify-center gap-4 max-lg:items-center">
-            <h3 className="font-vazirBold text-2xl ">نصب اپلیکیشن جاجیگا</h3>
+            <h3 className="font-vazirBold text-2xl text-gray-800">
+              نصب اپلیکیشن جاجیگا
+            </h3>
             <p className="text-lg text-gray-700  ">
               بیش از <span className="font-BKoodak text-xl">21000</span>{' '}
               اقامتگاه در دستان شماست
