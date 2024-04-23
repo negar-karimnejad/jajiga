@@ -18,7 +18,6 @@ function Navbar() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  console.log(scrollYPosition);
 
   return (
     <>

@@ -125,6 +125,7 @@ function NavMenu() {
             />
           </svg>
         </div>
+
         <div className="w-8 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
