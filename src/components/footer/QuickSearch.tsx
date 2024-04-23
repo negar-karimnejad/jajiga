@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const QuickSearchLinks = [
+export const QuickSearchLinks = [
   { to: '/s/shomal', title: 'اجاره ویلا شمال' },
   { to: '/s/wooden-cottage', title: 'اجاره کلبه چوبی' },
   { to: '/s/ramsar', title: 'اجاره ویلا رامسر' },

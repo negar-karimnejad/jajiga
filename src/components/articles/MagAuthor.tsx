@@ -14,7 +14,7 @@ function MagAuthor({ author }: { author: Author | undefined }) {
         alt=""
         className="h-7 w-7 cursor-pointer rounded-full object-cover"
       />
-      <p className="whitespace-nowrap font-BKoodak text-gray-400 transition-all group-hover:text-gray-900">
+      <p className="whitespace-nowrap font-BKoodak text-gray-400 transition-all group-hover:text-gray-900 dark:group-hover:text-gray-100">
         {author?.fullname}
       </p>
     </Link>

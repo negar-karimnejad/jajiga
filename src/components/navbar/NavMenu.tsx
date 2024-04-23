@@ -115,7 +115,7 @@ function NavMenu() {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
-            stroke="currentColor"
+            stroke="#333"
             className="mr-2 h-6 w-6"
           >
             <path

@@ -13,7 +13,7 @@ function MagPost({ article }: { article: Article }) {
   const { category } = useCategory(article.category_id);
 
   return (
-    <div className="card col-span-12 overflow-hidden bg-base-100 shadow-xl sm:col-span-6 lg:col-span-4">
+    <div className="card col-span-12 dark:bg-gray-800 overflow-hidden bg-base-100 shadow-xl sm:col-span-6 lg:col-span-4">
       <figure className="relative h-40">
         <div
           className="h-full w-full cursor-pointer"
@@ -43,7 +43,7 @@ function MagPost({ article }: { article: Article }) {
         <h2 className="card-title">
           <Link
             to={`/${article.title}`}
-            className="transition-all hover:text-sky-600"
+            className="transition-all dark:text-white hover:text-sky-600"
           >
             {article.title}
           </Link>

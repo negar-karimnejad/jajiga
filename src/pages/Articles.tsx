@@ -16,17 +16,19 @@ function Articles() {
   const sortedCategories = categories.slice().sort((a, b) => a.id - b.id);
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-base-200 dark:bg-gray-900">
       <ArticlesHeader />
       <ArticlesHero />
       <div className="container mb-10">
         {sortedCategories?.map((category) => (
           <div key={category.id}>
             <div className="mb-5 mt-10 flex justify-between">
-              <h3 className="font-vazirBold text-2xl">{category.title}</h3>
+              <h3 className="font-vazirBold text-2xl dark:text-white">
+                {category.title}
+              </h3>
               <Link
                 to="category/wherewhy"
-                className="h-fit w-fit rounded-full bg-gray-200 px-3 py-1 text-sm transition-all hover:bg-gray-300"
+                className="h-fit w-fit rounded-full bg-base-100 px-3 py-1 text-sm transition-all hover:bg-base-300 dark:hover:bg-base-content dark:hover:text-white"
               >
                 بیشتر
               </Link>

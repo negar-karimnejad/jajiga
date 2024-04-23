@@ -1,8 +1,9 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { QuickSearchLinks } from '../footer/QuickSearch';
 import Logo from '../navbar/Logo';
 import ArticlesSocials from './ArticlesSocials';
-import Swal from 'sweetalert2';
 
 function ArticlesFooter() {
   const [email, setEmail] = useState('');
@@ -28,85 +29,37 @@ function ArticlesFooter() {
   };
 
   return (
-    <div className="bg-yellow-400 py-5">
+    <div className="bg-yellow-400 py-5 dark:bg-yellow-950">
       <div className="container grid grid-cols-12 gap-y-10">
         <div className="flex flex-col items-center gap-3 max-md:col-span-12 md:col-span-6 lg:col-span-4">
-          <h3 className="font-vazirBold text-lg">لینک ها</h3>
+          <h3 className="font-vazirBold text-lg dark:text-white">لینک ها</h3>
           <div className="grid grid-cols-12 gap-2">
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/"
-            >
-              سایت جاجیگا
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/shomal/villa"
-            >
-              اجاره ویلا شمال
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/cottage-forest"
-            >
-              اجاره کلبه جنگلی
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/pool"
-            >
-              اجاره ویلا استخردار
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/kish"
-            >
-              اجاره سوئیت در کیش
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/kordan"
-            >
-              اجاره ویلا در کردان
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/ramsar"
-            >
-              اجاره ویلا رامسر
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/tehran"
-            >
-              اجاره سوئیت در تهران
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/ruralhome"
-            >
-              اجاره خانه روستایی
-            </Link>
-            <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
-              to="/s/tehransuburb"
-            >
-              اجاره ویلا اطراف تهران
-            </Link>
+            {QuickSearchLinks.slice(0, 10).map((link) => (
+              <Link
+                key={link.title}
+                className="col-span-6 w-40 rounded-full bg-white/40 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black dark:text-white dark:hover:text-black"
+                to={link.to}
+              >
+                {link.title}
+              </Link>
+            ))}
           </div>
         </div>
         <div className="flex flex-col items-center max-md:col-span-12 md:col-span-6 lg:col-span-4">
           <Logo magLogo={true} />
-          <p className="mb-5">جاجیگا، مثل خونه خودته :)</p>
+          <p className="mb-5 dark:text-white">جاجیگا، مثل خونه خودته :)</p>
           <ArticlesSocials />
         </div>
         <div className="flex flex-col items-center gap-3 max-md:col-span-12 md:col-span-12 lg:col-span-4">
           <form onSubmit={submitHandle}>
-            <label htmlFor="email" className="font-vazirBold text-lg">
+            <label
+              htmlFor="email"
+              className="font-vazirBold text-lg dark:text-base-200"
+            >
               خبرنامه ایمیلی
             </label>
             <input
-              className="my-2 w-full p-2 outline-0"
+              className="input input-md my-2 w-full"
               id="email"
               type="email"
               placeholder="ایمیل"
@@ -116,14 +69,14 @@ function ArticlesFooter() {
             />
             <button
               type="submit"
-              className="w-full bg-red-600 p-2 text-white transition-all hover:bg-red-700 hover:shadow-xl"
+              className="btn w-full bg-red-600 p-2 text-white transition-all hover:bg-red-700 hover:shadow-xl"
             >
               اشتراک در خبرنامه
             </button>
           </form>
         </div>
       </div>
-      <div className="mx-auto mt-10 flex items-center justify-center text-center text-[12px] text-gray-600 max-sm:max-w-96">
+      <div className="mx-auto mt-10 flex items-center justify-center text-center text-[12px] text-gray-600 max-sm:max-w-96 dark:text-gray-300">
         کلیه حقوق این وبسایت متعلق به شرکت تجارت الکترونیک لوتوس آرمانی (سهامی
         خاص) می‌باشد.
       </div>

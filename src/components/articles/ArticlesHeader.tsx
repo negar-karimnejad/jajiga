@@ -22,13 +22,13 @@ function ArticlesHeader() {
   }, [isMenuOpen]);
 
   return (
-    <div className="sticky top-0 z-40 bg-white shadow-md">
+    <div className="sticky top-0 z-40 bg-white shadow-md dark:border-b dark:border-b-gray-400 dark:bg-gray-700">
       <div className="container flex w-full items-center justify-between">
         <div>
           {/* Start Search&Menu Icon */}
           <div className="flex cursor-pointer items-center gap-4">
             <div
-              className="w-8 rounded-full transition-all hover:text-sky-600"
+              className="w-8 rounded-full transition-all hover:text-sky-600 dark:text-white"
               onClick={() => setIsMenuOpen(true)}
             >
               <svg
@@ -48,9 +48,9 @@ function ArticlesHeader() {
             </div>
             <div className="relative">
               <div onClick={() => setIsSearchOpen((prev) => !prev)}>
-                <div className="flex h-8 w-8 cursor-pointer items-center justify-center transition-all hover:text-sky-600">
+                <div className="flex h-8 w-8 cursor-pointer items-center justify-center transition-all hover:text-sky-600 dark:text-white">
                   {isSearchOpen ? (
-                    <IoClose className="h-8 w-8 bg-gray-100 p-1.5" />
+                    <IoClose className="h-8 w-8 bg-gray-100 p-1.5 dark:bg-gray-600" />
                   ) : (
                     <IoSearch size={20} />
                   )}
@@ -199,44 +199,44 @@ function ArticlesHeader() {
         </div>
 
         {/* Start NavLinks */}
-        <div className="flex shrink-0 gap-8 text-gray-700 max-lg:hidden">
+        <div className="flex shrink-0 gap-8 text-gray-700 max-lg:hidden dark:text-gray-50">
           <Link
-            className={`font-vazirBold text-base hover:text-sky-500 ${activeNavLink === 'main' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'main' ? 'text-sky-500' : ''}`}
             to="/mag"
             onClick={() => setActiveNavLink('main')}
           >
             صفحه نخست
           </Link>
           <Link
-            className={`font-vazirBold text-base hover:text-sky-500 ${activeNavLink === 'travelers' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'travelers' ? 'text-sky-500' : ''}`}
             to="/mag/category/travelers"
             onClick={() => setActiveNavLink('travelers')}
           >
             بچه های سفری
           </Link>
           <Link
-            className={`font-vazirBold text-base hover:text-sky-500 ${activeNavLink === 'wherewhy' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'wherewhy' ? 'text-sky-500' : ''}`}
             to="/mag/category/wherewhy"
             onClick={() => setActiveNavLink('wherewhy')}
           >
             سفر به کجا؟
           </Link>
           <Link
-            className={`font-vazirBold text-base hover:text-sky-500 ${activeNavLink === 'knowing' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'knowing' ? 'text-sky-500' : ''}`}
             to="/mag/category/knowing"
             onClick={() => setActiveNavLink('knowing')}
           >
             دانستنی ها
           </Link>
           <Link
-            className={`font-vazirBold text-base hover:text-sky-500 ${activeNavLink === 'news' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'news' ? 'text-sky-500' : ''}`}
             to="/mag/category/news"
             onClick={() => setActiveNavLink('news')}
           >
             جایگاه راپُرت
           </Link>
           <Link
-            className={`font-vazirBold text-base hover:text-sky-500 ${activeNavLink === 'hosting' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'hosting' ? 'text-sky-500' : ''}`}
             to="/mag/category/hosting"
             onClick={() => setActiveNavLink('hosting')}
           >

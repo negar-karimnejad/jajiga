@@ -5,11 +5,13 @@ import Appstore from './pages/Appstore';
 import Articles from './pages/Articles';
 import HomePage from './pages/HomePage';
 import { store } from './redux/store';
+import DarkMode from './components/ui/DarkMode';
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <DarkMode />
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />

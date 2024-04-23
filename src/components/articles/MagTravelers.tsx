@@ -9,7 +9,7 @@ function MagTravelers({ article }: { article: Article }) {
   const { category } = useCategory(article.category_id);
 
   return (
-    <div className="card col-span-12 h-80 justify-between overflow-hidden  bg-base-100 p-5 shadow-xl sm:col-span-6 lg:col-span-4">
+    <div className="card col-span-12 dark:bg-gray-800 h-80 justify-between overflow-hidden  bg-base-100 p-5 shadow-xl sm:col-span-6 lg:col-span-4">
       <Link
         to="category/knowing"
         className="w-fit rounded-full bg-orange-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50"
@@ -19,7 +19,7 @@ function MagTravelers({ article }: { article: Article }) {
       <h2 className="card-title">
         <Link
           to={`/${article.title}`}
-          className="mt-2 transition-all hover:text-sky-600"
+          className="mt-2 transition-all dark:text-white hover:text-sky-600"
         >
           {article.title}
         </Link>

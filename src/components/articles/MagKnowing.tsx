@@ -10,7 +10,7 @@ function MagKnowing({ article }: { article: Article }) {
   const { category } = useCategory(article.category_id);
 
   return (
-    <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 shadow-xl lg:col-span-6">
+    <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 dark:bg-gray-800 shadow-xl lg:col-span-6">
       <figure className="shrink-0 sm:w-1/2">
         <div
           className="relative h-full w-full cursor-pointer"
@@ -58,7 +58,7 @@ function MagKnowing({ article }: { article: Article }) {
         <h2 className="card-title">
           <Link
             to={`/${article.title}`}
-            className="transition-all mt-2 hover:text-sky-600"
+            className="transition-all mt-2 hover:text-sky-600 dark:text-white"
           >
             {article.title}
           </Link>
