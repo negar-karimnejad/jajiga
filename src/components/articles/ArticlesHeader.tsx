@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { IoClose, IoSearch } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { useArticles } from '../../hooks/useArticles';
 import Logo from '../navbar/Logo';
 import ArticlesSocials from './ArticlesSocials';
 
@@ -9,6 +10,7 @@ function ArticlesHeader() {
   const [activeNavLink, setActiveNavLink] = useState('main');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { hosting, knowing, travelers, news, wherewhy } = useArticles();
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -20,7 +22,7 @@ function ArticlesHeader() {
   }, [isMenuOpen]);
 
   return (
-    <div className="shadow-md bg-white">
+    <div className="sticky top-0 z-40 bg-white shadow-md">
       <div className="container flex w-full items-center justify-between">
         <div>
           {/* Start Search&Menu Icon */}
@@ -120,7 +122,7 @@ function ArticlesHeader() {
                             سفر به کجا؟
                           </p>
                           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-600 p-0.5 font-BKoodak text-[13px] text-white">
-                            334
+                            {wherewhy.length}
                           </div>
                         </Link>
                       </li>
@@ -133,7 +135,7 @@ function ArticlesHeader() {
                             جاجیگا راپُرت
                           </p>
                           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 p-0.5 font-BKoodak text-[13px] text-white">
-                            16
+                            {news.length}
                           </div>
                         </Link>
                       </li>
@@ -146,7 +148,7 @@ function ArticlesHeader() {
                             بچه های سفری
                           </p>
                           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 p-0.5 font-BKoodak text-[13px] text-white">
-                            6
+                            {travelers.length}
                           </div>
                         </Link>
                       </li>
@@ -159,7 +161,7 @@ function ArticlesHeader() {
                             دانستنی ها
                           </p>
                           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-purple-600 p-0.5 font-BKoodak text-[13px] text-white">
-                            126
+                            {knowing?.length}
                           </div>
                         </Link>
                       </li>
@@ -172,7 +174,7 @@ function ArticlesHeader() {
                             میزبانی در جاجیگا
                           </p>
                           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 p-0.5 font-BKoodak text-[13px] text-white">
-                            9
+                            {hosting?.length}
                           </div>
                         </Link>
                       </li>

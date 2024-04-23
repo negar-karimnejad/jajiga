@@ -13,7 +13,7 @@ function Articles() {
   const { knowing, hosting, travelers, wherewhy, news } = useArticles();
   const { categories } = useCategories();
 
-  const sortedCategories = categories.sort((a, b) => a.id - b.id);
+  const sortedCategories = categories.slice().sort((a, b) => a.id - b.id);
 
   return (
     <div className="bg-gray-50">
@@ -26,7 +26,7 @@ function Articles() {
               <h3 className="font-vazirBold text-2xl">{category.title}</h3>
               <Link
                 to="category/wherewhy"
-                className="h-fit w-fit rounded-full bg-gray-100 px-3 py-1 text-sm"
+                className="h-fit w-fit rounded-full bg-gray-200 px-3 py-1 text-sm transition-all hover:bg-gray-300"
               >
                 بیشتر
               </Link>
@@ -37,11 +37,11 @@ function Articles() {
                   <MagPost key={article.id} article={article} />
                 ))}
               {category.id === 2 &&
-                knowing.map((article) => (
+                hosting.map((article) => (
                   <MagNews key={article.id} article={article} />
                 ))}
               {category.id === 4 &&
-                hosting.map((article) => (
+                knowing.map((article) => (
                   <MagKnowing key={article.id} article={article} />
                 ))}
               {category.id === 3 &&

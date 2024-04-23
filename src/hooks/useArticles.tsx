@@ -14,12 +14,21 @@ const useArticles = () => {
     dispatch(getArticlesFromServer());
   }, [dispatch]);
   const wherewhy = articles.filter((article) => article.category_id === 1);
-  const knowing = articles.filter((article) => article.category_id === 2);
+  const hosting = articles.filter((article) => article.category_id === 2);
   const travelers = articles.filter((article) => article.category_id === 3);
-  const hosting = articles.filter((article) => article.category_id === 4);
+  const knowing = articles.filter((article) => article.category_id === 4);
   const news = articles.filter((article) => article.category_id === 5);
 
-  return { articles, loading, error, wherewhy,news, knowing, travelers, hosting };
+  return {
+    articles,
+    loading,
+    error,
+    wherewhy,
+    news,
+    knowing,
+    travelers,
+    hosting,
+  };
 };
 
 export { useArticles };

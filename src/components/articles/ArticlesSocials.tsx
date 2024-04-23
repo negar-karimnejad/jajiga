@@ -8,28 +8,28 @@ function ArticlesSocials() {
       <Link
         target="_blank"
         to="https://t.me/jajiga"
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
+        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800 hover:opacity-50 transition-all"
       >
         <FaTelegramPlane size={19} />
       </Link>
       <Link
         target="_blank"
         to="https://www.instagram.com/jajiga.iran"
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
+        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800 hover:opacity-50 transition-all"
       >
         <FaInstagram size={19} />
       </Link>
       <Link
         target="_blank"
         to="https://twitter.com/i/flow/login?redirect_after_login=%2FJajiga_Iran"
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
+        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800 hover:opacity-50 transition-all"
       >
         <FaXTwitter size={19} />
       </Link>
       <Link
         target="_blank"
         to="https://www.linkedin.com/company/jajiga/"
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800"
+        className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 border-gray-800 hover:opacity-50 transition-all"
       >
         <FaLinkedinIn size={19} />
       </Link>

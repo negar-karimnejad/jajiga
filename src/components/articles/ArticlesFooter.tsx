@@ -34,61 +34,61 @@ function ArticlesFooter() {
           <h3 className="font-vazirBold text-lg">لینک ها</h3>
           <div className="grid grid-cols-12 gap-2">
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/"
             >
               سایت جاجیگا
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/shomal/villa"
             >
               اجاره ویلا شمال
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/cottage-forest"
             >
               اجاره کلبه جنگلی
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/pool"
             >
               اجاره ویلا استخردار
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/kish"
             >
               اجاره سوئیت در کیش
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/kordan"
             >
               اجاره ویلا در کردان
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/ramsar"
             >
               اجاره ویلا رامسر
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/tehran"
             >
               اجاره سوئیت در تهران
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/ruralhome"
             >
               اجاره خانه روستایی
             </Link>
             <Link
-              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-800 shadow"
+              className="col-span-6 w-40 rounded-full bg-white/50 px-2 py-1.5 font-vazirMedium text-sm text-gray-600 shadow transition-all hover:text-black"
               to="/s/tehransuburb"
             >
               اجاره ویلا اطراف تهران
@@ -114,7 +114,10 @@ function ArticlesFooter() {
               required
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit" className="w-full bg-red-600 p-2 text-white">
+            <button
+              type="submit"
+              className="w-full bg-red-600 p-2 text-white transition-all hover:bg-red-700 hover:shadow-xl"
+            >
               اشتراک در خبرنامه
             </button>
           </form>

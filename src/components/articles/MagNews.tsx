@@ -16,11 +16,13 @@ function MagNews({ article }: { article: Article }) {
           className="relative h-full w-full cursor-pointer"
           onClick={() => navigate(`/${article.title}`)}
         >
-          <img
-            src={article.cover}
-            alt={article.title}
-            className="h-full w-full object-cover"
-          />
+          <div className="h-full w-full">
+            <img
+              src={article.cover}
+              alt={article.title}
+              className="h-full w-screen object-cover"
+            />
+          </div>
           <div
             title={article.title}
             className="absolute right-0 top-0 h-full w-full bg-black/35 transition-all duration-500 hover:bg-black/70 sm:bg-black/10 sm:hover:bg-black/50"
@@ -29,12 +31,12 @@ function MagNews({ article }: { article: Article }) {
               <div title={article.title} className="">
                 <Link
                   to="category/knowing"
-                  className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700 ${category?.id === 4 ? 'bg-emerald-600' : 'bg-red-600'}`}
+                  className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700 ${category?.id === 2 ? 'bg-emerald-600' : 'bg-red-600'}`}
                 >
                   {category?.title}
                 </Link>
                 <Link to={`/${article.title}`}>
-                  <h2 className="card-title mt-5 w-1/2 text-white">
+                  <h2 className="card-title mt-5 text-white sm:w-1/2">
                     {article.title}
                   </h2>
                 </Link>
@@ -50,7 +52,7 @@ function MagNews({ article }: { article: Article }) {
         <div title={article.title} className="">
           <Link
             to="category/knowing"
-            className="w-fit rounded-full bg-red-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50"
+            className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50 ${category?.id === 2 ? 'bg-emerald-600' : 'bg-red-600'}`}
           >
             {category?.title}
           </Link>
