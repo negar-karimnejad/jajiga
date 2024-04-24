@@ -8,7 +8,7 @@ import SectionHeading from './SectionHeading';
 
 function Discount() {
   return (
-    <div className="mt-10 group relative z-30 rounded-t-2xl bg-red-600 pb-10 text-white dark:bg-gray-900">
+    <div className="group relative z-30 mt-10 rounded-t-2xl bg-red-600 pb-12 text-white dark:bg-red-800">
       <div
         className="t-0 absolute left-0 h-full w-full
        bg-[url(/images/patterns/pattern.png)] opacity-50"

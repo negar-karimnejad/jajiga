@@ -5,11 +5,11 @@ function MoreInfos() {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="container relative my-16 text-center">
-      <h3 className="mb-3 font-vazirBold text-lg">
+    <div className="container relative my-14 text-center">
+      <h3 className="mb-3 font-vazirBold text-lg dark:text-white">
         اجاره ویلا، آنلاین و مطمئن در جاجیگا
       </h3>
-      <p className="text-justify text-sm leading-6 text-gray-500">
+      <p className="text-justify text-sm leading-6 text-gray-500 dark:text-gray-400">
         سفر تو خون ما ایرانیهاست و معمولا بهترین خاطرات عمرمون در سفرهامون رقم
         می خوره، به خصوص اگر سفری خانوادگی یا در جمع دوستان بهتر از جان باشه.
         اجاره ویلا در شمال باشه یا اجاره سوئیت در کیش یا سوئیت در اصفهان و
@@ -25,7 +25,7 @@ function MoreInfos() {
       </p>
       <button
         onClick={() => setShowMore(true)}
-        className={`${showMore ? 'hidden' : 'flex'} mx-auto mt-5 items-center justify-center gap-1 text-center font-vazirBold text-[12px]`}
+        className={`${showMore ? 'hidden' : 'flex'} mx-auto mt-5 items-center justify-center gap-1 text-center font-vazirBold text-[12px] dark:text-gray-100`}
       >
         مشاهده بیشتر
         <IoIosArrowDown size={24} />

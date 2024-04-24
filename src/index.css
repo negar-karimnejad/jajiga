@@ -66,6 +66,6 @@ body {
   transition: all 500ms ease-in-out;
 }
 
-.comments-swiper .swiper-pagination-bullet-active {
-  background-color: rgb(97, 97, 97) !important;
+.comments-swiper .swiper-pagination-bullet-active{
+  background-color: rgb(124, 124, 124) !important;
 }

@@ -1,9 +1,9 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'swiper/css';
-import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
 function Comments() {
@@ -26,10 +26,10 @@ function Comments() {
               prevEl: '.swiper-button-prev',
             }}
             modules={[Navigation, Pagination]}
-            spaceBetween={30}
+            spaceBetween={25}
             breakpoints={{
               0: {
-                slidesPerView: 1.2,
+                slidesPerView: 1.3,
               },
               680: {
                 slidesPerView: 2.5,
@@ -41,7 +41,7 @@ function Comments() {
             className="comments-swiper cursor-default"
           >
             <SwiperSlide>
-              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg">
+              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
                 <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5">
                   <img
                     src="/images/comment.jpg"
@@ -52,7 +52,8 @@ function Comments() {
 
                 <div className="flex items-center justify-center gap-2">
                   <div className="relative">
-                    آیسان
+                    <span className="dark:text-white">آیسان</span>
+
                     <div
                       style={{
                         width: '24px',
@@ -82,10 +83,10 @@ function Comments() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-1 text-[11px] text-gray-400">
+                <p className="mt-1 text-[11px] text-gray-500">
                   مهمان جاجیگا از مرداد 99
                 </p>
-                <p className="mt-3 text-right text-[12px]">
+                <p className="mt-3 text-right text-[12px] dark:text-gray-300">
                   من امسال یک مسافرت یک هفته‌ای شمال رفتم و ۴ اقامتگاه تو شهرهای
                   مختلف از سایت شما گرفتم که من و همه همراهانم خیلی راضی بودیم.
                   از این به بعد سفر به همه جای ایران فقط با جاجیگا :)
@@ -93,7 +94,7 @@ function Comments() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg">
+              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
                 <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5">
                   <img
                     src="/images/comment.jpg"
@@ -104,7 +105,8 @@ function Comments() {
 
                 <div className="flex items-center justify-center gap-2">
                   <div className="relative">
-                    آیسان
+                    <span className="dark:text-white">آیسان</span>
+
                     <div
                       style={{
                         width: '24px',
@@ -134,10 +136,10 @@ function Comments() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-1 text-[11px] text-gray-400">
+                <p className="mt-1 text-[11px] text-gray-500">
                   مهمان جاجیگا از مرداد 99
                 </p>
-                <p className="mt-3 text-right text-[12px]">
+                <p className="mt-3 text-right text-[12px] dark:text-gray-300">
                   من امسال یک مسافرت یک هفته‌ای شمال رفتم و ۴ اقامتگاه تو شهرهای
                   مختلف از سایت شما گرفتم که من و همه همراهانم خیلی راضی بودیم.
                   از این به بعد سفر به همه جای ایران فقط با جاجیگا :)
@@ -145,7 +147,7 @@ function Comments() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg">
+              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
                 <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5">
                   <img
                     src="/images/comment.jpg"
@@ -156,7 +158,8 @@ function Comments() {
 
                 <div className="flex items-center justify-center gap-2">
                   <div className="relative">
-                    آیسان
+                    <span className="dark:text-white">آیسان</span>
+
                     <div
                       style={{
                         width: '24px',
@@ -186,10 +189,10 @@ function Comments() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-1 text-[11px] text-gray-400">
+                <p className="mt-1 text-[11px] text-gray-500">
                   مهمان جاجیگا از مرداد 99
                 </p>
-                <p className="mt-3 text-right text-[12px]">
+                <p className="mt-3 text-right text-[12px] dark:text-gray-300">
                   من امسال یک مسافرت یک هفته‌ای شمال رفتم و ۴ اقامتگاه تو شهرهای
                   مختلف از سایت شما گرفتم که من و همه همراهانم خیلی راضی بودیم.
                   از این به بعد سفر به همه جای ایران فقط با جاجیگا :)
@@ -197,7 +200,7 @@ function Comments() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg">
+              <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
                 <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5">
                   <img
                     src="/images/comment.jpg"
@@ -208,7 +211,8 @@ function Comments() {
 
                 <div className="flex items-center justify-center gap-2">
                   <div className="relative">
-                    آیسان
+                    <span className="dark:text-white">آیسان</span>
+
                     <div
                       style={{
                         width: '24px',
@@ -238,10 +242,10 @@ function Comments() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-1 text-[11px] text-gray-400">
+                <p className="mt-1 text-[11px] text-gray-500">
                   مهمان جاجیگا از مرداد 99
                 </p>
-                <p className="mt-3 text-right text-[12px]">
+                <p className="mt-3 text-right text-[12px] dark:text-gray-300">
                   من امسال یک مسافرت یک هفته‌ای شمال رفتم و ۴ اقامتگاه تو شهرهای
                   مختلف از سایت شما گرفتم که من و همه همراهانم خیلی راضی بودیم.
                   از این به بعد سفر به همه جای ایران فقط با جاجیگا :)
@@ -249,22 +253,9 @@ function Comments() {
               </div>
             </SwiperSlide>
 
-            <div className="hidden"></div>
-            <div className="hidden"></div>
             <div className="swiper-pagination"></div>
           </Swiper>
-          <div className="swiper-button-next invisible absolute -right-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-right-16 max-xl:hidden">
-            <FaChevronRight
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
-          <div className="swiper-button-prev invisible absolute -left-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-left-16 max-xl:hidden">
-            <FaChevronLeft
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
+          <SwiperButtons />
         </div>
       </div>
     </div>

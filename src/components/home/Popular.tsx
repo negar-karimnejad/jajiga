@@ -1,8 +1,8 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
 function Popular() {
@@ -42,7 +42,7 @@ function Popular() {
             }}
           >
             <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -51,14 +51,18 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -67,50 +71,20 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
             </SwiperSlide>
             <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -119,14 +93,18 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -135,50 +113,20 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
             </SwiperSlide>
             <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -187,14 +135,18 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -203,50 +155,20 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
             </SwiperSlide>
             <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -255,14 +177,18 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
-              <Link to="" className="flex w-44 lg:w-[300px]">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
                 <div className="flex-1">
                   <img
                     src="/images/popular/anzali.jpg"
@@ -271,30 +197,104 @@ function Popular() {
                   />
                 </div>
                 <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px]">
-                    <span>اجاره ویلا در</span>
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
                     <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-BKoodak">1421 اقامتگاه</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
                   </p>
                 </div>
               </Link>
             </SwiperSlide>
-
-            <div className="hidden"></div>
-            <div className="hidden"></div>
+            <SwiperSlide className="flex flex-col gap-5">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
+                <div className="flex-1">
+                  <img
+                    src="/images/popular/anzali.jpg"
+                    className="rounded-xl lg:rounded-[30px]"
+                    alt=""
+                  />
+                </div>
+                <div className="mr-2 flex flex-1 items-center">
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
+                    <span className="my-1 font-vazirBold text-base">رامسر</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
+                  </p>
+                </div>
+              </Link>
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
+                <div className="flex-1">
+                  <img
+                    src="/images/popular/anzali.jpg"
+                    className="rounded-xl lg:rounded-[30px]"
+                    alt=""
+                  />
+                </div>
+                <div className="mr-2 flex flex-1 items-center">
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
+                    <span className="my-1 font-vazirBold text-base">رامسر</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
+                  </p>
+                </div>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide className="flex flex-col gap-5">
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
+                <div className="flex-1">
+                  <img
+                    src="/images/popular/anzali.jpg"
+                    className="rounded-xl lg:rounded-[30px]"
+                    alt=""
+                  />
+                </div>
+                <div className="mr-2 flex flex-1 items-center">
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
+                    <span className="my-1 font-vazirBold text-base">رامسر</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
+                  </p>
+                </div>
+              </Link>
+              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
+                <div className="flex-1">
+                  <img
+                    src="/images/popular/anzali.jpg"
+                    className="rounded-xl lg:rounded-[30px]"
+                    alt=""
+                  />
+                </div>
+                <div className="mr-2 flex flex-1 items-center">
+                  <p className="flex flex-col text-[12px] dark:text-white">
+                    <span className="font-BKoodak text-gray-500">
+                      اجاره ویلا در
+                    </span>
+                    <span className="my-1 font-vazirBold text-base">رامسر</span>
+                    <span className="font-BKoodak text-gray-500">
+                      1421 اقامتگاه
+                    </span>
+                  </p>
+                </div>
+              </Link>
+            </SwiperSlide>
           </Swiper>
-          <div className="swiper-button-next invisible absolute -right-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-right-16 max-xl:hidden">
-            <FaChevronRight
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
-          <div className="swiper-button-prev invisible absolute -left-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-left-16 max-xl:hidden">
-            <FaChevronLeft
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
+          <SwiperButtons />
         </div>
       </div>
     </div>

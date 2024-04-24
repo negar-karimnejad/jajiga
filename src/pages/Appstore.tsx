@@ -4,7 +4,7 @@ import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 function Appstore() {
   return (
     <>
-      <div className="mx-auto w-full border-b bg-white py-2 lg:gap-x-10 dark:border-0 dark:bg-gray-800">
+      <div className="mx-auto w-full border-b bg-white py-2 dark:border-0 dark:bg-gray-800 lg:gap-x-10">
         <div className="container flex items-center justify-between gap-x-3">
           <WhiteBgNavbar />
         </div>
@@ -20,9 +20,8 @@ function Appstore() {
             <h3 className="font-vazirBold text-2xl text-gray-800">
               نصب اپلیکیشن جاجیگا
             </h3>
-            <p className="text-lg text-gray-700  ">
-              بیش از <span className="font-BKoodak text-xl">21000</span>{' '}
-              اقامتگاه در دستان شماست
+            <p className="font-BKoodak text-lg text-gray-700">
+              بیش از 21000 اقامتگاه در دستان شماست
             </p>
             <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
               <Link

@@ -21,7 +21,7 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <div className="relative bg-white">
+      <div className=" bg-white dark:bg-gray-900">
         <Application />
         <Popular />
         <QuickSearch />

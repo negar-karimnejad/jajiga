@@ -1,10 +1,10 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useAuthor } from '../../hooks/useAuthor';
 import MagAuthor from '../articles/MagAuthor';
+import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
 function JajigaMag() {
@@ -20,7 +20,7 @@ function JajigaMag() {
               MAG
             </span>
           </Link>
-          <p className="mt-1 font-vazirBold text-sm text-gray-600">
+          <p className="mt-1 font-vazirBold text-sm text-gray-600 dark:text-gray-400">
             روایتی ویژه از سفر و ایرانگردی
           </p>
         </SectionHeading>
@@ -186,23 +186,8 @@ function JajigaMag() {
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>
             </SwiperSlide>
-          
-
-            <div className="hidden"></div>
-            <div className="hidden"></div>
           </Swiper>
-          <div className="swiper-button-next invisible absolute -right-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-right-16 max-xl:hidden">
-            <FaChevronRight
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
-          <div className="swiper-button-prev invisible absolute -left-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-left-16 max-xl:hidden">
-            <FaChevronLeft
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
+          <SwiperButtons />
         </div>
       </div>
     </div>

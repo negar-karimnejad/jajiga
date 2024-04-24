@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <>
       {scrollYPosition > 470 && (
-        <div className="fixed left-0 right-0 top-0 z-50 mx-auto w-full border-b bg-white py-2 lg:gap-x-10 dark:border-0 dark:bg-gray-700">
+        <div className="fixed left-0 right-0 top-0 z-50 mx-auto w-full border-b bg-white py-2 dark:border-0 dark:bg-gray-700 lg:gap-x-10">
           <div className="container flex items-center justify-between gap-x-3">
             <WhiteBgNavbar />
           </div>
@@ -38,7 +38,7 @@ function Navbar() {
             <NavLinks />
           </div>
         </div>
-        <Logo withTitle={true} />
+        {scrollYPosition < 470 && <Logo withTitle={true} />}
       </div>
     </>
   );
