@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Author } from '../../redux/store/authors';
 
-function MagAuthor({ author }: { author: Author | undefined }) {
-    if (!author) return;
+interface MagAuthorProps {
+  lightColor?: boolean;
+  author: Author | undefined;
+}
+
+function MagAuthor({ author, lightColor }: MagAuthorProps) {
+  if (!author) return;
 
   return (
     <Link
@@ -14,7 +19,9 @@ function MagAuthor({ author }: { author: Author | undefined }) {
         alt=""
         className="h-7 w-7 cursor-pointer rounded-full object-cover"
       />
-      <p className="whitespace-nowrap font-BKoodak text-gray-400 transition-all group-hover:text-gray-900 dark:group-hover:text-gray-100">
+      <p
+        className={`whitespace-nowrap font-BKoodak transition-all ${lightColor ? 'text-gray-50' : 'text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100'}`}
+      >
         {author?.fullname}
       </p>
     </Link>

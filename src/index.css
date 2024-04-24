@@ -52,3 +52,20 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #c9c9c9 !important; /* Darker color on hover */
 }
+
+/* Comments Swiper */
+.comments-swiper .swiper-slide:not(.swiper-slide-prev),
+.comments-swiper .swiper-slide:not(.swiper-slide-next) {
+  filter: blur(2px); /* Adjust the blur value as needed */
+  transform: scale(0.9);
+  transition: all 500ms ease-in-out;
+}
+.comments-swiper .swiper-slide:is(.swiper-slide-active) {
+  filter: blur(0); /* Adjust the blur value as needed */
+  transform: scale(1.1);
+  transition: all 500ms ease-in-out;
+}
+
+.comments-swiper .swiper-pagination-bullet-active {
+  background-color: rgb(97, 97, 97) !important;
+}

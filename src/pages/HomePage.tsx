@@ -6,8 +6,10 @@ import Economic from '../components/home/Economic';
 import Hero from '../components/home/Hero';
 import Host from '../components/home/Host';
 import InstantBooking from '../components/home/InstantBooking';
+import JajigaMag from '../components/home/JajigaMag';
 import Junub from '../components/home/Junub';
 import Luxury from '../components/home/Luxury';
+import MoreInfos from '../components/home/MoreInfos';
 import Popular from '../components/home/Popular';
 import Premium from '../components/home/Premium';
 import QuickSearch from '../components/home/QuickSearch';
@@ -35,6 +37,8 @@ function HomePage() {
         <SuburbTehran />
         <Junub />
         <Comments />
+        <JajigaMag />
+        <MoreInfos />
       </div>
     </>
   );
