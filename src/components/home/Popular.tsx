@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SectionHeading from './SectionHeading';
 
 function Popular() {
   return (
     <div className="group relative z-30 mt-[485px] rounded-t-2xl bg-white dark:bg-gray-900 max-xl:mt-[405px]">
       <div className="container w-full">
-        <h3 className="pb-4 pt-8 font-vazirMedium text-xl">مقاصد پرطرفدار</h3>
+        <SectionHeading>مقاصد پرطرفدار</SectionHeading>
         <div className="relative">
           <Swiper
             navigation={{
@@ -282,16 +283,16 @@ function Popular() {
             <div className="hidden"></div>
             <div className="hidden"></div>
           </Swiper>
-          <div className="swiper-button-next invisible absolute -right-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-300 transition-all group-hover:visible group-hover:-right-16">
+          <div className="swiper-button-next invisible absolute -right-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-right-16 max-xl:hidden">
             <FaChevronRight
               size={23}
-              className="invisible text-gray-800 transition-all hover:text-red-600 group-hover:visible"
+              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
             />
           </div>
-          <div className="swiper-button-prev invisible absolute -left-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-300 transition-all group-hover:visible group-hover:-left-16">
+          <div className="swiper-button-prev invisible absolute -left-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-left-16 max-xl:hidden">
             <FaChevronLeft
               size={23}
-              className="invisible text-gray-800 transition-all hover:text-red-600 group-hover:visible"
+              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
             />
           </div>
         </div>

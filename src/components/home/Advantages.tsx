@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Advantages() {
   return (
-    <div className="container my-5">
+    <div className="container mt-16 mb-4">
       <Swiper
         spaceBetween={15}
         autoplay={{
@@ -29,14 +29,14 @@ function Advantages() {
             slidesPerView: 3,
           },
           1200: {
-            width: 1070,
+            width: 1040,
             slidesPerView: 3,
           },
         }}
         allowTouchMove={false}
         modules={[Autoplay]}
       >
-        <SwiperSlide>
+        <SwiperSlide className="m-2 rounded-2xl shadow-md">
           <div className="flex gap-5 rounded-2xl border p-4">
             <svg
               className="sc-679cb2a8-0 iBzALU h-12 w-12"
@@ -102,7 +102,7 @@ function Advantages() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="m-2 rounded-2xl shadow-md">
           <div className="flex gap-5 rounded-2xl border p-4">
             <svg
               className="sc-679cb2a8-0 iBzALU h-12 w-12"
@@ -147,7 +147,7 @@ function Advantages() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="m-2 rounded-2xl shadow-md">
           <div className="flex gap-5 rounded-2xl border p-4">
             <svg
               className="sc-679cb2a8-0 iBzALU h-12 w-12"
