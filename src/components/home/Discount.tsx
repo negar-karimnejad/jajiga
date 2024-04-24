@@ -1,9 +1,9 @@
 import { BsStarFill } from 'react-icons/bs';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
 function Discount() {
@@ -19,8 +19,8 @@ function Discount() {
         <div className="relative">
           <Swiper
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: '.discount-swiper-button-next',
+              prevEl: '.discount-swiper-button-prev',
             }}
             modules={[Navigation]}
             spaceBetween={20}
@@ -519,18 +519,10 @@ function Discount() {
             <div className="hidden"></div>
             <div className="hidden"></div>
           </Swiper>
-          <div className="swiper-button-next invisible absolute -right-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-right-16 max-xl:hidden">
-            <FaChevronRight
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
-          <div className="swiper-button-prev invisible absolute -left-20 bottom-0 top-0 z-40 m-auto flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100 transition-all group-hover:visible group-hover:-left-16 max-xl:hidden">
-            <FaChevronLeft
-              size={23}
-              className="invisible text-gray-400 transition-all hover:text-red-600 group-hover:visible"
-            />
-          </div>
+          <SwiperButtons
+            nextBtn="discount-swiper-button-next"
+            prevBtn="discount-swiper-button-prev"
+          />
         </div>
       </div>
     </div>

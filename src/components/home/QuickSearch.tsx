@@ -14,8 +14,8 @@ function QuickSearch() {
         <div className="relative">
           <Swiper
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: '.quicksearch-swiper-button-next',
+              prevEl: '.quicksearch-swiper-button-prev',
             }}
             modules={[Navigation]}
             spaceBetween={20}
@@ -244,7 +244,10 @@ function QuickSearch() {
               </div>
             </SwiperSlide>
           </Swiper>
-          <SwiperButtons />
+          <SwiperButtons
+            nextBtn="quicksearch-swiper-button-next"
+            prevBtn="quicksearch-swiper-button-prev"
+          />
         </div>
       </div>
     </div>

@@ -22,8 +22,8 @@ function Comments() {
               el: '.swiper-pagination',
             }}
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: '.comments-swiper-button-next',
+              prevEl: '.comments-swiper-button-prev',
             }}
             modules={[Navigation, Pagination]}
             spaceBetween={25}
@@ -255,7 +255,10 @@ function Comments() {
 
             <div className="swiper-pagination"></div>
           </Swiper>
-          <SwiperButtons />
+          <SwiperButtons
+            nextBtn="comments-swiper-button-next"
+            prevBtn="comments-swiper-button-prev"
+          />
         </div>
       </div>
     </div>

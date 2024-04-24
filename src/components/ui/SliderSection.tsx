@@ -9,9 +9,11 @@ import SwiperButtons from '../ui/SwiperButtons';
 interface SliderSectionProps {
   title: string;
   text: string;
+  nextBtn: string;
+  prevBtn: string;
 }
 
-function SliderSection({ title, text }: SliderSectionProps) {
+function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
   return (
     <div className="group relative z-30 rounded-t-2xl bg-white dark:bg-gray-900">
       <div className="container">
@@ -25,8 +27,8 @@ function SliderSection({ title, text }: SliderSectionProps) {
         <div className="relative">
           <Swiper
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: `.${nextBtn}`,
+              prevEl: `.${prevBtn}`,
             }}
             modules={[Navigation]}
             spaceBetween={20}
@@ -217,7 +219,7 @@ function SliderSection({ title, text }: SliderSectionProps) {
               </div>
             </SwiperSlide>
           </Swiper>
-          <SwiperButtons />
+          <SwiperButtons nextBtn={nextBtn} prevBtn={prevBtn} />
         </div>
       </div>
     </div>

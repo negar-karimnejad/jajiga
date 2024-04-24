@@ -5,6 +5,8 @@ function Economic() {
     <SliderSection
       title="اقامتگاه های اقتصادی"
       text="اقامتگاه های با کیفیت و نرخ مناسب"
+      nextBtn="economic-swiper-button-next"
+      prevBtn="economic-swiper-button-prev"
     />
   );
 }

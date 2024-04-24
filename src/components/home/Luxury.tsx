@@ -5,6 +5,8 @@ function Luxury() {
     <SliderSection
       title="ویلاهای لوکس و مجلل"
       text="ویلاهای لوکس و لاکچری برای مشکل پسندها"
+      nextBtn="luxury-swiper-button-next"
+      prevBtn="luxury-swiper-button-prev"
     />
   );
 }

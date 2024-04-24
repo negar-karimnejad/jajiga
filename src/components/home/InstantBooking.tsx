@@ -5,6 +5,8 @@ function InstantBooking() {
     <SliderSection
       title="اقامتگاه های رزرو فوری"
       text="رزرو فوری بدون نیاز به تایید میزبان"
+      nextBtn="instantbooking-swiper-button-next"
+      prevBtn="instantbooking-swiper-button-prev"
     />
   );
 }

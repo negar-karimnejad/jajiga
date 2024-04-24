@@ -5,6 +5,8 @@ function Specials() {
     <SliderSection
       title="اقامتگاه های خاص"
       text="اقامتگاه های متفاوت و جذاب برای افراد خاص"
+      nextBtn="specials-swiper-button-next"
+      prevBtn="specials-swiper-button-prev"
     />
   );
 }

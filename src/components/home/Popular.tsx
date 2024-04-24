@@ -13,8 +13,8 @@ function Popular() {
         <div className="relative">
           <Swiper
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: '.popular-swiper-button-next',
+              prevEl: '.popular-swiper-button-prev',
             }}
             spaceBetween={250}
             modules={[Navigation]}
@@ -294,7 +294,10 @@ function Popular() {
               </Link>
             </SwiperSlide>
           </Swiper>
-          <SwiperButtons />
+          <SwiperButtons
+            nextBtn="popular-swiper-button-next"
+            prevBtn="popular-swiper-button-prev"
+          />
         </div>
       </div>
     </div>

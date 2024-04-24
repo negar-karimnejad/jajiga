@@ -28,8 +28,8 @@ function JajigaMag() {
         <div className="relative">
           <Swiper
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: '.jajigaMag-swiper-button-next',
+              prevEl: '.jajigaMag-swiper-button-prev',
             }}
             modules={[Navigation]}
             spaceBetween={20}
@@ -187,7 +187,10 @@ function JajigaMag() {
               </div>
             </SwiperSlide>
           </Swiper>
-          <SwiperButtons />
+          <SwiperButtons
+            nextBtn="jajigaMag-swiper-button-next"
+            prevBtn="jajigaMag-swiper-button-prev"
+          />
         </div>
       </div>
     </div>
