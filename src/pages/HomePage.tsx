@@ -40,7 +40,7 @@ function HomePage() {
   return (
     <>
       {scrollYPosition > 470 && <Navbar />}
-      <div className="container navbar fixed left-0 right-0 top-0 z-40 mx-auto">
+      <div className="container navbar fixed left-0 right-0 top-0 z-30 mx-auto">
         <div className="flex-1 gap-10">
           <div className="cursor-pointer rounded-full bg-gray-300/50 px-2">
             <NavMenu />

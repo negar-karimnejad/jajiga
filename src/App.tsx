@@ -1,13 +1,15 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DarkMode from './components/ui/DarkMode';
 import AppLayout from './pages/AppLayout';
 import Appstore from './pages/Appstore';
 import Articles from './pages/Articles';
+import Faq from './pages/Faq';
+import Guarantee from './pages/Guarantee';
 import HomePage from './pages/HomePage';
-import { store } from './redux/store';
-import DarkMode from './components/ui/DarkMode';
-import Wishes from './pages/Wishes';
 import Host from './pages/Host';
+import Wishes from './pages/Wishes';
+import { store } from './redux/store';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/host" element={<Host />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/guarantee" element={<Guarantee />} />
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
