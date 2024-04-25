@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import { store } from './redux/store';
 import DarkMode from './components/ui/DarkMode';
 import Wishes from './pages/Wishes';
+import Host from './pages/Host';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
+          <Route path="/host" element={<Host />} />
           </Route>
           <Route path="/mag" element={<Articles />} />
           <Route path="/app" element={<Appstore />} />

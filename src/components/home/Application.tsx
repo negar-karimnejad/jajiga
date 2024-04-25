@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 
-function Application() {
+interface ApplicationProps {
+  style: string;
+}
+
+function Application({ style }: ApplicationProps) {
   return (
     <div className="relative md:hidden">
-      <div className="absolute -top-10 right-0 z-30 w-full rounded-t-2xl bg-blue-950 bg-[url('/images/patterns/pattern.svg')]">
-        <div className="container flex h-14 justify-between pt-3 text-[12px] text-white">
+      <div
+        className={`z-30 w-full bg-blue-950 bg-[url('/images/patterns/pattern.svg')] ${style}`}
+      >
+        <div className="container flex justify-between pt-3 text-[12px] text-white">
           <p>نصب اپلیکیشن جاجیگا</p>
           <Link
             to="/app"

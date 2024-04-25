@@ -4,7 +4,7 @@ import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
 
-function Wishes() {
+function Host() {
   return (
     <>
       <Application style="h-12" />
@@ -73,4 +73,4 @@ function Wishes() {
   );
 }
 
-export default Wishes;
+export default Host;

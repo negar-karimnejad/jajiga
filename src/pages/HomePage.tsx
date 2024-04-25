@@ -22,7 +22,7 @@ function HomePage() {
     <>
       <Hero />
       <div className=" bg-white dark:bg-gray-900">
-        <Application />
+        <Application style="absolute -top-10 right-0 h-14 rounded-t-2xl" />
         <Popular />
         <QuickSearch />
         <Advantages />
