@@ -16,12 +16,12 @@ function App() {
         <DarkMode />
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<HomePage />} />
-          <Route path="/host" element={<Host />} />
+            <Route path="/host" element={<Host />} />
           </Route>
+          <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
-          <Route path="/app" element={<Appstore />} />
           <Route path="/wishes" element={<Wishes />} />
+          <Route path="/app" element={<Appstore />} />
         </Routes>
       </BrowserRouter>
     </Provider>
