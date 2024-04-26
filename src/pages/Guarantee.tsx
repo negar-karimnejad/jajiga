@@ -155,7 +155,6 @@ function Guarantee() {
               </div>
             </div>
           </div>
-
           <div>
             <h2 className="mb-3 text-center font-vazirBold text-lg dark:text-white md:text-2xl">
               سوالات متداول
