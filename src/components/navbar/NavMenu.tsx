@@ -18,6 +18,8 @@ import {
 } from 'react-icons/pi';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
+import SigningModal from '../auth/SigningModal';
+import { useAuthModal } from '../../hooks/useAuthModal';
 
 const navMenuLinks = [
   {
@@ -96,6 +98,7 @@ const navMenuLinks = [
 
 function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openModalHandler } = useAuthModal();
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -156,7 +159,7 @@ function NavMenu() {
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
-            className={`dark:border-l-4 dark:border-l-gray-800 absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 max-[490px]:w-[300px] sm:w-[320px] dark:bg-gray-900 ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+            className={`absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
           >
             <header
               style={{ direction: 'rtl' }}
@@ -176,7 +179,13 @@ function NavMenu() {
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-              <button className="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-600 dark:text-white">
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  openModalHandler();
+                }}
+                className="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-600 dark:text-white"
+              >
                 ورود / ثبت نام
               </button>
             </header>
@@ -232,6 +241,9 @@ function NavMenu() {
           </div>
         </div>
       </div>
+
+      {/*Signing Modal */}
+      <SigningModal />
     </>
   );
 }

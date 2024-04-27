@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useAuthModal } from '../../hooks/useAuthModal';
 
 function NavLinks() {
+  const { openModalHandler } = useAuthModal();
   return (
     <>
-      <Link className="font-vazirBold text-base" to="">
+      <button className="font-vazirBold text-base" onClick={openModalHandler}>
         ورود / ثبت نام
-      </Link>
+      </button>
       <Link className="font-vazirBold text-base" to="/host">
         میزبان شوید
       </Link>

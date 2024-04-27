@@ -37,10 +37,9 @@ function Rules() {
               {rule.subtitle.map((item, index) => (
                 <p
                   key={index}
+                  dangerouslySetInnerHTML={{ __html: item }}
                   className="py-3 text-sm leading-7 text-gray-500 dark:text-gray-400"
-                >
-                  {item}
-                </p>
+                ></p>
               ))}
             </div>
           ))}
