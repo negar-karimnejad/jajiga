@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BiSupport } from 'react-icons/bi';
+import { BiExit, BiSupport } from 'react-icons/bi';
 import { BsExclamationSquare } from 'react-icons/bs';
 import { CiGift } from 'react-icons/ci';
 import { IoIosHeartEmpty } from 'react-icons/io';
@@ -20,6 +20,7 @@ import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import SigningModal from '../auth/SigningModal';
 import { useAuthModal } from '../../hooks/useAuthModal';
+import { useAuth } from '../../hooks/useAuth';
 
 const navMenuLinks = [
   {
@@ -99,6 +100,7 @@ const navMenuLinks = [
 function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModalHandler } = useAuthModal();
+  const { user, signoutFunc } = useAuth();
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -210,6 +212,24 @@ function NavMenu() {
                   </Link>
                 </li>
               ))}
+              {user && (
+                <li
+                  onClick={() => signoutFunc()}
+                  className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-4"
+                  >
+                    <span className="text-lg text-gray-500 dark:text-gray-400">
+                      <BiExit />
+                    </span>
+                    <span className="font-vazirBold text-gray-500 dark:text-gray-400">
+                      خروج
+                    </span>
+                  </button>
+                </li>
+              )}
             </ul>
             <div className="px-4 text-gray-500">0.139.7</div>
             <footer className="flex items-center justify-between rounded-t-xl bg-gray-200 px-10 py-3 dark:bg-gray-600">
