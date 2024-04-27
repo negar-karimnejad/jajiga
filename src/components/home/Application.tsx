@@ -8,7 +8,7 @@ function Application({ style }: ApplicationProps) {
   return (
     <div className="relative md:hidden">
       <div
-        className={`z-30 w-full bg-blue-950 bg-[url('/images/patterns/pattern.svg')] ${style}`}
+        className={`w-full bg-blue-950 bg-[url('/images/patterns/pattern.svg')] ${style}`}
       >
         <div className="container flex justify-between pt-3 text-[12px] text-white">
           <p>نصب اپلیکیشن جاجیگا</p>

@@ -8,7 +8,7 @@ import SectionHeading from './SectionHeading';
 
 function QuickSearch() {
   return (
-    <div className="group relative z-30 bg-white dark:bg-gray-900">
+    <div className="group relative bg-white dark:bg-gray-900">
       <div className="container">
         <SectionHeading>جستجوی سریع</SectionHeading>
         <div className="relative">
