@@ -1,19 +1,37 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../hooks';
 import { AppDispatch } from '../redux/store';
-import { signupUser } from '../redux/store/auth';
+import { signinUser, signoutUser, signupUser } from '../redux/store/auth';
 
-const useAuth = ({ email, password }: { email: string; password: string }) => {
+const useAuth = () => {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.auth);
-  const { error, isLoading, isOpenSigningModal, user } = data;
+  const { error, isLoading, user } = data;
 
-  useEffect(() => {
+  const signupFunc = ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => {
     dispatch(signupUser({ email, password }));
-  }, [dispatch, email, password]);
+  };
+  const signinFunc = ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => {
+    dispatch(signinUser({ email, password }));
+  };
 
-  return { error, isLoading, isOpenSigningModal, user };
+  const signoutFunc = () => {
+    dispatch(signoutUser());
+  };
+
+  return { error, isLoading, user, signoutFunc, signinFunc, signupFunc };
 };
 
 export { useAuth };
