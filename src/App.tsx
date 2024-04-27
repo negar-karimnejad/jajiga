@@ -11,6 +11,7 @@ import Host from './pages/Host';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 import Invite from './pages/Invite';
+import Rules from './pages/Rules';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/faq" element={<Faq />} />
             <Route path="/guarantee" element={<Guarantee />} />
             <Route path="/invite" element={<Invite />} />
+            <Route path="/rules" element={<Rules />} />
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
