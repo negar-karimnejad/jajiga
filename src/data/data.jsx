@@ -153,6 +153,7 @@ export const hostData = [
     ],
   },
 ];
+
 export const faqDate = [
   {
     id: 1,

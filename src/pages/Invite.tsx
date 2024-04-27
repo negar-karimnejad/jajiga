@@ -5,7 +5,7 @@ import FaqList from '../components/ui/FaqList';
 function Invite() {
   return (
     <div>
-      <div className="h-56 w-full bg-[url(/images/invite-landing1920.webp)] bg-cover bg-no-repeat max-sm:h-52 bg-center max-sm:bg-[70%]"></div>
+      <div className="h-56 w-full bg-[url(/images/invite-landing1920.webp)] bg-cover bg-center bg-no-repeat max-sm:h-52 max-sm:bg-[70%]"></div>
       <div className="-mt-5 flex justify-center rounded-t-3xl bg-white py-14 dark:bg-gray-800">
         <div className="flex max-w-4xl flex-col items-center justify-center gap-20">
           <div className="container">

@@ -8,10 +8,10 @@ import Faq from './pages/Faq';
 import Guarantee from './pages/Guarantee';
 import HomePage from './pages/HomePage';
 import Host from './pages/Host';
-import Wishes from './pages/Wishes';
-import { store } from './redux/store';
 import Invite from './pages/Invite';
 import Rules from './pages/Rules';
+import Wishes from './pages/Wishes';
+import { store } from './redux/store';
 
 function App() {
   return (
