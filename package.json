@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@supabase/supabase-js": "^2.42.5",
+    "aos": "^2.3.4",
     "formik": "^2.4.6",
     "jalali-moment": "^3.3.11",
     "react": "^18.2.0",
