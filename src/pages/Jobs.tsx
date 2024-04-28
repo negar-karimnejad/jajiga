@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import FaqList from '../components/ui/FaqList';
 
 function Jobs() {
-  const [openAnswer, setOpenAnswer] = useState(0);
-
   return (
     <div>
       <div
@@ -28,15 +24,16 @@ function Jobs() {
               <BiChevronDown size={24} />
             </button>
           </div>
-          <div>
+          <div className="relative max-sm:w-[200px]">
             <img
               src="images/jobs/job-1.png"
               alt=""
               className="rounded-lg shadow-lg"
             />
-            <span className="float-left pt-1 font-BKoodak text-[10px]">
+
+            <p className="absolute -bottom-5 left-0 font-BKoodak text-[12px] text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
               باغ چای | پاییز 98
-            </span>
+            </p>
           </div>
         </div>
       </div>
@@ -225,7 +222,7 @@ function Jobs() {
         className="bg-yellow-400 pb-20 pt-10 md:pb-32"
         style={{ clipPath: 'polygon(0px 0px, 100% 5%, 100% 100%, 0% 100%)' }}
       >
-        <div className="container my-20 w-2/3 gap-10">
+        <div className="container my-20 gap-10 md:w-2/3">
           <p className="mb-10 text-justify text-base leading-7 text-gray-600">
             پس اگر در رشته‌ای مرتبط متخصص و ماهر هستید، اگر سخت‌کوش و باانگیزه
             هستید، اگر ساکن گیلان هستید یا علاقه مندید ساکن گیلان زیبا بشید، اگر
@@ -242,10 +239,8 @@ function Jobs() {
           <p className="mb-10 text-base text-gray-600">
             لیست مهارتهای مورد نیازمون رو می تونید همین پایین مشاهده کنید:
           </p>
-          {/* List */}
 
           <FaqList />
-          {/* List */}
 
           <p className="text-center text-gray-700">
             همین حالا اقدام کنید
