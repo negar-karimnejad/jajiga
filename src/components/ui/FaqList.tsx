@@ -11,12 +11,12 @@ interface FaqDateProps {
 function FaqList() {
   const [openAnswer, setOpenAnswer] = useState(0);
   return (
-    <div className="-mt-5 rounded-t-2xl bg-white dark:bg-gray-800">
+    <div className="-mt-5 rounded-t-2xl bg-transparent">
       <div className="container max-w-4xl py-4">
         {faqDate.map((item: FaqDateProps) => (
           <div
             key={item.id}
-            className="relative my-4 rounded-md border border-gray-100 p-2 shadow-sm shadow-gray-300 dark:border dark:border-gray-700 dark:shadow-md dark:shadow-gray-950"
+            className="relative my-4 rounded-md border border-gray-100 bg-white p-2 shadow-sm shadow-gray-300 dark:border dark:border-gray-700 dark:bg-gray-800 dark:shadow-md dark:shadow-gray-950"
           >
             <button
               className="w-full"
@@ -24,7 +24,7 @@ function FaqList() {
                 setOpenAnswer((prev) => (prev === item.id ? 0 : item.id))
               }
             >
-              <h3 className="text-right font-vazirMedium text-sm sm:text-base text-gray-600 dark:text-gray-300">
+              <h3 className="text-right font-vazirMedium text-sm text-gray-600 dark:text-gray-300 sm:text-base">
                 {item.question}
               </h3>
               {openAnswer === item.id ? (

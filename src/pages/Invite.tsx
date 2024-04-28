@@ -24,7 +24,7 @@ function Invite() {
             </h3>
             <div className="flex gap-x-5 gap-y-12 max-md:flex-col">
               <div className="relative flex-1 rounded-3xl border-t-2 border-t-yellow-400 p-10 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-2 border-yellow-500 bg-yellow-400 p-0.5 dark:bg-gray-900">
+                <div className="absolute left-1/2 top-0 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-2 border-yellow-500 bg-yellow-400 p-0.5 dark:bg-gray-900 dark:text-white">
                   <BsShare size={30} />
                 </div>
                 <p className="pt-5 text-justify text-sm leading-6 text-gray-600 dark:text-gray-300">
@@ -33,7 +33,7 @@ function Invite() {
                 </p>
               </div>
               <div className="relative flex-1 rounded-3xl border-t-2 border-t-yellow-400 p-10 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-2 border-yellow-500 bg-yellow-400 p-0.5 dark:bg-gray-900">
+                <div className="absolute left-1/2 top-0 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-2 border-yellow-500 bg-yellow-400 p-0.5 dark:bg-gray-900 dark:text-white">
                   <HiOutlineChatBubbleLeftEllipsis size={30} />
                 </div>
                 <p className="pt-5 text-justify text-sm leading-6 text-gray-600 dark:text-gray-300">
@@ -42,7 +42,7 @@ function Invite() {
                 </p>
               </div>
               <div className="relative flex-1 rounded-3xl border-t-2 border-t-yellow-400 p-10 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-2 border-yellow-500 bg-yellow-400 p-0.5 dark:bg-gray-900">
+                <div className="absolute left-1/2 top-0 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-2 border-yellow-500 bg-yellow-400 p-0.5 dark:bg-gray-900 dark:text-white">
                   <BsSuitcase size={30} />
                 </div>
                 <p className="pt-5 text-justify text-sm leading-6 text-gray-600 dark:text-gray-300">

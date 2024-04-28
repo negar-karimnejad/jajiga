@@ -8,6 +8,7 @@ function About() {
           <Breadcrumb pageLink="درباره ما" />
         </div>
       </div>
+
       <div className="-mt-5 rounded-t-2xl bg-white dark:bg-gray-900">
         <section className="container flex flex-col gap-10 py-16 lg:w-2/3">
           <div className="flex w-full items-center gap-16 max-md:flex-col-reverse">

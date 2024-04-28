@@ -9,7 +9,9 @@ function Faq() {
           <Breadcrumb pageLink="سوالات متداول" />
         </div>
       </div>
-      <FaqList />
+      <div className="-mt-5 rounded-t-2xl bg-white dark:bg-gray-800">
+        <FaqList />
+      </div>
     </div>
   );
 }

@@ -13,6 +13,7 @@ import Rules from './pages/Rules';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 import About from './pages/About';
+import Jobs from './pages/Jobs';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/invite" element={<Invite />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/about" element={<About />} />
+            <Route path="/jobs" element={<Jobs />} />
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
