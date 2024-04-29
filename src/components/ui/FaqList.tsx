@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { faqDate } from '../../data/data';
 
 interface FaqDateProps {
   id: number;
@@ -8,12 +7,12 @@ interface FaqDateProps {
   answer: string;
 }
 
-function FaqList() {
+function FaqList({ list }: { list: FaqDateProps[] }) {
   const [openAnswer, setOpenAnswer] = useState(0);
   return (
     <div className="-mt-5 rounded-t-2xl bg-transparent">
       <div className="container max-w-4xl py-4">
-        {faqDate.map((item: FaqDateProps) => (
+        {list.map((item: FaqDateProps) => (
           <div
             key={item.id}
             className="relative my-4 rounded-md border border-gray-100 bg-white p-2 shadow-sm shadow-gray-300 dark:border dark:border-gray-700 dark:bg-gray-800 dark:shadow-md dark:shadow-gray-950"
@@ -40,10 +39,9 @@ function FaqList() {
               )}
             </button>
             <p
+              dangerouslySetInnerHTML={{ __html: item.answer }}
               className={`overflow-hidden text-sm leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${openAnswer === item.id ? 'visible max-h-96 py-5' : 'invisible max-h-0'}`}
-            >
-              {item.answer}
-            </p>
+            ></p>
           </div>
         ))}
       </div>
