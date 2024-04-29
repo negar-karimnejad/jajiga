@@ -232,74 +232,108 @@ export const jobsData = [
   {
     id: 1,
     question: 'کارشناس ارشد سئو',
-    answer: `<div aria-hidden="false" class="sc-8139bef2-0 iTYZky"><div id="8" class="sc-111ff29c-3 gOYlqg"><div><div><div class="sc-adc1fd9f-0 jFKtFU"><h4 class="text-base font-vazirBold" title="مهارت‌های ضروری">مهارت‌های ضروری</h4><ul className="list-disc"><li class="">تحقيق برکلمات كليدي، تحليل رقبا، تحلیل محتوای سایت و تدوین استراتژي های مربوطه</li>
-    <li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">تسلط بر نرم افزارهای مرتبط همچون  Google Analytic، Search Console، Moz ، GTag ، Ahref</span></li><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">نظارت بر شاخص های عملکرد سئوی محتواهای سایت</span></li><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="w-5 h-5 bg-black rounded-full"></i></div><span class="">آشنایی کامل با روش تدوین و توسعه استراتژی سئو و الگوریتم های موتور جستجوی گوگل</span></li></ul></div><div class="sc-adc1fd9f-0 jFKtFU"><h4 class="font-vazirBold" title="دارا بودن موارد زیر مزیت محسوب می‌گردد">دارا بودن موارد زیر مزیت محسوب می‌گردد</h4><ul class="sc-2d32c2c7-0 jkrJcS"><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">تجربه بالا در فرآیند لینک سازی و بهبود سرعت صفحات</span></li><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">ارائه نمونه کار خوب در کلمات کلیدی رقابتی</span></li><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">حداقل دو سال تجربه مرتبط و موثر</span></li></ul></div><div class="sc-adc1fd9f-0 jFKtFU"><h4 class="sc-1240f01e-0 gyyMCP" title="ویژگی‌های فردی">ویژگی‌های فردی</h4><ul class="sc-2d32c2c7-0 jkrJcS"><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">مهارت ارتباطی موثر به منظور تعامل با ذینفعان</span></li><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">با انگیزه و مثبت اندیش</span></li><li class="sc-e9c9d90d-0 kDPwZd sc-adc1fd9f-1 cfCkPd"><div class="sc-e9c9d90d-1 djiyUX"><i class="icon_dot sc-7b1d8faa-0 hMwBIA"></i></div><span class="sc-e9c9d90d-3 cLvUDf">منظم و مسئولیت پذیر</span></li></ul></div><div class="sc-e05d38f1-0 fSFHkt"><strong>مزایای شغل:</strong> نهار مامان پز، بیمه تامین اجتماعی و بیمه تکمیلی، امریه سربازی، اعتبار سفر !</div></div><div><div class="sc-e05d38f1-0 fSFHkt">دفتر کار در شهر لاهیجان واقع شده و این شغل تمام‌وقت است.</div><div class="sc-fb406703-0 fkgpMM"><p class="sc-c1a7c107-0 byEtCm">لطفاً به یکی از روش‌های ذیل رزومه کامل خودتون رو برای ما ارسال کنید:</p><div class="sc-fb406703-0 czzWHZ"><a class="sc-2ff44329-2 dtLqxB sc-e83b81a7-0 MFwJu" href="https://t.me/jajigaa"><i class="icon_telegram sc-7b1d8faa-0 rUTXU sc-2ff44329-0 eEnBNJ" aria-label="telegram"></i>تلگرام: jajigaa@</a><a class="sc-2ff44329-2 iaJYyx btn" href="mailto:info@jajiga.com"><i class="icon_message sc-7b1d8faa-0 rUTXU sc-2ff44329-0 gVDAUN" aria-label="message"></i>ایمیل: info@jajiga.com</a></div></div></div></div></div></div>`,
+    answer: `<div><div><div><div>
+    <div><h4 class="font-vazirBold mb-2 dark:text-white">مهارت‌های ضروری</h4><div className="list-disc"><li class="pr-2">تحقيق برکلمات كليدي، تحليل رقبا، تحلیل محتوای سایت و تدوین استراتژي های مربوطه</li>
+    <li class="pr-2">تسلط بر نرم افزارهای مرتبط همچون  Google Analytic، Search Console، Moz ، GTag ، Ahref</li>
+    <li class="pr-2">نظارت بر شاخص های عملکرد سئوی محتواهای سایت</li>
+    <li class="pr-2">آشنایی کامل با روش تدوین و توسعه استراتژی سئو و الگوریتم های موتور جستجوی گوگل</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">دارا بودن موارد زیر مزیت محسوب می‌گردد</h4><div className="list-disc"><li class="pr-2">تجربه بالا در فرآیند لینک سازی و بهبود سرعت صفحات</li>
+    <li class="pr-2">ارائه نمونه کار خوب در کلمات کلیدی رقابتی</li>
+    <li class="pr-2">حداقل دو سال تجربه مرتبط و موثر</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">ویژگی‌های فردی</h4><div className="list-disc"><li class="pr-2">مهارت ارتباطی موثر به منظور تعامل با ذینفعان</li>
+    <li class="pr-2">با انگیزه و مثبت اندیش</li>
+    <li class="pr-2">منظم و مسئولیت پذیر</li>
+    </div></div>
+
+
+  <div class="bg-yellow-400 p-2 my-2 dark:text-gray-800"><strong>مزایای شغل:</strong> نهار مامان پز، بیمه تامین اجتماعی و بیمه تکمیلی، امریه سربازی، اعتبار سفر!</div></div><div><div class="bg-yellow-400 p-2 my-2 dark:text-gray-800">دفتر کار در شهر لاهیجان واقع شده و این شغل تمام‌وقت است.</div><div class="text-center pt-2">لطفاً به یکی از روش‌های ذیل رزومه کامل خودتون رو برای ما ارسال کنید:</p><div class="flex flex-col justify-center items-center my-5 gap-5"><a class="w-48 transition-all bg-sky-400 text-white p-2 rounded-md hover:bg-sky-500" href="https://t.me/jajigaa">✈ تلگرام: jajigaa@</a><a class="w-48 transition-all bg-gray-100 p-2 rounded-md hover:bg-gray-200 text-gray-600" href="mailto:info@jajiga.com"><span class="">✉<span/> ایمیل: info@jajiga.com</a></div></div></div></div></div></div>`,
   },
   {
     id: 2,
-    question: 'چطور می‌توانم با میزبان تماس بگیرم؟',
-    answer:
-      'در هنگام ثبت "درخواست رزرو" می‌توانید با استفاده از گزینه "گفتگو با میزبان" سوالات خود را از میزبان اقامتگاه بپرسید. همچنین پس از پرداخت صورتحساب و قطعی شدن رزرو، یک سند رزرو حاوی مشخصات، شماره تماس میزبان و آدرس اقامتگاه برای شما صادر می‌شود و میتوانید با میزبان خود تماس بگیرید.',
+    question: 'توسعه‌دهنده Front-End',
+    answer: `
+    <div><div><div><div>
+    <div><h4 class="font-vazirBold mb-2 dark:text-white">مهارت‌های ضروری</h4><div className="list-disc"><li class="pr-2">HTML & CSS / ReactJS</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">دارا بودن موارد زیر مزیت محسوب می‌گردد</h4><div className="list-disc"><li class="pr-2">Git / ES6</li>
+    <li class="pr-2">آشنایی با TypeScript</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">ویژگی‌های فردی</h4><div className="list-disc"><li class="pr-2">مهارت دارای روحیه کار تیمی</li>
+    <li class="pr-2">با انگیزه و مثبت اندیش</li>
+    <li class="pr-2">منظم و مسئولیت پذیر</li>
+    </div></div>
+
+
+  <div class="bg-yellow-400 p-2 my-2 dark:text-gray-800"><strong>مزایای شغل:</strong> نهار مامان پز، بیمه تامین اجتماعی و بیمه تکمیلی، امریه سربازی، اعتبار سفر!</div></div><div><div class="bg-yellow-400 p-2 my-2 dark:text-gray-800">دفتر کار در شهر لاهیجان واقع شده و این شغل تمام‌وقت است.</div><div class="text-center pt-2">لطفاً به یکی از روش‌های ذیل رزومه کامل خودتون رو برای ما ارسال کنید:</p><div class="flex flex-col justify-center items-center my-5 gap-5"><a class="w-48 transition-all bg-sky-400 text-white p-2 rounded-md hover:bg-sky-500" href="https://t.me/jajigaa">✈ تلگرام: jajigaa@</a><a class="w-48 transition-all bg-gray-100 p-2 rounded-md hover:bg-gray-200 text-gray-600" href="mailto:info@jajiga.com"><span class="">✉<span/> ایمیل: info@jajiga.com</a></div></div></div></div></div></div>`,
   },
   {
     id: 3,
-    question: 'با رد یا لغو شدن درخواست رزرو چه می‌شود؟',
-    answer:
-      'زمانی که میزبان درخواست رزرو شما را رد کند، یک پیامک جهت اطلاع دریافت می‌کنید و می‌توانید برای اقامتگاه دیگری درخواست رزرو ثبت کنید. شما می‌توانید به‌صورت همزمان برای 2 اقامتگاه درخواست رزرو ارسال کنید.',
+    question: 'توسعه‌دهنده Back-End',
+    answer: `
+    <div><div><div><div>
+    <div><h4 class="font-vazirBold mb-2 dark:text-white">مهارت‌های ضروری</h4><div className="list-disc"><li class="pr-2">PHP / Laravel / MySQL</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">دارا بودن موارد زیر مزیت محسوب می‌گردد</h4><div className="list-disc"><li class="pr-2">Git / Rest API / GraphQL / Open API</li>
+    <li class="pr-2">آشنایی با Software Design Patterns</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">ویژگی‌های فردی</h4><div className="list-disc"><li class="pr-2">مهارت دارای روحیه کار تیمی</li>
+    <li class="pr-2">با انگیزه و مثبت اندیش</li>
+    <li class="pr-2">منظم و مسئولیت پذیر</li>
+    </div></div>
+
+
+  <div class="bg-yellow-400 p-2 my-2 dark:text-gray-800"><strong>مزایای شغل:</strong> نهار مامان پز، بیمه تامین اجتماعی و بیمه تکمیلی، امریه سربازی، اعتبار سفر!</div></div><div><div class="bg-yellow-400 p-2 my-2 dark:text-gray-800">دفتر کار در شهر لاهیجان واقع شده و این شغل تمام‌وقت است.</div><div class="text-center pt-2">لطفاً به یکی از روش‌های ذیل رزومه کامل خودتون رو برای ما ارسال کنید:</p><div class="flex flex-col justify-center items-center my-5 gap-5"><a class="w-48 transition-all bg-sky-400 text-white p-2 rounded-md hover:bg-sky-500" href="https://t.me/jajigaa">✈ تلگرام: jajigaa@</a><a class="w-48 transition-all bg-gray-100 p-2 rounded-md hover:bg-gray-200 text-gray-600" href="mailto:info@jajiga.com"><span class="">✉<span/> ایمیل: info@jajiga.com</a></div></div></div></div></div></div>`,
   },
   {
     id: 4,
-    question: 'تایید یا رد درخواست رزرو چقدر طول می‌کشد؟',
-    answer:
-      'به‌طور میانگین در کمتر از 15 دقیقه به درخواست ها پاسخ داده می‌شود. سابقه زمان پاسخگویی هر میزبان به درخواست های رزرو قبلی با کلیک بر روی تصویر میزبان قابل مشاهده است. حداکثر مهلت پاسخگویی میزبانان به درخواست رزرو در ساعات کاری 30 دقیقه است و در ساعات نیمه شب مهلت پاسخگویی تا صبح روز بعد تمدید می‌گردد. مهلت پاسخگویی به صورت لحظه‌ای در صفحه رزرو قابل مشاهده می‌باشد.',
+    question: 'کارشناس دیجیتال مارکتینگ',
+    answer: `
+    <div><div><div><div>
+    <div><h4 class="font-vazirBold mb-2 dark:text-white">مهارت‌های ضروری</h4><div className="list-disc">
+    <li class="pr-2">مسلط به Google Analytics و Google Ads</li>
+    <li class="pr-2">مسلط به SEO و SEM</li>
+    <li class="pr-2">مسلط به پلتفرم‌های ایرانی تبلیغات دیجیتال</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">دارا بودن موارد زیر مزیت محسوب می‌گردد</h4><div className="list-disc"><li class="pr-2">آشنایی با حیطه تبلیغات در سوشال شامل تلگرام و اینستاگرام</li>
+    <li class="pr-2">تجربه و خلاقیت در تبلیغ نویسی </li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">ویژگی‌های فردی</h4><div className="list-disc"><li class="pr-2">مهارت ارتباطی قوی به منظور تعامل با ذینفعان</li>
+    <li class="pr-2">با انگیزه و مثبت اندیش</li>
+    <li class="pr-2">منظم و مسئولیت پذیر</li>
+    </div></div>
+
+
+  <div class="bg-yellow-400 p-2 my-2 dark:text-gray-800"><strong>مزایای شغل:</strong> نهار مامان پز، بیمه تامین اجتماعی و بیمه تکمیلی، امریه سربازی، اعتبار سفر!</div></div><div><div class="bg-yellow-400 p-2 my-2 dark:text-gray-800">دفتر کار در شهر لاهیجان واقع شده و این شغل تمام‌وقت است.</div><div class="text-center pt-2">لطفاً به یکی از روش‌های ذیل رزومه کامل خودتون رو برای ما ارسال کنید:</p><div class="flex flex-col justify-center items-center my-5 gap-5"><a class="w-48 transition-all bg-sky-400 text-white p-2 rounded-md hover:bg-sky-500" href="https://t.me/jajigaa">✈ تلگرام: jajigaa@</a><a class="w-48 transition-all bg-gray-100 p-2 rounded-md hover:bg-gray-200 text-gray-600" href="mailto:info@jajiga.com"><span class="">✉<span/> ایمیل: info@jajiga.com</a></div></div></div></div></div></div>`,
   },
   {
     id: 5,
-    question: 'چه ضمانتی برای تحویل اقامتگاه وجود دارد؟',
-    answer:
-      'بله، شما می‌توانید «یک مرتبه» درخواست رزرو خود را قبل یا پس از تایید میزبان لغو کنید و درخواست دیگری را ثبت کنید ولی در صورت تکرار لغو رزرو برای بار دوم دیگر قادر به ثبت درخواست نخواهید بود. لذا در ثبت درخواست رزرو دقت لازم را به عمل آورید و با لغو رزرو مکرر موجب بی‌اعتمادی میزبان‌ها نشوید.',
-  },
-  {
-    id: 6,
-    question: 'آیا می‌توانم رزرو را قبل یا بعد از تأیید کنسل کنم؟',
-    answer:
-      'از لحظۀ تأیید درخواست رزرو توسط میزبان که به وسیله پیامک به اطلاع شما خواهد رسید، حداکثر 30 دقیقه فرصت دارید تا با پرداخت صورتحساب، رزرو خود را «قطعی» کنید. پس از پایان این مهلت، رزرو به صورت خودکار لغو شده و در صورت تکرار این امر برای بار دوم دیگر قادر به ثبت درخواست رزرو نخواهید بود. همچنین میزبان این حق را دارد تا پیش از قطعی شدن رزرو، تایید رزرو خود را بردارد که به معنی رد درخواست رزرو از طرف میزبان خواهد بود. در این حالت می‌توانید برای اقامتگاه دیگری درخواست رزرو ثبت کنید.',
-  },
-  {
-    id: 7,
-    question: 'اگر پس از تایید رزرو را قطعی نکنم چه می‌شود؟',
-    answer:
-      'در صورت لغو یک رزرو «پس از قطعی شدن», مقررات لغو رزرو آن اقامتگاه برای محاسبه وجوه پرداختی به میهمان و میزبان ملاک عمل خواهد بود. لذا به «مقررات لغو رزرو» مندرج در سند رزرو توجه کنید.',
-  },
-  {
-    id: 8,
-    question: 'جاجیگا به چه معنی ست؟',
-    answer:
-      'واژه "جاجیگا" در گویش گیلکی، به معنی جا، مکان و محل می‌باشد. همچنین به "جای خواب و استراحت" نیز اطلاق می‌گردد.',
-  },
-  {
-    id: 9,
-    question: 'جاجیگا دقیقاً چه خدمتی ارائه می‌دهد؟',
-    answer:
-      'این کسب و کار بستریست تا میزبانان و صاحبان منازل و اقامتگاه ها بتوانند ملک خود را در محیطی امن و پیشرفته، با صرف حداقل زمان و هزینه برای اجاره روزانه عرضه کنند و از سوی دیگر گردشگران بتوانند اقامتگاهی مطابق با سلیقه و شرایط و بودجه مورد نظر خود را به سهولت در سراسر ایران بیابند و بصورت آنلاین رزرو کنند و سفری بدون دغدغه ی مکان اقامت را در سراسر ایران زیبا تجربه کنند.',
-  },
-  {
-    id: 10,
-    question: 'چه مناطقی از کشور تحت پوشش جاجیگا است؟',
-    answer:
-      'پوشش خدمات جاجیگا به وسعت پهنه جغرافیایی کشور ایران از شهرهای بزرگ تا دورترین روستاها می‌باشد. در حال حاضر بیش از 21000 اقامتگاه در بیش از 250 شهر، روستا و منطقه گردشگری تحت پوشش خدمات جاجیگا قرار گرفته و این روند با سرعتی شتابان در حال افزایش است.',
-  },
-  {
-    id: 11,
-    question: 'چه مناطقی از کشور تحت پوشش جاجیگا است؟',
-    answer:
-      'استارتاپ جاجیگا عضو رسمی پارک علم و فناوری گیلان و دارای گواهی دانش بنیان از معاونت علمی ریاست جمهوری، مجوز گردشگری الکترونیک از وزارت گردشگری، پروانه فعالیت از اتحادیه کشوری کسب و کارهای مجازی و اینماد از وزارت سمت می باشد که تعدادی از آنها در "فوتر" سایت قابل مشاهده است',
-  },
-  {
-    id: 12,
-    question: 'هزینه خدمات جاجیگا چقدر است؟',
-    answer:
-      'تمامی مراحل ایجاد حساب کاربری، جستجو، بررسی، مقایسه و همچنین ثبت و انتشار و معرفی اقامتگاه‌ها در وبسایت بصورت رایگان در اختیار تمامی کاربران می‌باشد. محل درآمد جاجیگا شامل درصدی اندک از هر رزرو "قطعی" است که به عنوان کارمزد از میزبانان دریافت میگردد.',
+    question: 'کارشناس تامین و ثبت اقامتگاه‌',
+    answer: `
+    <div><div><div><div>
+    <div><h4 class="font-vazirBold mb-2 dark:text-white">مهارت‌های ضروری</h4><div className="list-disc">
+    <li class="pr-2">توانایی مذاکره و اقناع تامین‌کنندگان</li>
+    <li class="pr-2">توانایی کار با کامپیوتر و نرم‌افزارهای مرتبط</li>
+    <li class="pr-2">اطلاع از حوزۀ اماکن و مستغلات یک مزیت محسوب می‌شود</li>
+    </div></div>
+
+    <div><h4 class="font-vazirBold mb-2 dark:text-white mt-5">ویژگی‌های فردی</h4><div className="list-disc"><li class="pr-2">مهارت دارای اعتماد به نفس و مهارت‌های ارتباطی قوی</li>
+    <li class="pr-2">توانایی تعامل مستقیم با افراد متعدد</li>
+    <li class="pr-2">با انگیزه و مثبت اندیش</li>
+    <li class="pr-2">منظم و مسئولیت پذیر</li>
+    </div></div>
+
+
+  <div class="bg-yellow-400 p-2 my-2 dark:text-gray-800"><strong>مزایای شغل:</strong> نهار مامان پز، بیمه تامین اجتماعی و بیمه تکمیلی، امریه سربازی، اعتبار سفر!</div></div><div><div class="bg-yellow-400 p-2 my-2 dark:text-gray-800">دفتر کار در شهر لاهیجان واقع شده و این شغل تمام‌وقت است.</div><div class="text-center pt-2">لطفاً به یکی از روش‌های ذیل رزومه کامل خودتون رو برای ما ارسال کنید:</p><div class="flex flex-col justify-center items-center my-5 gap-5"><a class="w-48 transition-all bg-sky-400 text-white p-2 rounded-md hover:bg-sky-500" href="https://t.me/jajigaa">✈ تلگرام: jajigaa@</a><a class="w-48 transition-all bg-gray-100 p-2 rounded-md hover:bg-gray-200 text-gray-600" href="mailto:info@jajiga.com"><span class="">✉<span/> ایمیل: info@jajiga.com</a></div></div></div></div></div></div>`,
   },
 ];
 

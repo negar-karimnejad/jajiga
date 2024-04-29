@@ -1,6 +1,7 @@
 import { BsShare, BsSuitcase } from 'react-icons/bs';
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2';
 import FaqList from '../components/ui/FaqList';
+import { faqDate } from '../data/data';
 
 function Invite() {
   return (
@@ -67,7 +68,7 @@ function Invite() {
             <h2 className="mb-3 text-center font-vazirBold text-lg dark:text-white md:text-2xl">
               سوالات متداول
             </h2>
-            <FaqList />
+            <FaqList list={faqDate} />
           </div>
         </div>
       </div>

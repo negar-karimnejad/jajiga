@@ -1,5 +1,6 @@
 import Breadcrumb from '../components/ui/Breadcrumb';
 import FaqList from '../components/ui/FaqList';
+import { faqDate } from '../data/data';
 
 function Faq() {
   return (
@@ -10,7 +11,7 @@ function Faq() {
         </div>
       </div>
       <div className="-mt-5 rounded-t-2xl bg-white dark:bg-gray-800">
-        <FaqList />
+        <FaqList list={faqDate} />
       </div>
     </div>
   );
