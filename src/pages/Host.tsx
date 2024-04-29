@@ -15,8 +15,8 @@ interface HostDataProps {
 function Host() {
   return (
     <div className="relative dark:bg-gray-800">
-      <div className="h-36 w-full bg-yellow-400 p-5">
-        <div className="container h-full w-full bg-[url(/images/patterns/pattern.png)]">
+      <div className="h-36 w-full bg-yellow-400 p-5 bg-[url(/images/patterns/pattern.png)]">
+        <div className="container">
           <h2 className="font-vazirBold text-xl text-gray-700">
             چگونه میزبان شویم؟
           </h2>

@@ -14,6 +14,8 @@ import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 import About from './pages/About';
 import Jobs from './pages/Jobs';
+import Help from './pages/Help';
+import Support from './pages/Support';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />
           <Route path="/app" element={<Appstore />} />
         </Routes>
