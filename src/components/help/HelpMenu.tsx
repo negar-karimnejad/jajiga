@@ -1,5 +1,6 @@
 import { helpComments } from '../../data/data';
 import HelpComment from './HelpComment';
+import HelpMenuHeader from './HelpMenuHeader';
 
 interface HelpMenuProps {
   isActive: number;
@@ -104,20 +105,11 @@ function HelpMenu({ isActive, resetActive, modal }: HelpMenuProps) {
       )}
       {isActive === 1 && (
         <>
-          <div
-            className={`mb-10 flex items-center justify-between ${modal ? 'absolute right-0 top-0 w-full bg-yellow-400 p-2 text-gray-700' : 'text-gray-400 dark:text-gray-200'}`}
-          >
-            <h2 className="text-xl">چطور شروع کنم؟</h2>
-            <button
-              onClick={resetActive}
-              className="group flex items-center gap-1 text-blue-600"
-            >
-              <p className="text-lg transition-all duration-700 group-hover:translate-x-2">
-                &rarr;
-              </p>
-              بازگشت
-            </button>
-          </div>
+          <HelpMenuHeader
+            heading="چطور شروع کنم؟"
+            resetActive={resetActive}
+            modal={modal}
+          />
           <article className="flex flex-col gap-5 pt-5 text-gray-600 dark:text-gray-400">
             <p>
               <strong className="text-gray-800 dark:text-white">
@@ -200,20 +192,11 @@ function HelpMenu({ isActive, resetActive, modal }: HelpMenuProps) {
       )}
       {isActive === 2 && (
         <>
-          <div
-            className={`mb-10 flex items-center justify-between ${modal ? 'absolute right-0 top-0 w-full bg-yellow-400 p-2 text-gray-700' : 'text-gray-400 dark:text-gray-200'}`}
-          >
-            <h2 className="text-xl">نظرات</h2>
-            <button
-              onClick={resetActive}
-              className="group flex items-center gap-1 text-blue-600"
-            >
-              <p className="text-lg transition-all duration-700 group-hover:translate-x-2">
-                &rarr;
-              </p>
-              بازگشت
-            </button>
-          </div>
+          <HelpMenuHeader
+            heading="نظرات"
+            resetActive={resetActive}
+            modal={modal}
+          />
           <ul className="dark:text-gray-400">
             {helpComments.map((comment) => (
               <HelpComment key={comment.id} {...comment} />
@@ -223,20 +206,11 @@ function HelpMenu({ isActive, resetActive, modal }: HelpMenuProps) {
       )}
       {isActive === 3 && (
         <>
-          <div
-            className={`mb-10 flex items-center justify-between ${modal ? 'absolute right-0 top-0 w-full bg-yellow-400 p-2 text-gray-700' : 'text-gray-400 dark:text-gray-200'}`}
-          >
-            <h2 className="text-xl">ارتباط با ما</h2>
-            <button
-              onClick={resetActive}
-              className="group flex items-center gap-1 text-blue-600"
-            >
-              <p className="text-lg transition-all duration-700 group-hover:translate-x-2">
-                &rarr;
-              </p>
-              بازگشت
-            </button>
-          </div>
+          <HelpMenuHeader
+            heading="ارتباط با ما"
+            resetActive={resetActive}
+            modal={modal}
+          />
           <article className="flex flex-col gap-5 pt-5 text-gray-700 dark:text-gray-400">
             <p>
               ما مشتاقانه منتظر دریافت هرگونه نظر، پیشنهاد و یا انتقاد شما از

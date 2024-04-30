@@ -70,7 +70,7 @@ function ArticlesFooter() {
             />
             <Button
               type="submit"
-              style="bg-red-600 text-white hover:bg-red-700"
+              style="rounded-md w-full bg-red-600 text-white hover:bg-red-700"
             >
               اشتراک در خبرنامه
             </Button>

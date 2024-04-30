@@ -4,6 +4,7 @@ import { IoClose, IoSearch } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useArticles } from '../../hooks/useArticles';
 import Logo from '../navbar/Logo';
+import Button from '../ui/Button';
 import ArticlesSocials from './ArticlesSocials';
 
 function ArticlesHeader() {
@@ -64,10 +65,9 @@ function ArticlesHeader() {
                       type="text"
                       placeholder="عبارت کلیدی خود را بنویسید..."
                     />
-                    <button 
-                    className="w-full bg-sky-400 p-2 text-white transition-all hover:bg-sky-500 hover:shadow-md">
+                    <Button style="text-white bg-sky-400 hover:bg-sky-500">
                       جستجو
-                    </button>
+                    </Button>
                   </form>
                 </div>
               )}
@@ -86,12 +86,12 @@ function ArticlesHeader() {
               className={`absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-gray-100 pb-10 shadow transition-all duration-500 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[360px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
             >
               <header className="flex w-full items-center justify-center bg-white py-3 shadow-lg dark:bg-gray-700 dark:shadow-sm dark:shadow-gray-100/50">
-                <button
+                <Button
+                  style="h-6 w-6 py-0 font-vazirBold text-3xl hover:shadow-none text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                   onClick={() => setIsMenuOpen(false)}
-                  className="h-6 w-6 font-vazirBold text-3xl text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                 >
                   &times;
-                </button>
+                </Button>
               </header>
               <div className="px-6">
                 <Link

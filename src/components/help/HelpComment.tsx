@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 import { RiFileUnknowLine } from 'react-icons/ri';
+import Button from '../ui/Button';
 
 interface HelpCommentProps {
   id: number;
@@ -13,11 +14,11 @@ function HelpComment(comment: HelpCommentProps) {
 
   return (
     <div className="border-b py-5">
-      <button
+      <Button
         onClick={() =>
           setActiveComment((prev) => (prev === comment.id ? 0 : comment.id))
         }
-        className="flex w-full items-center justify-between"
+        style="flex w-full py-0 px-0 text-white items-center justify-between"
       >
         <div className="flex items-center gap-2">
           <RiFileUnknowLine size={18} />
@@ -30,7 +31,7 @@ function HelpComment(comment: HelpCommentProps) {
           size={24}
           className={`transition-all duration-700 dark:text-white ${activeComment === comment.id ? 'rotate-180' : 'rotate-0'}`}
         />
-      </button>
+      </Button>
       <article
         dangerouslySetInnerHTML={{ __html: comment.content }}
         className={`flex flex-col gap-5 overflow-hidden text-sm leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${activeComment === comment.id ? 'visible max-h-[100rem] min-h-fit py-8' : 'invisible max-h-0'}`}

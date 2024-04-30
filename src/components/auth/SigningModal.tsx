@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
+import Button from '../ui/Button';
 
 interface SignupFormValues {
   fullname: string;
@@ -73,12 +74,12 @@ function SigningModal() {
         onClick={(e) => e.stopPropagation()}
         className={`rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:bg-gray-700 dark:text-white max-[600px]:w-[450px] max-[490px]:w-[300px] min-[600px]:w-[500px] ${isOpen ? 'translate-y-0' : 'translate-y-96'}`}
       >
-        <button
+        <Button
+          style="absolute w-5 h-5 -top-10 left-2 font-vazirBold text-4xl text-white"
           onClick={closeModalHandler}
-          className="absolute -top-10 left-2 font-vazirBold text-4xl text-white"
         >
           &times;
-        </button>
+        </Button>
         <h2 className="font-vazirBold text-2xl">ثبت نام</h2>
         <Formik
           initialValues={initialValues}
@@ -131,12 +132,12 @@ function SigningModal() {
                 />
               </div>
               <div className="mt-4 text-center">
-                <button
+                <Button
+                  style="w-40 rounded-full bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                   type="submit"
-                  className="w-40 rounded-full bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                 >
                   ثبت نام
-                </button>
+                </Button>
               </div>
             </Form>
           )}
