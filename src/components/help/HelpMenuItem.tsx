@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
+import Button from '../ui/Button';
 
 interface HelpMenuItemProps {
   id: number;
@@ -16,9 +17,9 @@ function HelpMenuItem({
 }: HelpMenuItemProps) {
   return (
     <li>
-      <button
+      <Button
         onClick={() => changeActive(id)}
-        className={`flex items-center gap-2 ${isActive === id && 'font-vazirMedium'}`}
+        style={`flex items-center hover:shadow-none px-0 py-0 gap-2 ${isActive === id && 'font-vazirMedium'}`}
       >
         <div className="flex h-4 w-4 items-center justify-center">
           {isActive === id ? (
@@ -28,7 +29,7 @@ function HelpMenuItem({
           )}
         </div>
         {children}
-      </button>
+      </Button>
     </li>
   );
 }

@@ -13,7 +13,7 @@ function HelpMenuHeader({ heading, resetActive, modal }: HelpMenuHeaderProps) {
       <h2 className="text-xl">{heading}</h2>
       <Button
         onClick={resetActive}
-        style="group py-0 px-0 flex items-center gap-1"
+        style="group py-0 px-0 flex items-center gap-1 hover:shadow-none"
       >
         <p className="text-lg text-blue-600 transition-all duration-700 group-hover:translate-x-2">
           &rarr;

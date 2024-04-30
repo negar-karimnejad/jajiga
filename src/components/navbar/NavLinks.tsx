@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useAuthModal } from '../../hooks/useAuthModal';
 import { useAuth } from '../../hooks/useAuth';
+import { useAuthModal } from '../../hooks/useAuthModal';
+import Button from '../ui/Button';
 
 function NavLinks() {
   const { openModalHandler } = useAuthModal();
@@ -9,12 +10,16 @@ function NavLinks() {
   return (
     <>
       {user ? (
-        <button className="font-vazirBold text-base">اعلانات</button>
+        <Button style="font-vazirBold text-base text-white px-0 py-0 hover:shadow-none">
+          اعلانات
+        </Button>
       ) : (
-        <button
-         className="font-vazirBold text-base" onClick={openModalHandler}>
+        <Button
+          style="font-vazirBold text-base text-white px-0 py-0 hover:shadow-none"
+          onClick={openModalHandler}
+        >
           ورود / ثبت نام
-        </button>
+        </Button>
       )}
 
       <Link className="font-vazirBold text-base" to="/host">

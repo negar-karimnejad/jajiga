@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
+import Button from '../ui/Button';
 
 function MoreInfos() {
   const [showMore, setShowMore] = useState(false);
@@ -23,13 +24,13 @@ function MoreInfos() {
             مطمئن باشید که تمام تیم جاجیگا رو تا پایان سفر در کنارتون خواهید
             داشت :)`}
       </p>
-      <button
+      <Button
         onClick={() => setShowMore(true)}
-        className={`${showMore ? 'hidden' : 'flex'} mx-auto mt-5 items-center justify-center gap-1 text-center font-vazirBold text-[12px] dark:text-gray-100`}
+        style={`${showMore ? 'hidden' : 'flex'} px-0 py-0 mx-auto mt-5 items-center justify-center gap-1 text-center font-vazirBold text-[12px] dark:text-gray-100`}
       >
         مشاهده بیشتر
         <IoIosArrowDown size={24} />
-      </button>
+      </Button>
     </div>
   );
 }

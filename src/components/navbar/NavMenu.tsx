@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import SigningModal from '../auth/SigningModal';
 import { useAuthModal } from '../../hooks/useAuthModal';
 import { useAuth } from '../../hooks/useAuth';
+import Button from '../ui/Button';
 
 const navMenuLinks = [
   {
@@ -155,9 +156,9 @@ function NavMenu() {
         onClick={() => setIsMenuOpen(false)}
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
-          <button className="absolute -left-3 top-2 font-vazirBold text-4xl text-white">
+          <Button style="absolute -left-3 top-2 font-vazirBold text-4xl text-white px-0 py-0 hover:shadow-none">
             &times;
-          </button>
+          </Button>
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
