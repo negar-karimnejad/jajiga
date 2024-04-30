@@ -16,12 +16,14 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
+import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <DarkMode />
+        <MobileNavigationMenu />
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/host" element={<Host />} />

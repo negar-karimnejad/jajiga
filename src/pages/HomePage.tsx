@@ -21,6 +21,7 @@ import Logo from '../components/navbar/Logo';
 import NavLinks from '../components/navbar/NavLinks';
 import NavMenu from '../components/navbar/NavMenu';
 import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer/Footer';
 
 function HomePage() {
   const [scrollYPosition, setScrollYPosition] = useState(0);
@@ -70,6 +71,7 @@ function HomePage() {
         <Comments />
         <JajigaMag />
         <MoreInfos />
+        <Footer />
       </div>
     </>
   );

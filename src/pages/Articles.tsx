@@ -8,13 +8,12 @@ import MagPost from '../components/articles/MagPost';
 import MagTravelers from '../components/articles/MagTravelers';
 import { useArticles } from '../hooks/useArticles';
 import { useCategories } from '../hooks/useCategories';
+import Loader from '../components/ui/Loader';
 
 function Articles() {
   const { knowing, hosting, travelers, wherewhy, news, loading } =
     useArticles();
   const { categories } = useCategories();
-
-  const sortedCategories = categories.slice().sort((a, b) => a.id - b.id);
 
   return (
     <div className="bg-base-200 dark:bg-gray-900">
@@ -23,10 +22,10 @@ function Articles() {
       <div className="container mb-10">
         {loading ? (
           <div className="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-white">
-            <div className="loader"></div>
+            <Loader />
           </div>
         ) : (
-          sortedCategories?.map((category) => (
+          categories?.map((category) => (
             <div key={category.id}>
               <div className="mb-5 mt-10 flex justify-between">
                 <h3 className="font-vazirBold text-2xl dark:text-white">

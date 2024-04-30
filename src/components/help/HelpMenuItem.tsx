@@ -19,7 +19,7 @@ function HelpMenuItem({
     <li>
       <Button
         onClick={() => changeActive(id)}
-        style={`flex items-center hover:shadow-none px-0 py-0 gap-2 ${isActive === id && 'font-vazirMedium'}`}
+        style={`flex items-center dark:text-white hover:shadow-none px-0 py-0 gap-2 ${isActive === id && 'font-vazirMedium'}`}
       >
         <div className="flex h-4 w-4 items-center justify-center">
           {isActive === id ? (

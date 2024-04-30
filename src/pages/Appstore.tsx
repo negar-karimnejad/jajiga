@@ -10,7 +10,7 @@ function Appstore() {
         </div>
       </div>
       <div className="h-screen bg-[#f0c807] py-9">
-        <div className="container flex flex-col items-center justify-center gap-5 lg:flex-row-reverse">
+        <div className="container flex flex-col h-full items-center justify-center gap-5 lg:flex-row-reverse">
           <img
             loading="lazy"
             src="/images/app-store/phone.png"
