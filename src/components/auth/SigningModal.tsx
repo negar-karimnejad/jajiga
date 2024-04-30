@@ -130,7 +130,6 @@ function SigningModal() {
                   className="text-[11px] text-error"
                 />
               </div>
-
               <div className="mt-4 text-center">
                 <button
                   type="submit"
