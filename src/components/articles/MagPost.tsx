@@ -13,7 +13,7 @@ function MagPost({ article }: { article: Article }) {
   const { category } = useCategory(article.category_id);
 
   return (
-    <div className="card col-span-12 dark:bg-gray-800 overflow-hidden bg-base-100 shadow-xl sm:col-span-6 lg:col-span-4">
+    <div className="card col-span-12 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
       <figure className="relative h-40">
         <div
           className="h-full w-full cursor-pointer"
@@ -43,7 +43,7 @@ function MagPost({ article }: { article: Article }) {
         <h2 className="card-title">
           <Link
             to={`/${article.title}`}
-            className="transition-all dark:text-white hover:text-sky-600"
+            className="transition-all hover:text-sky-600 dark:text-white"
           >
             {article.title}
           </Link>
@@ -52,7 +52,7 @@ function MagPost({ article }: { article: Article }) {
           <MagAuthor author={author} />
           <div className="flex items-center gap-1">
             <CiCalendarDate size={17} className="text-gray-600" />
-            <p className="whitespace-nowrap font-BKoodak text-gray-400">
+            <p className="font-persianNums whitespace-nowrap text-gray-400">
               {convertToPersianDate(article.created_at)}
             </p>
           </div>

@@ -57,7 +57,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -67,7 +67,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -91,7 +91,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -101,7 +101,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -125,7 +125,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -135,7 +135,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -159,7 +159,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -169,7 +169,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -193,7 +193,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -203,7 +203,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -227,7 +227,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -237,7 +237,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -261,7 +261,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -271,7 +271,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -295,7 +295,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -305,7 +305,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -329,7 +329,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -339,7 +339,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -363,7 +363,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -373,7 +373,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -397,7 +397,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -407,7 +407,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -431,7 +431,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -441,7 +441,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -465,7 +465,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -475,7 +475,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -499,7 +499,7 @@ function Discount() {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -509,7 +509,7 @@ function Discount() {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>

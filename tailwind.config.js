@@ -7,7 +7,7 @@ export default {
       fontFamily: {
         vazirBold: ['vazirBold', 'sans-serif'],
         vazirMedium: ['vazirMedium', 'sans-serif'],
-        BKoodak: ['BKoodak', 'sans-serif'],
+        persianNums: ['persianNums', 'sans-serif'],
       },
     },
 

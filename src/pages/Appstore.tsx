@@ -20,7 +20,7 @@ function Appstore() {
             <h3 className="font-vazirBold text-2xl text-gray-800">
               نصب اپلیکیشن جاجیگا
             </h3>
-            <p className="font-BKoodak text-lg text-gray-700">
+            <p className="font-persianNums text-lg text-gray-700">
               بیش از 21000 اقامتگاه در دستان شماست
             </p>
             <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">

@@ -13,8 +13,9 @@ function Rules() {
             نمایید.
           </p>
           <p className="mt-4 text-[11px] text-gray-500">
-            تاریخ آخرین به‌روزرسانی: <span className="font-BKoodak">28</span>{' '}
-            خرداد <span className="font-BKoodak">1402</span>
+            تاریخ آخرین به‌روزرسانی:{' '}
+            <span className="font-persianNums">28</span> خرداد{' '}
+            <span className="font-persianNums">1402</span>
           </p>
         </div>
       </div>

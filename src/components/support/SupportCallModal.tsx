@@ -27,19 +27,19 @@ function SupportCallModal({
           <section>
             <p className="mb-2 text-right">
               برای تماس تلفنی با پشتیبانی جاجیگا می توانید از ساعت
-              <strong className="font-BKoodak">8 صبح</strong> الی
-              <strong className="font-BKoodak">12 شب</strong> با شماره و داخلی
-              های زیر تماس حاصل فرمایید:
+              <strong className="font-persianNums">8 صبح</strong> الی
+              <strong className="font-persianNums">12 شب</strong> با شماره و
+              داخلی های زیر تماس حاصل فرمایید:
             </p>
-            <p className="font-BKoodak text-base font-bold">
+            <p className="font-persianNums text-base font-bold">
               شماره تماس: 01391001391
             </p>
             <div className="mt-5">
               <div className="flex flex-col gap-5 text-gray-500 dark:text-gray-300">
-                <p className="font-BKoodak">
+                <p className="font-persianNums">
                   پیگیری رزرو یا بررسی پرداخت: داخلی 1
                 </p>
-                <p className="font-BKoodak">
+                <p className="font-persianNums">
                   ویرایش یا انتشار اقامتگاه: داخلی 2
                 </p>
               </div>

@@ -82,7 +82,7 @@ function ArticlesHeader() {
             <div
               style={{ direction: 'ltr' }}
               onClick={(e) => e.stopPropagation()}
-              className={`absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-gray-100 pb-10 shadow transition-all duration-500 max-[490px]:w-[300px] sm:w-[360px] dark:bg-gray-900 ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+              className={`absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-gray-100 pb-10 shadow transition-all duration-500 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[360px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
             >
               <header className="flex w-full items-center justify-center bg-white py-3 shadow-lg dark:bg-gray-700 dark:shadow-sm dark:shadow-gray-100/50">
                 <button
@@ -118,7 +118,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-sky-600 dark:text-white">
                           سفر به کجا؟
                         </p>
-                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-600 p-0.5 font-BKoodak text-[13px] text-white">
+                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-sky-600 p-0.5 text-[13px] text-white">
                           {wherewhy.length}
                         </div>
                       </Link>
@@ -131,7 +131,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-red-600 dark:text-white">
                           جاجیگا راپُرت
                         </p>
-                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 p-0.5 font-BKoodak text-[13px] text-white">
+                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-red-600 p-0.5 text-[13px] text-white">
                           {news.length}
                         </div>
                       </Link>
@@ -144,7 +144,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-orange-600 dark:text-white">
                           بچه های سفری
                         </p>
-                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 p-0.5 font-BKoodak text-[13px] text-white">
+                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 p-0.5 text-[13px] text-white">
                           {travelers.length}
                         </div>
                       </Link>
@@ -157,7 +157,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-purple-600 dark:text-white">
                           دانستنی ها
                         </p>
-                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-purple-600 p-0.5 font-BKoodak text-[13px] text-white">
+                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-purple-600 p-0.5 text-[13px] text-white">
                           {knowing?.length}
                         </div>
                       </Link>
@@ -170,7 +170,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-emerald-600 dark:text-white">
                           میزبانی در جاجیگا
                         </p>
-                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 p-0.5 font-BKoodak text-[13px] text-white">
+                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 p-0.5 text-[13px] text-white">
                           {hosting?.length}
                         </div>
                       </Link>
@@ -195,7 +195,7 @@ function ArticlesHeader() {
         </div>
 
         {/* Start NavLinks */}
-        <div className="flex shrink-0 gap-8 text-gray-700 max-lg:hidden dark:text-gray-50">
+        <div className="flex shrink-0 gap-8 text-gray-700 dark:text-gray-50 max-lg:hidden">
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'main' ? 'text-sky-500' : ''}`}
             to="/mag"

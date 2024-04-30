@@ -15,7 +15,7 @@ interface HostDataProps {
 function Host() {
   return (
     <div className="relative dark:bg-gray-800">
-      <div className="h-36 w-full bg-yellow-400 p-5 bg-[url(/images/patterns/pattern.png)]">
+      <div className="h-36 w-full bg-yellow-400 bg-[url(/images/patterns/pattern.png)] p-5">
         <div className="container">
           <h2 className="font-vazirBold text-xl text-gray-700">
             چگونه میزبان شویم؟
@@ -33,7 +33,7 @@ function Host() {
         >
           <div className="container flex flex-col items-center justify-center gap-5 py-16 text-center">
             <h3 className="border-b-4 border-b-yellow-400 pb-2 font-vazirBold text-lg text-gray-700 dark:text-white">
-              <span className="font-BKoodak">{box.id}- </span>
+              <span className="font-persianNums">{box.id}- </span>
               {box.heading}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">

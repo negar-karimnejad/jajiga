@@ -66,7 +66,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -76,7 +76,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="font-persianNums flex gap-1 text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -100,7 +100,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -110,7 +110,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="font-persianNums flex gap-1 text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -134,7 +134,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -144,7 +144,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="font-persianNums flex gap-1 text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -168,7 +168,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -178,7 +178,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="font-persianNums flex gap-1 text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
@@ -202,7 +202,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                       <span>⚡</span> رزرو فوری
                     </p>
                   </div>
-                  <p className="font-BKoodak">
+                  <p className="font-persianNums">
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
@@ -212,7 +212,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="flex gap-1 font-BKoodak text-[13px]">
+                <p className="font-persianNums flex gap-1 text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
