@@ -3,20 +3,20 @@ import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 
 interface SendMessageValues {
-  email: string;
+  supportEmail: string;
   message: string;
 }
 const initialValues: SendMessageValues = {
-  email: '',
+  supportEmail: '',
   message: '',
 };
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string()
+  supportEmail: Yup.string()
     .email('ایمیل نامعتبر است')
     .required('لطفا ایمیل خود را وارد کنید'),
   message: Yup.string()
-    .min(5, 'متن پیام باید حداقل 3 کاراکتر باشد')
+    .min(5, 'متن پیام باید حداقل 5 کاراکتر باشد')
     .required('لطفا پیام خود را وارد کنید'),
 });
 
@@ -64,14 +64,14 @@ function SupportForm() {
             سوال خود را برای ما ارسال کنید
           </label>
           <Field
-            className={`rounded-lg border p-2 shadow-md outline-0 dark:bg-white ${touched.email && errors.email ? 'error-input border-2 border-error' : ''}`}
+            className={`rounded-lg border p-2 shadow-md outline-0 dark:bg-white ${touched.supportEmail && errors.supportEmail ? 'error-input border-2 border-error' : ''}`}
             type="email"
             placeholder="ایمیل"
-            id="email"
-            name="email"
+            id="supportEmail"
+            name="supportEmail"
           />
           <ErrorMessage
-            name="email"
+            name="supportEmail"
             component="div"
             className="text-[11px] text-error"
           />

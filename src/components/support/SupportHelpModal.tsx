@@ -1,4 +1,4 @@
-import HelpSection from '../HelpSection';
+import HelpSection from '../help/HelpSection';
 
 function SupportHelpModal({
   closeHandler,

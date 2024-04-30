@@ -1,21 +1,21 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DarkMode from './components/ui/DarkMode';
+import About from './pages/About';
 import AppLayout from './pages/AppLayout';
 import Appstore from './pages/Appstore';
 import Articles from './pages/Articles';
 import Faq from './pages/Faq';
 import Guarantee from './pages/Guarantee';
+import Help from './pages/Help';
 import HomePage from './pages/HomePage';
 import Host from './pages/Host';
 import Invite from './pages/Invite';
+import Jobs from './pages/Jobs';
 import Rules from './pages/Rules';
+import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
-import About from './pages/About';
-import Jobs from './pages/Jobs';
-import Help from './pages/Help';
-import Support from './pages/Support';
 
 function App() {
   return (

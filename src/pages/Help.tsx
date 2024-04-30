@@ -1,4 +1,4 @@
-import HelpSection from '../components/HelpSection';
+import HelpSection from '../components/help/HelpSection';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
 

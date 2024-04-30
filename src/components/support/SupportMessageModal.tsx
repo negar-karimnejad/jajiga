@@ -12,7 +12,7 @@ function SupportMessageModal({
 
   const handleButtonClick = () => {
     setShowTooltip(true);
-
+    navigator.clipboard.writeText('info@jajiga.com');
     setTimeout(() => {
       setShowTooltip(false);
     }, 1000);
