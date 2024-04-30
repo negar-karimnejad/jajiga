@@ -10,13 +10,14 @@ function MagKnowing({ article }: { article: Article }) {
   const { category } = useCategory(article.category_id);
 
   return (
-    <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 dark:bg-gray-800 shadow-xl lg:col-span-6">
+    <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 lg:col-span-6">
       <figure className="shrink-0 sm:w-1/2">
         <div
           className="relative h-full w-full cursor-pointer"
           onClick={() => navigate(`/${article.title}`)}
         >
           <img
+            loading="lazy"
             src={article.cover}
             alt={article.title}
             className="h-full w-full object-cover"
@@ -58,12 +59,14 @@ function MagKnowing({ article }: { article: Article }) {
         <h2 className="card-title">
           <Link
             to={`/${article.title}`}
-            className="transition-all mt-2 hover:text-sky-600 dark:text-white"
+            className="mt-2 transition-all hover:text-sky-600 dark:text-white"
           >
             {article.title}
           </Link>
         </h2>
-        <p className="mt-3 text-gray-500">{article.description.slice(0,80)}...</p>
+        <p className="mt-3 text-gray-500">
+          {article.description.slice(0, 80)}...
+        </p>
         <div className="mt-8 flex items-center gap-3 text-[14px]">
           <MagAuthor author={author} />
         </div>

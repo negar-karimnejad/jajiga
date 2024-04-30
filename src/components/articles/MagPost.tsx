@@ -20,6 +20,7 @@ function MagPost({ article }: { article: Article }) {
           onClick={() => navigate(`/${article.title}`)}
         >
           <img
+            loading="lazy"
             src={article.cover}
             alt={article.title}
             className="h-full w-full object-cover"
@@ -52,7 +53,7 @@ function MagPost({ article }: { article: Article }) {
           <MagAuthor author={author} />
           <div className="flex items-center gap-1">
             <CiCalendarDate size={17} className="text-gray-600" />
-            <p className="font-persianNums whitespace-nowrap text-gray-400">
+            <p className="whitespace-nowrap font-BKoodak text-gray-400">
               {convertToPersianDate(article.created_at)}
             </p>
           </div>

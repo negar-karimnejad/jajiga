@@ -40,11 +40,11 @@ function Comments() {
             }}
             className="comments-swiper cursor-default"
           >
-          
             <SwiperSlide>
               <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white dark:bg-gray-900 p-0.5">
+                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5 dark:bg-gray-900">
                   <img
+                    loading="lazy"
                     src="/images/comment.jpg"
                     alt=""
                     className="rounded-full"
@@ -96,8 +96,9 @@ function Comments() {
             </SwiperSlide>
             <SwiperSlide>
               <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white dark:bg-gray-900 p-0.5">
+                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5 dark:bg-gray-900">
                   <img
+                    loading="lazy"
                     src="/images/comment.jpg"
                     alt=""
                     className="rounded-full"
@@ -149,8 +150,9 @@ function Comments() {
             </SwiperSlide>
             <SwiperSlide>
               <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white dark:bg-gray-900 p-0.5">
+                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5 dark:bg-gray-900">
                   <img
+                    loading="lazy"
                     src="/images/comment.jpg"
                     alt=""
                     className="rounded-full"
@@ -202,8 +204,9 @@ function Comments() {
             </SwiperSlide>
             <SwiperSlide>
               <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white dark:bg-gray-900 p-0.5">
+                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5 dark:bg-gray-900">
                   <img
+                    loading="lazy"
                     src="/images/comment.jpg"
                     alt=""
                     className="rounded-full"
@@ -255,8 +258,9 @@ function Comments() {
             </SwiperSlide>
             <SwiperSlide>
               <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
-                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white dark:bg-gray-900 p-0.5">
+                <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5 dark:bg-gray-900">
                   <img
+                    loading="lazy"
                     src="/images/comment.jpg"
                     alt=""
                     className="rounded-full"

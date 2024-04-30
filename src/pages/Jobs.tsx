@@ -39,6 +39,7 @@ function Jobs() {
           </div>
           <div className="relative">
             <img
+              loading="lazy"
               src="images/jobs/job-1.png"
               alt=""
               className="rounded-lg shadow-lg dark:shadow-gray-950"
@@ -62,10 +63,11 @@ function Jobs() {
         </div>
         <div className="relative md:px-10">
           <div className="absolute -top-24 right-12 w-52 opacity-10 max-xl:hidden">
-            <img src="/images/patterns/dot.png" alt="" />
+            <img loading="lazy" src="/images/patterns/dot.png" alt="" />
           </div>
           <div className="container relative">
             <img
+              loading="lazy"
               src="/images/jobs/job-2.png"
               className="rounded-md shadow-lg shadow-gray-300 dark:shadow-gray-950"
               alt=""
@@ -78,11 +80,12 @@ function Jobs() {
 
         <div className="relative md:px-10">
           <div className="absolute -top-2 left-16 z-0 w-36 opacity-10 max-xl:hidden">
-            <img src="/images/patterns/dot.png" alt="" />
+            <img loading="lazy" src="/images/patterns/dot.png" alt="" />
           </div>
           <div className="container grid-cols-12 items-end justify-between gap-10 max-sm:space-y-10 sm:grid">
             <div className="relative col-span-12 md:col-span-7">
               <img
+                loading="lazy"
                 src="/images/jobs/job-3.png"
                 alt=""
                 className="rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
@@ -98,6 +101,7 @@ function Jobs() {
             </p>
             <div className="relative z-10 col-span-12 md:col-span-5">
               <img
+                loading="lazy"
                 src="/images/jobs/job-4.png"
                 alt=""
                 className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
@@ -117,6 +121,7 @@ function Jobs() {
 
             <div className="relative col-span-12 md:col-span-7">
               <img
+                loading="lazy"
                 src="/images/jobs/job-5.png"
                 alt=""
                 className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
@@ -129,6 +134,7 @@ function Jobs() {
           <div className="container justify-between gap-10 max-sm:space-y-10 sm:grid sm:grid-cols-12">
             <div className="relative col-span-12 md:col-span-7">
               <img
+                loading="lazy"
                 src="/images/jobs/job-6.png"
                 alt=""
                 className="w-full rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
@@ -141,6 +147,7 @@ function Jobs() {
             <div className="col-span-12 flex flex-col justify-between gap-6 max-sm:space-y-5 md:col-span-5">
               <div className="relative">
                 <img
+                  loading="lazy"
                   src="/images/jobs/job-7.png"
                   alt=""
                   className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
@@ -151,6 +158,7 @@ function Jobs() {
               </div>
               <div className="relative">
                 <img
+                  loading="lazy"
                   src="/images/jobs/job-8.png"
                   alt=""
                   className="rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
@@ -164,6 +172,7 @@ function Jobs() {
           <div className="container my-10 grid-cols-12 justify-between gap-10 max-sm:space-y-10 sm:my-20 sm:grid">
             <div className="relative col-span-12 md:col-span-7 md:mt-20">
               <img
+                loading="lazy"
                 src="/images/jobs/job-10.png"
                 alt=""
                 className="w-full rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
@@ -176,6 +185,7 @@ function Jobs() {
             <div className="col-span-12 md:col-span-5 ">
               <div className="relative">
                 <img
+                  loading="lazy"
                   src="/images/jobs/job-9.png"
                   alt=""
                   className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
@@ -198,6 +208,7 @@ function Jobs() {
             <div className="col-span-1"></div>
             <div className="relative col-span-12 md:col-span-7">
               <img
+                loading="lazy"
                 src="/images/jobs/job-11.png"
                 alt=""
                 className="rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
@@ -210,6 +221,7 @@ function Jobs() {
           <div className="container my-10 flex gap-10 max-md:flex-col">
             <div className="relative h-full w-full">
               <img
+                loading="lazy"
                 src="/images/jobs/job-12.png"
                 alt=""
                 className="h-80 w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
@@ -220,6 +232,7 @@ function Jobs() {
             </div>
             <div className="relative h-full w-full">
               <img
+                loading="lazy"
                 src="/images/jobs/job-13.png"
                 alt=""
                 className="h-80 w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"

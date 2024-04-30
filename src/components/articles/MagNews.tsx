@@ -10,7 +10,7 @@ function MagNews({ article }: { article: Article }) {
   const { category } = useCategory(article.category_id);
 
   return (
-    <div className="card card-side col-span-12 dark:bg-gray-800 h-80 overflow-hidden bg-base-100 shadow-xl">
+    <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800">
       <figure className="shrink-0 sm:w-1/2">
         <div
           className="relative h-full w-full cursor-pointer"
@@ -18,6 +18,7 @@ function MagNews({ article }: { article: Article }) {
         >
           <div className="h-full w-full">
             <img
+              loading="lazy"
               src={article.cover}
               alt={article.title}
               className="h-full w-screen object-cover"

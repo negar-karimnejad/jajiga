@@ -27,6 +27,7 @@ function About() {
             </div>
             <div className="flex-1">
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img1.jpg"
                 alt=""
@@ -36,6 +37,7 @@ function About() {
           <div className="flex w-full items-center gap-16 max-md:flex-col">
             <div className="flex-1">
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img2.jpg"
                 alt=""
@@ -70,6 +72,7 @@ function About() {
               data-aos-duration="4000"
             >
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img3.jpg"
                 alt=""
@@ -80,6 +83,7 @@ function About() {
         <div className="container">
           <div data-aos="fade-up">
             <img
+              loading="lazy"
               src="/images/about/about_img4.jpg"
               alt=""
               className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
@@ -98,6 +102,7 @@ function About() {
                 هتل ها و اقامتگاههای استاندارد فراهم نمیگردد.
               </p>
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img6.jpg"
                 alt=""
@@ -115,6 +120,7 @@ function About() {
               data-aos-duration="4000"
             >
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 md:w-[800px]"
                 src="/images/about/about_img5.jpg"
                 alt=""
@@ -133,6 +139,7 @@ function About() {
                 آداب و رسوم , لباس ها , غذاها و جشنهای محلی بهره ببرند{' '}
               </p>
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 md:w-64"
                 src="/images/about/about_img7.jpg"
                 alt=""
@@ -140,6 +147,7 @@ function About() {
             </div>
             <div data-aos="fade-left" data-aos-duration="4000">
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img8.jpg"
                 alt=""
@@ -168,6 +176,7 @@ function About() {
               data-aos-duration="4000"
             >
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img9.jpg"
                 alt=""
@@ -179,6 +188,7 @@ function About() {
         <div className="container">
           <div data-aos="fade-up">
             <img
+              loading="lazy"
               src="/images/about/about_img10.jpg"
               alt=""
               className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
@@ -193,6 +203,7 @@ function About() {
               data-aos-duration="4000"
             >
               <img
+                loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 md:w-72"
                 src="/images/about/about_img11.jpg"
                 alt=""
@@ -236,6 +247,7 @@ function About() {
               data-aos-duration="4000"
             >
               <img
+                loading="lazy"
                 className="w-[500px] rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img12.jpg"
                 alt=""
@@ -247,6 +259,7 @@ function About() {
           <div className="flex w-full items-center gap-16 max-md:flex-col-reverse">
             <div>
               <img
+                loading="lazy"
                 data-aos="fade-down"
                 data-aos-duration="4000"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
@@ -268,6 +281,7 @@ function About() {
           </div>
           <div>
             <img
+              loading="lazy"
               data-aos="fade-down"
               data-aos-duration="4000"
               className="mx-auto rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 max-md:my-5 md:-mt-14 md:w-60"
@@ -277,6 +291,7 @@ function About() {
           </div>
           <div>
             <img
+              loading="lazy"
               data-aos="fade-down"
               data-aos-duration="4000"
               className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 max-md:mx-auto md:float-end md:-mt-10 md:w-60"

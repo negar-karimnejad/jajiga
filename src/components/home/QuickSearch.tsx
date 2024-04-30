@@ -38,6 +38,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -57,6 +58,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -76,6 +78,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -95,6 +98,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -114,6 +118,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -133,6 +138,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -152,6 +158,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -171,6 +178,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -190,6 +198,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -209,6 +218,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""
@@ -228,6 +238,7 @@ function QuickSearch() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/about/about_img5.jpg"
                     className="block w-full"
                     alt=""

@@ -10,11 +10,11 @@ function WhiteBgNavbar() {
       <div className="cursor-pointer rounded-full border px-2 dark:border-gray-500">
         <NavMenu />
       </div>
-      <div className="flex shrink-0 gap-8 text-gray-500 max-md:hidden dark:text-white">
+      <div className="flex shrink-0 gap-8 text-gray-500 dark:text-white max-md:hidden">
         <NavLinks />
       </div>
       <div className="flex items-center gap-2 sm:w-full">
-        <div className="h-10 w-10 rounded-full border p-1 max-md:hidden dark:border-gray-500">
+        <div className="h-10 w-10 rounded-full border p-1 dark:border-gray-500 max-md:hidden">
           <svg
             className="sc-679cb2a8-0 iBzALU sc-31312756-1 cbqNKi"
             fill="none"
@@ -75,7 +75,12 @@ function WhiteBgNavbar() {
         <NavSearch />
       </div>
       <Link to="/" className="max-lg:hidden sm:shrink-0">
-        <img src="/images/logo/logo2.png" className="w-36" alt="" />
+        <img
+          loading="lazy"
+          src="/images/logo/logo2.png"
+          className="w-36"
+          alt=""
+        />
       </Link>
       <div className=" sm:shrink-0 lg:hidden">
         <Logo withTitle={false} />

@@ -52,6 +52,7 @@ function JajigaMag() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/1.jpg"
                     className="block h-64 w-full object-cover"
                     alt=""
@@ -75,6 +76,7 @@ function JajigaMag() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/1.jpg"
                     className="block h-64 w-full object-cover"
                     alt=""
@@ -98,6 +100,7 @@ function JajigaMag() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/1.jpg"
                     className="block h-64 w-full object-cover"
                     alt=""
@@ -121,6 +124,7 @@ function JajigaMag() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/1.jpg"
                     className="block h-64 w-full object-cover"
                     alt=""
@@ -144,6 +148,7 @@ function JajigaMag() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/1.jpg"
                     className="block h-64 w-full object-cover"
                     alt=""
@@ -167,6 +172,7 @@ function JajigaMag() {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/1.jpg"
                     className="block h-64 w-full object-cover"
                     alt=""

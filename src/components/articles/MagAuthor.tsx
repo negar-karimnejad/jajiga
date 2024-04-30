@@ -15,6 +15,7 @@ function MagAuthor({ author, lightColor }: MagAuthorProps) {
       className="group flex items-center gap-2"
     >
       <img
+        loading="lazy"
         src={author?.profile}
         alt=""
         className="h-7 w-7 cursor-pointer rounded-full object-cover"

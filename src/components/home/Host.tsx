@@ -24,6 +24,7 @@ function Host() {
         </div>
         <div className="flex-1">
           <img
+            loading="lazy"
             src="/images/becomeHost.jpg"
             alt=""
             className="h-full w-full rounded-2xl object-cover"

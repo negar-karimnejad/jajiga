@@ -52,6 +52,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/quick-search/1.jpg"
                     className="block w-full"
                     alt=""
@@ -86,6 +87,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/quick-search/1.jpg"
                     className="block w-full"
                     alt=""
@@ -120,6 +122,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/quick-search/1.jpg"
                     className="block w-full"
                     alt=""
@@ -154,6 +157,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/quick-search/1.jpg"
                     className="block w-full"
                     alt=""
@@ -188,6 +192,7 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Link to="">
                   <img
+                    loading="lazy"
                     src="/images/quick-search/1.jpg"
                     className="block w-full"
                     alt=""

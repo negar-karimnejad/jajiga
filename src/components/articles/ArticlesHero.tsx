@@ -27,6 +27,7 @@ function ArticlesHero() {
             onClick={() => navigate(`${article.title.replaceAll(' ', '-')}`)}
           >
             <img
+              loading="lazy"
               src={article.cover}
               className="h-[500px] w-screen object-cover max-xl:h-[400px]"
               alt="hero"
