@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BiEnvelope } from 'react-icons/bi';
+import Button from '../ui/Button';
 
 function SupportMessageModal({
   closeHandler,
@@ -27,12 +28,12 @@ function SupportMessageModal({
         onClick={(e) => e.stopPropagation()}
         className={`rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:bg-gray-700 dark:text-white max-[600px]:w-[450px] max-[490px]:w-[300px] min-[600px]:w-[500px] ${isOpen === 3 ? 'translate-y-0' : 'translate-y-96'}`}
       >
-        <button
+        <Button
           onClick={closeHandler}
-          className="absolute -top-10 left-2 font-vazirBold text-4xl text-white"
+          style="absolute -top-10 left-2 px-0 py-0 hover:shadow-none font-vazirBold text-4xl text-white"
         >
           &times;
-        </button>
+        </Button>
         <div className="flex flex-col items-center justify-center text-center">
           <div className="pb-5 font-vazirBold text-lg">
             ارسال ایمیل/نامه به جاجیگا
@@ -46,13 +47,13 @@ function SupportMessageModal({
                   className={`tooltip tooltip-open absolute transition-all ${showTooltip ? 'visible translate-y-0' : 'invisible -z-10 translate-y-5'}`}
                   data-tip="کپی شد"
                 ></div>
-                <button
+                <Button
                   onClick={handleButtonClick}
-                  className="btn btn-ghost mx-auto  flex w-fit items-center justify-center gap-2 rounded-md bg-yellow-400 p-2 px-4 font-vazirMedium text-base text-gray-800 shadow-md transition-all hover:bg-yellow-500"
+                  style="btn btn-ghost mx-auto flex w-fit items-center justify-center gap-2 rounded-md bg-yellow-400 p-2 px-4 font-vazirMedium text-base text-gray-800 shadow-md transition-all hover:bg-yellow-500"
                 >
                   <p>info@jajiga.com</p>
                   <BiEnvelope />
-                </button>
+                </Button>
               </div>
               <p className="sc-c1a7c107-0 cUZHNR">
                 <strong>آدرس پستی جاجیگا:</strong> پارک علم و فناوری گیلان -

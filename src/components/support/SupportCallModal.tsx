@@ -1,4 +1,5 @@
 import { LiaPhoneVolumeSolid } from 'react-icons/lia';
+import Button from '../ui/Button';
 
 function SupportCallModal({
   closeHandler,
@@ -16,12 +17,12 @@ function SupportCallModal({
         onClick={(e) => e.stopPropagation()}
         className={`rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:bg-gray-700 dark:text-white max-[600px]:w-[450px] max-[490px]:w-[300px] min-[600px]:w-[500px] ${isOpen === 2 ? 'translate-y-0' : 'translate-y-96'}`}
       >
-        <button
+        <Button
           onClick={closeHandler}
-          className="absolute -top-10 left-2 font-vazirBold text-4xl text-white"
+          style="absolute -top-10 left-2 px-0 py-0 hover:shadow-none font-vazirBold text-4xl text-white"
         >
           &times;
-        </button>
+        </Button>
         <div className="flex flex-col items-center justify-center text-center">
           <div className="pb-5 font-vazirBold text-lg">تماس با پشتیبانی</div>
           <section>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import Button from './Button';
 
 interface FaqDateProps {
   id: number;
@@ -17,8 +18,8 @@ function FaqList({ list }: { list: FaqDateProps[] }) {
             key={item.id}
             className="relative my-4 rounded-md border border-gray-100 bg-white p-2 shadow-sm shadow-gray-300 dark:border dark:border-gray-700 dark:bg-gray-800 dark:shadow-md dark:shadow-gray-950"
           >
-            <button
-              className="w-full"
+            <Button
+              style="w-full px-0 py-0 hover:shadow-none"
               onClick={() =>
                 setOpenAnswer((prev) => (prev === item.id ? 0 : item.id))
               }
@@ -37,10 +38,10 @@ function FaqList({ list }: { list: FaqDateProps[] }) {
                   className="absolute left-2 top-3 dark:text-gray-200"
                 />
               )}
-            </button>
+            </Button>
             <p
               dangerouslySetInnerHTML={{ __html: item.answer }}
-              className={`overflow-hidden text-sm leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${openAnswer === item.id ? 'visible min-h-fit max-h-[100rem] py-5' : 'invisible max-h-0'}`}
+              className={`overflow-hidden text-sm leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${openAnswer === item.id ? 'visible max-h-[100rem] min-h-fit py-5' : 'invisible max-h-0'}`}
             ></p>
           </div>
         ))}

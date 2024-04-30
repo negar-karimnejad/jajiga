@@ -18,9 +18,9 @@ import {
 } from 'react-icons/pi';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
-import SigningModal from '../auth/SigningModal';
-import { useAuthModal } from '../../hooks/useAuthModal';
 import { useAuth } from '../../hooks/useAuth';
+import { useAuthModal } from '../../hooks/useAuthModal';
+import SigningModal from '../auth/SigningModal';
 import Button from '../ui/Button';
 
 const navMenuLinks = [
@@ -152,7 +152,7 @@ function NavMenu() {
 
       {/* NavMenue Modal */}
       <div
-        className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 ${isMenuOpen ? 'visible z-50 opacity-100' : 'invisible z-0 opacity-0'}`}
+        className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 ${isMenuOpen ? 'visible z-50' : 'invisible z-0'}`}
         onClick={() => setIsMenuOpen(false)}
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
@@ -182,15 +182,15 @@ function NavMenu() {
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-              <button
+              <Button
                 onClick={() => {
                   setIsMenuOpen(false);
                   openModalHandler();
                 }}
-                className="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-600 dark:text-white"
+                style="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 hover:shadow-md hover:bg-gray-300 dark:bg-gray-600 dark:text-white"
               >
                 ورود / ثبت نام
-              </button>
+              </Button>
             </header>
             <div className="my-3 border-b"></div>
             <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">
@@ -218,9 +218,9 @@ function NavMenu() {
                   onClick={() => signoutFunc()}
                   className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <button
+                  <Button
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center gap-4"
+                    style="flex items-center gap-4 px-0 py-0 hover:shadow-none"
                   >
                     <span className="text-lg text-gray-500 dark:text-gray-400">
                       <BiExit />
@@ -228,7 +228,7 @@ function NavMenu() {
                     <span className="font-vazirBold text-gray-500 dark:text-gray-400">
                       خروج
                     </span>
-                  </button>
+                  </Button>
                 </li>
               )}
             </ul>

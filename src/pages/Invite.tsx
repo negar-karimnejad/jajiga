@@ -2,6 +2,7 @@ import { BsShare, BsSuitcase } from 'react-icons/bs';
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2';
 import FaqList from '../components/ui/FaqList';
 import { faqDate } from '../data/data';
+import Button from '../components/ui/Button';
 
 function Invite() {
   return (
@@ -58,9 +59,9 @@ function Invite() {
               برای شروع باید در سایت جاجیگا ثبت نام کنید
             </p>
             <div className="mx-auto w-32">
-              <button className="w-full rounded-md bg-yellow-400 p-2 text-gray-700 transition-all hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
+              <Button style="w-full rounded-md bg-yellow-400 text-gray-700 hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
                 ورود و ثبت نام
-              </button>
+              </Button>
             </div>
           </div>
 

@@ -1,7 +1,6 @@
-import { GoKey } from 'react-icons/go';
-import { GrDocumentUpdate } from 'react-icons/gr';
-import { TfiSpray } from 'react-icons/tfi';
+import Button from '../components/ui/Button';
 import FaqList from '../components/ui/FaqList';
+import { faqDate, guaranteeData } from '../data/data';
 
 function Guarantee() {
   return (
@@ -53,74 +52,31 @@ function Guarantee() {
               ضمانت برگشت وجه پرداختی شما
             </h3>
             <div className="flex gap-5 max-lg:container max-md:flex-col">
-              <div className="flex flex-col items-center justify-center gap-5 rounded-lg border border-gray-100 bg-white px-3 py-5 shadow-md dark:border-gray-800 dark:bg-gray-900 dark:shadow-lg dark:shadow-gray-950">
-                <div className="rounded-full border-4 border-yellow-400 p-3 dark:text-white">
-                  <GoKey size={40} />
+              {guaranteeData.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-col items-center justify-center gap-5 rounded-lg border border-gray-100 bg-white px-3 py-5 shadow-md dark:border-gray-800 dark:bg-gray-900 dark:shadow-lg dark:shadow-gray-950"
+                >
+                  <div className="rounded-full border-4 border-yellow-400 p-3 dark:text-white">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-vazirBold text-base dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-center text-sm leading-6 text-gray-700 dark:text-gray-300">
+                    {item.content}
+                  </p>
+                  <div className="w-5/6">
+                    <Button style="w-full rounded-full bg-yellow-400 text-gray-700 hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
+                      ثبت شکایت
+                    </Button>
+                  </div>
                 </div>
-                <h3 className="font-vazirBold text-base dark:text-white">
-                  اقامتگاه با مشخصات مطابقت ندارد!
-                </h3>
-                <p className="text-center text-sm leading-6 text-gray-700 dark:text-gray-300">
-                  مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتی که اقامتگاه
-                  تحویل داده شده با مشخصات و آدرس ثبت شده در سند رزرو اختلاف
-                  فاحش داشته باشد، حداکثر تا ساعت 10 صبح روز بعد از تاریخ شروع
-                  رزرو مهلت دارید تا با ثبت شکایت و ارائه مدارک لازم، امکان
-                  پیگیری را برای پشتیبانی جاجیگا فراهم نمایید. (پس از پایان مهلت
-                  مذکور، مبلغ اجاره با میزبان تسویه خواهد شد).
-                </p>
-                <div className="w-5/6">
-                  <button 
-                  className="w-full rounded-full bg-yellow-400 p-2 text-gray-700 transition-all hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
-                    ثبت شکایت
-                  </button>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-5 rounded-lg border border-gray-100 bg-white px-3 py-5 shadow-md dark:border-gray-800 dark:bg-gray-900 dark:shadow-lg dark:shadow-gray-950">
-                <div className="rounded-full border-4 border-yellow-400 p-3 dark:text-white">
-                  <GrDocumentUpdate size={40} />
-                </div>
-                <h3 className="font-vazirBold text-base dark:text-white">
-                  اقامتگاه به من تحویل داده نشده!
-                </h3>
-                <p className="text-center text-sm leading-6 text-gray-700 dark:text-gray-300">
-                  مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتی که اقامتگاهِ
-                  رزرو شده، در تاریخ و ساعت درج شده در سند رزرو، به شما تحویل
-                  نشده باشد، حداکثر تا ساعت 10 صبح روز بعد از تاریخ شروع رزرو
-                  مهلت دارید تا با ثبت شکایت امکان پیگیری را برای پشتیبانی
-                  جاجیگا فراهم نمایید. (نکته: پس از پایان مهلت مذکور، مبلغ اجاره
-                  بها با میزبان تسویه خواهد شد).
-                </p>
-                <div className="w-5/6">
-                  <button className="w-full rounded-full bg-yellow-400 p-2 text-gray-700 transition-all hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
-                    ثبت شکایت
-                  </button>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-5 rounded-lg border border-gray-100 bg-white px-3 py-5 shadow-md dark:border-gray-800 dark:bg-gray-900 dark:shadow-lg dark:shadow-gray-950">
-                <div className="rounded-full border-4 border-yellow-400 p-3 dark:text-white">
-                  <TfiSpray size={40} />
-                </div>
-                <h3 className="font-vazirBold text-base dark:text-white">
-                  اقامتگاه کثیف است و نظافت نشده{' '}
-                </h3>
-                <p className="text-center text-sm leading-6 text-gray-700 dark:text-gray-300">
-                  مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتیکه اقامتگاه
-                  تحویل داده شده بصورت مناسب نظافت نشده و بصورت واضحی کثیف است،
-                  حداکثر تا ساعت 10 صبح روز بعد از تاریخ شروع رزرو مهلت دارید تا
-                  با ثبت شکایت و ارائه مدارک لازم، امکان پیگیری را برای پشتیبانی
-                  جاجیگا فراهم نمایید. (پس از پایان مهلت مذکور، مبلغ اجاره با
-                  میزبان تسویه خواهد شد).
-                </p>
-                <div className="w-5/6">
-                  <button className="w-full rounded-full bg-yellow-400 p-2 text-gray-700 transition-all hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
-                    ثبت شکایت
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="max-lg:container">
-            <div className="flex max-md:items-center gap-5 bg-gradient-to-l from-sky-950 to-sky-600 p-5 max-md:flex-col">
+            <div className="flex gap-5 bg-gradient-to-l from-sky-950 to-sky-600 p-5 max-md:flex-col max-md:items-center">
               <svg
                 className="h-16 w-16 md:h-24 md:w-24"
                 fill="currentColor"
@@ -160,7 +116,7 @@ function Guarantee() {
             <h2 className="mb-3 text-center font-vazirBold text-lg dark:text-white md:text-2xl">
               سوالات متداول
             </h2>
-            <FaqList />
+            <FaqList list={faqDate} />
           </div>
         </div>
       </div>

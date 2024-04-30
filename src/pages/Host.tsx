@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { hostData } from '../data/data';
+import Button from '../components/ui/Button';
 
 interface HostDataProps {
   id: number;
@@ -67,9 +68,9 @@ function Host() {
       ))}
       <div className="sticky bottom-0 py-2">
         <div className="mx-auto h-16 w-80 rounded-md bg-neutral-600 px-5 py-3">
-          <button className="h-full w-full rounded-full bg-yellow-400 text-gray-800 transition-all hover:bg-yellow-500">
+          <Button style="h-full w-full rounded-full bg-yellow-400 text-gray-800 hover:bg-yellow-500">
             ثبت اقامتگاه
-          </button>
+          </Button>
         </div>
       </div>
     </div>

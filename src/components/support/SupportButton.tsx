@@ -1,3 +1,5 @@
+import Button from '../ui/Button';
+
 function SupportButton({
   id,
   title,
@@ -8,9 +10,9 @@ function SupportButton({
   openHandler: (id: number) => void;
 }) {
   return (
-    <button
+    <Button
       onClick={() => openHandler(id)}
-      className="mt-10 flex flex-1 flex-col items-center justify-center gap-2 rounded-md border bg-white p-2 text-gray-800 shadow-md"
+      style="mt-10 flex flex-1 flex-col items-center justify-center gap-2 rounded-md border bg-white p-2 text-gray-800 shadow-md"
     >
       {id === 1 && (
         <svg
@@ -160,7 +162,7 @@ function SupportButton({
         </svg>
       )}
       <span>{title}</span>
-    </button>
+    </Button>
   );
 }
 

@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
+import Button from '../ui/Button';
 
 interface SendMessageValues {
   supportEmail: string;
@@ -89,12 +90,12 @@ function SupportForm() {
             component="div"
             className="text-[11px] text-error"
           />
-          <button
+          <Button
             type="submit"
-            className="rounded-md bg-yellow-400 p-2 font-vazirMedium text-base text-gray-800 shadow-md transition-all hover:bg-yellow-500"
+            style="rounded-md bg-yellow-400 p-2 font-vazirMedium text-base text-gray-800 shadow-md hover:bg-yellow-500"
           >
             ارسال
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>

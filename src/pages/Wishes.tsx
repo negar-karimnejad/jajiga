@@ -3,6 +3,7 @@ import { TiHeartOutline } from 'react-icons/ti';
 import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
+import Button from '../components/ui/Button';
 
 function Wishes() {
   return (
@@ -62,10 +63,10 @@ function Wishes() {
               <TiHeartOutline size={24} className="text-red-500" />
               به این لیست اضافه کن، تا وقتی تخفیف میخوره خبرت کنیم
             </div>
-            <button className="flex items-center gap-2 rounded-md bg-yellow-400 px-3 py-2 transition-all hover:bg-yellow-500 dark:text-black">
+            <Button style="flex items-center gap-2 rounded-md bg-yellow-400 px-3 py-2 transition-all hover:bg-yellow-500 dark:text-black">
               <BiSearch />
               جستجو
-            </button>
+            </Button>
           </div>
         </div>
       </div>

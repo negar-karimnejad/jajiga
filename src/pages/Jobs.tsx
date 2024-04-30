@@ -1,8 +1,12 @@
+import { useRef } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
+import Button from '../components/ui/Button';
 import FaqList from '../components/ui/FaqList';
 import { jobsData } from '../data/data';
 
 function Jobs() {
+  const buttonRef = useRef<HTMLDivElement>(null);
+
   return (
     <div>
       <div
@@ -20,10 +24,18 @@ function Jobs() {
                 می‌کنیم.
               </p>
             </div>
-            <button className="flex rounded-full bg-gray-100 px-3 py-2 shadow-lg transition-all hover:bg-gray-300 md:mx-auto">
+            <Button
+              onClick={() => {
+                buttonRef.current?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+              }}
+              style="flex rounded-full bg-gray-100 px-3 py-2 shadow-lg hover:bg-gray-300 md:mx-auto"
+            >
               <span className="font-persianNums">7 فرصت های شغلی</span>
               <BiChevronDown size={24} />
-            </button>
+            </Button>
           </div>
           <div className="relative">
             <img
@@ -224,7 +236,7 @@ function Jobs() {
         className="bg-yellow-400 pb-20 pt-10 md:pb-32"
         style={{ clipPath: 'polygon(0px 0px, 100% 5%, 100% 100%, 0% 100%)' }}
       >
-        <div className="container my-20 gap-10 md:w-2/3">
+        <div ref={buttonRef} className="container my-20 gap-10 md:w-2/3">
           <p className="mb-10 text-justify text-base leading-7 text-gray-600">
             پس اگر در رشته‌ای مرتبط متخصص و ماهر هستید، اگر سخت‌کوش و باانگیزه
             هستید، اگر ساکن گیلان هستید یا علاقه مندید ساکن گیلان زیبا بشید، اگر
