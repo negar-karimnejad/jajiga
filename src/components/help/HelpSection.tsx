@@ -9,7 +9,7 @@ function HelpSection({ modal }: { modal?: boolean }) {
   const resetActive = () => {
     setIsActive(0);
   };
-  
+
   const changeActive = (id: number) => {
     setIsActive(id);
   };

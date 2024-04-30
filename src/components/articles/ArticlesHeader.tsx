@@ -64,7 +64,8 @@ function ArticlesHeader() {
                       type="text"
                       placeholder="عبارت کلیدی خود را بنویسید..."
                     />
-                    <button className="w-full bg-sky-400 p-2 text-white transition-all hover:bg-sky-500 hover:shadow-md">
+                    <button 
+                    className="w-full bg-sky-400 p-2 text-white transition-all hover:bg-sky-500 hover:shadow-md">
                       جستجو
                     </button>
                   </form>

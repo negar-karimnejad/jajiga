@@ -11,7 +11,8 @@ function NavLinks() {
       {user ? (
         <button className="font-vazirBold text-base">اعلانات</button>
       ) : (
-        <button className="font-vazirBold text-base" onClick={openModalHandler}>
+        <button
+         className="font-vazirBold text-base" onClick={openModalHandler}>
           ورود / ثبت نام
         </button>
       )}

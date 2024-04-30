@@ -69,7 +69,8 @@ function Guarantee() {
                   مذکور، مبلغ اجاره با میزبان تسویه خواهد شد).
                 </p>
                 <div className="w-5/6">
-                  <button className="w-full rounded-full bg-yellow-400 p-2 text-gray-700 transition-all hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
+                  <button 
+                  className="w-full rounded-full bg-yellow-400 p-2 text-gray-700 transition-all hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
                     ثبت شکایت
                   </button>
                 </div>
