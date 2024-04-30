@@ -10,7 +10,8 @@ import { useArticles } from '../hooks/useArticles';
 import { useCategories } from '../hooks/useCategories';
 
 function Articles() {
-  const { knowing, hosting, travelers, wherewhy, news } = useArticles();
+  const { knowing, hosting, travelers, wherewhy, news, loading } =
+    useArticles();
   const { categories } = useCategories();
 
   const sortedCategories = categories.slice().sort((a, b) => a.id - b.id);
@@ -20,47 +21,55 @@ function Articles() {
       <ArticlesHeader />
       <ArticlesHero />
       <div className="container mb-10">
-        {sortedCategories?.map((category) => (
-          <div key={category.id}>
-            <div className="mb-5 mt-10 flex justify-between">
-              <h3 className="font-vazirBold text-2xl dark:text-white">
-                {category.title}
-              </h3>
-              <Link
-                to="category/wherewhy"
-                className="h-fit w-fit rounded-full bg-base-100 px-3 py-1 text-sm transition-all hover:bg-base-300 dark:hover:bg-base-content dark:hover:text-white"
-              >
-                بیشتر
-              </Link>
-            </div>
-            <div className=" grid grid-cols-12 gap-5">
-              {category.id === 1 &&
-                wherewhy.map((article) => (
-                  <MagPost key={article.id} article={article} />
-                ))}
-              {category.id === 2 &&
-                hosting.map((article) => (
-                  <MagNews key={article.id} article={article} />
-                ))}
-              {category.id === 4 &&
-                knowing.map((article) => (
-                  <MagKnowing key={article.id} article={article} />
-                ))}
-              {category.id === 3 &&
-                travelers.map((article) => {
-                  if (article.id % 2 === 0) {
-                    return <MagTravelers key={article.id} article={article} />;
-                  } else {
-                    return <MagPost key={article.id} article={article} />;
-                  }
-                })}
-              {category.id === 5 &&
-                news.map((article) => (
-                  <MagNews key={article.id} article={article} />
-                ))}
-            </div>
+        {loading ? (
+          <div className="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-white">
+            <div className="loader"></div>
           </div>
-        ))}
+        ) : (
+          sortedCategories?.map((category) => (
+            <div key={category.id}>
+              <div className="mb-5 mt-10 flex justify-between">
+                <h3 className="font-vazirBold text-2xl dark:text-white">
+                  {category.title}
+                </h3>
+                <Link
+                  to="category/wherewhy"
+                  className="h-fit w-fit rounded-full bg-gray-300 px-3 py-1 text-sm transition-all hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-950 dark:hover:text-white"
+                >
+                  بیشتر
+                </Link>
+              </div>
+              <div className=" grid grid-cols-12 gap-5">
+                {category.id === 1 &&
+                  wherewhy.map((article) => (
+                    <MagPost key={article.id} article={article} />
+                  ))}
+                {category.id === 2 &&
+                  hosting.map((article) => (
+                    <MagNews key={article.id} article={article} />
+                  ))}
+                {category.id === 4 &&
+                  knowing.map((article) => (
+                    <MagKnowing key={article.id} article={article} />
+                  ))}
+                {category.id === 3 &&
+                  travelers.map((article) => {
+                    if (article.id % 2 === 0) {
+                      return (
+                        <MagTravelers key={article.id} article={article} />
+                      );
+                    } else {
+                      return <MagPost key={article.id} article={article} />;
+                    }
+                  })}
+                {category.id === 5 &&
+                  news.map((article) => (
+                    <MagNews key={article.id} article={article} />
+                  ))}
+              </div>
+            </div>
+          ))
+        )}
       </div>
       <ArticlesFooter />
     </div>
