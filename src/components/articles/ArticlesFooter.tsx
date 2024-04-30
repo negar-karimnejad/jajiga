@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { QuickSearchLinks } from '../footer/QuickSearch';
 import Logo from '../navbar/Logo';
 import ArticlesSocials from './ArticlesSocials';
+import Button from '../ui/Button';
 
 function ArticlesFooter() {
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ function ArticlesFooter() {
   };
 
   return (
-    <div className="bg-yellow-400 py-5 dark:bg-yellow-950">
+    <div className="bg-yellow-400 py-5 dark:bg-gray-950">
       <div className="container grid grid-cols-12 gap-y-10">
         <div className="flex flex-col items-center gap-3 max-md:col-span-12 md:col-span-6 lg:col-span-4">
           <h3 className="font-vazirBold text-lg dark:text-white">لینک ها</h3>
@@ -67,16 +68,16 @@ function ArticlesFooter() {
               required
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button
+            <Button
               type="submit"
-              className="btn w-full bg-red-600 p-2 text-white transition-all hover:bg-red-700 hover:shadow-xl"
+              style="bg-red-600 text-white hover:bg-red-700"
             >
               اشتراک در خبرنامه
-            </button>
+            </Button>
           </form>
         </div>
       </div>
-      <div className="mx-auto mt-10 flex items-center justify-center text-center text-[12px] text-gray-600 max-sm:max-w-96 dark:text-gray-300">
+      <div className="mx-auto mt-10 flex items-center justify-center text-center text-[12px] text-gray-600 dark:text-gray-300 max-sm:max-w-96">
         کلیه حقوق این وبسایت متعلق به شرکت تجارت الکترونیک لوتوس آرمانی (سهامی
         خاص) می‌باشد.
       </div>

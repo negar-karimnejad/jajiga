@@ -4,7 +4,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-  className?: string;
+  style?: string;
   children: ReactNode;
 }
 
@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   disabled = false,
-  className = '',
+  style = '',
   children,
 }) => {
   return (
@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       type={type}
       disabled={disabled}
-      className={`w-full rounded-md bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500 ${className ? className : ''}`}
+      className={`w-full rounded-md p-2 text-gray-800 transition-all hover:shadow-lg ${style}`}
     >
       {children}
     </button>
