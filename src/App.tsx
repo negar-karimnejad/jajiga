@@ -17,6 +17,7 @@ import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
+import Room from './pages/Room';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/rules" element={<Rules />} />
             <Route path="/about" element={<About />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/room/:id" element={<Room />} />
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
