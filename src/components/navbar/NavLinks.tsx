@@ -14,12 +14,12 @@ function NavLinks() {
           اعلانات
         </Button>
       ) : (
-        <Button
-          style="font-vazirBold text-base text-white px-0 py-0 hover:shadow-none"
+        <button
+          className="font-vazirBold text-base px-0 py-0 hover:shadow-none"
           onClick={openModalHandler}
         >
           ورود / ثبت نام
-        </Button>
+        </button>
       )}
 
       <Link className="font-vazirBold text-base" to="/host">
