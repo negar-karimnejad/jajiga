@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import { CiCircleQuestion, CiClock1 } from 'react-icons/ci';
 import { GiBarbecue, GiHomeGarage, GiVacuumCleaner } from 'react-icons/gi';
@@ -28,10 +28,72 @@ import RoomSidebar from './RoomSidebar';
 function RoomMain() {
   const [isShowInfo, setIsShowInfo] = useState(false);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const scrollToRef = (ref: HTMLElement | null) => {
+    ref?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
-      <div className="container my-10 flex flex-col-reverse gap-5 md:grid md:grid-cols-12">
-        <div className="md:col-span-8">
+      <div
+        ref={containerRef}
+        className="container mb-5 mt-10 flex flex-col-reverse gap-5 dark:text-white md:grid md:grid-cols-12"
+      >
+        <div className="relative md:col-span-8" id="featuresRef">
+          <div className="sticky top-20 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg max-md:hidden">
+            <ul className="flex items-center gap-8 text-sm text-white">
+              <li className="cursor-pointer" onClick={() => scrollToTop()}>
+                تصاویر
+              </li>
+              <li
+                className="cursor-pointer"
+                onClick={() =>
+                  scrollToRef(document.getElementById('featuresRef'))
+                }
+              >
+                مشخصات
+              </li>
+              <li
+                className="cursor-pointer"
+                onClick={() =>
+                  scrollToRef(document.getElementById('calenderRef'))
+                }
+              >
+                نرخ
+              </li>
+              <li
+                className="cursor-pointer"
+                onClick={() => scrollToRef(document.getElementById('mapRef'))}
+              >
+                نقشه
+              </li>
+              <li
+                className="cursor-pointer"
+                onClick={() =>
+                  scrollToRef(document.getElementById('commentsRef'))
+                }
+              >
+                نظرات
+              </li>
+              <li
+                className="cursor-pointer"
+                onClick={() => scrollToRef(document.getElementById('hostRef'))}
+              >
+                میزبان
+              </li>
+            </ul>
+          </div>
+
           <Breadcrumb pageLink="ساوجبلاغ" links={['البرز']} />
           <div className="flex items-center justify-between">
             <h4 className="font-vazirBold text-base dark:text-white">
@@ -64,7 +126,7 @@ function RoomMain() {
             </span>
           </div>
 
-          <div className="mt-5 flex items-center justify-around bg-gray-100 p-5 dark:bg-gray-800">
+          <div className="mt-5 flex items-center justify-around bg-gray-100 p-5 dark:bg-gray-800 max-sm:px-0">
             <div className="flex flex-col items-center gap-2">
               <HiOutlineHome className="dark:text-gray-200" size={30} />
               <span className="font-persianNums text-[13px] dark:text-gray-200">
@@ -93,7 +155,7 @@ function RoomMain() {
 
           <div className="mt-5">
             <h4 className="font-vazirBold text-lg">درباره اقامتگاه</h4>
-            <p className="mt-5 text-sm leading-7 text-gray-600">
+            <p className="mt-5 text-sm leading-7 text-gray-600 dark:text-gray-400 max-md:text-justify">
               <strong className="text-gray-900">
                 اجاره ویلا استخردار در ساوجبلاغ - کوشک زر
               </strong>
@@ -136,71 +198,89 @@ function RoomMain() {
                 استخر روباز موجود در محوطه در حال حاضر غیر فعال می باشد.
               </strong>
             </p>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
           <div className="mt-5">
             <h4 className="mb-3 font-vazirBold text-lg">فضای اقامتگاه</h4>
-            <div className="grid grid-cols-3">
+            <div className="grid-cols-3 max-md:flex max-md:gap-10 md:grid">
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 text-sm">
                   <h5 className="font-vazirBold">ظرفیت استاندارد:</h5>
-                  <p className="font-persianNums text-gray-600">4 نفر</p>
+                  <p className="font-persianNums text-gray-600 dark:text-gray-400">
+                    4 نفر
+                  </p>
                 </div>
                 <div className="flex gap-2 text-sm">
                   <h5 className="font-vazirBold">متراژ زیربنا:</h5>
-                  <p className="font-persianNums text-gray-600">120 متر</p>
+                  <p className="font-persianNums text-gray-600 dark:text-gray-400">
+                    120 متر
+                  </p>
                 </div>
                 <div className="flex gap-2 text-sm">
                   <h5 className="font-vazirBold">نوع اقامتگاه:</h5>
-                  <p className="font-persianNums text-gray-600">ویلایی</p>
+                  <p className="font-persianNums text-gray-600 dark:text-gray-400">
+                    ویلایی
+                  </p>
                 </div>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 text-sm">
                   <h5 className="font-vazirBold">حداکثر ظرفیت:</h5>
-                  <p className="font-persianNums text-gray-600">10 نفر</p>
+                  <p className="font-persianNums text-gray-600 dark:text-gray-400">
+                    10 نفر
+                  </p>
                 </div>
                 <div className="flex gap-2 text-sm">
                   <h5 className="font-vazirBold">متراژ محوطه:</h5>
-                  <p className="font-persianNums text-gray-600">800 متر</p>
+                  <p className="font-persianNums text-gray-600 dark:text-gray-400">
+                    800 متر
+                  </p>
                 </div>
                 <div className="flex gap-2 text-sm">
                   <h5 className="font-vazirBold">منطقه:</h5>
-                  <p className="font-persianNums text-gray-600">شهری</p>
+                  <p className="font-persianNums text-gray-600 dark:text-gray-400">
+                    شهری
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
           <div className="mt-5">
-            <div className="mb-3 flex items-center gap-2">
+            <div className="mb-5 flex items-center gap-2">
               <h4 className="font-vazirBold text-lg">فضای خواب</h4>
-              <span className="rounded-full bg-gray-200  px-2 py-1 text-[12px]">
+              <span className="rounded-full bg-gray-200 px-2 py-1 font-persianNums text-[12px] dark:text-gray-700">
                 2 اتاق خواب
               </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex h-36 w-36 flex-col gap-2 rounded-md border border-gray-100 p-5 text-sm shadow-md">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <LuBedDouble size={24} />
                   <LuBedSingle size={24} />
                 </div>
                 <p className="font-persianNums font-bold">اتاق 1</p>
-                <p className="font-persianNums text-gray-600">1 تخت دونفره</p>
-                <p className="font-persianNums text-gray-600">4 دست رختخواب</p>
+                <p className="font-persianNums text-gray-600 dark:text-gray-300">
+                  1 تخت دونفره
+                </p>
+                <p className="font-persianNums text-gray-600 dark:text-gray-300">
+                  4 دست رختخواب
+                </p>
               </div>
               <div className="flex h-36 w-36 flex-col gap-2 rounded-md border border-gray-100 p-5 text-sm shadow-md">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <LuBedDouble size={24} />
                 </div>
                 <p className="font-persianNums font-bold">اتاق 2</p>
-                <p className="font-persianNums text-gray-600">1 تخت دونفره</p>
+                <p className="font-persianNums text-gray-600 dark:text-gray-300">
+                  1 تخت دونفره
+                </p>
               </div>
             </div>
-            <p className="mt-2 text-[13px] text-gray-600">
+            <p className="mt-4 text-[13px] text-gray-600 dark:text-gray-300">
               مهمانان بیش از ۸ نفر سرویس خواب به همراه داشته باشند.
             </p>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
           <div className="mt-5">
@@ -210,59 +290,62 @@ function RoomMain() {
                 <p
                   onMouseEnter={() => setIsShowInfo(true)}
                   onMouseLeave={() => setIsShowInfo(false)}
-                  className="relative flex items-center gap-2 text-sm text-gray-700"
+                  className="relative flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100"
                 >
                   <GiHomeGarage size={20} /> پارکینگ
-                  <PiInfoDuotone size={18} className="text-blue-700" />
+                  <PiInfoDuotone
+                    size={18}
+                    className="text-blue-700 dark:text-blue-400"
+                  />
                   <div
                     className={`absolute bottom-6 right-2.5 whitespace-nowrap rounded-lg bg-neutral-700 p-2 text-[13px] leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-0 after:right-0 after:mx-auto after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
                   >
                     روباز برای 2 خودرو در حیاط
                   </div>
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <PiShower size={20} /> حمام
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <LiaTemperatureHighSolid size={20} /> سیستم گرمایشی
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <MdElectricalServices size={20} /> برق و روشنایی
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <GiBarbecue size={20} /> کباب پز
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <PiTelevision size={20} /> تلویزیون
                 </p>
               </div>
               <div className="flex flex-col gap-3">
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <PiToilet size={20} />
                   توالت فرنگی
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <MdOutlineKitchen size={20} /> یخچال
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <GiVacuumCleaner size={20} />
                   جاروبرقی
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <LiaCouchSolid size={20} /> مبلمان
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <TbUserShield size={20} /> سرایدار
                 </p>
-                <p className="flex items-center gap-2 text-sm text-gray-700">
+                <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100">
                   <TbToolsKitchen2 size={20} /> وسایل آشپزخانه
                 </p>
               </div>
             </div>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-5" id="calenderRef">
             <div className="space-y-5">
               <div className="flex items-center gap-5 rounded-lg border p-3">
                 <svg
@@ -281,7 +364,7 @@ function RoomMain() {
                   ></path>
                   <path
                     d="M27 40.9c-.8 0-1.5-.6-1.6-1.4l-.4-3c-.5-4-3.7-7.3-7.8-7.8l-3-.4c-.8-.1-1.4-.8-1.4-1.6s.6-1.5 1.4-1.6l3-.4c4-.5 7.3-3.7 7.8-7.8l.4-3c.1-.8.8-1.4 1.6-1.4s1.5.6 1.6 1.4l.4 3c.5 4 3.7 7.3 7.8 7.8l3 .4c.8.1 1.4.8 1.4 1.6s-.6 1.5-1.4 1.6l-3 .4c-4 .5-7.3 3.7-7.8 7.8l-.4 3c-.1.8-.8 1.4-1.6 1.4zm0-26.7s-.1 0 0 0l-.5 3c-.6 4.7-4.4 8.5-9.1 9.1l-3 .4s-.1 0-.1.1c0 0 0 .1.1.1l3 .4c4.7.6 8.5 4.4 9.1 9.1l.4 3c0 .1.2.1.2 0l.4-3c.6-4.7 4.4-8.5 9.1-9.1l3-.4s.1 0 .1-.1c0 0 0-.1-.1-.1l-3-.4c-4.7-.6-8.5-4.4-9.1-9.1l-.5-3c.1 0 0 0 0 0z"
-                    className="fill-gray-800"
+                    className="fill-gray-800 dark:fill-white"
                   ></path>
                   <path
                     d="M48.5 5.5h.9c.2 0 .5.1.6.3.2.2.3.4.3.6s-.2.4-.4.6c-.2.2-.4.3-.6.3h-.9v.9c0 .2-.1.4-.3.6-.2.2-.4.3-.6.3s-.4-.3-.5-.4c-.2-.2-.3-.4-.3-.6v-.9h-.9c-.2 0-.5-.1-.6-.3-.1-.1-.2-.3-.2-.5s.1-.4.3-.6c.2-.2.4-.3.6-.3h.9v-.9c0-.2.1-.4.3-.6.2-.2.4-.3.6-.3s.5.1.6.3c.2.2.3.4.3.6v.9z"
@@ -289,13 +372,10 @@ function RoomMain() {
                   ></path>
                 </svg>
                 <div className="flex flex-col gap-3">
-                  <h3
-                    className="font-vazirMedium text-gray-800"
-                    title="اقامتگاه ممتاز"
-                  >
+                  <h3 className="font-vazirMedium text-gray-800 dark:text-white">
                     اقامتگاه ممتاز
                   </h3>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-gray-700 dark:text-gray-200">
                     اقامتگاهی باکیفیت با میزبانی مهمان نواز که اقامتی شایسته را
                     برایتان تضمین می‌کند.
                   </p>
@@ -318,24 +398,28 @@ function RoomMain() {
                     clip-rule="evenodd"
                     d="M30.2535 11C29.7227 11 29.2925 11.4477 29.2925 12L29.3332 19.2558C29.7578 18.6983 30.1838 18.137 30.6128 17.5716C30.8034 17.3204 30.9947 17.0684 31.1866 16.8156C31.3783 16.5637 31.6979 16.5407 31.9322 16.724C32.1026 16.8844 32.1665 17.1363 32.1026 17.3654L29.3974 25.6122L36.448 25.6351C36.7462 25.6351 36.9805 25.8871 36.9805 26.2078C36.9805 26.3452 36.9379 26.4598 36.874 26.5514C35.1115 28.9971 33.2647 31.4066 31.4086 33.8282C31.1785 34.1284 30.9482 34.4288 30.718 34.7294C30.1966 35.407 29.6751 36.0846 29.1452 36.7744L29 43C29 43.5523 29.4303 44 29.961 44H36.312C40.558 44 44 40.4183 44 36V19C44 14.5817 40.558 11 36.312 11H30.2535ZM29.299 30.1813L29.3547 30.0105L29.303 30.0103L29.299 30.1813Z"
                     fill="#DBDBDB"
+                    className="dark:fill-white"
                   ></path>
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M36.725 3.21429C37.2635 3.21429 37.7 3.7018 37.7 4.30317V11.7683C37.7 12.3696 37.2635 12.8572 36.725 12.8572C36.1865 12.8572 35.75 12.3696 35.75 11.7683V4.30317C35.75 3.7018 36.1865 3.21429 36.725 3.21429Z"
                     fill="#323232"
+                    className="dark:fill-white"
                   ></path>
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M19.175 3.21429C19.7134 3.21429 20.15 3.7018 20.15 4.30317V11.7683C20.15 12.3696 19.7134 12.8572 19.175 12.8572C18.6365 12.8572 18.2 12.3696 18.2 11.7683V4.30317C18.2 3.7018 18.6365 3.21429 19.175 3.21429Z"
                     fill="#323232"
+                    className="dark:fill-white"
                   ></path>
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M10.8962 9.88628C12.9227 7.9928 15.783 7.07144 19.1411 7.07144H37.4289C40.7961 7.07144 43.6575 7.99233 45.6799 9.88726C47.7102 11.7895 48.7604 14.5474 48.75 17.9488C48.75 17.9492 48.75 17.9497 48.75 17.9501L48.75 37.3187C48.75 40.72 47.6944 43.4815 45.663 45.3879C43.6389 47.2875 40.7778 48.2143 37.4089 48.2143H19.1411C15.7768 48.2143 12.9142 47.2693 10.8889 45.3399C8.85844 43.4056 7.80005 40.6063 7.80005 37.1581V17.9469C7.80005 14.5441 8.86162 11.7872 10.8962 9.88628ZM12.3247 11.3633C10.7927 12.7947 9.87347 14.9661 9.87347 17.9469V37.1581C9.87347 40.194 10.7959 42.4133 12.332 43.8765C13.8731 45.3447 16.1628 46.1763 19.1411 46.1763H37.4089C40.4027 46.1763 42.6938 45.3567 44.2312 43.9139C45.7613 42.478 46.6766 40.3012 46.6766 37.3187V17.9469L46.6766 17.9438C46.6859 14.9622 45.7753 12.7922 44.2493 11.3624C42.7152 9.92494 40.4244 9.10939 37.4289 9.10939H19.1411C16.1565 9.10939 13.8647 9.92447 12.3247 11.3633Z"
                     fill="#323232"
+                    className="dark:fill-white"
                   ></path>
                   <path
                     d="M50.2667 1.71429H51.1334C51.3632 1.71429 51.5837 1.80459 51.7462 1.96534C51.9087 2.12608 52 2.3441 52 2.57143C52 2.79876 51.9087 3.01677 51.7462 3.17752C51.5837 3.33827 51.3632 3.42857 51.1334 3.42857H50.2667V4.28571C50.2667 4.51304 50.1754 4.73106 50.0129 4.89181C49.8503 5.05255 49.6299 5.14286 49.4 5.14286C49.1702 5.14286 48.9498 5.05255 48.7872 4.89181C48.6247 4.73106 48.5334 4.51304 48.5334 4.28571V3.42857H47.6667C47.4369 3.42857 47.2164 3.33827 47.0539 3.17752C46.8914 3.01677 46.8 2.79876 46.8 2.57143C46.8 2.3441 46.8914 2.12608 47.0539 1.96534C47.2164 1.80459 47.4369 1.71429 47.6667 1.71429H48.5334V0.857143C48.5334 0.629814 48.6247 0.411797 48.7872 0.251051C48.9498 0.0903058 49.1702 0 49.4 0C49.6299 0 49.8503 0.0903058 50.0129 0.251051C50.1754 0.411797 50.2667 0.629814 50.2667 0.857143V1.71429Z"
@@ -355,13 +439,10 @@ function RoomMain() {
                   ></path>
                 </svg>
                 <div className="flex flex-col gap-3">
-                  <h3
-                    className="font-vazirMedium text-gray-800"
-                    title="رزرو فوری"
-                  >
+                  <h3 className="font-vazirMedium text-gray-800 dark:text-white">
                     رزرو فوری
                   </h3>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-gray-700 dark:text-gray-200">
                     در این روزها رزرو در یک مرحله و بدون نیاز به تایید میزبان
                     قطعی می شود.
                   </p>
@@ -374,7 +455,7 @@ function RoomMain() {
                 </h3>
                 <div className="sc-2044806a-0 Xarcj">
                   {/* تقویم */}
-                  <div className="mb-5 flex items-center justify-between">
+                  <div className="mb-5 mt-2 flex items-center justify-between">
                     <Button
                       style="bg-gray-100 font-vazirMedium rounded-md text-[12px] flex gap-2 items-center"
                       type="button"
@@ -383,7 +464,7 @@ function RoomMain() {
                       راهنمای تقویم
                     </Button>
                     <Button
-                      style="border-2 border-gray-300 hover:shadow-none hover:border-gray-400 border-dashed font-vazirMedium rounded-md text-sm flex gap-2 items-center"
+                      style="border-2 border-gray-300 hover:shadow-none dark:text-gray-300 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-400 border-dashed font-vazirMedium rounded-md text-sm flex gap-2 items-center"
                       type="button"
                     >
                       <IoTrashOutline size={20} />
@@ -392,11 +473,15 @@ function RoomMain() {
                   </div>
                 </div>
                 <div className="my-2 flex gap-3 text-sm">
-                  <strong>ارقام به تومان می‌باشند</strong>
+                  <strong className="dark:text-gray-200">
+                    ارقام به تومان می‌باشند
+                  </strong>
                   <span></span>
                 </div>
-                <div className="my-2 flex gap-3 text-sm">
-                  <strong>نرخ هر نفر اضافه:</strong>
+                <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
+                  <strong className="dark:text-gray-200">
+                    نرخ هر نفر اضافه:
+                  </strong>
                   <span>
                     +
                     <span className="font-persianNums">
@@ -406,8 +491,8 @@ function RoomMain() {
                     نفر
                   </span>
                 </div>
-                <div className="my-2 flex gap-3 text-sm">
-                  <strong>
+                <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
+                  <strong className="dark:text-gray-200">
                     تخفیف رزرو بیش از{' '}
                     <span className="font-persianNums">3</span> شب:
                   </strong>
@@ -415,8 +500,8 @@ function RoomMain() {
                     <span className="font-persianNums">5</span> درصد
                   </span>
                 </div>
-                <div className="my-2 flex gap-3 text-sm">
-                  <strong>
+                <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
+                  <strong className="dark:text-gray-200">
                     تخفیف رزرو بیش از{' '}
                     <span className="font-persianNums">10</span> شب:
                   </strong>
@@ -425,7 +510,7 @@ function RoomMain() {
                   </span>
                 </div>
               </div>
-              <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+              <div className="my-5 h-[1px] w-full bg-gray-200"></div>
             </div>
           </div>
 
@@ -434,25 +519,20 @@ function RoomMain() {
               مقررات لغو رزرو
             </h4>
             <div>
-              <p className="leading-6 text-gray-600">
-                <strong>سیاست متعادل: </strong>در صورتی که رزرو، بیش از 3 روز
-                کامل از تاریخ ورود لغو گردد؛ 90 درصد مبلغ صورتحساب به میهمان
-                عودت می‌شود. در غیر اینصورت اجاره شب اول بعلاوه 10 درصد شب‌های
-                باقیمانده کسر می‌شود.
+              <p className="leading-6 text-gray-600 dark:text-gray-400">
+                <strong className="dark:text-gray-200">سیاست متعادل: </strong>در
+                صورتی که رزرو، بیش از 3 روز کامل از تاریخ ورود لغو گردد؛ 90 درصد
+                مبلغ صورتحساب به میهمان عودت می‌شود. در غیر اینصورت اجاره شب اول
+                بعلاوه 10 درصد شب‌های باقیمانده کسر می‌شود.
                 <span>توضیحات بیشتر</span>
               </p>
             </div>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-5" id="mapRef">
             <div>
-              <h4
-                className="mb-3 font-vazirBold text-lg"
-                title="مقررات لغو رزرو"
-              >
-                مقررات اقامتگاه
-              </h4>
+              <h4 className="mb-3 font-vazirBold text-lg">مقررات اقامتگاه</h4>
               <div className="mb-5 flex gap-4 ">
                 <div className="w-36 rounded-lg border border-gray-100 p-2 text-center">
                   <p className="flex items-center gap-2">
@@ -467,7 +547,7 @@ function RoomMain() {
                   <p className="font-vazirBold">12 ظهر</p>
                 </div>
               </div>
-              <ul className="flex list-disc flex-col gap-2 pr-5 text-sm text-gray-600">
+              <ul className="flex list-disc flex-col gap-2 pr-5 text-sm text-gray-600 dark:text-gray-400">
                 <li>برگزاری مهمانی و پخش موزیک ممنوع است.</li>
                 <li>همراه داشتن حیوان خانگی ممنوع است.</li>
                 <li>
@@ -480,15 +560,15 @@ function RoomMain() {
                 </li>
               </ul>
             </div>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
           <div className="mt-5">
             {/* نقشه */}
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-5" id="commentsRef">
             <h4 className="flex justify-between">
               <span className="font-vazirBold text-lg">
                 امتیاز{' '}
@@ -505,10 +585,12 @@ function RoomMain() {
                 <span className="font-persianNums">4.7</span>
               </div>
             </h4>
-            <ul className="mt-5 flex justify-between gap-10 text-sm">
+            <ul className="mt-5 md:flex justify-between gap-10 max-md:space-y-2 text-sm">
               <div className="flex flex-1 flex-col gap-2">
                 <li className="flex items-center justify-between">
-                  <span className="text-gray-600">صحت مطالب</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    صحت مطالب
+                  </span>
                   <div className="flex gap-0.5">
                     <BsStar className="text-yellow-400" size={12} />
                     <BsStarFill className="text-yellow-400" size={12} />
@@ -518,7 +600,9 @@ function RoomMain() {
                   </div>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span className="text-gray-600">شیوه برخورد میزبان</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    شیوه برخورد میزبان
+                  </span>
                   <div className="flex gap-0.5">
                     <BsStar className="text-yellow-400" size={12} />
                     <BsStarFill className="text-yellow-400" size={12} />
@@ -528,7 +612,9 @@ function RoomMain() {
                   </div>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span className="text-gray-600">پاکیزگی اقامتگاه</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    پاکیزگی اقامتگاه
+                  </span>
                   <div className="flex gap-0.5">
                     <BsStar className="text-yellow-400" size={12} />
                     <BsStarFill className="text-yellow-400" size={12} />
@@ -540,7 +626,9 @@ function RoomMain() {
               </div>
               <div className="flex flex-1 flex-col gap-2">
                 <li className="flex items-center justify-between">
-                  <span className="text-gray-600">مکان اقامتگاه</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    مکان اقامتگاه
+                  </span>
                   <div className="flex gap-0.5">
                     <BsStar className="text-yellow-400" size={12} />
                     <BsStarFill className="text-yellow-400" size={12} />
@@ -550,7 +638,9 @@ function RoomMain() {
                   </div>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span className="text-gray-600">تحویل اقامتگاه</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    تحویل اقامتگاه
+                  </span>
                   <div className="flex gap-0.5">
                     <BsStar className="text-yellow-400" size={12} />
                     <BsStarFill className="text-yellow-400" size={12} />
@@ -560,7 +650,9 @@ function RoomMain() {
                   </div>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span className="text-gray-600">کیفیت نسبت به نرخ</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    کیفیت نسبت به نرخ
+                  </span>
                   <div className="flex gap-0.5">
                     <BsStar className="text-yellow-400" size={12} />
                     <BsStarFill className="text-yellow-400" size={12} />
@@ -571,7 +663,7 @@ function RoomMain() {
                 </li>
               </div>
             </ul>
-            <div className="my-10 h-[1px] w-full bg-gray-200"></div>
+            <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
           <div className="mt-5">
@@ -581,7 +673,7 @@ function RoomMain() {
                 <small className="font-persianNums text-sm">(8 نظر)</small>
               </span>
             </h4>
-            <div className="my-5">
+            <div className="my-5" id="hostRef">
               <div className="flex justify-between">
                 <div className="flex items-center gap-5">
                   <img
@@ -604,12 +696,12 @@ function RoomMain() {
                   <BsStarFill className="text-yellow-400" size={12} />
                 </div>
               </div>
-              <p className="mt-5 text-sm leading-6 text-gray-700">
+              <p className="mt-5 text-sm leading-6 text-gray-700 dark:text-gray-400">
                 بهترین ویلا و زیباترین شهر که خستگی راه رو ازتون میگیره حتما
                 پیشنهاد میکنم تو مسیرتون از شهر زیبای بسطام.و شاهرود دیدن
                 فرمائید و این ویلا رو رزرو کنید
               </p>
-              <div className="mr-5 mt-3 rounded-lg bg-gray-100 p-3">
+              <div className="mr-5 mt-3 rounded-lg bg-gray-100 p-3 dark:bg-gray-700">
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <img
@@ -625,7 +717,7 @@ function RoomMain() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-gray-700">
+                <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-200">
                   پیشنهاد میکنم تو مسیرتون از شهر زیبای بسطام.و شاهرود دیدن
                   فرمائید و این ویلا رو رزرو کنید
                 </p>
@@ -633,29 +725,37 @@ function RoomMain() {
               <div className="my-5 h-[1px] w-full bg-gray-100"></div>
             </div>
           </div>
-          <div className="sc-5a56469d-0 gGKpKP">
-            <div className="flex justify-between">
-              <div>
-                <h4 className="mb-1 font-vazirBold">محسن</h4>
-                <p className="text-sm text-gray-500">
-                  عضو جاجیگا از 18 اسفند 1401
-                </p>
+
+          <div>
+            <h4 className="mb-5 font-vazirBold text-lg">میزبان</h4>
+            <div className="mr-2">
+              <div className="flex justify-between">
+                <div>
+                  <h4 className="mb-1 font-vazirBold">محسن</h4>
+                  <p className="text-sm text-gray-500">
+                    عضو جاجیگا از 18 اسفند 1401
+                  </p>
+                </div>
+                <img
+                  alt=""
+                  src="https://storage.jajiga.com/public/avatar/large/2303111552071681448.jpg"
+                  className="h-16 w-16 rounded-full"
+                />
               </div>
-              <img
-                alt=""
-                src="https://storage.jajiga.com/public/avatar/large/2303111552071681448.jpg"
-                className="h-16 w-16 rounded-full"
-              />
+              <p className="mb-2 font-persianNums text-sm text-gray-600 dark:text-gray-400">
+                <strong className="text-gray-800 dark:text-gray-100">
+                  سرعت پاسخ‌گویی:{' '}
+                </strong>
+                کمتر از 1 دقیقه
+              </p>
+              <p className="mb-2 font-persianNums text-sm text-gray-600 dark:text-gray-400">
+                <strong className="text-gray-800 dark:text-gray-100">
+                  میزان تأیید رزرو:{' '}
+                </strong>
+                95 درصد
+              </p>
             </div>
-            <p className="mb-2 font-persianNums text-sm text-gray-600">
-              <strong className="text-gray-800">سرعت پاسخ‌گویی: </strong>کمتر از
-              1 دقیقه
-            </p>
-            <p className="mb-2 font-persianNums text-sm text-gray-600">
-              <strong className="text-gray-800">میزان تأیید رزرو: </strong>95
-              درصد
-            </p>
-            <div className="mt-3 w-full rounded-full bg-gray-100 py-3 text-center text-sm text-gray-600 transition-all hover:bg-gray-200">
+            <div className="mt-3 w-full rounded-full bg-gray-100 py-3 text-center text-sm text-gray-600 transition-all hover:bg-gray-200 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700">
               <Link to="" className="font-vazirBold">
                 مشاهده حساب کاربری میزبان »
               </Link>
