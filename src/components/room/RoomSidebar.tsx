@@ -8,7 +8,7 @@ function RoomSidebar() {
   const [isShowInfo, setIsShowInfo] = useState(false);
 
   return (
-    <div className="sticky top-20 h-fit md:col-span-4">
+    <div className="md:sticky top-20 h-fit md:col-span-4">
       <div className="overflow-hidden rounded-xl shadow-lg dark:border dark:border-gray-700 dark:bg-gray-800">
         <header className="flex justify-between bg-neutral-700 p-4 text-white">
           <span className="font-vazirMedium text-base">نرخ هر شب از:</span>

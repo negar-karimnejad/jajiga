@@ -8,7 +8,7 @@ import SwiperButtons from '../ui/SwiperButtons';
 
 interface SliderSectionProps {
   title: string;
-  text: string;
+  text?: string;
   nextBtn: string;
   prevBtn: string;
 }
@@ -49,13 +49,16 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
             className="cursor-default"
           >
             <SwiperSlide>
-              <Link to="/room/123" className="relative overflow-hidden rounded-3xl">
-                  <img
-                    loading="lazy"
-                    src="/images/quick-search/1.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
+              <Link
+                to="/room/123"
+                className="relative overflow-hidden rounded-3xl"
+              >
+                <img
+                  loading="lazy"
+                  src="/images/quick-search/1.jpg"
+                  className="block w-full rounded-3xl"
+                  alt=""
+                />
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -75,20 +78,23 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 mt-3 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="font-persianNums flex gap-1 text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link to="/room/123" className="relative overflow-hidden rounded-3xl">
-                  <img
-                    loading="lazy"
-                    src="/images/quick-search/1.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
+              <Link
+                to="/room/123"
+                className="relative overflow-hidden rounded-3xl"
+              >
+                <img
+                  loading="lazy"
+                  src="/images/quick-search/1.jpg"
+                  className="block w-full rounded-3xl"
+                  alt=""
+                />
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -108,20 +114,23 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 mt-3 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="font-persianNums flex gap-1 text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link to="/room/123" className="relative overflow-hidden rounded-3xl">
-                  <img
-                    loading="lazy"
-                    src="/images/quick-search/1.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
+              <Link
+                to="/room/123"
+                className="relative overflow-hidden rounded-3xl"
+              >
+                <img
+                  loading="lazy"
+                  src="/images/quick-search/1.jpg"
+                  className="block w-full rounded-3xl"
+                  alt=""
+                />
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -141,20 +150,23 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 mt-3 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="font-persianNums flex gap-1 text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link to="/room/123" className="relative overflow-hidden rounded-3xl">
-                  <img
-                    loading="lazy"
-                    src="/images/quick-search/1.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
+              <Link
+                to="/room/123"
+                className="relative overflow-hidden rounded-3xl"
+              >
+                <img
+                  loading="lazy"
+                  src="/images/quick-search/1.jpg"
+                  className="block w-full rounded-3xl"
+                  alt=""
+                />
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -174,20 +186,23 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 mt-3 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="font-persianNums flex gap-1 text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link to="/room/123" className="relative overflow-hidden rounded-3xl">
-                  <img
-                    loading="lazy"
-                    src="/images/quick-search/1.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
+              <Link
+                to="/room/123"
+                className="relative overflow-hidden rounded-3xl"
+              >
+                <img
+                  loading="lazy"
+                  src="/images/quick-search/1.jpg"
+                  className="block w-full rounded-3xl"
+                  alt=""
+                />
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -207,13 +222,12 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                 <p className="mb-1 mt-3 font-vazirBold">
                   اجاره ویلا ساحلی دوبلکس در انزلی - سنگاچین
                 </p>
-                <p className="font-persianNums flex gap-1 text-[13px]">
+                <p className="flex gap-1 font-persianNums text-[13px]">
                   3خوابه .200 متر . تا 20 مهمان
                   <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
                 </p>
               </Link>
             </SwiperSlide>
-            
           </Swiper>
           <SwiperButtons nextBtn={nextBtn} prevBtn={prevBtn} />
         </div>
