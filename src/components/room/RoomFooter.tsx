@@ -2,7 +2,7 @@ import SliderSection from '../ui/SliderSection';
 
 function RoomFooter() {
   return (
-    <div className='mb-10'>
+    <div className="mb-10">
       <SliderSection
         title="سایر اقامتگاه های شاهرود"
         nextBtn="economic-swiper-button-next"
