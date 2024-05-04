@@ -26,7 +26,7 @@ function MoreInfos() {
       </p>
       <Button
         onClick={() => setShowMore(true)}
-        style={`${showMore ? 'hidden' : 'flex'} px-0 py-0 mx-auto mt-5 items-center justify-center gap-1 text-center font-vazirBold text-[12px] dark:text-gray-100`}
+        style={`${showMore ? 'hidden' : 'flex'} hover:shadow-none px-0 py-0 mx-auto mt-5 items-center justify-center gap-1 text-center font-vazirBold text-[12px] dark:text-gray-100`}
       >
         مشاهده بیشتر
         <IoIosArrowDown size={24} />

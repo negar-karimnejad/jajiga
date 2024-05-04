@@ -17,7 +17,7 @@ function Host() {
           </p>
           <Button
             onClick={() => navigate('/host')}
-            style="absolute text-white bottom-4 w-fit rounded-full bg-neutral-700 text-sm text-gray-100 hover:bg-neutral-800 max-md:-bottom-5 max-md:left-0 max-md:right-0 max-md:m-auto max-md:border-2 max-md:border-yellow-300"
+            style="absolute text-white bottom-4 w-fit rounded-full bg-neutral-700 text-[12px] px-3 text-gray-100 hover:bg-neutral-800 max-md:-bottom-5 max-md:left-0 max-md:right-0 max-md:m-auto max-md:border-2 max-md:border-yellow-300"
           >
             توضیحات بیشتر
           </Button>

@@ -1,3 +1,4 @@
+import 'leaflet/dist/leaflet.css';
 import { useRef, useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import { CiCircleQuestion, CiClock1 } from 'react-icons/ci';
@@ -20,6 +21,7 @@ import {
 } from 'react-icons/pi';
 import { TbToolsKitchen2, TbUserShield } from 'react-icons/tb';
 import { TfiRulerPencil } from 'react-icons/tfi';
+import { CircleMarker, MapContainer, TileLayer } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../ui/Breadcrumb';
 import Button from '../ui/Button';
@@ -43,6 +45,11 @@ function RoomMain() {
       behavior: 'smooth',
     });
   };
+
+  const mapRef = useRef(null);
+  const latitude = 32.29442410594691;
+  const longitude = 48.43196151765597;
+
   return (
     <>
       <div
@@ -50,7 +57,7 @@ function RoomMain() {
         className="container mb-5 mt-10 flex flex-col-reverse gap-5 dark:text-white md:grid md:grid-cols-12"
       >
         <div className="relative md:col-span-8" id="featuresRef">
-          <div className="sticky top-20 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg max-md:hidden">
+          <div className="sticky top-20 z-30 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg max-md:hidden">
             <ul className="flex items-center gap-8 text-sm text-white">
               <li className="cursor-pointer" onClick={() => scrollToTop()}>
                 تصاویر
@@ -564,7 +571,26 @@ function RoomMain() {
           </div>
 
           <div className="mt-5">
-            {/* نقشه */}
+            <h4 className="mb-3 font-vazirBold text-lg">نقشه</h4>
+            <MapContainer
+              center={[latitude, longitude]}
+              zoom={15}
+              ref={mapRef}
+              className="room-map z-0 h-64 w-full rounded-xl border border-gray-200"
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <CircleMarker
+                center={[latitude, longitude]}
+                pathOptions={{
+                  fillColor: '#2e1fff',
+                  fillOpacity: 0.4,
+                }}
+                radius={50}
+              ></CircleMarker>
+            </MapContainer>
             <div className="my-5 h-[1px] w-full bg-gray-200"></div>
           </div>
 
@@ -585,7 +611,7 @@ function RoomMain() {
                 <span className="font-persianNums">4.7</span>
               </div>
             </h4>
-            <ul className="mt-5 md:flex justify-between gap-10 max-md:space-y-2 text-sm">
+            <ul className="mt-5 justify-between gap-10 text-sm max-md:space-y-2 md:flex">
               <div className="flex flex-1 flex-col gap-2">
                 <li className="flex items-center justify-between">
                   <span className="text-gray-600 dark:text-gray-400">

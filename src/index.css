@@ -94,3 +94,40 @@ body {
   }
 }
 
+/* Room Map */
+.room-map .leaflet-control-zoom-in {
+  border-top-right-radius: 50% !important;
+  border-top-left-radius: 50% !important;
+  background-color: rgb(245, 245, 245);
+  color: rgb(51, 51, 51);
+  color: #4a4a4a;
+  font-weight: 100 !important;
+  /* border: 2px solid rgb(214, 214, 214); */
+  width: 32px !important;
+  height: 32px !important;
+}
+.room-map .leaflet-control-zoom-out {
+  width: 32px !important;
+  height: 32px !important;
+  border-bottom-right-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+  background-color: rgb(245, 245, 245);
+  color: rgb(51, 51, 51);
+  font-weight: 100 !important;
+  /* border: 2px solid rgb(214, 214, 214); */
+}
+.room-map .leaflet-control-zoom-in:hover,
+.room-map .leaflet-control-zoom-out:hover {
+  background-color: #dedede;
+}
+.room-map .leaflet-control-zoom {
+  border: none;
+  box-shadow: 0px 0px 10px 0px rgb(182, 182, 182);
+  border-radius: 50%;
+}
+.room-map .leaflet-control-container .leaflet-left {
+  left: 93% !important;
+}
+.room-map .leaflet-control-container .leaflet-top {
+  top: 61% !important;
+}
