@@ -102,7 +102,6 @@ body {
   color: rgb(51, 51, 51);
   color: #4a4a4a;
   font-weight: 100 !important;
-  /* border: 2px solid rgb(214, 214, 214); */
   width: 32px !important;
   height: 32px !important;
 }
@@ -114,7 +113,6 @@ body {
   background-color: rgb(245, 245, 245);
   color: rgb(51, 51, 51);
   font-weight: 100 !important;
-  /* border: 2px solid rgb(214, 214, 214); */
 }
 .room-map .leaflet-control-zoom-in:hover,
 .room-map .leaflet-control-zoom-out:hover {
@@ -131,3 +129,68 @@ body {
 .room-map .leaflet-control-container .leaflet-top {
   top: 61% !important;
 }
+
+/* Custom Room Calender */
+.custom-calendar .rmdp-calendar {
+  width: 100%;
+}
+.custom-calendar .rmdp-today .sd {
+  background-color: transparent !important;
+  color: #000;
+  border: 2px solid rgb(240, 200, 7) !important;
+}
+.custom-calendar .rmdp-range .sd {
+  color: #ffffff !important;
+  border: 0 !important;
+}
+.custom-calendar .rmdp-day {
+  width: 55px;
+  height: 55px;
+  margin: 3px;
+}
+.custom-calendar .rmdp-day .sd {
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 8px;
+}
+.custom-calendar .rmdp-day .sd:hover {
+  background-color: transparent !important;
+  color: #000 !important;
+}
+
+@media screen and (min-width: 200px) {
+  .custom-calendar .rmdp-day {
+    width: 41px;
+    height: 41px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .custom-calendar .rmdp-day {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .custom-calendar .rmdp-day {
+    width: 75px;
+    height: 75px;
+    margin: 1px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .custom-calendar .rmdp-day {
+    width: 47px;
+    height: 47px;
+    margin: 0.1px;
+  }
+  .custom-calendar .rmdp-day-picker {
+    justify-content: space-between !important;
+  }
+}
+
+/* @media screen and (min-width: 1200px) {
+  .custom-calendar .rmdp-day {
+    width: 45px;
+    height: 45px;
+    margin: 1px;
+  }
+} */

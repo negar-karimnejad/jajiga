@@ -1,5 +1,7 @@
 import 'leaflet/dist/leaflet.css';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import persian from 'react-date-object/calendars/persian';
+import persian_fa from 'react-date-object/locales/persian_fa';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import { CiCircleQuestion, CiClock1 } from 'react-icons/ci';
 import { GiBarbecue, GiHomeGarage, GiVacuumCleaner } from 'react-icons/gi';
@@ -22,6 +24,9 @@ import {
 import { TbToolsKitchen2, TbUserShield } from 'react-icons/tb';
 import { TfiRulerPencil } from 'react-icons/tfi';
 import { CircleMarker, MapContainer, TileLayer } from 'react-leaflet';
+import { Calendar, Value } from 'react-multi-date-picker';
+import weekends from 'react-multi-date-picker/plugins/highlight_weekends';
+import 'react-multi-date-picker/styles/layouts/mobile.css';
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../ui/Breadcrumb';
 import Button from '../ui/Button';
@@ -46,9 +51,35 @@ function RoomMain() {
     });
   };
 
+  // MAp
   const mapRef = useRef(null);
   const latitude = 32.29442410594691;
   const longitude = 48.43196151765597;
+
+  // Calendar
+  const [value, setValue] = useState<Value>(new Date());
+
+  const handleChange = (dates: Value) => {
+    setValue(dates);
+  };
+
+  const [numberOfMonths, setNumberOfMonths] = useState(() => {
+    return window.innerWidth > 1100 ? 2 : 1; // Initial value based on window width
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setNumberOfMonths(window.innerWidth > 1100 ? 2 : 1); // Update numberOfMonths based on window width
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
 
   return (
     <>
@@ -460,8 +491,20 @@ function RoomMain() {
                 <h3 className="font-vazirMedium text-lg" title="تقویم / نرخ">
                   تقویم / نرخ
                 </h3>
-                <div className="sc-2044806a-0 Xarcj">
-                  {/* تقویم */}
+                <div>
+                  <Calendar
+                    value={value}
+                    onChange={handleChange}
+                    className="custom-calendar mt-5 !w-full !border-0 dark:bg-transparent"
+                    numberOfMonths={numberOfMonths}
+                    locale={persian_fa}
+                    calendar={persian}
+                    shadow={false}
+                    zIndex={0}
+                    range
+                    plugins={[weekends()]}
+                    weekDays={weekDays}
+                  />
                   <div className="mb-5 mt-2 flex items-center justify-between">
                     <Button
                       style="bg-gray-100 font-vazirMedium rounded-md text-[12px] flex gap-2 items-center"
@@ -576,6 +619,7 @@ function RoomMain() {
               center={[latitude, longitude]}
               zoom={15}
               ref={mapRef}
+              scrollWheelZoom={false}
               className="room-map z-0 h-64 w-full rounded-xl border border-gray-200"
             >
               <TileLayer
