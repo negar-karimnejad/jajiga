@@ -504,6 +504,15 @@ function RoomMain() {
                     range
                     plugins={[weekends()]}
                     weekDays={weekDays}
+                    disableDayPicker={(date): boolean | undefined => {
+                      const currentDate = new Date();
+
+                      // Disable the last month and months after two months from the current month
+                      return (
+                        date.getMonth() < currentDate.getMonth() - 1 ||
+                        date.getMonth() > currentDate.getMonth() + 2
+                      );
+                    }}
                   />
                   <div className="mb-5 mt-2 flex items-center justify-between">
                     <Button

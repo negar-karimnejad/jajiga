@@ -134,6 +134,15 @@ body {
 .custom-calendar .rmdp-calendar {
   width: 100%;
 }
+.custom-calendar .rmdp-header-values {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+.custom-calendar .rmdp-week-day {
+  color: #8a8a8a;
+}
+
 .custom-calendar .rmdp-today .sd {
   background-color: transparent !important;
   color: #000;
@@ -157,6 +166,24 @@ body {
   color: #000 !important;
 }
 
+.custom-calendar .rmdp-right,
+.custom-calendar .rmdp-left {
+  display: inline-block !important;
+  width: 38px !important;
+  height: 38px !important;
+  background-color: rgb(238, 238, 238) !important;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s, 150ms;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out,
+    linear;
+}
+.custom-calendar .rmdp-arrow {
+  width: 12px !important;
+  height: 12px !important;
+}
+.rmdp-right:hover,
+.rmdp-left:hover {
+  background-color: rgb(198, 198, 198) !important;
+}
 @media screen and (min-width: 200px) {
   .custom-calendar .rmdp-day {
     width: 41px;
@@ -186,11 +213,3 @@ body {
     justify-content: space-between !important;
   }
 }
-
-/* @media screen and (min-width: 1200px) {
-  .custom-calendar .rmdp-day {
-    width: 45px;
-    height: 45px;
-    margin: 1px;
-  }
-} */
