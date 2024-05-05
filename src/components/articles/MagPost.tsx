@@ -8,7 +8,6 @@ import MagAuthor from './MagAuthor';
 
 function MagPost({ article }: { article: Article }) {
   const navigate = useNavigate();
-
   const { author } = useAuthor(article.author_id);
   const { category } = useCategory(article.category_id);
 
@@ -16,8 +15,8 @@ function MagPost({ article }: { article: Article }) {
     <div className="card col-span-12 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
       <figure className="relative h-40">
         <div
-          className="h-full w-full cursor-pointer"
           onClick={() => navigate(`/${article.title}`)}
+          className="h-full w-full cursor-pointer"
         >
           <img
             loading="lazy"
@@ -31,7 +30,7 @@ function MagPost({ article }: { article: Article }) {
           >
             <div title={article.title} className="absolute right-5 top-5">
               <Link
-                to="category/wherewhy"
+                to={`/mag/category/${category?.en_title}`}
                 className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700 ${category?.id === 1 ? 'bg-sky-600' : 'bg-orange-600'}`}
               >
                 {category?.title}
@@ -49,11 +48,14 @@ function MagPost({ article }: { article: Article }) {
             {article.title}
           </Link>
         </h2>
-        <div className="mt-8 flex items-center gap-3 text-[14px]">
+        <div className="mt-8 flex items-center gap-3 text-[13px]">
           <MagAuthor author={author} />
           <div className="flex items-center gap-1">
-            <CiCalendarDate size={17} className="text-gray-600" />
-            <p className="whitespace-nowrap font-BKoodak text-gray-400">
+            <CiCalendarDate
+              size={17}
+              className="text-gray-600 dark:text-gray-300"
+            />
+            <p className="whitespace-nowrap pt-1.5 font-persianNums text-[11px] tracking-wider text-gray-400">
               {convertToPersianDate(article.created_at)}
             </p>
           </div>

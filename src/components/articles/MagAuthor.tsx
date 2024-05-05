@@ -21,7 +21,7 @@ function MagAuthor({ author, lightColor }: MagAuthorProps) {
         className="h-7 w-7 cursor-pointer rounded-full object-cover"
       />
       <p
-        className={`font-persianNums whitespace-nowrap transition-all ${lightColor ? 'text-gray-50' : 'text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100'}`}
+        className={` whitespace-nowrap transition-all ${lightColor ? 'text-gray-50' : 'text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100'}`}
       >
         {author?.fullname}
       </p>

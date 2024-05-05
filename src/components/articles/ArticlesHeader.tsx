@@ -7,11 +7,11 @@ import Logo from '../navbar/Logo';
 import Button from '../ui/Button';
 import ArticlesSocials from './ArticlesSocials';
 
-function ArticlesHeader() {
-  const [activeNavLink, setActiveNavLink] = useState('main');
+function ArticlesHeader({ id }: { id?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { hosting, knowing, travelers, news, wherewhy } = useArticles();
+
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -119,7 +119,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-sky-600 dark:text-white">
                           سفر به کجا؟
                         </p>
-                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-sky-600 p-0.5 text-[13px] text-white">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-600 p-0.5 font-persianNums text-[13px] text-white">
                           {wherewhy.length}
                         </div>
                       </Link>
@@ -132,7 +132,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-red-600 dark:text-white">
                           جاجیگا راپُرت
                         </p>
-                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-red-600 p-0.5 text-[13px] text-white">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 p-0.5 font-persianNums text-[13px] text-white">
                           {news.length}
                         </div>
                       </Link>
@@ -145,7 +145,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-orange-600 dark:text-white">
                           بچه های سفری
                         </p>
-                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 p-0.5 text-[13px] text-white">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 p-0.5 font-persianNums text-[13px] text-white">
                           {travelers.length}
                         </div>
                       </Link>
@@ -158,7 +158,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-purple-600 dark:text-white">
                           دانستنی ها
                         </p>
-                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-purple-600 p-0.5 text-[13px] text-white">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-purple-600 p-0.5 font-persianNums text-[13px] text-white">
                           {knowing?.length}
                         </div>
                       </Link>
@@ -171,7 +171,7 @@ function ArticlesHeader() {
                         <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-emerald-600 dark:text-white">
                           میزبانی در جاجیگا
                         </p>
-                        <div className="font-persianNums flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 p-0.5 text-[13px] text-white">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 p-0.5 font-persianNums text-[13px] text-white">
                           {hosting?.length}
                         </div>
                       </Link>
@@ -198,44 +198,38 @@ function ArticlesHeader() {
         {/* Start NavLinks */}
         <div className="flex shrink-0 gap-8 text-gray-700 dark:text-gray-50 max-lg:hidden">
           <Link
-            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'main' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === undefined ? 'text-sky-500' : ''}`}
             to="/mag"
-            onClick={() => setActiveNavLink('main')}
           >
             صفحه نخست
           </Link>
           <Link
-            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'travelers' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'travelers' ? 'text-sky-500' : ''}`}
             to="/mag/category/travelers"
-            onClick={() => setActiveNavLink('travelers')}
           >
             بچه های سفری
           </Link>
           <Link
-            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'wherewhy' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'wherewhy' ? 'text-sky-500' : ''}`}
             to="/mag/category/wherewhy"
-            onClick={() => setActiveNavLink('wherewhy')}
           >
             سفر به کجا؟
           </Link>
           <Link
-            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'knowing' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'knowing' ? 'text-sky-500' : ''}`}
             to="/mag/category/knowing"
-            onClick={() => setActiveNavLink('knowing')}
           >
             دانستنی ها
           </Link>
           <Link
-            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'news' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'news' ? 'text-sky-500' : ''}`}
             to="/mag/category/news"
-            onClick={() => setActiveNavLink('news')}
           >
             جایگاه راپُرت
           </Link>
           <Link
-            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${activeNavLink === 'hosting' ? 'text-sky-500' : ''}`}
+            className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'hosting' ? 'text-sky-500' : ''}`}
             to="/mag/category/hosting"
-            onClick={() => setActiveNavLink('hosting')}
           >
             میزبانی در جاجیگا
           </Link>

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
 interface Category {
+  en_title: string | undefined;
   id: number;
   created_at: Date;
   title: string;

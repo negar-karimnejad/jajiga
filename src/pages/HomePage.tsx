@@ -24,7 +24,7 @@ import Navbar from '../components/navbar/Navbar';
 import { useScroll } from '../hooks/useScroll';
 
 function HomePage() {
- const {scrollYPosition}=useScroll()
+  const { scrollYPosition } = useScroll();
 
   return (
     <>

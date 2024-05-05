@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { QuickSearchLinks } from '../footer/QuickSearch';
 import Logo from '../navbar/Logo';
-import ArticlesSocials from './ArticlesSocials';
 import Button from '../ui/Button';
+import ArticlesSocials from './ArticlesSocials';
 
 function ArticlesFooter() {
   const [email, setEmail] = useState('');
@@ -55,7 +55,7 @@ function ArticlesFooter() {
           <form onSubmit={submitHandle}>
             <label
               htmlFor="email"
-              className="font-vazirBold text-lg dark:text-base-200"
+              className="font-vazirBold dark:text-white text-lg"
             >
               خبرنامه ایمیلی
             </label>
