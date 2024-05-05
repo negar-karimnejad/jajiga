@@ -18,7 +18,8 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
-import Article from './pages/CategoryArticle';
+import CategoryArticle from './pages/CategoryArticle';
+import Article from './pages/Article';
 
 function App() {
   return (
@@ -39,7 +40,8 @@ function App() {
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
-          <Route path="/mag/category/:id" element={<Article />} />
+          <Route path="/:id" element={<Article />} />
+          <Route path="/mag/category/:id" element={<CategoryArticle />} />
           <Route path="/help" element={<Help />} />
           <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />
