@@ -18,7 +18,7 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
-import Article from './pages/Article';
+import Article from './pages/CategoryArticle';
 
 function App() {
   return (

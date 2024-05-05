@@ -14,7 +14,7 @@ function MagPost({ article }: { article: Article }) {
     <div className="card col-span-12 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
       <figure className="relative h-40">
         <div className="h-full w-full">
-          <Link to={`/${article.title}`} className="h-full w-full">
+          <Link to={`/${article.title.replaceAll(" ","-")}`} className="h-full w-full">
             <img
               loading="lazy"
               src={article.cover}
@@ -35,7 +35,7 @@ function MagPost({ article }: { article: Article }) {
       <div className="card-body justify-between">
         <h2 className="card-title">
           <Link
-            to={`/${article.title}`}
+            to={`/${article.title.replaceAll(" ","-")}`}
             className="transition-all hover:text-sky-600 dark:text-white"
           >
             {article.title}
