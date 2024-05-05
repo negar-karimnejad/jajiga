@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import Footer from '../components/footer/Footer';
 import Advantages from '../components/home/Advantages';
 import Application from '../components/home/Application';
 import Comments from '../components/home/Comments';
@@ -21,22 +21,10 @@ import Logo from '../components/navbar/Logo';
 import NavLinks from '../components/navbar/NavLinks';
 import NavMenu from '../components/navbar/NavMenu';
 import Navbar from '../components/navbar/Navbar';
-import Footer from '../components/footer/Footer';
+import { useScroll } from '../hooks/useScroll';
 
 function HomePage() {
-  const [scrollYPosition, setScrollYPosition] = useState(0);
-
-  const handleScroll = () => {
-    const newScrollYPosition = window.pageYOffset;
-    setScrollYPosition(newScrollYPosition);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+ const {scrollYPosition}=useScroll()
 
   return (
     <>

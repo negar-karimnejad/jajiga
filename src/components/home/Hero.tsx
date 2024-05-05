@@ -1,22 +1,10 @@
-import { useEffect, useState } from 'react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useScroll } from '../../hooks/useScroll';
 
 function Hero() {
-  const [scrollYPosition, setScrollYPosition] = useState(0);
-
-  const handleScroll = () => {
-    const newScrollYPosition = window.pageYOffset;
-    setScrollYPosition(newScrollYPosition);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const {scrollYPosition} = useScroll();
 
   if (scrollYPosition > 500) return;
 
@@ -81,8 +69,12 @@ function Hero() {
           </div>
         </form>
         <div className="mt-10 text-center">
-          <p className="font-vazirMedium text-2xl md:text-3xl">جاجیــــــــــگا</p>
-          <p className="mt-3 font-vazirMedium text-sm md:text-base">مثل خونه خودته :)</p>
+          <p className="font-vazirMedium text-2xl md:text-3xl">
+            جاجیــــــــــگا
+          </p>
+          <p className="mt-3 font-vazirMedium text-sm md:text-base">
+            مثل خونه خودته :)
+          </p>
         </div>
       </div>
     </div>
