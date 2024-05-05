@@ -1,4 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { BsWhatsapp } from 'react-icons/bs';
+import { FaLinkedinIn, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
+import { Link, useParams } from 'react-router-dom';
 import ArticleMenuList from '../components/articles/ArticleMenuList';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
@@ -25,7 +27,46 @@ function Article() {
               <ArticleMenuList />
             </div>
             <div className="col-span-6 bg-red-500">2</div>
-            <div className="col-span-2 bg-blue-500">3</div>
+            <div className="col-span-2 ">
+              <div className="flex w-fit flex-col gap-3 border bg-white p-5 shadow-md shadow-gray-300">
+                <div>
+                  <Link
+                    target="_blank"
+                    to="https://t.me/jajiga"
+                    className="flex h-8 w-8 items-center justify-center rounded-sm bg-sky-500 text-white transition-all hover:opacity-50 "
+                  >
+                    <FaTelegramPlane size={15} />
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    target="_blank"
+                    className="flex h-8 w-8 items-center justify-center rounded-sm bg-green-500 text-white transition-all hover:opacity-50 "
+                    to="https://api.whatsapp.com/send?text=https%3A%2F%2Fwww.jajiga.com%2Fr%2F1d3e%2Fwr"
+                  >
+                    <BsWhatsapp size={15} />
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    target="_blank"
+                    to="https://twitter.com/i/flow/login?redirect_after_login=%2FJajiga_Iran"
+                    className="flex h-8 w-8 items-center justify-center rounded-sm bg-blue-500 text-white transition-all hover:opacity-50 "
+                  >
+                    <FaTwitter size={15} />
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    target="_blank"
+                    to="https://www.linkedin.com/company/jajiga/"
+                    className="flex h-8 w-8 items-center justify-center rounded-sm bg-blue-700 text-white transition-all hover:opacity-50 "
+                  >
+                    <FaLinkedinIn size={15} />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

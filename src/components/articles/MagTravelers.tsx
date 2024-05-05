@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useAuthor } from '../../hooks/useAuthor';
-import { useCategory } from '../../hooks/useCategory';
+import { useCategories } from '../../hooks/useCategories';
 import { Article } from '../../redux/store/articles';
 import MagAuthor from './MagAuthor';
 
 function MagTravelers({ article }: { article: Article }) {
-  const { author } = useAuthor(article.author_id);
-  const { category } = useCategory(article.category_id);
+  const { category } = useCategories(article.category_id);
 
   return (
     <div className="card col-span-12 h-80 justify-between overflow-hidden bg-base-100  p-5 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
@@ -28,7 +26,7 @@ function MagTravelers({ article }: { article: Article }) {
         {article.description.slice(0, 200)}...
       </p>
       <div className="mt-8 flex items-center gap-3 text-[14px]">
-        <MagAuthor author={author} />
+        <MagAuthor id={article.author_id} />
       </div>
     </div>
   );

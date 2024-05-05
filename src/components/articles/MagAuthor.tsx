@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
-import { Author } from '../../redux/store/authors';
+import { useAuthors } from '../../hooks/useAuthors';
 
 interface MagAuthorProps {
   lightColor?: boolean;
-  author: Author | undefined;
+  id: number;
 }
 
-function MagAuthor({ author, lightColor }: MagAuthorProps) {
+function MagAuthor({ id, lightColor }: MagAuthorProps) {
+  const { author } = useAuthors(id);
+
   if (!author) return;
 
   return (

@@ -2,25 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../hooks';
 import { AppDispatch } from '../redux/store';
-import {
-  Article,
-  getArticleById,
-  getArticlesFromServer,
-} from '../redux/store/articles';
+import { getArticleById, getArticlesFromServer } from '../redux/store/articles';
 
-interface ArticlesData {
-  articles: Article[];
-  article: Article | null;
-  loading: boolean;
-  error: string | null;
-  wherewhy: Article[];
-  hosting: Article[];
-  travelers: Article[];
-  knowing: Article[];
-  news: Article[];
-}
-
-const useArticles = (title?: string): ArticlesData => {
+const useArticles = (title?: string) => {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.articles);
 

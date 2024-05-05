@@ -2,19 +2,22 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../hooks';
 import { AppDispatch } from '../redux/store';
-import { getAuthorsFromServer } from '../redux/store/authors';
+import { getAuthorById, getAuthorsFromServer } from '../redux/store/authors';
 
-const useAthors = () => {
+const useAuthors = (id?: number) => {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.authors);
 
-  const { authors, loading, error } = data;
+  const { authors, author, loading, error } = data;
 
   useEffect(() => {
     dispatch(getAuthorsFromServer());
-  }, [dispatch]);
+    if (id) {
+      dispatch(getAuthorById(id));
+    }
+  }, [dispatch, id]);
 
-  return { authors, loading, error };
+  return { authors, author, loading, error };
 };
 
-export { useAthors };
+export { useAuthors };

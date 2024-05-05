@@ -2,14 +2,11 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useAuthor } from '../../hooks/useAuthor';
 import MagAuthor from '../articles/MagAuthor';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
 function JajigaMag() {
-  const { author } = useAuthor(1);
-
   return (
     <div className="group relative z-30 rounded-t-2xl bg-white dark:bg-gray-900">
       <div className="container">
@@ -67,7 +64,7 @@ function JajigaMag() {
                       روستای قلات دهکده سرسبز حوالی شیراز
                     </p>
                   </div>
-                  <MagAuthor author={author} lightColor={true} />
+                  <MagAuthor id={1} lightColor={true} />
                 </div>
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>
@@ -91,7 +88,7 @@ function JajigaMag() {
                       روستای قلات دهکده سرسبز حوالی شیراز
                     </p>
                   </div>
-                  <MagAuthor author={author} lightColor={true} />
+                  <MagAuthor id={1} lightColor={true} />
                 </div>
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>
@@ -115,7 +112,7 @@ function JajigaMag() {
                       روستای قلات دهکده سرسبز حوالی شیراز
                     </p>
                   </div>
-                  <MagAuthor author={author} lightColor={true} />
+                  <MagAuthor id={1} lightColor={true} />
                 </div>
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>
@@ -139,7 +136,7 @@ function JajigaMag() {
                       روستای قلات دهکده سرسبز حوالی شیراز
                     </p>
                   </div>
-                  <MagAuthor author={author} lightColor={true} />
+                  <MagAuthor id={1} lightColor={true} />
                 </div>
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>
@@ -163,7 +160,7 @@ function JajigaMag() {
                       روستای قلات دهکده سرسبز حوالی شیراز
                     </p>
                   </div>
-                  <MagAuthor author={author} lightColor={true} />
+                  <MagAuthor id={1} lightColor={true} />
                 </div>
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>
@@ -187,7 +184,7 @@ function JajigaMag() {
                       روستای قلات دهکده سرسبز حوالی شیراز
                     </p>
                   </div>
-                  <MagAuthor author={author} lightColor={true} />
+                  <MagAuthor id={1} lightColor={true} />
                 </div>
                 <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </div>

@@ -1,13 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthor } from '../../hooks/useAuthor';
-import { useCategory } from '../../hooks/useCategory';
+import { useCategories } from '../../hooks/useCategories';
 import { Article } from '../../redux/store/articles';
 import MagAuthor from './MagAuthor';
 
 function MagNews({ article }: { article: Article }) {
   const navigate = useNavigate();
-  const { author } = useAuthor(article.author_id);
-  const { category } = useCategory(article.category_id);
+  const { category } = useCategories(article.category_id);
 
   return (
     <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800">
@@ -43,7 +41,7 @@ function MagNews({ article }: { article: Article }) {
                 </Link>
               </div>
               <div className="mt-8 flex items-center gap-3 text-[14px]">
-                <MagAuthor author={author} />
+                <MagAuthor id={article.author_id} />
               </div>
             </div>
           </div>
@@ -70,7 +68,7 @@ function MagNews({ article }: { article: Article }) {
           {article.description.slice(0, 120)}...
         </p>
         <div className="mt-8 flex items-center gap-3 text-[14px]">
-          <MagAuthor author={author} />
+          <MagAuthor id={article.author_id} />
         </div>
       </div>
     </div>
