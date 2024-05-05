@@ -1,6 +1,6 @@
 import RoomFooter from '../components/room/RoomFooter';
 import RoomHeader from '../components/room/RoomHeader';
-import RoomMain from '../components/room/RoomMain';
+import RoomMain from '../components/room/room-main/RoomMain';
 
 function Room() {
   return (
