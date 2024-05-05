@@ -144,7 +144,7 @@ function RoomCalendar() {
             <Calendar
               value={value}
               onChange={handleChange}
-              className="custom-calendar mt-5 !w-full !border-0 dark:bg-transparent"
+              className="custom-calendar mt-5 !w-full !border-0 dark:bg-white"
               numberOfMonths={numberOfMonths}
               locale={persian_fa}
               calendar={persian}

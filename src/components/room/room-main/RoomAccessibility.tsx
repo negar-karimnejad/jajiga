@@ -1,4 +1,21 @@
+import { useEffect, useState } from 'react';
+import LikeAndShareButtons from '../LikeAndShareButtons';
+
 function RoomAccessibility() {
+  const [scrollYPosition, setScrollYPosition] = useState(0);
+
+  const handleScroll = () => {
+    const newScrollYPosition = window.pageYOffset;
+    setScrollYPosition(newScrollYPosition);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToRef = (ref: HTMLElement | null) => {
     ref?.scrollIntoView({
       behavior: 'smooth',
@@ -14,7 +31,9 @@ function RoomAccessibility() {
   };
 
   return (
-    <div className="sticky top-20 z-30 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg max-md:hidden">
+    <div
+      className={`duration-400 sticky top-[77px] z-30 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg transition-all dark:bg-gray-950/90 max-md:hidden ${scrollYPosition > 400 ? 'top-[77px]' : '-top-96 -z-50'}`}
+    >
       <ul className="flex items-center gap-8 text-sm text-white">
         <li className="cursor-pointer" onClick={() => scrollToTop()}>
           تصاویر
@@ -50,6 +69,8 @@ function RoomAccessibility() {
           میزبان
         </li>
       </ul>
+
+      <LikeAndShareButtons />
     </div>
   );
 }
