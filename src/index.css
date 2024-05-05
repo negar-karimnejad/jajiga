@@ -200,6 +200,7 @@ body {
   .custom-calendar .rmdp-day {
     width: 41px;
     height: 41px;
+    margin: 2px;
   }
 }
 @media screen and (min-width: 500px) {
@@ -210,8 +211,8 @@ body {
 }
 @media screen and (min-width: 850px) {
   .custom-calendar .rmdp-day {
-    width: 75px;
-    height: 75px;
+    width: 72px;
+    height: 72px;
     margin: 1px;
   }
 }

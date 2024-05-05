@@ -11,31 +11,18 @@ const CostumizeDiv = ({
   title,
   color,
   to,
+  onClick,
 }: {
   children: ReactNode;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void | undefined;
   title: string;
   color: string;
   to: string | object;
 }) => {
-  const clickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (typeof to !== 'string') {
-      e.preventDefault();
-      Swal.fire({
-        text: 'با موفقیت کپی شد',
-        toast: true,
-        timerProgressBar: true,
-        showConfirmButton: false,
-        position: 'top-right',
-        timer: 2000,
-        icon: 'success',
-      });
-    }
-  };
-
   return (
     <Link
       to={to}
-      onClick={clickHandler}
+      onClick={onClick}
       target="_blank"
       className={`relative cursor-pointer overflow-hidden rounded-md bg-${color}-400 p-2 text-center text-white transition-all hover:bg-${color}-500`}
     >
@@ -52,7 +39,23 @@ function ShareModal({
   isOpen: boolean;
   closeModalHandler: () => void;
 }) {
-  const currentURL = window.location.href;
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() =>
+        Swal.fire({
+          text: 'با موفقیت کپی شد',
+          toast: true,
+          timerProgressBar: true,
+          showConfirmButton: false,
+          position: 'top-right',
+          timer: 2000,
+          icon: 'success',
+        }),
+      )
+      .catch((error) => console.error('Error copying URL:', error));
+  };
 
   return (
     <Modal isOpen={isOpen} closeModalHandler={closeModalHandler}>
@@ -65,11 +68,7 @@ function ShareModal({
         >
           <BsWhatsapp className="h-full w-full bg-teal-500 p-2.5" />
         </CostumizeDiv>
-        <CostumizeDiv
-          to={navigator.clipboard.writeText(currentURL)}
-          title="کپی لینک"
-          color="gray"
-        >
+        <CostumizeDiv onClick={handleClick} to="" title="کپی لینک" color="gray">
           <BiCopy className="h-full w-full bg-gray-600 p-2.5" />
         </CostumizeDiv>
         <CostumizeDiv to="https://t.me/jajiga" title="تلگرام" color="sky">
