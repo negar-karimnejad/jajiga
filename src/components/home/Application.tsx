@@ -10,7 +10,7 @@ function Application({ style }: ApplicationProps) {
       <div
         className={`w-full bg-blue-950 bg-[url('/images/patterns/pattern.svg')] ${style}`}
       >
-        <div className="container flex justify-between pt-3 text-[12px] text-white">
+        <div className="container flex justify-between pt-2 text-[12px] text-white">
           <p>نصب اپلیکیشن جاجیگا</p>
           <Link
             to="/app"

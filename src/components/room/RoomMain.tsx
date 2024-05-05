@@ -81,6 +81,51 @@ function RoomMain() {
 
   const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
 
+
+//   const [disablePrev, setDisablePrev] = useState(false);
+//   const [disableNext, setDisableNext] = useState(false);
+
+//   useEffect(() => {
+//     const currentDate = new Date();
+//     const currentMonth = currentDate.getMonth();
+//     const currentYear = currentDate.getFullYear();
+
+//     const isPrevDisabled = (date: Date) => {
+//       return date.getFullYear() < currentYear || (date.getFullYear() === currentYear && date.getMonth() <= currentMonth - 2);
+//     };
+
+//     const isNextDisabled = (date: Date) => {
+//       return date.getFullYear() > currentYear || (date.getFullYear() === currentYear && date.getMonth() >= currentMonth + 1);
+//     };
+
+//     setDisablePrev(isPrevDisabled(value));
+//     setDisableNext(isNextDisabled(value));
+//   }, [value]);
+
+//   const handleChange = (dates: Value) => {
+//     setValue(dates);
+//   };
+
+//   return (
+//     <div>
+//       <Calendar
+//         value={value}
+//         onChange={handleChange}
+//         className="your-calendar-class" // Add your custom class here
+//       />
+//       <button onClick={() => setValue(value.subtract(1, 'month'))} disabled={disablePrev}>
+//         Prev
+//       </button>
+//       <button onClick={() => setValue(value.add(1, 'month'))} disabled={disableNext}>
+//         Next
+//       </button>
+//     </div>
+//   );
+// }
+
+
+
+// 
   return (
     <>
       <div
@@ -504,15 +549,7 @@ function RoomMain() {
                     range
                     plugins={[weekends()]}
                     weekDays={weekDays}
-                    disableDayPicker={(date): boolean | undefined => {
-                      const currentDate = new Date();
-
-                      // Disable the last month and months after two months from the current month
-                      return (
-                        date.getMonth() < currentDate.getMonth() - 1 ||
-                        date.getMonth() > currentDate.getMonth() + 2
-                      );
-                    }}
+    
                   />
                   <div className="mb-5 mt-2 flex items-center justify-between">
                     <Button

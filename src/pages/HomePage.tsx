@@ -40,7 +40,7 @@ function HomePage() {
 
   return (
     <>
-      {scrollYPosition > 470 && <Navbar />}
+      <Navbar scrollYPosition={scrollYPosition} />
       <div className="container navbar fixed left-0 right-0 top-0 z-30 mx-auto">
         <div className="flex-1 gap-10">
           <div className="cursor-pointer rounded-full bg-gray-300/50 px-2">
@@ -50,7 +50,7 @@ function HomePage() {
             <NavLinks />
           </div>
         </div>
-        {scrollYPosition < 470 && <Logo withTitle={true} />}
+        {scrollYPosition < 480 && <Logo withTitle={true} />}
       </div>
       <Hero />
       <div className=" bg-white dark:bg-gray-900">
