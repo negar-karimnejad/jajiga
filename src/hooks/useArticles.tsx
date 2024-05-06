@@ -33,4 +33,3 @@ const useArticles = () => {
 };
 
 export { useArticles };
-

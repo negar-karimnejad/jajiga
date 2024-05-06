@@ -7,7 +7,6 @@ import MagTravelers from './MagTravelers';
 
 function ArticlesMain() {
   const { hosting, knowing, travelers, wherewhy, news } = useArticles();
-  // 4
   return (
     <div className="container mb-10">
       <div className="mb-5 mt-10 flex justify-between">

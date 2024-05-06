@@ -9,7 +9,6 @@ function ArticlesHero() {
   const navigate = useNavigate();
   const { articles } = useArticles();
 
-  // 2
   return (
     <Swiper
       spaceBetween={0}
