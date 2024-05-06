@@ -8,7 +8,7 @@ const useArticles = () => {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.articles);
 
-  const { articles, loading, error, article } = data;
+  const { articles, loading, error } = data;
 
   useEffect(() => {
     dispatch(getArticlesFromServer());
@@ -25,7 +25,6 @@ const useArticles = () => {
 
   return {
     articles,
-    article,
     loading,
     error,
     ...categoryArticles,

@@ -18,14 +18,12 @@ interface ArticleState {
   loading: boolean;
   error: string | null;
   articles: Article[];
-  article: Article | null;
 }
 
 const initialState: ArticleState = {
   loading: true,
   error: null,
   articles: [],
-  article: null,
 };
 
 export const getArticlesFromServer = createAsyncThunk(
@@ -39,22 +37,6 @@ export const getArticlesFromServer = createAsyncThunk(
     }
 
     return articles;
-  },
-);
-
-export const getArticleById = createAsyncThunk(
-  'articles/getArticleById',
-  async (articleTitle: string) => {
-    const { data: article, error } = await supabase
-      .from('articles')
-      .select('*')
-      .eq('title', articleTitle)
-      .single();
-    if (error) {
-      throw error;
-    }
-
-    return article;
   },
 );
 
@@ -76,20 +58,6 @@ const articleSlice = createSlice({
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';
       state.articles = [];
-    });
-    builder.addCase(getArticleById.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(getArticleById.fulfilled, (state, action) => {
-      state.loading = false;
-      state.error = null;
-      state.article = action.payload;
-    });
-    builder.addCase(getArticleById.rejected, (state, action) => {
-      state.loading = false;
-      state.error =
-        action.error.message ?? 'Something went wrong. Please try again later.';
-      state.article = null;
     });
   },
 });

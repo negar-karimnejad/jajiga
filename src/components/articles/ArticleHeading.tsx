@@ -7,10 +7,10 @@ interface ArticleHeadingProps {
 function ArticleHeading({ title }: ArticleHeadingProps) {
   return (
     <div className="mb-5 mt-10 flex justify-between">
-      <h3 className="font-vazirBold text-2xl">{title}</h3>
+      <h3 className="font-vazirBold text-2xl dark:text-white">{title}</h3>
       <Link
         to="category/wherewhy"
-        className="h-fit w-fit rounded-full bg-gray-100 px-3 py-1 text-sm"
+        className="h-fit w-fit rounded-full bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300 transition-all dark:bg-gray-800 dark:hover:bg-gray-700"
       >
         بیشتر
       </Link>
