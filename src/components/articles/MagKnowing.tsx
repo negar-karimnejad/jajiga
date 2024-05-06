@@ -6,6 +6,7 @@ import MagAuthor from './MagAuthor';
 function MagKnowing({ article }: { article: Article }) {
   const navigate = useNavigate();
   const { category } = useCategories(article.category_id);
+  console.log(category);
 
   return (
     <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 lg:col-span-6">

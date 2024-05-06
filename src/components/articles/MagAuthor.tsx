@@ -3,7 +3,7 @@ import { useAuthors } from '../../hooks/useAuthors';
 
 interface MagAuthorProps {
   lightColor?: boolean;
-  id: number;
+  id: number | undefined;
 }
 
 function MagAuthor({ id, lightColor }: MagAuthorProps) {
