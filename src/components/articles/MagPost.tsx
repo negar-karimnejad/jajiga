@@ -1,12 +1,12 @@
 import { CiCalendarDate } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
-import { useCategories } from '../../hooks/useCategories';
+import { useCategory } from '../../hooks/useCategory';
 import { Article } from '../../redux/store/articles';
 import convertToPersianDate from '../../utilities/convertToPersianDate';
 import MagAuthor from './MagAuthor';
 
 function MagPost({ article }: { article: Article }) {
-  const { category } = useCategories(article.category_id);
+  const { category } = useCategory(article.category_id);
 
   return (
     <div className="card col-span-12 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">

@@ -11,7 +11,10 @@ import { useCategories } from '../hooks/useCategories';
 
 function Articles() {
   const { knowing, hosting, travelers, wherewhy, news } = useArticles();
+
   const { categories } = useCategories();
+
+  console.log('jjj');
 
   return (
     <div className="bg-base-200 dark:bg-gray-900">

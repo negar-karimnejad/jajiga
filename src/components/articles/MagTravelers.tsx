@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useCategories } from '../../hooks/useCategories';
+import { useCategory } from '../../hooks/useCategory';
 import { Article } from '../../redux/store/articles';
 import MagAuthor from './MagAuthor';
 
 function MagTravelers({ article }: { article: Article }) {
-  const { category } = useCategories(article.category_id);
+  const { category } = useCategory(article.category_id);
 
   return (
     <div className="card col-span-12 h-80 justify-between overflow-hidden bg-base-100  p-5 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
