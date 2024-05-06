@@ -16,7 +16,7 @@ function MagTravelers({ article }: { article: Article }) {
       </Link>
       <h2 className="card-title">
         <Link
-          to={`/${article.title}`}
+          to={`/mag/${article.title.replaceAll(' ', '-')}`}
           className="mt-2 transition-all hover:text-sky-600 dark:text-white"
         >
           {article.title}

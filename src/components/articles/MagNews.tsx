@@ -34,7 +34,7 @@ function MagNews({ article }: { article: Article }) {
                 >
                   {category?.title}
                 </Link>
-                <Link to={`/${article.title}`}>
+                <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
                   <h2 className="card-title mt-5 text-white sm:w-1/2">
                     {article.title}
                   </h2>
@@ -58,7 +58,7 @@ function MagNews({ article }: { article: Article }) {
         </div>
         <h2 className="card-title">
           <Link
-            to={`/${article.title}`}
+            to={`/mag/${article.title.replaceAll(' ', '-')}`}
             className="mt-2 transition-all hover:text-sky-600 dark:text-white"
           >
             {article.title}

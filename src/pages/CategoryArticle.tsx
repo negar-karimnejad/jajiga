@@ -7,8 +7,8 @@ import { useCategories } from '../hooks/useCategories';
 
 function CategoryArticle() {
   const { id } = useParams();
-  const { categories } = useCategories();
   const { articles } = useArticles();
+  const { categories } = useCategories();
 
   const categoryID = categories.find(
     (category) => category.en_title === id,

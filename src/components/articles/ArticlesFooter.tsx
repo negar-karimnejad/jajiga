@@ -55,7 +55,7 @@ function ArticlesFooter() {
           <form onSubmit={submitHandle}>
             <label
               htmlFor="email"
-              className="font-vazirBold dark:text-white text-lg"
+              className="font-vazirBold text-lg dark:text-white"
             >
               خبرنامه ایمیلی
             </label>

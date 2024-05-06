@@ -32,7 +32,7 @@ function RoomAccessibility() {
 
   return (
     <div
-      className={`duration-400 sticky top-[77px] z-30 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg transition-all dark:bg-gray-950/90 max-md:hidden ${scrollYPosition > 400 ? 'top-[77px]' : '-top-96 -z-50'}`}
+      className={`duration-400 sticky top-[77px] z-20 flex h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg transition-all dark:bg-gray-950/90 max-md:hidden ${scrollYPosition > 400 ? 'top-[77px]' : '-top-96 -z-50'}`}
     >
       <ul className="flex items-center gap-8 text-sm text-white">
         <li className="cursor-pointer" onClick={() => scrollToTop()}>

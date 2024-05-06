@@ -41,7 +41,7 @@ function App() {
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
-          <Route path="/:id" element={<Article />} />
+          <Route path="/mag/:id" element={<Article />} />
           <Route path="/mag/category/:id" element={<CategoryArticle />} />
           <Route path="/mag/author/:id" element={<Author />} />
           <Route path="/help" element={<Help />} />

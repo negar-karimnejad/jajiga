@@ -49,16 +49,17 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
             className="cursor-default"
           >
             <SwiperSlide>
-              <Link
-                to="/room/123"
-                className="relative overflow-hidden rounded-3xl"
-              >
-                <img
-                  loading="lazy"
-                  src="/images/quick-search/1.jpg"
-                  className="block w-full rounded-3xl"
-                  alt=""
-                />
+              <Link to="/room/123" className="relative">
+                <div className="relative overflow-hidden rounded-3xl">
+                  <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+
+                  <img
+                    loading="lazy"
+                    src="/images/quick-search/1.jpg"
+                    className="block w-full rounded-3xl"
+                    alt=""
+                  />
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -72,7 +73,6 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </Link>
               <Link to="/room/123" className="text-sm dark:text-white">
                 <p className="mb-1 mt-3 font-vazirBold">
@@ -85,16 +85,17 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link
-                to="/room/123"
-                className="relative overflow-hidden rounded-3xl"
-              >
-                <img
-                  loading="lazy"
-                  src="/images/quick-search/1.jpg"
-                  className="block w-full rounded-3xl"
-                  alt=""
-                />
+              <Link to="/room/123" className="relative">
+                <div className="relative overflow-hidden rounded-3xl">
+                  <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+
+                  <img
+                    loading="lazy"
+                    src="/images/quick-search/1.jpg"
+                    className="block w-full rounded-3xl"
+                    alt=""
+                  />
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -108,7 +109,6 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </Link>
               <Link to="/room/123" className="text-sm dark:text-white">
                 <p className="mb-1 mt-3 font-vazirBold">
@@ -121,16 +121,17 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link
-                to="/room/123"
-                className="relative overflow-hidden rounded-3xl"
-              >
-                <img
-                  loading="lazy"
-                  src="/images/quick-search/1.jpg"
-                  className="block w-full rounded-3xl"
-                  alt=""
-                />
+              <Link to="/room/123" className="relative">
+                <div className="relative overflow-hidden rounded-3xl">
+                  <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+
+                  <img
+                    loading="lazy"
+                    src="/images/quick-search/1.jpg"
+                    className="block w-full rounded-3xl"
+                    alt=""
+                  />
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -144,7 +145,6 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </Link>
               <Link to="/room/123" className="text-sm dark:text-white">
                 <p className="mb-1 mt-3 font-vazirBold">
@@ -157,16 +157,17 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link
-                to="/room/123"
-                className="relative overflow-hidden rounded-3xl"
-              >
-                <img
-                  loading="lazy"
-                  src="/images/quick-search/1.jpg"
-                  className="block w-full rounded-3xl"
-                  alt=""
-                />
+              <Link to="/room/123" className="relative">
+                <div className="relative overflow-hidden rounded-3xl">
+                  <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+
+                  <img
+                    loading="lazy"
+                    src="/images/quick-search/1.jpg"
+                    className="block w-full rounded-3xl"
+                    alt=""
+                  />
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -180,7 +181,6 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </Link>
               <Link to="/room/123" className="text-sm dark:text-white">
                 <p className="mb-1 mt-3 font-vazirBold">
@@ -193,16 +193,17 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link
-                to="/room/123"
-                className="relative overflow-hidden rounded-3xl"
-              >
-                <img
-                  loading="lazy"
-                  src="/images/quick-search/1.jpg"
-                  className="block w-full rounded-3xl"
-                  alt=""
-                />
+              <Link to="/room/123" className="relative">
+                <div className="relative overflow-hidden rounded-3xl">
+                  <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+
+                  <img
+                    loading="lazy"
+                    src="/images/quick-search/1.jpg"
+                    className="block w-full rounded-3xl"
+                    alt=""
+                  />
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
@@ -216,7 +217,6 @@ function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
                     از {(5000000).toLocaleString()} تومان
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
               </Link>
               <Link to="/room/123" className="text-sm dark:text-white">
                 <p className="mb-1 mt-3 font-vazirBold">
