@@ -7,8 +7,9 @@ import { useArticles } from '../../hooks/useArticles';
 
 function ArticlesHero() {
   const navigate = useNavigate();
-  const { wherewhy } = useArticles();
+  const { articles } = useArticles();
 
+  // 2
   return (
     <Swiper
       spaceBetween={0}
@@ -21,7 +22,7 @@ function ArticlesHero() {
       }}
       className="articles-hero"
     >
-      {wherewhy.map((article) => (
+      {articles.map((article) => (
         <SwiperSlide key={article.id} className="relative">
           <div
             onClick={() => navigate(`${article.title.replaceAll(' ', '-')}`)}
