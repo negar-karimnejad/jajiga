@@ -6,7 +6,8 @@ function MoreInfos() {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="container relative my-14 text-center">
+    <div className='bg-white dark:bg-gray-900 relative py-14'>
+    <div className="container text-center">
       <h3 className="mb-3 font-vazirBold text-lg dark:text-white">
         اجاره ویلا، آنلاین و مطمئن در جاجیگا
       </h3>
@@ -31,6 +32,7 @@ function MoreInfos() {
         مشاهده بیشتر
         <IoIosArrowDown size={24} />
       </Button>
+    </div>
     </div>
   );
 }

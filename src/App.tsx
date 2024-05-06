@@ -5,7 +5,10 @@ import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 import About from './pages/About';
 import AppLayout from './pages/AppLayout';
 import Appstore from './pages/Appstore';
+import Article from './pages/Article';
 import Articles from './pages/Articles';
+import Author from './pages/Author';
+import CategoryArticle from './pages/CategoryArticle';
 import Faq from './pages/Faq';
 import Guarantee from './pages/Guarantee';
 import Help from './pages/Help';
@@ -18,8 +21,6 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
-import CategoryArticle from './pages/CategoryArticle';
-import Article from './pages/Article';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/mag" element={<Articles />} />
           <Route path="/:id" element={<Article />} />
           <Route path="/mag/category/:id" element={<CategoryArticle />} />
+          <Route path="/mag/author/:id" element={<Author />} />
           <Route path="/help" element={<Help />} />
           <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />

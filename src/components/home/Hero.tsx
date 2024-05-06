@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useScroll } from '../../hooks/useScroll';
 
 function Hero() {
-  const {scrollYPosition} = useScroll();
+  const { scrollYPosition } = useScroll();
 
-  if (scrollYPosition > 500) return;
+  // if (scrollYPosition > 500) return;
 
   return (
     <div className="fixed left-0 right-0 top-0 mx-auto h-[500px] max-xl:h-[400px] ">

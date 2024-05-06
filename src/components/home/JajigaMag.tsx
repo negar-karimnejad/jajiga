@@ -8,7 +8,7 @@ import SectionHeading from './SectionHeading';
 
 function JajigaMag() {
   return (
-    <div className="group relative z-30 rounded-t-2xl bg-white dark:bg-gray-900">
+    <div className="group relative bg-white dark:bg-gray-900">
       <div className="container">
         <SectionHeading>
           <Link to="/mag" className="flex items-center gap-1">

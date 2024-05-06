@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Advantages() {
   return (
-    <div className="relative">
-      <div className="container mb-4 mt-16 bg-white dark:bg-gray-900">
+    <div className="relative mt-10 bg-white dark:bg-gray-900">
+      <div className="container">
         <Swiper
           spaceBetween={15}
           autoplay={{

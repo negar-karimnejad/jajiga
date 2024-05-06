@@ -30,9 +30,9 @@ function Article() {
       />
       <div className="container">
         <div className="my-10">
-          <div className="grid grid-cols-12 lg:gap-12">
-            <div className="h-fit max-lg:hidden lg:col-span-4">
-              <div className="mb-8 border bg-white shadow-md shadow-gray-300 dark:border-0 dark:shadow-gray-950">
+          <div className="flex grid-cols-12 flex-col-reverse max-lg:gap-10 lg:grid lg:gap-12">
+            <div className="col-span-12 h-fit lg:col-span-4">
+              <div className="mb-8 border bg-white shadow-md shadow-gray-300 dark:border-0 dark:shadow-gray-950 max-lg:hidden">
                 <ArticleMenuList />
               </div>
               <div className="border bg-white p-4 py-8 shadow-lg shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-gray-950">
@@ -46,10 +46,183 @@ function Article() {
                       prevEl: '.article-swiper-button-prev',
                     }}
                     loop={true}
-                    slidesPerView={1}
-                    spaceBetween={250}
+                    // slidesPerView={1}
                     modules={[Navigation]}
+                    breakpoints={{
+                      0: {
+                        slidesPerView: 1,
+                        spaceBetween: 250,
+                      },
+                      700: {
+                        slidesPerView: 2,
+                        spaceBetween: 100,
+                      },
+                      1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 250,
+                      },
+                    }}
                   >
+                    <SwiperSlide className="flex flex-col gap-5">
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col gap-5">
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col gap-5">
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col gap-5">
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col gap-5">
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                      <Link to="" className="group flex">
+                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                          <img
+                            className="h-full w-24 object-cover"
+                            loading="lazy"
+                            src="/images/popular/anzali.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="mr-3 flex flex-1 items-center">
+                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
+                          </p>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
                     <SwiperSlide className="flex flex-col gap-5">
                       <Link to="" className="group flex">
                         <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
@@ -84,13 +257,13 @@ function Article() {
                     </SwiperSlide>
                   </Swiper>
 
-                  <div className="article-swiper-button-next absolute -top-12 left-7 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-200 transition-all hover:bg-gray-400 dark:bg-gray-900 dark:hover:bg-gray-950 max-xl:hidden">
+                  <div className="article-swiper-button-next absolute -top-12 left-7 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-200 transition-all hover:bg-gray-400 dark:bg-gray-900 dark:hover:bg-gray-950">
                     <FaChevronRight
                       size={15}
                       className="text-gray-700 transition-all dark:text-gray-300"
                     />
                   </div>
-                  <div className="article-swiper-button-prev absolute -top-12 left-0 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-200 transition-all hover:bg-gray-400 dark:bg-gray-900 dark:hover:bg-gray-950 max-xl:hidden">
+                  <div className="article-swiper-button-prev absolute -top-12 left-0 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-200 transition-all hover:bg-gray-400 dark:bg-gray-900 dark:hover:bg-gray-950">
                     <FaChevronLeft
                       size={15}
                       className="text-gray-700 transition-all dark:text-gray-300"
@@ -110,16 +283,18 @@ function Article() {
                 <h2 className="my-5 font-vazirBold text-2xl dark:text-white">
                   {article.title}
                 </h2>
-                <div className="flex items-center gap-3 text-[13px]">
-                  <MagAuthor id={article.author_id} />
-                  <div className="flex items-center gap-1">
-                    <CiCalendarDate
-                      size={17}
-                      className="text-gray-600 dark:text-gray-300"
-                    />
-                    <p className="whitespace-nowrap pt-1.5 font-persianNums text-[11px] tracking-wider text-gray-400">
-                      {convertToPersianDate(article.created_at)}
-                    </p>
+                <div className="flex sm:items-center gap-3 text-[13px] max-sm:flex-col">
+                  <div className="flex items-center gap-3">
+                    <MagAuthor id={article.author_id} />
+                    <div className="flex items-center gap-1">
+                      <CiCalendarDate
+                        size={17}
+                        className="text-gray-600 dark:text-gray-300"
+                      />
+                      <p className="whitespace-nowrap pt-1.5 font-persianNums text-[11px] tracking-wider text-gray-400">
+                        {convertToPersianDate(article.created_at)}
+                      </p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-1">
                     <FiClock
@@ -142,21 +317,73 @@ function Article() {
                   {article.description}
                 </p>
               </div>
-              <div className="border bg-white p-4 py-8 shadow-lg shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-gray-950">
-                <h3 className="mb-5 font-vazirBold text-2xl dark:text-white">
+              <div className="border bg-white p-4 py-8  shadow-lg shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-gray-950">
+                <h3 className="container mb-5 font-vazirBold text-2xl dark:text-white">
                   <span className="font-persianNums text-2xl">۱</span> دیدگاه
                 </h3>
-                <form className="flex flex-col">
-                  <label htmlFor="">دیدگاه</label>
-                  <textarea name="" className='border rounded-md p-4' id=""></textarea>
-                  <div className='max-sm:flex-col flex justify-between items-center'>
-                    <label htmlFor="">نام کامل*</label>
-                    <input type="text" className='border rounded-md p-4' />
-                    <label htmlFor="">ایمیل کامل*</label>
-                    <input type="text" className='border rounded-md p-4' />
-                    <Button>ثبت دیدگاه</Button>
+                <form className="container flex flex-col gap-5">
+                  <label htmlFor="" className="text-sm">
+                    دیدگاه
+                  </label>
+                  <textarea
+                    name=""
+                    rows={8}
+                    className="rounded-md border p-2 outline-0 dark:bg-white dark:text-gray-600"
+                    id=""
+                  ></textarea>
+                  <div className="flex justify-between gap-5 max-sm:flex-col sm:items-end">
+                    <label
+                      htmlFor=""
+                      className="flex flex-1 flex-col gap-2 text-sm"
+                    >
+                      نام کامل *
+                      <input
+                        type="text"
+                        className="w-full rounded-md border p-2 outline-0 dark:bg-white dark:text-gray-600"
+                      />
+                    </label>
+                    <label
+                      htmlFor=""
+                      className="flex flex-1 flex-col gap-2 text-sm"
+                    >
+                      ایمیل کامل *
+                      <input
+                        type="text"
+                        className="w-full rounded-md border p-2 outline-0 dark:bg-white dark:text-gray-600"
+                      />
+                    </label>
+                    <Button style="hover:bg-sky-500 bg-sky-400 text-white font-vazirMedium rounded-md">
+                      ثبت دیدگاه
+                    </Button>
                   </div>
                 </form>
+
+                <div className="container mt-16">
+                  <div className="flex justify-between">
+                    <div className="flex items-center gap-5">
+                      <img
+                        alt=""
+                        src="https://storage.jajiga.com/public/avatar/small/2204092311001456388.jpg"
+                        className="h-14 w-14 rounded-full"
+                      />
+                      <div className="flex flex-col gap-2">
+                        <div className="font-vazirBold text-base dark:text-white">
+                          حمید
+                        </div>
+                        <span className="font-persianNums text-[12px] text-gray-400">
+                          27 فروردین 1403
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-5 text-sm leading-6 text-gray-700 dark:text-gray-400">
+                    دشت دریاسر بسیار زیباست خصوصا اگر از سمت قله سیالان فرود
+                    بیایید و بعد از عبور از خط برف و علف زار های البرز مرتفع به
+                    جنگل و سپس به این دشت برسی تجربه ای ناب در حرکت در داخل مه و
+                    جنگل .فوق العاده ست مسیری فوق العاده که ما به اتفاق دوستان
+                    تجربه نمودیم{' '}
+                  </p>
+                </div>
               </div>
             </div>
             <div className="max-lg:hidden lg:col-span-2">

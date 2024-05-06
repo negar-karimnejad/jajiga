@@ -15,7 +15,7 @@ interface SliderSectionProps {
 
 function SliderSection({ title, text, nextBtn, prevBtn }: SliderSectionProps) {
   return (
-    <div className="group relative z-30 rounded-t-2xl bg-white dark:bg-gray-900">
+    <div className="group relative bg-white dark:bg-gray-900">
       <div className="container">
         <SectionHeading>
           {title}

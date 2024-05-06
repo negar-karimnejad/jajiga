@@ -41,7 +41,7 @@ function HomePage() {
         {scrollYPosition < 480 && <Logo withTitle={true} />}
       </div>
       <Hero />
-      <div className=" bg-white dark:bg-gray-900">
+      <div className="relative bg-white dark:bg-gray-900">
         <Application style="absolute -top-10 right-0 h-14 rounded-t-2xl" />
         <Popular />
         <QuickSearch />

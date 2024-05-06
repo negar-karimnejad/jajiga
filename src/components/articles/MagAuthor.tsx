@@ -13,7 +13,7 @@ function MagAuthor({ id, lightColor }: MagAuthorProps) {
 
   return (
     <Link
-      to={`/author/${author?.fullname}`}
+      to={`/mag/author/${author?.fullname}`}
       className="group flex items-center gap-2"
     >
       <img

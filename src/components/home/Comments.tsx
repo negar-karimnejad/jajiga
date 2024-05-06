@@ -8,7 +8,7 @@ import SectionHeading from './SectionHeading';
 
 function Comments() {
   return (
-    <div className="group relative z-30 my-10 rounded-t-2xl bg-white dark:bg-gray-900">
+    <div className="group relative py-10 bg-white dark:bg-gray-900">
       <div className="container">
         <SectionHeading>نظرات کاربران</SectionHeading>
 
