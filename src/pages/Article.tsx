@@ -11,13 +11,13 @@ import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
 import MagAuthor from '../components/articles/MagAuthor';
 import Button from '../components/ui/Button';
-import { useArticles } from '../hooks/useArticles';
+import { useArticle } from '../hooks/useArticle';
 import convertToPersianDate from '../utilities/convertToPersianDate';
 
 function Article() {
   const { id } = useParams();
   const title = id ? id.replaceAll('-', ' ') : '';
-  const { article } = useArticles(title);
+  const { article } = useArticle(title);
 
   if (!article) return;
   return (
@@ -283,7 +283,7 @@ function Article() {
                 <h2 className="my-5 font-vazirBold text-2xl dark:text-white">
                   {article.title}
                 </h2>
-                <div className="flex sm:items-center gap-3 text-[13px] max-sm:flex-col">
+                <div className="flex gap-3 text-[13px] max-sm:flex-col sm:items-center">
                   <div className="flex items-center gap-3">
                     <MagAuthor id={article.author_id} />
                     <div className="flex items-center gap-1">
