@@ -23,7 +23,9 @@ function SliderSection({
   prevBtn,
 }: SliderSectionProps) {
   const { rooms } = useRooms();
-  const selectedRooms = rooms.filter((room) => room.category === category);
+  const selectedRooms = rooms.filter(
+    (room) => room.category.at(0) === category,
+  );
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">

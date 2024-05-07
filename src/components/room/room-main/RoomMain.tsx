@@ -27,7 +27,7 @@ function RoomMain() {
       >
         <div className="relative md:col-span-8" id="featuresRef">
           <RoomAccessibility />
-          <Breadcrumb pageLink="ساوجبلاغ" links={['البرز']} />
+          <Breadcrumb pageLink={room.category[2]} links={[room.category[1]]} />
           <RoomAbout />
           <RoomFeatures />
           <RoomCalendar />

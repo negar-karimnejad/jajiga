@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaSwimmingPool } from 'react-icons/fa';
 import { GiBarbecue, GiHomeGarage, GiVacuumCleaner } from 'react-icons/gi';
 import { LiaCouchSolid, LiaTemperatureHighSolid } from 'react-icons/lia';
 import { MdElectricalServices, MdOutlineKitchen } from 'react-icons/md';
@@ -9,15 +10,29 @@ import {
   PiToilet,
 } from 'react-icons/pi';
 import { TbToolsKitchen2, TbUserShield } from 'react-icons/tb';
+import { useParams } from 'react-router-dom';
+import useRoom from '../../../hooks/useRoom';
 
 function RoomFeatures() {
   const [isShowInfo, setIsShowInfo] = useState(false);
+  const { id } = useParams();
+  const { room } = useRoom(Number(id));
 
+  if (!room) return;
   return (
     <div className="mt-5">
       <h4 className="mb-3 font-vazirBold text-lg">امکانات</h4>
       <div className="flex gap-32">
         <div className="flex flex-col gap-3">
+          {room.features?.map((feature, index) => (
+            <p
+              key={index}
+              className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-100"
+            >
+              <FaSwimmingPool size={20} />
+              {feature}
+            </p>
+          ))}
           <p
             onMouseEnter={() => setIsShowInfo(true)}
             onMouseLeave={() => setIsShowInfo(false)}

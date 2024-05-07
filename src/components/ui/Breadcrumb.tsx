@@ -59,7 +59,9 @@ function Breadcrumb({ links, pageLink }: BreadcrumbProps) {
             d="m1 9 4-4-4-4"
           />
         </svg>
-        <div className="ms-1 text-gray-700 md:ms-2 text-lg font-vazirBold cursor-default">{pageLink}</div>
+        <div className="ms-1 cursor-default font-vazirBold text-base text-gray-700 md:ms-2">
+          {pageLink}
+        </div>
       </ol>
     </nav>
   );

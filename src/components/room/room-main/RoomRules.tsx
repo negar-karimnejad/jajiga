@@ -1,6 +1,12 @@
 import { CiClock1 } from 'react-icons/ci';
+import { useParams } from 'react-router-dom';
+import useRoom from '../../../hooks/useRoom';
 
 function RoomRules() {
+  const { id } = useParams();
+  const { room } = useRoom(Number(id));
+
+  if (!room) return;
   return (
     <>
       <div className="mt-5">
@@ -8,13 +14,10 @@ function RoomRules() {
           مقررات لغو رزرو
         </h4>
         <div>
-          <p className="leading-6 text-gray-600 dark:text-gray-400">
-            <strong className="dark:text-gray-200">سیاست متعادل: </strong>در
-            صورتی که رزرو، بیش از 3 روز کامل از تاریخ ورود لغو گردد؛ 90 درصد
-            مبلغ صورتحساب به میهمان عودت می‌شود. در غیر اینصورت اجاره شب اول
-            بعلاوه 10 درصد شب‌های باقیمانده کسر می‌شود.
-            <span>توضیحات بیشتر</span>
-          </p>
+          <div
+            className="leading-6 text-gray-600 dark:text-gray-400"
+            dangerouslySetInnerHTML={{ __html: room.cancellation_policy }}
+          ></div>
         </div>
         <div className="my-5 h-[1px] w-full bg-gray-200"></div>
       </div>
@@ -27,13 +30,15 @@ function RoomRules() {
               <p className="flex items-center gap-2">
                 <CiClock1 /> ساعت ورود از
               </p>
-              <p className="font-vazirBold">2 ظهر تا نامحدود</p>
+              <p className="font-vazirBold">
+                {room.entrance_hour} ظهر تا نامحدود
+              </p>
             </div>
             <div className="w-36 rounded-lg border border-gray-100 p-2 text-center">
               <p className="flex items-center gap-2">
                 <CiClock1 /> ساعت خروج تا
               </p>
-              <p className="font-vazirBold">12 ظهر</p>
+              <p className="font-vazirBold">{room.leaving_hour} ظهر</p>
             </div>
           </div>
           <ul className="flex list-disc flex-col gap-2 pr-5 text-sm text-gray-600 dark:text-gray-400">
@@ -46,6 +51,10 @@ function RoomRules() {
               <span className="font-vazirBold">مدارک مورد نیاز: </span>
               کارت ملی هوشمند یا شناسنامه
             </li>
+            {room.residence_policy &&
+              room.residence_policy.map((policy, index) => (
+                <li key={index}>{policy}</li>
+              ))}
           </ul>
         </div>
         <div className="my-5 h-[1px] w-full bg-gray-200"></div>

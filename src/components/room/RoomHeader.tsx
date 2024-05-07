@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import useRoom from '../../hooks/useRoom';
 import LikeAndShareButtons from './LikeAndShareButtons';
 
 function RoomHeader() {
   const [hoveredImage, setHoveredImage] = useState<null | number>(null);
+  const { id } = useParams();
+  const { room } = useRoom(Number(id));
 
   const handleMouseEnter = (index: number) => {
     setHoveredImage(index);
@@ -11,6 +15,8 @@ function RoomHeader() {
   const handleMouseLeave = () => {
     setHoveredImage(null);
   };
+
+  if (!room) return;
   return (
     <>
       <div className="container my-5 flex h-80 cursor-pointer gap-2 transition-all">
@@ -23,7 +29,7 @@ function RoomHeader() {
                 ? 'grayscale'
                 : 'grayscale-0'
             }`}
-            src="/images/room/1.png"
+            src={room.images.at(0)}
             alt=""
           />
         </div>
@@ -37,7 +43,7 @@ function RoomHeader() {
                   ? 'grayscale'
                   : 'grayscale-0'
               }`}
-              src="/images/room/2.png"
+              src={room.images.at(1)}
               alt=""
             />
             <img
@@ -48,7 +54,7 @@ function RoomHeader() {
                   ? 'grayscale'
                   : 'grayscale-0'
               }`}
-              src="/images/room/3.png"
+              src={room.images.at(2)}
               alt=""
             />
           </div>
@@ -61,7 +67,7 @@ function RoomHeader() {
                   ? 'grayscale'
                   : 'grayscale-0'
               }`}
-              src="/images/room/4.png"
+              src={room.images.at(3)}
               alt=""
             />
             <img
@@ -72,7 +78,7 @@ function RoomHeader() {
                   ? 'grayscale'
                   : 'grayscale-0'
               }`}
-              src="/images/room/5.png"
+              src={room.images.at(4)}
               alt=""
             />
             <div className="absolute left-2 top-2 z-30">

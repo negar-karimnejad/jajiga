@@ -28,13 +28,13 @@ export interface Room {
     title: string;
     rooms: string[];
   }[];
-  cancellation_policy?: string;
-  residence_policy?: string;
+  cancellation_policy: string;
+  residence_policy?: string[];
   entrance_hour: number;
   leaving_hour: number;
   host_id: number;
   price: number;
-  category: string;
+  category: string[];
 }
 
 interface RoomState {
