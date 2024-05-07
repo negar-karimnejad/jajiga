@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import Button from '../components/ui/Button';
 
 const OfflinePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const refreshHandler = () => {
+    setIsLoading(true);
     window.location.reload();
+    setIsLoading(false);
   };
-  
+
   return (
     <div className="flex h-screen items-center justify-center bg-[#d2efff]">
       <div className="absolute left-5 top-5 h-36 w-36">
@@ -76,8 +81,13 @@ const OfflinePage = () => {
           </ul>
           <Button
             onClick={refreshHandler}
-            style="bg-yellow-400 rounded-full px-5 py-3 font-vazirMedium"
+            style="bg-yellow-400 flex gap-2 items-center mx-auto rounded-full px-5 py-3 font-vazirMedium"
           >
+            {isLoading ? (
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-600"></div>
+            ) : (
+              ''
+            )}
             دوباره امتحان کنید
           </Button>
         </div>

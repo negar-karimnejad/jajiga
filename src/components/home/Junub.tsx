@@ -3,6 +3,7 @@ import SliderSection from '../ui/SliderSection';
 function Junub() {
   return (
     <SliderSection
+    category='junub'
       title="اجاره سوئیت و اقامتگاه در جنوب"
       text="اقامتگاه های کیش، قشم، بوشهر، بندرعباس و چابهار"
       nextBtn="junub-swiper-button-next"

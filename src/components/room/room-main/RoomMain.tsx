@@ -1,4 +1,6 @@
 import { useRef } from 'react';
+import { useParams } from 'react-router-dom';
+import useRoom from '../../../hooks/useRoom';
 import Breadcrumb from '../../ui/Breadcrumb';
 import RoomSidebar from '../RoomSidebar';
 import RoomAbout from './RoomAbout';
@@ -13,7 +15,10 @@ import RoomScore from './RoomScore';
 
 function RoomMain() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { id } = useParams();
+  const { room } = useRoom(Number(id));
 
+  if (!room) return;
   return (
     <>
       <div

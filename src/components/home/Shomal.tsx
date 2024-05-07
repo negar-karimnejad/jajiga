@@ -4,6 +4,7 @@ function Shomal() {
   return (
     <SliderSection
       title="اجاره ویلا شمال"
+      category="shomal"
       text="بهترین ویلاهای گیلان، مازندران و گلستان"
       nextBtn="shomal-swiper-button-next"
       prevBtn="shomal-swiper-button-prev"

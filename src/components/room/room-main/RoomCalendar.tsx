@@ -6,10 +6,14 @@ import { IoTrashOutline } from 'react-icons/io5';
 import { Calendar, Value } from 'react-multi-date-picker';
 import weekends from 'react-multi-date-picker/plugins/highlight_weekends';
 import 'react-multi-date-picker/styles/layouts/mobile.css';
+import { useParams } from 'react-router-dom';
+import useRoom from '../../../hooks/useRoom';
 import Button from '../../ui/Button';
 
 function RoomCalendar() {
   const [value, setValue] = useState<Value>(new Date());
+  const { id } = useParams();
+  const { room } = useRoom(Number(id));
 
   const handleChange = (dates: Value) => {
     setValue(dates);
@@ -32,6 +36,7 @@ function RoomCalendar() {
   const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
   // const holidays = ['2024-05-06', '2024-05-07', '2024-05-08'];
 
+  if (!room) return;
   return (
     <div className="mt-5" id="calenderRef">
       <div className="space-y-5">
@@ -186,27 +191,42 @@ function RoomCalendar() {
             <span>
               +
               <span className="font-persianNums">
-                {(190000).toLocaleString()}
+                {room.extra_person_charge?.toLocaleString()}
               </span>{' '}
-              تومان / بیشتر از <span className="font-persianNums">4</span> نفر
+              تومان / بیشتر از{' '}
+              <span className="font-persianNums">{room.capacity}</span> نفر
             </span>
           </div>
-          <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
-            <strong className="dark:text-gray-200">
-              تخفیف رزرو بیش از <span className="font-persianNums">3</span> شب:
-            </strong>
-            <span>
-              <span className="font-persianNums">5</span> درصد
-            </span>
-          </div>
-          <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
-            <strong className="dark:text-gray-200">
-              تخفیف رزرو بیش از <span className="font-persianNums">10</span> شب:
-            </strong>
-            <span>
-              <span className="font-persianNums">20</span> درصد
-            </span>
-          </div>
+          {room.discount?.map((dis, index) => (
+            <div
+              key={index}
+              className="my-2 flex gap-3 text-sm dark:text-gray-400"
+            >
+              <strong className="dark:text-gray-200">
+                تخفیف رزرو بیش از{' '}
+                <span className="font-persianNums">{dis.day}</span> شب:
+              </strong>
+              <span>
+                <span className="font-persianNums">{dis.off}</span> درصد
+              </span>
+            </div>
+          ))}
+          {room.min_stay && (
+            <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
+              <strong className="dark:text-gray-200">حداقل اقامت:</strong>
+              <span>
+                <span className="font-persianNums">{room.min_stay}</span> شب
+              </span>
+            </div>
+          )}
+          {room.max_stay && (
+            <div className="my-2 flex gap-3 text-sm dark:text-gray-400">
+              <strong className="dark:text-gray-200">حداکثر اقامت:</strong>
+              <span>
+                <span className="font-persianNums">{room.max_stay}</span> شب
+              </span>
+            </div>
+          )}
           <div className="my-5 h-[1px] w-full bg-gray-200"></div>
         </div>{' '}
       </div>
