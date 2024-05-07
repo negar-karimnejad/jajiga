@@ -5,7 +5,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import OfflinePage from './pages/OfflinePage';
 
 interface OfflineContextType {
   isOnline: boolean;
@@ -31,8 +30,7 @@ export function OfflineProvider({ children }: { children: ReactNode }) {
 
   return (
     <OfflineContext.Provider value={{ isOnline }}>
-      {!isOnline && <OfflinePage />}
-      {isOnline && children}
+      {children}
     </OfflineContext.Provider>
   );
 }
