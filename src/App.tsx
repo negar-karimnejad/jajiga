@@ -1,13 +1,12 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DarkMode from './components/ui/DarkMode';
-import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 import About from './pages/About';
 import AppLayout from './pages/AppLayout';
 import Appstore from './pages/Appstore';
 import Article from './pages/Article';
 import Articles from './pages/Articles';
 import Author from './pages/Author';
+import BlankLayout from './pages/BlankLayout';
 import CategoryArticle from './pages/CategoryArticle';
 import Faq from './pages/Faq';
 import Guarantee from './pages/Guarantee';
@@ -16,6 +15,7 @@ import HomePage from './pages/HomePage';
 import Host from './pages/Host';
 import Invite from './pages/Invite';
 import Jobs from './pages/Jobs';
+import OfflinePage from './pages/OfflinePage';
 import Room from './pages/Room';
 import Rules from './pages/Rules';
 import Support from './pages/Support';
@@ -26,9 +26,10 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <DarkMode />
-        <MobileNavigationMenu />
         <Routes>
+          <Route element={<BlankLayout />}>
+            <Route path="/offline-page" element={<OfflinePage />} />
+          </Route>
           <Route element={<AppLayout />}>
             <Route path="/host" element={<Host />} />
             <Route path="/faq" element={<Faq />} />
