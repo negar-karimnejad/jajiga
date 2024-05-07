@@ -1,54 +1,46 @@
 import {
   ReactNode,
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react';
+import OfflinePage from './pages/OfflinePage';
 
-interface NetworkContextType {
+interface OfflineContextType {
   isOnline: boolean;
 }
 
-const NetworkContext = createContext<NetworkContextType | null>(null);
-export const NetworkProvider = ({ children }: { children: ReactNode }) => {
-  const [isOnline, setOnline] = useState<boolean>((): boolean => {
-    return navigator.onLine;
-  });
-  const setOnlineToTrue = useCallback(() => {
-    setOnline(true);
-  }, []);
-  const setOnlineToFalse = useCallback(() => {
-    setOnline(false);
-  }, []);
+const OfflineContext = createContext<OfflineContextType | null>(null);
+
+export function OfflineProvider({ children }: { children: ReactNode }) {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    window.addEventListener('online', setOnlineToTrue);
-    window.addEventListener('offline', setOnlineToFalse);
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
     return () => {
-      window.removeEventListener('online', setOnlineToTrue);
-      window.removeEventListener('offline', setOnlineToFalse);
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
     };
-  }, [setOnlineToTrue, setOnlineToFalse]);
-
-  useEffect(() => {
-    if (!isOnline) {
-      window.location.href = '/offline-page';
-    }
-  }, [isOnline]);
+  }, []);
 
   return (
-    <NetworkContext.Provider value={{ isOnline }}>
-      {children}
-    </NetworkContext.Provider>
+    <OfflineContext.Provider value={{ isOnline }}>
+      {!isOnline && <OfflinePage />}
+      {isOnline && children}
+    </OfflineContext.Provider>
   );
-};
+}
 
-export const useNetworkCheck = () => {
-  const context = useContext(NetworkContext);
+export const useOfflineCheck = () => {
+  const context = useContext(OfflineContext);
   if (!context) {
-    throw Error('useNetworkCheck must be inside of NetworkProvider');
+    throw Error('useOfflineCheck must be inside of OfflineProvider');
   }
   return context;
 };

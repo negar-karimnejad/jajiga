@@ -1,12 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import { NetworkProvider } from './OfflineRedirect .tsx';
+import { OfflineProvider } from './OfflineRedirect .tsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   // <React.StrictMode>
-  <NetworkProvider>
+  <OfflineProvider>
     <App />
-  </NetworkProvider>,
+  </OfflineProvider>,
   //  </React.StrictMode>,
 );

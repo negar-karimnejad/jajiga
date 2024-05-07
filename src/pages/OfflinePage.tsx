@@ -1,15 +1,13 @@
-import { useNavigate } from 'react-router-dom';
-import { useNetworkCheck } from '../OfflineRedirect ';
+import { useOfflineCheck } from '../OfflineRedirect ';
 import Logo from '../components/navbar/Logo';
 import Button from '../components/ui/Button';
 import Loader from '../components/ui/Loader';
 
 const OfflinePage = () => {
-  const { isOnline } = useNetworkCheck();
-  const navigate = useNavigate();
+  const { isOnline } = useOfflineCheck();
 
   if (isOnline) {
-    navigate(-1);
+    window.location.href = '/';
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <Loader />
