@@ -10,8 +10,8 @@ function RoomHost({ room }: { room: Room }) {
   if (!host) return null;
   if (loading) return <Loader />;
   const {
+    id,
     fullname,
-    active_residences,
     profile,
     registery_date,
     reservation_confirmation,
@@ -24,10 +24,9 @@ function RoomHost({ room }: { room: Room }) {
       <div className="mr-2">
         <div className="flex justify-between">
           <div>
-            <h4 className="mb-1 font-vazirBold">{fullname}</h4>
-            <p className="text-sm text-gray-500">
-              عضو جاجیگا از
-              <Date>{convertToPersianDate(registery_date)}</Date>
+            <h4 className="mb-2 font-vazirBold">{fullname}</h4>
+            <p className="mb-4 font-persianNums text-sm text-gray-400">
+              عضو جاجیگا از {convertToPersianDate(registery_date)}
             </p>
           </div>
           <img
@@ -36,13 +35,13 @@ function RoomHost({ room }: { room: Room }) {
             className="h-16 w-16 rounded-full"
           />
         </div>
-        <p className="mb-2 font-persianNums text-sm text-gray-600 dark:text-gray-400">
+        <p className="mb-3 font-persianNums text-sm text-gray-600 dark:text-gray-400">
           <strong className="text-gray-800 dark:text-gray-100">
             سرعت پاسخ‌گویی:{' '}
           </strong>
           کمتر از {response_time} دقیقه
         </p>
-        <p className="mb-2 font-persianNums text-sm text-gray-600 dark:text-gray-400">
+        <p className="mb-3 font-persianNums text-sm text-gray-600 dark:text-gray-400">
           <strong className="text-gray-800 dark:text-gray-100">
             میزان تأیید رزرو:{' '}
           </strong>
@@ -50,7 +49,7 @@ function RoomHost({ room }: { room: Room }) {
         </p>
       </div>
       <div className="mt-3 w-full rounded-full bg-gray-100 py-3 text-center text-sm text-gray-600 transition-all hover:bg-gray-200 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700">
-        <Link to="" className="font-vazirBold">
+        <Link to={`/user/${id}`} className="font-vazirBold">
           مشاهده حساب کاربری میزبان »
         </Link>
       </div>

@@ -12,7 +12,7 @@ import Faq from './pages/Faq';
 import Guarantee from './pages/Guarantee';
 import Help from './pages/Help';
 import HomePage from './pages/HomePage';
-import Host from './pages/Host';
+import Hosting from './pages/Hosting';
 import Invite from './pages/Invite';
 import Jobs from './pages/Jobs';
 import OfflinePage from './pages/OfflinePage';
@@ -21,6 +21,9 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
+import Host from './pages/Host';
+import DarkMode from './components/ui/DarkMode';
+import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -30,10 +33,12 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <DarkMode />
+        <MobileNavigationMenu />
         <Routes>
           {/* <Route element={<BlankLayout />}></Route> */}
           <Route element={<AppLayout />}>
-            <Route path="/host" element={<Host />} />
+            <Route path="/host" element={<Hosting />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/guarantee" element={<Guarantee />} />
             <Route path="/invite" element={<Invite />} />
@@ -50,6 +55,7 @@ function App() {
           <Route path="/help" element={<Help />} />
           <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />
+          <Route path="/user/:id" element={<Host />} />
           <Route path="/app" element={<Appstore />} />
         </Routes>
       </BrowserRouter>

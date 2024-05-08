@@ -21,8 +21,6 @@ import Logo from '../components/navbar/Logo';
 import NavLinks from '../components/navbar/NavLinks';
 import NavMenu from '../components/navbar/NavMenu';
 import Navbar from '../components/navbar/Navbar';
-import DarkMode from '../components/ui/DarkMode';
-import MobileNavigationMenu from '../components/ui/MobileNavigationMenu ';
 import { useScroll } from '../hooks/useScroll';
 
 function HomePage() {
@@ -30,8 +28,6 @@ function HomePage() {
 
   return (
     <>
-      <DarkMode />
-      <MobileNavigationMenu />
       <Navbar scrollYPosition={scrollYPosition} />
       <div className="container navbar fixed left-0 right-0 top-0 z-30 mx-auto">
         <div className="flex-1 gap-10">
