@@ -125,14 +125,22 @@ function Host() {
                       className="text-sm dark:text-white"
                     >
                       <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                      <p className="mt-2 flex gap-1 font-persianNums text-[13px] text-gray-500">
-                        {room.bedroom}خوابه .{room.foundation_meterage} متر . تا{' '}
-                        {room.max_capacity} مهمان
-                        <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
+                      <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
+                        <span className="font-persianNums">
+                          {room.bedroom}خوابه . {room.foundation_meterage} متر .
+                          تا {room.max_capacity} مهمان
+                        </span>
+                        <span className="flex gap-1 font-persianNums">
+                          <BsStarFill className="text-yellow-500" />
+                          {room.rating.total}
+                        </span>
+                        <span className="font-persianNums">
+                          ({room.reviews} نظر)
+                        </span>
                       </p>
                       <p className="mt-1 flex items-center gap-1 text-sm">
                         هر شب از
-                        <span className="font-persianNums">
+                        <span className="mr-1 font-persianNums">
                           {room.price.toLocaleString()}
                         </span>
                         تومان

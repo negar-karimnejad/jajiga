@@ -12,7 +12,7 @@ function RoomComments() {
 
   if (!room) return null;
   return (
-    <div className="mt-5">
+    <div className="mt-5" id="hostRef">
       <h4 className="mb-3 font-vazirBold text-lg">
         <span className="font-vazirBold text-lg">
           نظر مهمانان{' '}
@@ -25,7 +25,7 @@ function RoomComments() {
       </h4>
       {room?.comments?.length ? (
         room?.comments?.map((comment, index) => (
-          <div key={index} className="my-5" id="hostRef">
+          <div key={index} className="my-5" >
             <div className="flex justify-between">
               <div className="flex items-center gap-5">
                 <img

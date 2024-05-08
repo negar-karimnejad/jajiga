@@ -93,10 +93,18 @@ function SliderSection({
                   className="text-sm dark:text-white"
                 >
                   <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                  <p className="flex gap-1 font-persianNums text-[13px]">
-                    {room.bedroom}خوابه .{room.foundation_meterage} متر . تا{' '}
-                    {room.max_capacity} مهمان
-                    <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
+                  <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
+                    <span className="font-persianNums">
+                      {room.bedroom}خوابه . {room.foundation_meterage} متر . تا{' '}
+                      {room.max_capacity} مهمان
+                    </span>
+                    <span className="flex gap-1 font-persianNums">
+                      <BsStarFill className="text-yellow-500" />
+                      {room.rating.total}
+                    </span>
+                    <span className="font-persianNums">
+                      ({room.reviews} نظر)
+                    </span>
                   </p>
                 </Link>
               </SwiperSlide>
