@@ -1,22 +1,26 @@
+import { BsJournalCheck, BsStarFill } from 'react-icons/bs';
+import { FiHome } from 'react-icons/fi';
+import { TbClockCheck } from 'react-icons/tb';
 import { Link, useParams } from 'react-router-dom';
 import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
+import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
 import Breadcrumb from '../components/ui/Breadcrumb';
-import DarkMode from '../components/ui/DarkMode';
+import Button from '../components/ui/Button';
 import Loader from '../components/ui/Loader';
 import { useHost } from '../hooks/useHost';
 import useRooms from '../hooks/useRooms';
 import convertToPersianDate from '../utilities/convertToPersianDate';
-import { BsStarFill } from 'react-icons/bs';
 
 function Host() {
   const { id } = useParams();
   const { rooms } = useRooms();
   const { host, loading } = useHost(Number(id));
-  const userRooms = rooms.filter((room) => room.host_id === host.id);
+  const userRooms = host && rooms.filter((room) => room.host_id === host.id);
 
   if (!host) return null;
   if (loading) return <Loader />;
+
   const {
     fullname,
     profile,
@@ -25,9 +29,9 @@ function Host() {
     response_time,
     active_residences,
   } = host;
+
   return (
     <>
-      <DarkMode />
       <Application style="h-12" />
       <div className="mx-auto w-full border-b bg-white py-2 dark:border-0 dark:bg-gray-800 lg:gap-x-10">
         <div className="container flex items-center justify-between gap-x-3">
@@ -40,9 +44,9 @@ function Host() {
             <Breadcrumb pageLink="نمایه میزبان" />
           </div>
         </div>
-        <div className="-mt-5 h-screen rounded-t-2xl bg-white dark:bg-gray-800">
-          <div className="container flex gap-5 pt-5 max-md:flex-col">
-            <div className="flex-1 rounded-xl border bg-white p-5 shadow-md shadow-gray-300 dark:border-gray-800 dark:bg-gray-900 dark:shadow-gray-900 ">
+        <div className="-mt-5 rounded-t-2xl bg-white pb-20 dark:bg-gray-800">
+          <div className="container grid-cols-12 gap-10 pt-5 max-sm:flex max-sm:flex-col sm:grid sm:items-start">
+            <div className="col-span-12 rounded-xl border bg-white p-5 shadow-md shadow-gray-300 dark:border-gray-800 dark:bg-gray-900 dark:shadow-gray-900 md:col-span-6 lg:col-span-4">
               <div className="">
                 <div className="flex items-center gap-5">
                   <img
@@ -62,19 +66,22 @@ function Host() {
                     </p>
                   </div>
                 </div>
-                <p className="mb-2 mt-7 font-persianNums text-[13px] text-gray-800 dark:text-gray-100">
+                <p className="mb-2 mt-7 flex gap-1 font-persianNums text-[13px] text-gray-800 dark:text-gray-100">
+                  <FiHome size={17} />
                   <span className="font-vazirBold dark:text-white">
                     تعداد اقامتگاه های فعال:{' '}
                   </span>
                   {active_residences} اقامتگاه
                 </p>
-                <p className="mb-2 font-persianNums text-[13px] text-gray-800 dark:text-gray-100">
+                <p className="mb-2 flex gap-1 font-persianNums text-[13px] text-gray-800 dark:text-gray-100">
+                  <TbClockCheck size={17} />
                   <span className="font-vazirBold dark:text-white">
                     میانگین زمان پاسخ‌گویی:{' '}
                   </span>
                   کمتر از {response_time} دقیقه
                 </p>
-                <p className="mb-2 font-persianNums text-[13px] text-gray-800 dark:text-gray-100">
+                <p className="mb-2 flex gap-1 font-persianNums text-[13px] text-gray-800 dark:text-gray-100">
+                  <BsJournalCheck size={17} />
                   <span className="font-vazirBold dark:text-white">
                     میزان تأیید رزرو:{' '}
                   </span>
@@ -82,21 +89,25 @@ function Host() {
                 </p>
               </div>
             </div>
-            <div className="flex-1">
-              <h3>لیست اقامتگاه ها</h3>
-              <div>
-                {userRooms.map((room) => (
-                  <div key={room.id}>
+            <div className="col-span-12 md:col-span-6 lg:col-span-8">
+              <h3 className="mb-3 font-vazirBold text-lg dark:text-white">
+                لیست اقامتگاه ها
+              </h3>
+              <div className="flex flex-col items-center gap-10 lg:flex-row">
+                {userRooms?.map((room) => (
+                  <div key={room.id} className="">
                     <Link to={`/room/${room.code}`} className="relative">
-                      <div className="relative overflow-hidden rounded-3xl">
+                      <div className="relative overflow-hidden rounded-xl">
                         <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
-
                         <img
                           loading="lazy"
                           src={room?.images?.at(0)}
-                          className="block w-full rounded-3xl"
+                          className="block w-full rounded-xl"
                           alt=""
                         />
+                        <div className="absolute left-2 top-2">
+                          <LikeAndShareButtons />
+                        </div>
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                         <div className="mt-2 flex flex-col items-center gap-2">
@@ -107,17 +118,27 @@ function Host() {
                             <span>⚡</span> رزرو فوری
                           </p>
                         </div>
-                        <p className="font-persianNums">
-                          از {room.price.toLocaleString()} تومان
-                        </p>
                       </div>
                     </Link>
-                    <Link to="/room/123" className="text-sm dark:text-white">
+                    <Link
+                      to={`/room/${room.code}`}
+                      className="text-sm dark:text-white"
+                    >
                       <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                      <p className="flex gap-1 font-persianNums text-[13px]">
+                      <p className="mt-2 flex gap-1 font-persianNums text-[13px] text-gray-500">
                         {room.bedroom}خوابه .{room.foundation_meterage} متر . تا{' '}
                         {room.max_capacity} مهمان
                         <BsStarFill className="text-yellow-500" /> 4.7 (179 نظر)
+                      </p>
+                      <p className="mt-1 flex items-center gap-1 text-sm">
+                        هر شب از
+                        <span className="font-persianNums">
+                          {room.price.toLocaleString()}
+                        </span>
+                        تومان
+                        <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">
+                          {room.reserved}+ رزرو موفق
+                        </Button>
                       </p>
                     </Link>
                   </div>

@@ -88,7 +88,10 @@ function SliderSection({
                     </p>
                   </div>
                 </Link>
-                <Link to="/room/123" className="text-sm dark:text-white">
+                <Link
+                  to={`/room/${room.code}`}
+                  className="text-sm dark:text-white"
+                >
                   <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
                   <p className="flex gap-1 font-persianNums text-[13px]">
                     {room.bedroom}خوابه .{room.foundation_meterage} متر . تا{' '}
