@@ -35,6 +35,8 @@ export interface Room {
   host_id: number;
   price: number;
   category: string[];
+  rating: number;
+  reviews: number;
 }
 
 interface RoomState {

@@ -1,4 +1,3 @@
-import { BsStar, BsStarFill } from 'react-icons/bs';
 import { HiOutlineHome } from 'react-icons/hi';
 import { LiaDoorOpenSolid } from 'react-icons/lia';
 import { LuBedDouble, LuBedSingle } from 'react-icons/lu';
@@ -7,6 +6,7 @@ import { TfiRulerPencil } from 'react-icons/tfi';
 import { useParams } from 'react-router-dom';
 import useRoom from '../../../hooks/useRoom';
 import Button from '../../ui/Button';
+import StarRating from '../../ui/StarRating';
 
 function RoomAbout() {
   const { id } = useParams();
@@ -32,17 +32,20 @@ function RoomAbout() {
           {room.reserved}+ رزرو موفق
         </Button>
         <div className="flex gap-0.5">
-          <BsStar className="text-yellow-400" size={12} />
-          <BsStarFill className="text-yellow-400" size={12} />
-          <BsStarFill className="text-yellow-400" size={12} />
-          <BsStarFill className="text-yellow-400" size={12} />
-          <BsStarFill className="text-yellow-400" size={12} />
+          {/* {Array.from({ length: room.rating }).map((_, i) =>
+            Math.floor(5 - room.rating) > i + 1 ? (
+              <BsStar key={i} className="text-yellow-400" size={12} />
+            ) : (
+              <BsStarFill className="text-yellow-400" size={12} />
+            ),
+          )} */}
+          <StarRating rating={room.rating} />
         </div>
         <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
-          4.7
+          {room.rating}
         </span>
         <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
-          (10 نظر)
+          ({room.reviews} نظر)
         </span>
       </div>
 
