@@ -35,7 +35,15 @@ export interface Room {
   host_id: number;
   price: number;
   category: string[];
-  rating: number;
+  rating: {
+    total: number;
+    truth: number;
+    attitude: number;
+    clean: number;
+    location: number;
+    Delivery: number;
+    quality: number;
+  };
   reviews: number;
 }
 

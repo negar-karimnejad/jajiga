@@ -34,7 +34,7 @@ function RoomAbout() {
         </Button>
         <div className="flex gap-0.5">
           <Rating
-            initialRating={room.rating}
+            initialRating={room.rating.total}
             fullSymbol={<BsStarFill />}
             emptySymbol={<BsStar />}
             readonly={true}
@@ -42,7 +42,7 @@ function RoomAbout() {
           />
         </div>
         <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
-          {room.rating}
+          {room.rating.total}
         </span>
         <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
           ({room.reviews} نظر)
