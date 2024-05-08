@@ -18,7 +18,7 @@ function RoomFeatures() {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
-  if (!room) return;
+  if (!room) return null;
   return (
     <div className="mt-5">
       <h4 className="mb-3 font-vazirBold text-lg">امکانات</h4>

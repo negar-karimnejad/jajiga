@@ -29,8 +29,8 @@ function SupportButton({
             stroke-linejoin="round"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M14.321 7.55l2.584-3.138a1.003 1.003 0 011.483-.072l1.273 1.273a1.002 1.002 0 01-.072 1.483L16.45 9.68"
             fill="#F0C807"
           ></path>
@@ -42,8 +42,8 @@ function SupportButton({
             stroke-linejoin="round"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M9.679 16.45l-2.584 3.138a1.003 1.003 0 01-1.483.072l-1.273-1.273a1.002 1.002 0 01.072-1.483L7.55 14.32"
             fill="#F0C807"
           ></path>
@@ -55,8 +55,8 @@ function SupportButton({
             stroke-linejoin="round"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M7.551 9.68l-3.14-2.585a1.003 1.003 0 01-.072-1.483L5.612 4.34a1.002 1.002 0 011.483.072l2.584 3.14"
             fill="#F0C807"
           ></path>
@@ -68,8 +68,8 @@ function SupportButton({
             stroke-linejoin="round"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M16.449 14.321l3.139 2.584c.457.376.49 1.064.072 1.483l-1.273 1.273a1.002 1.002 0 01-1.483-.072L14.32 16.45"
             fill="#F0C807"
           ></path>
@@ -90,8 +90,8 @@ function SupportButton({
           preserveAspectRatio="xMidYMid meet"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M19 17H18C17.448 17 17 16.552 17 16V11C17 10.448 17.448 10 18 10H19C20.105 10 21 10.895 21 12V15C21 16.105 20.105 17 19 17Z"
             fill="#F0C807"
             stroke="#323232"
@@ -100,8 +100,8 @@ function SupportButton({
             stroke-linejoin="round"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M6 17H5C3.895 17 3 16.105 3 15V12C3 10.895 3.895 10 5 10H6C6.552 10 7 10.448 7 11V16C7 16.552 6.552 17 6 17Z"
             fill="#F0C807"
             stroke="#323232"
@@ -117,8 +117,8 @@ function SupportButton({
             stroke-linejoin="round"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M12.625 21.25H11.375C10.685 21.25 10.125 20.69 10.125 20C10.125 19.31 10.685 18.75 11.375 18.75H12.625C13.315 18.75 13.875 19.31 13.875 20C13.875 20.69 13.315 21.25 12.625 21.25Z"
             fill="#F0C807"
             stroke="#323232"
@@ -143,8 +143,8 @@ function SupportButton({
           preserveAspectRatio="xMidYMid meet"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M15.374 12.718L19.88 9.663C20.581 9.189 21 8.398 21 7.552C21 6.142 19.858 5 18.449 5H5.56601C4.15701 5 3.01501 6.142 3.01501 7.551C3.01501 8.397 3.43401 9.188 4.13501 9.663L8.64101 12.718C10.674 14.096 13.341 14.096 15.374 12.718Z"
             fill="#F0C807"
             stroke="#323232"

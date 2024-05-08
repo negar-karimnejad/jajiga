@@ -6,7 +6,7 @@ function RoomRules() {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
-  if (!room) return;
+  if (!room) return null;
   return (
     <>
       <div className="mt-5">

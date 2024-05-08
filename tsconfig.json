@@ -5,7 +5,9 @@
     "lib": ["es2021", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    },
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

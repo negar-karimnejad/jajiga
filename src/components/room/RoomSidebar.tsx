@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import { GoQuestion, GoShieldCheck } from 'react-icons/go';
-import { HiOutlineInformationCircle } from 'react-icons/hi';
-import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
+import { IoChatbubblesOutline } from 'react-icons/io5';
+import { useParams } from 'react-router-dom';
+import useRoom from '../../hooks/useRoom';
 import Button from '../ui/Button';
 
 function RoomSidebar() {
   const [isShowInfo, setIsShowInfo] = useState(false);
+  const { id } = useParams();
+  const { room } = useRoom(Number(id));
 
+  if (!room) return null;
   return (
-    <div className="top-20 h-fit max-md:hidden md:sticky md:col-span-4">
+    <div className="top-[78px] h-fit max-lg:top-[63px] max-md:hidden md:sticky md:col-span-4">
       <div className="overflow-hidden rounded-xl shadow-lg dark:border dark:border-gray-700 dark:bg-gray-800">
         <header className="flex justify-between bg-neutral-700 p-4 text-white dark:bg-gray-900">
           <span className="font-vazirMedium text-base">نرخ هر شب از:</span>
           <span className="font-persianNums text-base">
-            {(2800000).toLocaleString()} تومان
+            {room.price.toLocaleString()} تومان
           </span>
         </header>
         <div className="my-6 px-4">
@@ -73,14 +78,17 @@ function RoomSidebar() {
             </Button>
           </form>
           <p className="mb-4 flex items-center justify-center gap-2 text-center text-[13px] text-gray-600 dark:text-gray-100">
-            <HiOutlineChatBubbleLeftRight size={18} />
+            <IoChatbubblesOutline size={18} />
             با امکان چت آنلاین با میزبان
             <div
               className="relative"
               onMouseEnter={() => setIsShowInfo(true)}
               onMouseLeave={() => setIsShowInfo(false)}
             >
-              <HiOutlineInformationCircle size={18} className="text-sky-400" />
+              <IoMdInformationCircleOutline
+                size={18}
+                className="text-sky-500"
+              />
               <div
                 className={`absolute -left-2 -top-20 whitespace-nowrap rounded-lg bg-neutral-700 px-5 py-3 text-sm leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-3 after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
               >

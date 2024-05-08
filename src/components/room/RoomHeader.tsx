@@ -16,7 +16,7 @@ function RoomHeader() {
     setHoveredImage(null);
   };
 
-  if (!room) return;
+  if (!room) return null;
   return (
     <>
       <div className="container my-5 flex h-80 cursor-pointer gap-2 transition-all">
