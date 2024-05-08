@@ -45,6 +45,21 @@ export interface Room {
     quality: number;
   };
   reviews: number;
+  comments: [
+    {
+      id: number;
+      created_at: Date;
+      user: string;
+      avatar: string;
+      comment: string;
+      rating: number;
+      response: {
+        id: number;
+        created_at: Date;
+        comment: string;
+      };
+    },
+  ];
 }
 
 interface RoomState {

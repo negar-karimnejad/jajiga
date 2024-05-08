@@ -35,7 +35,7 @@ function RoomMain() {
           <RoomMap />
           <RoomScore />
           <RoomComments />
-          <RoomHost />
+          <RoomHost room={room} />
         </div>
         <RoomSidebar />
       </div>
