@@ -7,25 +7,25 @@ const enamadLinks = [
     id: 1,
     to: 'https://trustseal.enamad.ir/?id=92059&Code=K8mAW1T8g38wQGk0mCbf',
     title: 'اینماد',
-    image: 'images/footer/enamad.png',
+    image: '/images/footer/enamad.png',
   },
   {
     id: 2,
     to: 'https://ecunion.ir/verify/jajiga.com?token=44569815bbb0af0764d2',
     title: 'اتحادیه کسب و کارهای مجازی',
-    image: 'images/footer/ecunion.png',
+    image: '/images/footer/ecunion.png',
   },
   {
     id: 3,
     to: '#',
     title: 'وزارت میراث فرهنگی',
-    image: 'images/footer/vmfg.png',
+    image: '/images/footer/vmfg.png',
   },
   {
     id: 4,
     to: 'https://profile.iwmf.ir/organizations/jajiga.com',
     title: 'جشنواره وب و موبایل',
-    image: 'images/footer/mjwm.png',
+    image: '/images/footer/mjwm.png',
   },
 ];
 

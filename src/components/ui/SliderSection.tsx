@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
 import { BsStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useRooms from '../../hooks/useRooms';
+import { Room } from '../../redux/store/room';
 import SectionHeading from '../home/SectionHeading';
 import SwiperButtons from '../ui/SwiperButtons';
 
@@ -23,9 +25,22 @@ function SliderSection({
   prevBtn,
 }: SliderSectionProps) {
   const { rooms } = useRooms();
-  const selectedRooms = rooms.filter(
-    (room) => room.category?.at(0) === category,
-  );
+  const [selectedRooms, setSelectedRooms] = useState<Room[]>([]);
+
+  useEffect(() => {
+    let shuffledRooms: Room[] = [];
+
+    if (category) {
+      shuffledRooms = rooms.filter((room) => room.category?.at(0) === category);
+    } else {
+      shuffledRooms = rooms.slice(); // make a copy of rooms array
+      shuffledRooms.sort(() => Math.random() - 0.5); // shuffle the array
+    }
+
+    setSelectedRooms(shuffledRooms);
+  }, [category, rooms]);
+
+  console.log('fd');
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">
@@ -95,8 +110,11 @@ function SliderSection({
                   <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
                   <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
                     <span className="font-persianNums">
-                      {room.bedroom}خوابه . {room.foundation_meterage} متر . تا{' '}
-                      {room.max_capacity} مهمان
+                      {room.bedroom === 0
+                        ? 'بدون اتاق خواب'
+                        : `${room.bedroom} خوابه`}{' '}
+                      . {room.foundation_meterage} متر . تا {room.max_capacity}{' '}
+                      مهمان
                     </span>
                     <span className="flex gap-1 font-persianNums">
                       <BsStarFill className="text-yellow-500" />
