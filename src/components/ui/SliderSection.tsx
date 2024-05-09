@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useRooms from '../../hooks/useRooms';
 import SectionHeading from '../home/SectionHeading';
 import SwiperButtons from '../ui/SwiperButtons';
-import useRooms from '../../hooks/useRooms';
 
 interface SliderSectionProps {
   title: string;
@@ -24,7 +24,7 @@ function SliderSection({
 }: SliderSectionProps) {
   const { rooms } = useRooms();
   const selectedRooms = rooms.filter(
-    (room) => room.category.at(0) === category,
+    (room) => room.category?.at(0) === category,
   );
 
   return (
@@ -69,8 +69,8 @@ function SliderSection({
 
                     <img
                       loading="lazy"
-                      src={room?.images?.at(0)}
-                      className="block w-full rounded-3xl"
+                      src={room.images?.at(0)}
+                      className="block h-52 w-full rounded-3xl object-cover"
                       alt=""
                     />
                   </div>
@@ -84,7 +84,7 @@ function SliderSection({
                       </p>
                     </div>
                     <p className="font-persianNums">
-                      از {room.price.toLocaleString()} تومان
+                      از {room.price?.toLocaleString()} تومان
                     </p>
                   </div>
                 </Link>
@@ -100,7 +100,7 @@ function SliderSection({
                     </span>
                     <span className="flex gap-1 font-persianNums">
                       <BsStarFill className="text-yellow-500" />
-                      {room.rating.total}
+                      {room.rating?.total}
                     </span>
                     <span className="font-persianNums">
                       ({room.reviews} نظر)

@@ -101,20 +101,7 @@ export const addRoomToServer = createAsyncThunk(
 const roomSlice = createSlice({
   name: 'rooms',
   initialState,
-  reducers: {
-    // addToRooms: async (state, action: PayloadAction<Room>) => {
-    //   const { data, error } = await supabase
-    //     .from('rooms')
-    //     .insert(action.payload)
-    //     .single();
-    //   if (error) {
-    //     throw error;
-    //   }
-    //   console.log(data);
-    //   state.rooms.push(data);
-    //   return data;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getRoomsFromServer.pending, (state) => {
       state.loading = true;

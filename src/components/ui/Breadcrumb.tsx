@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 interface BreadcrumbProps {
   links?: string[];
-  pageLink: string;
+  pageLink: string|undefined;
 }
 
 function Breadcrumb({ links, pageLink }: BreadcrumbProps) {

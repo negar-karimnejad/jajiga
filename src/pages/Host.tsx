@@ -102,7 +102,7 @@ function Host() {
                         <img
                           loading="lazy"
                           src={room?.images?.at(0)}
-                          className="block w-full rounded-xl"
+                          className="block h-52 w-80 rounded-xl"
                           alt=""
                         />
                         <div className="absolute left-2 top-2">
@@ -132,7 +132,7 @@ function Host() {
                         </span>
                         <span className="flex gap-1 font-persianNums">
                           <BsStarFill className="text-yellow-500" />
-                          {room.rating.total}
+                          {room.rating?.total}
                         </span>
                         <span className="font-persianNums">
                           ({room.reviews} نظر)
@@ -141,7 +141,7 @@ function Host() {
                       <p className="mt-1 flex items-center gap-1 text-sm">
                         هر شب از
                         <span className="mr-1 font-persianNums">
-                          {room.price.toLocaleString()}
+                          {room.price?.toLocaleString()}
                         </span>
                         تومان
                         <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">

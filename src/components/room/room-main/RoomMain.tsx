@@ -26,8 +26,11 @@ function RoomMain() {
         className="container mb-5 mt-10 flex flex-col-reverse gap-5 dark:text-white md:grid md:grid-cols-12"
       >
         <div className="relative md:col-span-8" id="featuresRef">
-          <RoomAccessibility containerRef={containerRef} />
-          <Breadcrumb pageLink={room.category[2]} links={[room.category[1]]} />
+          <RoomAccessibility />
+          <Breadcrumb
+            pageLink={room.category && room.category[2]}
+            links={room.category && [room.category[1]]}
+          />
           <RoomAbout />
           <RoomFeatures />
           <RoomCalendar />

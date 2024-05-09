@@ -25,7 +25,7 @@ function RoomComments() {
       </h4>
       {room?.comments?.length ? (
         room?.comments?.map((comment, index) => (
-          <div key={index} className="my-5" >
+          <div key={index} className="my-5">
             <div className="flex justify-between">
               <div className="flex items-center gap-5">
                 <img
@@ -36,7 +36,8 @@ function RoomComments() {
                 <div className="flex flex-col gap-2">
                   <div className="font-vazirBold text-base">{comment.user}</div>
                   <span className="font-persianNums text-[12px] text-gray-400">
-                    {convertToPersianDate(comment.created_at)}
+                    {comment.created_at &&
+                      convertToPersianDate(comment.created_at)}
                   </span>
                 </div>
               </div>
@@ -51,27 +52,30 @@ function RoomComments() {
             <p className="mt-5 text-sm leading-6 text-gray-700 dark:text-gray-400">
               {comment.comment}
             </p>
-            <div className="mr-5 mt-3 rounded-lg bg-gray-100 p-3 dark:bg-gray-700">
-              <div className="flex justify-between">
-                <div className="flex items-center gap-2">
-                  <img
-                    alt=""
-                    src={host?.profile}
-                    className="h-10 w-10 rounded-full"
-                  />
-                  <div>
-                    <div className="font-vazirMedium">پاسخ میزبان</div>
-                    <span className="font-persianNums text-[12px] text-gray-400">
-                      {convertToPersianDate(comment.response.created_at)}
-                    </span>
+            {comment.response && (
+              <div className="mr-5 mt-3 rounded-lg bg-gray-100 p-3 dark:bg-gray-700">
+                <div className="flex justify-between">
+                  <div className="flex items-center gap-2">
+                    <img
+                      alt=""
+                      src={host?.profile}
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <div>
+                      <div className="font-vazirMedium">پاسخ میزبان</div>
+                      <span className="font-persianNums text-[12px] text-gray-400">
+                        {comment.response.created_at &&
+                          convertToPersianDate(comment.response.created_at)}
+                      </span>
+                    </div>
                   </div>
                 </div>
+                <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-200">
+                  {comment.response.comment}
+                </p>
               </div>
-              <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-200">
-                {comment.response.comment}
-              </p>
-            </div>
-            {index + 1 < room?.comments?.length && (
+            )}
+            {room.comments && index + 1 < room.comments.length && (
               <div className="my-5 h-[1px] w-full bg-gray-100"></div>
             )}
           </div>
