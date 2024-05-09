@@ -6,26 +6,28 @@ import { PiUsersThree } from 'react-icons/pi';
 import { TfiRulerPencil } from 'react-icons/tfi';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
+import { useHost } from '../../../hooks/useHost';
 import useRoom from '../../../hooks/useRoom';
 import Button from '../../ui/Button';
 
 function RoomAbout() {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
+  const { host } = useHost(room?.host_id);
 
   if (!room) return null;
 
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between -mt-5">
         <h4 className="font-vazirBold text-base dark:text-white">
           {room.title}
         </h4>
         <div className="h-16 w-16">
-          <img src="/images/comment.jpg" className="rounded-full" alt="" />
+          <img src={host?.profile} className="rounded-full" alt="" />
         </div>
       </div>
-      <div className="mt-10 flex items-center gap-2">
+      <div className="mt-5 flex items-center gap-2">
         <Button style="font-persianNums text-[13px] bg-yellow-500 rounded-full py-1 hover:shadow-none ">
           کد: {room.code}
         </Button>
@@ -34,7 +36,7 @@ function RoomAbout() {
         </Button>
         <div className="flex gap-0.5">
           <Rating
-            initialRating={room.rating.total}
+            initialRating={room.rating?.total}
             fullSymbol={<BsStarFill />}
             emptySymbol={<BsStar />}
             readonly={true}
@@ -42,7 +44,7 @@ function RoomAbout() {
           />
         </div>
         <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
-          {room.rating.total}
+          {room.rating?.total}
         </span>
         <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
           ({room.reviews} نظر)
@@ -136,7 +138,7 @@ function RoomAbout() {
         <div className="mb-5 flex items-center gap-2">
           <h4 className="font-vazirBold text-lg">فضای خواب</h4>
           <span className="rounded-full bg-gray-200 px-2 py-1 font-persianNums text-[12px] dark:text-gray-700">
-            {room.bedroom} اتاق خواب
+            {room?.bedroom === 0 ? 'بدون' : room.bedroom} اتاق خواب
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -165,8 +167,10 @@ function RoomAbout() {
         </div>
         <p className="mt-4 text-[13px] text-gray-600 dark:text-gray-300">
           مهمانان بیش از{' '}
-          <span className="font-persianNums">{room.capacity + 3}</span> نفر
-          سرویس خواب به همراه داشته باشند.
+          <span className="font-persianNums">
+            {room.capacity && room.capacity + 3}
+          </span>{' '}
+          نفر سرویس خواب به همراه داشته باشند.
         </p>
         <div className="my-5 h-[1px] w-full bg-gray-200"></div>
       </div>

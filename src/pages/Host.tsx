@@ -93,7 +93,7 @@ function Host() {
               <h3 className="mb-3 font-vazirBold text-lg dark:text-white">
                 لیست اقامتگاه ها
               </h3>
-              <div className="flex flex-col items-center gap-10 lg:flex-row">
+              <div className="flex flex-col items-center flex-wrap gap-10 lg:flex-row">
                 {userRooms?.map((room) => (
                   <div key={room.id} className="">
                     <Link to={`/room/${room.code}`} className="relative">

@@ -27,10 +27,12 @@ function RoomMain() {
       >
         <div className="relative md:col-span-8" id="featuresRef">
           <RoomAccessibility />
-          <Breadcrumb
-            pageLink={room.category && room.category[2]}
-            links={room.category && [room.category[1]]}
-          />
+          <div className='-mr-4'>
+            <Breadcrumb
+              pageLink={room.category && room.category[2]}
+              links={room.category && [room.category[1]]}
+            />
+          </div>
           <RoomAbout />
           <RoomFeatures />
           <RoomCalendar />

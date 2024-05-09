@@ -8,12 +8,12 @@ function RoomScore() {
   const { room } = useRoom(Number(id));
 
   const scores = [
-    { id: 1, title: 'صحت مطالب', score: room?.rating.truth },
-    { id: 2, title: 'شیوه برخورد میزبان', score: room?.rating.attitude },
-    { id: 3, title: 'پاکیزگی اقامتگاه', score: room?.rating.clean },
-    { id: 4, title: 'مکان اقامتگاه', score: room?.rating.location },
-    { id: 5, title: 'تحویل اقامتگاه', score: room?.rating.Delivery },
-    { id: 6, title: 'کیفیت نسبت به نرخ', score: room?.rating.quality },
+    { id: 1, title: 'صحت مطالب', score: room?.rating?.truth },
+    { id: 2, title: 'شیوه برخورد میزبان', score: room?.rating?.attitude },
+    { id: 3, title: 'پاکیزگی اقامتگاه', score: room?.rating?.clean },
+    { id: 4, title: 'مکان اقامتگاه', score: room?.rating?.location },
+    { id: 5, title: 'تحویل اقامتگاه', score: room?.rating?.Delivery },
+    { id: 6, title: 'کیفیت نسبت به نرخ', score: room?.rating?.quality },
   ];
   if (!room) return null;
   return (
@@ -27,14 +27,14 @@ function RoomScore() {
         </span>
         <div className="flex items-center gap-2">
           <Rating
-            initialRating={room.rating.total}
+            initialRating={room.rating?.total}
             fullSymbol={<BsStarFill />}
             emptySymbol={<BsStar />}
             readonly={true}
             className="text-yellow-400"
           />
           <span className="mb-0.5 font-persianNums text-base">
-            {room.rating.total}
+            {room.rating?.total}
           </span>
         </div>
       </h4>

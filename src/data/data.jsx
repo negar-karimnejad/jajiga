@@ -1369,3 +1369,10 @@ export const guaranteeData = [
   میزبان تسویه خواهد شد).`,
   },
 ];
+
+
+
+
+
+
+
