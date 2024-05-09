@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
 export interface Room {
@@ -33,7 +33,7 @@ export interface Room {
   entrance_hour?: number;
   leaving_hour?: number;
   host_id?: number;
-  price: number;
+  price?: number;
   category?: string[];
   rating?: {
     total: number;
@@ -84,17 +84,16 @@ export const getRoomsFromServer = createAsyncThunk(
     return rooms;
   },
 );
-export const addNewRoom = createAsyncThunk(
-  'rooms/addNewRoom',
-  async (newRoom) => {
-    const { data, error } = await supabase
-      .from('rooms')
-      .insert(newRoom)
-      .select();
+
+export const addRoomToServer = createAsyncThunk(
+  'rooms/addRoomToServer',
+  async (room: Room) => {
+    const { data, error } = await supabase.from('rooms').insert(room).single();
 
     if (error) {
       throw error;
     }
+
     return data;
   },
 );
@@ -102,7 +101,20 @@ export const addNewRoom = createAsyncThunk(
 const roomSlice = createSlice({
   name: 'rooms',
   initialState,
-  reducers: {},
+  reducers: {
+    // addToRooms: async (state, action: PayloadAction<Room>) => {
+    //   const { data, error } = await supabase
+    //     .from('rooms')
+    //     .insert(action.payload)
+    //     .single();
+    //   if (error) {
+    //     throw error;
+    //   }
+    //   console.log(data);
+    //   state.rooms.push(data);
+    //   return data;
+    // },
+  },
   extraReducers: (builder) => {
     builder.addCase(getRoomsFromServer.pending, (state) => {
       state.loading = true;
@@ -118,7 +130,22 @@ const roomSlice = createSlice({
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';
     });
+    builder.addCase(addRoomToServer.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(
+      addRoomToServer.fulfilled.type,
+      (state, action: PayloadAction<Room>) => {
+        state.loading = false;
+        state.error = null;
+        state.rooms.push(action.payload);
+      },
+    );
+    builder.addCase(addRoomToServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message ?? 'Something went wrong.';
+    });
   },
 });
-
 export default roomSlice.reducer;

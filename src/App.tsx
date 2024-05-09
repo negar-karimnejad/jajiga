@@ -4,6 +4,7 @@ import { useOfflineCheck } from './OfflineRedirect ';
 import DarkMode from './components/ui/DarkMode';
 import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 import About from './pages/About';
+import AddNewRoom from './pages/AddNewRoom';
 import AppLayout from './pages/AppLayout';
 import Appstore from './pages/Appstore';
 import Article from './pages/Article';
@@ -18,7 +19,6 @@ import Host from './pages/Host';
 import Hosting from './pages/Hosting';
 import Invite from './pages/Invite';
 import Jobs from './pages/Jobs';
-import NewRoom from './pages/NewRoom';
 import OfflinePage from './pages/OfflinePage';
 import Room from './pages/Room';
 import Rules from './pages/Rules';
@@ -50,6 +50,7 @@ function App() {
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
+          <Route path="/create" element={<AddNewRoom />} />
           <Route path="/mag/:id" element={<Article />} />
           <Route path="/mag/category/:id" element={<CategoryArticle />} />
           <Route path="/mag/author/:id" element={<Author />} />
@@ -57,7 +58,6 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />
           <Route path="/user/:id" element={<Host />} />
-          <Route path="/create-room" element={<NewRoom />} />
           <Route path="/app" element={<Appstore />} />
         </Routes>
       </BrowserRouter>
