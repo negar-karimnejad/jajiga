@@ -5,16 +5,16 @@ export interface Room {
   id: number;
   title: string;
   description: string;
-  code: number;
-  reserved: number;
-  images: string[];
-  capacity: number;
-  max_capacity: number;
-  foundation_meterage: number;
-  area_meterage: number;
+  code?: number;
+  reserved?: number;
+  images?: string[];
+  capacity?: number;
+  max_capacity?: number;
+  foundation_meterage?: number;
+  area_meterage?: number;
   zone?: string;
   residence_type?: string;
-  bedroom: number;
+  bedroom?: number;
   share_house?: boolean;
   features?: string[];
   min_stay?: number;
@@ -28,14 +28,14 @@ export interface Room {
     title: string;
     rooms: string[];
   }[];
-  cancellation_policy: string;
+  cancellation_policy?: string;
   residence_policy?: string[];
-  entrance_hour: number;
-  leaving_hour: number;
-  host_id: number;
+  entrance_hour?: number;
+  leaving_hour?: number;
+  host_id?: number;
   price: number;
-  category: string[];
-  rating: {
+  category?: string[];
+  rating?: {
     total: number;
     truth: number;
     attitude: number;
@@ -44,18 +44,18 @@ export interface Room {
     Delivery: number;
     quality: number;
   };
-  reviews: number;
-  comments: [
+  reviews?: number;
+  comments?: [
     {
       id: number;
-      created_at: Date;
+      created_at: Date | null;
       user: string;
       avatar: string;
       comment: string;
       rating: number;
       response: {
         id: number;
-        created_at: Date;
+        created_at: Date | null;
         comment: string;
       };
     },
@@ -82,6 +82,20 @@ export const getRoomsFromServer = createAsyncThunk(
       throw error;
     }
     return rooms;
+  },
+);
+export const addNewRoom = createAsyncThunk(
+  'rooms/addNewRoom',
+  async (newRoom) => {
+    const { data, error } = await supabase
+      .from('rooms')
+      .insert(newRoom)
+      .select();
+
+    if (error) {
+      throw error;
+    }
+    return data;
   },
 );
 

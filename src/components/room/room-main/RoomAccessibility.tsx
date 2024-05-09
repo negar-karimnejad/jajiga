@@ -10,6 +10,7 @@ const navItems = [
   { id: 'hostRef', label: 'میزبان' },
 ];
 
+// {containerRef,}: {containerRef: React.RefObject<HTMLDivElement>;}
 function RoomAccessibility() {
   const [scrollYPosition, setScrollYPosition] = useState(0);
   const [activeNavItem, setActiveNavItem] = useState<null | string>('');
@@ -25,6 +26,13 @@ function RoomAccessibility() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // const set = () =>
+  //   setBbox(
+  //     containerRef && containerRef.current
+  //       ? containerRef.current.getBoundingClientRect()
+  //       : {},
+  //   );
 
   const scrollToRef = (ref: HTMLElement | null) => {
     ref?.scrollIntoView({
