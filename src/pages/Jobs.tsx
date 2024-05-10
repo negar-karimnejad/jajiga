@@ -246,10 +246,11 @@ function Jobs() {
       </div>
 
       <div
+      ref={buttonRef}
         className="bg-yellow-400 pb-20 pt-10 md:pb-32"
         style={{ clipPath: 'polygon(0px 0px, 100% 5%, 100% 100%, 0% 100%)' }}
       >
-        <div ref={buttonRef} className="container my-20 gap-10 md:w-2/3">
+        <div className="container my-20 gap-10 md:w-2/3">
           <p className="mb-10 text-justify text-base leading-7 text-gray-600">
             پس اگر در رشته‌ای مرتبط متخصص و ماهر هستید، اگر سخت‌کوش و باانگیزه
             هستید، اگر ساکن گیلان هستید یا علاقه مندید ساکن گیلان زیبا بشید، اگر
