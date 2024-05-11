@@ -70,9 +70,23 @@ body {
   background-color: rgb(124, 124, 124) !important;
 }
 
+/* Room Header Swiper */
+.room-header-swiper .swiper-pagination-bullet {
+  background-color: #e0e0e0;
+  opacity: 90%;
+}
+.room-header-swiper .swiper-pagination-bullet-active {
+  background-color: #ffffff;
+  width: 10px;
+  height: 10px;
+  opacity: 100%;
+}
+
+.swiper-button-disabled {
+  opacity: 50%;
+}
+
 /* LOADER */
-/* HTML: <div class="loader"></div> */
-/* HTML: <div class="loader"></div> */
 .loader {
   width: fit-content;
   font-weight: bold;

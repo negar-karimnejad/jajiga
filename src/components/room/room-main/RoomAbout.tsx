@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import { HiOutlineHome } from 'react-icons/hi';
 import { LiaDoorOpenSolid } from 'react-icons/lia';
 import { LuBedDouble, LuBedSingle } from 'react-icons/lu';
-import { PiUsersThree } from 'react-icons/pi';
+import { PiInfoDuotone, PiUsersThree } from 'react-icons/pi';
 import { TfiRulerPencil } from 'react-icons/tfi';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
@@ -14,12 +15,13 @@ function RoomAbout() {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
   const { host } = useHost(room?.host_id);
+  const [isShowInfo, setIsShowInfo] = useState(false);
 
   if (!room) return null;
 
   return (
     <>
-      <div className="flex items-center justify-between -mt-5">
+      <div className="-mt-5 flex items-center justify-between">
         <h4 className="font-vazirBold text-base dark:text-white">
           {room.title}
         </h4>
@@ -54,9 +56,30 @@ function RoomAbout() {
       <div className="mt-5 flex items-center justify-around bg-gray-100 p-5 dark:bg-gray-800 max-sm:px-0">
         <div className="flex flex-col items-center gap-2">
           <HiOutlineHome className="dark:text-gray-200" size={30} />
-          <span className="font-persianNums text-[13px] dark:text-gray-200">
-            {room.share_house ? 'نیمه دربست' : 'دربست'}
-          </span>
+          <div className="font-persianNums text-[13px] dark:text-gray-200">
+            {room.share_house ? (
+              <p
+                onMouseEnter={() => setIsShowInfo(true)}
+                onMouseLeave={() => setIsShowInfo(false)}
+                className="relative flex items-center gap-1 text-sm text-gray-700 dark:text-gray-100"
+              >
+                نیمه دربست
+                <PiInfoDuotone
+                  size={18}
+                  className="text-blue-700 dark:text-blue-400"
+                />
+                <div
+                  className={`absolute w-52 bottom-6 -right-5 rounded-lg bg-neutral-700 p-3 text-[13px] leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-0 after:right-0 after:mx-auto after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
+                >
+                  در این حالت یک واحد مستقل در اختیار میهمان قرار می گیرد ولی
+                  مواردی همچون ورودی اقامتگاه و یا حیاط و محوطه با میزبان یا
+                  میهمانان دیگر مشترک است.
+                </div>
+              </p>
+            ) : (
+              'دربست'
+            )}
+          </div>
         </div>
         <div className="flex flex-col items-center gap-2">
           <LiaDoorOpenSolid className="dark:text-gray-200" size={30} />

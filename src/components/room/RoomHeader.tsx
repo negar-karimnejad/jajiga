@@ -1,5 +1,9 @@
 import { useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
+import 'swiper/css';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import useRoom from '../../hooks/useRoom';
 import LikeAndShareButtons from './LikeAndShareButtons';
 
@@ -19,7 +23,7 @@ function RoomHeader() {
   if (!room) return null;
   return (
     <>
-      <div className="container my-5 flex h-80 cursor-pointer gap-2 transition-all">
+      <div className="container my-5 flex h-80 cursor-pointer gap-2 transition-all max-md:hidden">
         <div className="w-full flex-1">
           <img
             onMouseEnter={() => handleMouseEnter(0)}
@@ -85,6 +89,46 @@ function RoomHeader() {
               <LikeAndShareButtons />
             </div>
           </div>
+        </div>
+      </div>
+      <div className="group container my-5 flex h-[450px] cursor-pointer gap-2 transition-all md:hidden">
+        <Swiper
+          className="room-header-swiper"
+          spaceBetween={0}
+          modules={[Navigation, Pagination]}
+          centeredSlides={true}
+          pagination={{
+            clickable: true,
+            el: '.swiper-pagination',
+          }}
+          navigation={{
+            nextEl: '.roomheader-swiper-button-next',
+            prevEl: '.roomheader-swiper-button-prev',
+          }}
+        >
+          {room.images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img
+                loading="lazy"
+                src={image}
+                className="h-full w-full object-cover"
+                alt=""
+              />
+            </SwiperSlide>
+          ))}
+          <div className="swiper-pagination"></div>
+        </Swiper>
+        <div className="roomheader-swiper-button-prev invisible absolute bottom-0 right-10 top-0 z-40 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible">
+          <FaChevronRight
+            size={14}
+            className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
+          />
+        </div>
+        <div className="roomheader-swiper-button-next invisible absolute bottom-0 left-10 top-0 z-40 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible">
+          <FaChevronLeft
+            size={14}
+            className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
+          />
         </div>
       </div>
     </>
