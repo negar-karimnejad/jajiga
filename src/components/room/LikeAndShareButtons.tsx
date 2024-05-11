@@ -39,7 +39,7 @@ function LikeAndShareButtons() {
         </div>
         <div
           onClick={() => setIsOpen(true)}
-          className="relative flex h-8 w-8 dark:text-white items-center justify-center rounded-md bg-white/90 dark:bg-gray-800/80"
+          className="relative flex h-8 w-8 items-center justify-center rounded-md bg-white/90 dark:bg-gray-800/80 dark:text-white"
         >
           <BsShare size={18} />
           {/* <div className="absolute -bottom-9 left-1/2 w-fit -translate-x-1/4 transform whitespace-nowrap rounded-md bg-white/90 p-1 text-[12px] shadow-md after:absolute after:-top-1.5 after:left-3 after:h-3 after:w-3 after:rotate-45 after:bg-white/85">
@@ -47,6 +47,7 @@ function LikeAndShareButtons() {
               </div> */}
         </div>
       </div>
+
       <ShareModal isOpen={isOpen} closeModalHandler={closeModalHandler} />
     </>
   );

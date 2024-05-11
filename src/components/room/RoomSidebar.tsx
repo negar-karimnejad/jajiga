@@ -6,7 +6,13 @@ import { useParams } from 'react-router-dom';
 import useRoom from '../../hooks/useRoom';
 import Button from '../ui/Button';
 
-function RoomSidebar() {
+function RoomSidebar({
+  openHandler,
+  openGuaranteeModalHandler,
+}: {
+  openHandler: () => void;
+  openGuaranteeModalHandler: () => void;
+}) {
   const [isShowInfo, setIsShowInfo] = useState(false);
   const { id } = useParams();
   const { room } = useRoom(Number(id));
@@ -98,11 +104,17 @@ function RoomSidebar() {
             </div>
           </p>
           <div className="flex flex-col gap-3 lg:flex-row">
-            <Button style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full">
+            <Button
+              onClick={openGuaranteeModalHandler}
+              style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
+            >
               <GoShieldCheck />
               ضمانت تحویل
             </Button>
-            <Button style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full">
+            <Button
+              onClick={openHandler}
+              style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
+            >
               <GoQuestion />
               راهنمای رزرو
             </Button>
