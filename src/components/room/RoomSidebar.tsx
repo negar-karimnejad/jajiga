@@ -31,7 +31,7 @@ function RoomSidebar({
             </span>
           </header>
           <div className="my-6 px-4">
-            <form>
+            <form className="flex flex-col">
               <p className="mb-1 dark:text-white">تاریخ سفر</p>
               <div
                 onClick={() => setIsShowCalendar(true)}
@@ -39,7 +39,7 @@ function RoomSidebar({
               >
                 <div className="flex items-center justify-between">
                   <div
-                    className={`mx-1 flex-1 cursor-pointer rounded-lg py-2 text-center text-gray-400 ${isShowCalendar ? 'border border-blue-500 text-blue-500' : ''}`}
+                    className={`duration-400 mx-1 flex-1 cursor-pointer rounded-lg py-2 text-center text-gray-400 transition-all ${isShowCalendar ? 'border border-blue-500 text-blue-500' : 'border border-transparent'}`}
                   >
                     تاریخ ورود{' '}
                   </div>
@@ -125,18 +125,12 @@ function RoomSidebar({
             </div>
           </div>
         </div>
-
         <div
-          onClick={() => setIsShowCalendar(false)}
-          className={`fixed left-0 top-0 z-10 h-full w-full transition-all duration-500 ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
+          onClick={(e) => e.stopPropagation()}
+          className={`absolute left-0 top-24 z-10 rounded-xl border bg-white shadow-lg shadow-gray-500 ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="absolute left-36 top-48 z-10 rounded-xl border bg-white shadow-lg shadow-gray-500"
-          >
-            <div className=" scale-90">
-              <CalendarFunc />
-            </div>
+          <div className="scale-90 pt-5">
+            <CalendarFunc />
           </div>
         </div>
       </div>

@@ -40,7 +40,6 @@ function SliderSection({
     setSelectedRooms(shuffledRooms);
   }, [category, rooms]);
 
-  console.log('fd');
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">
