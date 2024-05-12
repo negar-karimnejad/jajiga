@@ -1,21 +1,34 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
+import useRefHook from '../../hooks/useRefHook';
 import Button from '../ui/Button';
 
-function NavLinks() {
+function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
   const { openModalHandler } = useAuthModal();
   const { user } = useAuth();
+  const { ref, showModal, isShowNotification } = useRefHook();
 
   return (
     <>
-      {user ? (
-        <Button style="font-vazirBold text-base text-white px-0 py-0 hover:shadow-none">
+      {!user ? (
+        <Button
+          style={`relative font-vazirBold pl-0 py-0 hover:shadow-none text-base ${whiteBg ? 'text-black/60 dark:text-white' : 'text-white'}`}
+          onClick={showModal}
+        >
           اعلانات
+          <div
+            ref={ref}
+            className={`absolute right-0 top-full rounded-lg border bg-white p-4 shadow-lg transition-all dark:bg-gray-700 duration-500${isShowNotification ? 'visible opacity-100' : 'invisible opacity-0'}`}
+          >
+            <div>
+              <h4>اعلانات</h4>
+            </div>
+          </div>
         </Button>
       ) : (
         <button
-          className="font-vazirBold text-base px-0 py-0 hover:shadow-none"
+          className="px-0 py-0 font-vazirBold text-base hover:shadow-none"
           onClick={openModalHandler}
         >
           ورود / ثبت نام

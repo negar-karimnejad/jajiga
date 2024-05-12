@@ -5,7 +5,6 @@ export interface Host {
   id: number;
   fullname: string;
   registery_date: Date;
-  active_residences: number;
   response_time: number;
   reservation_confirmation: number;
   profile: string;
