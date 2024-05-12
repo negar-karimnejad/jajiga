@@ -22,7 +22,7 @@ function useRefHook() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isShowNotification]);
-  return { ref, showModal,isShowNotification };
+  return { ref, showModal, isShowNotification };
 }
 
 export default useRefHook;
