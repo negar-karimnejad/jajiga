@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { QuickSearchArray } from '../../data/data';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
@@ -34,226 +35,28 @@ function QuickSearch() {
               },
             }}
           >
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
+            {QuickSearchArray.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="relative overflow-hidden rounded-3xl">
+                  <Link to={`/s/${item.to}`}>
+                    <img
+                      loading="lazy"
+                      src={item.cover}
+                      className="block h-80 w-full object-cover"
+                      alt={item.title}
+                    />
+                  </Link>
+                  <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
+                    <p>{item.title}</p>
+                    <div className="mt-2 flex items-center gap-3">
+                      <p>654 اقامتگاه</p>
+                      <BsShare />
+                    </div>
                   </div>
+                  <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
                 </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative overflow-hidden rounded-3xl">
-                <Link to="">
-                  <img
-                    loading="lazy"
-                    src="/images/about/about_img5.jpg"
-                    className="block w-full"
-                    alt=""
-                  />
-                </Link>
-                <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex flex-col items-center justify-center px-4 pb-4 text-sm text-white">
-                  <p>کلبه چوبی جنگلی</p>
-                  <div className="mt-2 flex items-center gap-3">
-                    <p>654 اقامتگاه</p>
-                    <BsShare />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 top-40 bg-gradient-to-t from-black to-transparent"></div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
           <SwiperButtons
             nextBtn="quicksearch-swiper-button-next"

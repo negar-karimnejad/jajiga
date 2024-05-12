@@ -1345,18 +1345,28 @@ export const helpComments = [
 ];
 
 export const guaranteeData = [
-  { id: 1, icon: <GoKey size={40} />, title: 'اقامتگاه با مشخصات مطابقت ندارد!', content: `مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتی که اقامتگاه
+  {
+    id: 1,
+    icon: <GoKey size={40} />,
+    title: 'اقامتگاه با مشخصات مطابقت ندارد!',
+    content: `مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتی که اقامتگاه
   تحویل داده شده با مشخصات و آدرس ثبت شده در سند رزرو اختلاف
   فاحش داشته باشد، حداکثر تا ساعت 10 صبح روز بعد از تاریخ شروع
   رزرو مهلت دارید تا با ثبت شکایت و ارائه مدارک لازم، امکان
   پیگیری را برای پشتیبانی جاجیگا فراهم نمایید. (پس از پایان مهلت
-  مذکور، مبلغ اجاره با میزبان تسویه خواهد شد).` },
-  { id: 2, icon: <GrDocumentUpdate size={40} />, title: 'اقامتگاه به من تحویل داده نشده!', content: `مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتی که اقامتگاهِ
+  مذکور، مبلغ اجاره با میزبان تسویه خواهد شد).`,
+  },
+  {
+    id: 2,
+    icon: <GrDocumentUpdate size={40} />,
+    title: 'اقامتگاه به من تحویل داده نشده!',
+    content: `مبلغ پرداختی شما نزد جاجیگا محفوظ است. درصورتی که اقامتگاهِ
   رزرو شده، در تاریخ و ساعت درج شده در سند رزرو، به شما تحویل
   نشده باشد، حداکثر تا ساعت 10 صبح روز بعد از تاریخ شروع رزرو
   مهلت دارید تا با ثبت شکایت امکان پیگیری را برای پشتیبانی
   جاجیگا فراهم نمایید. (نکته: پس از پایان مهلت مذکور، مبلغ اجاره
-  بها با میزبان تسویه خواهد شد).` },
+  بها با میزبان تسویه خواهد شد).`,
+  },
   {
     id: 3,
     icon: <TfiSpray size={40} />,
@@ -1370,9 +1380,124 @@ export const guaranteeData = [
   },
 ];
 
+export const popularArray = [
+  {
+    id: 1,
+    cities: [
+      {
+        id: 1,
+        to: '/s/anzali',
+        name: 'انزلی',
+        cover: '/images/popular/anzali.jpg',
+      },
+      {
+        id: 2,
+        to: '/s/chaloos',
+        name: 'چالوس',
+        cover: '/images/popular/chaloos.png',
+      },
+    ],
+  },
+  {
+    id: 2,
+    cities: [
+      {
+        id: 3,
+        to: '/s/gheshm',
+        name: 'قشم',
+        cover: '/images/popular/gheshm.jpg',
+      },
+      {
+        id: 4,
+        to: '/s/isfahan',
+        name: 'اصفهان',
+        cover: '/images/popular/isfahan.jpg',
+      },
+    ],
+  },
+  {
+    id: 3,
+    cities: [
+      { id: 5, to: '/s/kish', name: 'کیش', cover: '/images/popular/kish.jpg' },
+      {
+        id: 6,
+        to: '/s/lahijan',
+        name: 'لاهیجان',
+        cover: '/images/popular/lahijan.jpg',
+      },
+    ],
+  },
+  {
+    id: 4,
+    cities: [
+      {
+        id: 7,
+        to: '/s/masal',
+        name: 'ماسال',
+        cover: '/images/popular/masal.jpg',
+      },
+      {
+        id: 8,
+        to: '/s/ramsar',
+        name: 'رامسر',
+        cover: '/images/popular/ramsar.jpg',
+      },
+    ],
+  },
+  {
+    id: 5,
+    cities: [
+      {
+        id: 9,
+        to: '/s/rasht',
+        name: 'رشت',
+        cover: '/images/popular/rasht.jpg',
+      },
+      {
+        id: 10,
+        to: '/s/tehran',
+        name: 'تهران',
+        cover: '/images/popular/tehran.jpg',
+      },
+    ],
+  },
+];
 
-
-
-
-
-
+export const QuickSearchArray = [
+  {
+    id: 1,
+    title: 'کلبه چوبی جنگلی',
+    cover: '/images/quick-search/wooden-cottage.jpg',
+    to: 'cottage',
+  },
+  {
+    id: 2,
+    title: 'ویلا استخردار',
+    cover: '/images/quick-search/pool.webp',
+    to: 'pool',
+  },
+  {
+    id: 3,
+    title: 'کلبه سوئیسی',
+    cover: '/images/quick-search/swiss-cottage.webp',
+    to: 'swiss-cottage',
+  },
+  {
+    id: 4,
+    title: 'ویلا لب آب',
+    cover: '/images/quick-search/waterfront.jpg',
+    to: 'waterfront',
+  },
+  {
+    id: 5,
+    title: 'ویلا شمال',
+    cover: '/images/quick-search/shomal.jpg',
+    to: 'shomal',
+  },
+  {
+    id: 6,
+    title: 'خانه روستایی',
+    cover: '/images/quick-search/ruralhome.jpg',
+    to: 'ruralhome',
+  },
+];

@@ -56,7 +56,7 @@ function JajigaMag() {
                     <div className="absolute left-0 top-0 h-full w-full rounded-3xl bg-black/10"></div>
                     <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
                       <img
-                        loading="lazy"
+                        // loading="lazy"
                         src={article.cover}
                         className="h-64 w-full rounded-3xl object-cover"
                         alt={article.title}

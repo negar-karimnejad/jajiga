@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { popularArray } from '../../data/data';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 
@@ -41,270 +42,39 @@ function Popular() {
               },
             }}
           >
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className="flex flex-col gap-5">
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="" className="flex w-44 overflow-hidden lg:w-[300px]">
-                <div className="flex-1">
-                  <img
-                    loading="lazy"
-                    src="/images/popular/anzali.jpg"
-                    className="rounded-xl lg:rounded-[30px]"
-                    alt=""
-                  />
-                </div>
-                <div className="mr-2 flex flex-1 items-center">
-                  <p className="flex flex-col text-[12px] dark:text-white">
-                    <span className="font-persianNums text-gray-500">
-                      اجاره ویلا در
-                    </span>
-                    <span className="my-1 font-vazirBold text-base">رامسر</span>
-                    <span className="font-persianNums text-gray-500">
-                      1421 اقامتگاه
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </SwiperSlide>
+            {popularArray.map((item) => (
+              <SwiperSlide key={item.id} className="flex flex-col gap-5">
+                {item.cities.map((city) => (
+                  <Link
+                    key={city.id}
+                    to={city.to}
+                    className="flex w-44 overflow-hidden lg:w-[300px]"
+                  >
+                    <div className="flex-1">
+                      <img
+                        loading="lazy"
+                        src={city.cover}
+                        className="rounded-xl lg:rounded-[30px]"
+                        alt=""
+                      />
+                    </div>
+                    <div className="mr-2 flex flex-1 items-center">
+                      <p className="flex flex-col text-[12px] dark:text-white">
+                        <span className="font-persianNums text-gray-500">
+                          اجاره ویلا در
+                        </span>
+                        <span className="my-1 font-vazirBold text-base">
+                          {city.name}
+                        </span>
+                        <span className="font-persianNums text-gray-500">
+                          1421 اقامتگاه
+                        </span>
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </SwiperSlide>
+            ))}
           </Swiper>
           <SwiperButtons
             nextBtn="popular-swiper-button-next"

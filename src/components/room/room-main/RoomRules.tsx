@@ -53,7 +53,7 @@ function RoomRules() {
             </li>
             {room.residence_policy &&
               room.residence_policy.map((policy, index) => (
-                <li key={index}>{policy}</li>
+                <li className='leading-7' key={index}>{policy}</li>
               ))}
           </ul>
         </div>
