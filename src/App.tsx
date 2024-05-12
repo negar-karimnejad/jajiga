@@ -25,6 +25,7 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
+import Rooms from './pages/Rooms';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -47,6 +48,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/room/:id" element={<Room />} />
+            <Route path="/s/:id" element={<Rooms />} />
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/mag" element={<Articles />} />
