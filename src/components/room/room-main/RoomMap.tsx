@@ -1,18 +1,19 @@
 import 'leaflet/dist/leaflet.css';
 import { useRef } from 'react';
 import { CircleMarker, MapContainer, TileLayer } from 'react-leaflet';
+import { Room } from '../../../redux/store/room';
 
-function RoomMap() {
+function RoomMap({ room }: { room: Room }) {
   const mapRef = useRef(null);
-  const latitude = 32.29442410594691;
-  const longitude = 48.43196151765597;
+  const latitude = room.location.lat;
+  const longitude = room.location.lng;
 
   return (
     <div className="mt-5">
       <h4 className="mb-3 font-vazirBold text-lg">نقشه</h4>
       <MapContainer
         center={[latitude, longitude]}
-        zoom={15}
+        zoom={13}
         ref={mapRef}
         scrollWheelZoom={false}
         className="room-map z-0 h-64 w-full rounded-xl border border-gray-200"

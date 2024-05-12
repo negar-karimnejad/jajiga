@@ -20,6 +20,10 @@ export interface Room {
   min_stay: number;
   max_stay: number;
   extra_person_charge: number;
+  location:{
+    lat:number
+    lng:number
+  }
   discount: {
     day: number;
     off: number;

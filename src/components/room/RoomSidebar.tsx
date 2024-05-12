@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoQuestion, GoShieldCheck } from 'react-icons/go';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import { IoChatbubblesOutline } from 'react-icons/io5';
@@ -19,7 +19,26 @@ function RoomSidebar({
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
+  const closeCalendarModal = () => {
+    setIsShowCalendar(false);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeCalendarModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   if (!room) return null;
+
   return (
     <>
       <div className="relative top-[78px] h-fit max-lg:top-[63px] max-md:hidden md:sticky md:col-span-4">
@@ -125,12 +144,19 @@ function RoomSidebar({
             </div>
           </div>
         </div>
+
         <div
           onClick={(e) => e.stopPropagation()}
           className={`absolute left-0 top-24 z-10 rounded-xl border bg-white shadow-lg shadow-gray-500 ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
         >
-          <div className="scale-90 pt-5">
+          <div className="relative scale-90 pt-5">
             <CalendarFunc />
+            <button
+              onClick={closeCalendarModal}
+              className="absolute -right-5 -top-3 h-6 w-6 font-vazirBold text-3xl text-black/40 transition-all hover:text-black"
+            >
+              &times;
+            </button>
           </div>
         </div>
       </div>

@@ -61,7 +61,7 @@ function RoomMain() {
           <RoomFeatures />
           <RoomCalendar />
           <RoomRules />
-          <RoomMap />
+          <RoomMap room={room}/>
           <RoomScore />
           <RoomComments />
           <RoomHost room={room} />
