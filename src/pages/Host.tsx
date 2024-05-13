@@ -54,7 +54,7 @@ function Host() {
                   <img
                     alt={fullname}
                     src={profile}
-                    className="h-20 w-20 rounded-full dark:border-2"
+                    className="h-20 w-20 object-top object-cover rounded-full dark:border-2"
                   />
                   <div>
                     <h4 className="mb-3 font-vazirBold text-lg dark:text-white">

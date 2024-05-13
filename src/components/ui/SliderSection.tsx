@@ -15,10 +15,12 @@ interface SliderSectionProps {
   category?: string;
   nextBtn: string;
   prevBtn: string;
+  list?: Room[];
 }
 
 function SliderSection({
   title,
+  list,
   category,
   text,
   nextBtn,
@@ -29,17 +31,21 @@ function SliderSection({
 
   useEffect(() => {
     let shuffledRooms: Room[] = [];
-
-    if (category) {
-      shuffledRooms = rooms.filter((room) => room.category?.at(0) === category);
+    if (list?.length) {
+      shuffledRooms = list;
     } else {
-      shuffledRooms = rooms.slice(); // make a copy of rooms array
-      shuffledRooms.sort(() => Math.random() - 0.5); // shuffle the array
+      if (category) {
+        shuffledRooms = rooms.filter(
+          (room) => room.category?.at(0) === category,
+        );
+      } else {
+        shuffledRooms = rooms.slice(); 
+        shuffledRooms.sort(() => Math.random() - 0.5); 
+      }
     }
 
     setSelectedRooms(shuffledRooms);
-  }, [category, rooms]);
-
+  }, [category, list, rooms]);
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">

@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { useHost } from '../../../hooks/useHost';
 import { Room } from '../../../redux/store/room';
 import convertToPersianDate from '../../../utilities/convertToPersianDate';
-import Loader from '../../ui/Loader';
+import RoomHostSkeleton from '../../ui/skeleton/RoomHostSkeleton';
 
 function RoomHost({ room }: { room: Room }) {
   const { host, loading } = useHost(room?.host_id);
 
   if (!host) return null;
-  if (loading) return <Loader />;
+  if (loading) return <RoomHostSkeleton />;
   const {
     id,
     fullname,
@@ -32,7 +32,7 @@ function RoomHost({ room }: { room: Room }) {
           <img
             alt={fullname}
             src={profile}
-            className="h-16 w-16 rounded-full"
+            className="h-16 w-16 rounded-full object-cover object-top"
           />
         </div>
         <p className="mb-3 font-persianNums text-sm text-gray-600 dark:text-gray-400">

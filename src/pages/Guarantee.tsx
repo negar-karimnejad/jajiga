@@ -1,8 +1,11 @@
+import { useRef } from 'react';
 import Button from '../components/ui/Button';
 import FaqList from '../components/ui/FaqList';
 import { faqDate, guaranteeData } from '../data/data';
 
 function Guarantee() {
+  const ref = useRef<HTMLDivElement>(null);
+
   return (
     <div>
       <div className="h-52 max-h-96 w-full bg-[url(/images/guarantee.webp)] bg-cover bg-right text-white lg:h-64">
@@ -67,7 +70,15 @@ function Guarantee() {
                     {item.content}
                   </p>
                   <div className="w-5/6">
-                    <Button style="w-full rounded-full bg-yellow-400 text-gray-700 hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
+                    <Button
+                      onClick={() => {
+                        ref.current?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start',
+                        });
+                      }}
+                      style="w-full rounded-full bg-yellow-400 text-gray-700 hover:bg-yellow-500 hover:text-gray-800 dark:text-black"
+                    >
                       ثبت شکایت
                     </Button>
                   </div>
@@ -106,7 +117,7 @@ function Guarantee() {
                   مقرر تحویل بگیرید و یا اینکه وجه واریزی خود را تمام و کمال و
                   بدون کسر هیچگونه کارمزدی پس بگیرید.
                 </p>
-                <p className="font-vazirBold text-gray-100">
+                <p ref={ref} className="font-vazirBold text-gray-100">
                   پس با خیال راحت در جاجیگا، رزرو کنید.
                 </p>
               </div>

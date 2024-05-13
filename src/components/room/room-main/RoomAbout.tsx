@@ -26,7 +26,7 @@ function RoomAbout() {
           {room.title}
         </h4>
         <div className="h-16 w-16">
-          <img src={host?.profile} className="rounded-full" alt="" />
+          <img src={host?.profile} className="rounded-full w-full h-full object-cover object-top" alt="" />
         </div>
       </div>
       <div className="mt-5 flex items-center gap-2">
