@@ -21,7 +21,7 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
 
   return (
     <>
-      {!user ? (
+      {user ? (
         <Button
           style={`relative font-vazirBold pl-0 py-0 hover:shadow-none text-base ${whiteBg ? 'text-neutral-500 dark:text-white' : 'text-white'}`}
           onClick={showModal}

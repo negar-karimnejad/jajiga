@@ -5,7 +5,8 @@ import Breadcrumb from '../components/ui/Breadcrumb';
 import Button from '../components/ui/Button';
 
 function NewRoom() {
-  const [showMore, setShowMore] = useState('');
+  const [showTruth, setShowTruth] = useState(false);
+  const [showCancel, setShowCancel] = useState(false);
 
   return (
     <div className="relative dark:bg-gray-800">
@@ -31,14 +32,14 @@ function NewRoom() {
                     کنید. به هیچ عنوان امکاناتی که در منزل فراهم نیست را ثبت
                     نکنید و یا از عکسهای غیر واقعی استفاده نکنید. همچنین در
                     صورتی که عیب, نقص یا مشکلی در اقامتگاه
-                    <span>{showMore !== '1' && '...'}</span>{' '}
+                    <span>{!showTruth && '...'}</span>{' '}
                     <span
-                      onClick={() => setShowMore('1')}
-                      className={`${showMore == '1' ? 'hidden' : ''} cursor-pointer text-blue-600`}
+                      onClick={() => setShowTruth(true)}
+                      className={`${showTruth ? 'hidden' : ''} cursor-pointer text-blue-600`}
                     >
                       بیشتر
                     </span>
-                    {showMore &&
+                    {showTruth &&
                       `وجود دارد, در توضیحات
                       اقامتگاه ذکر کنید و تصاویر آن را اضافه کنید. مطابق ضمانت
                       تحویل اقامتگاه جاجیگا، درصورت اثبات عدم مطابقت اقامتگاه
@@ -62,14 +63,14 @@ function NewRoom() {
                     توانید با کلیک بر گزینه "لغو و خروج" در بالای صفحه, مراحل
                     ثبت را نیمه کاره بگذارید. اطلاعات وارد شده تا همان مرحله
                     ذخیره می شود و می توانید در فرصت بعدی مراحل ثبت
-                    <span>{showMore !== '2' && '...'}</span>{' '}
+                    <span>{!showCancel && '...'}</span>{' '}
                     <span
-                      onClick={() => setShowMore('2')}
-                      className={`${showMore === '2' ? 'hidden' : ''} cursor-pointer text-blue-600`}
+                      onClick={() => setShowCancel(true)}
+                      className={`${showCancel ? 'hidden' : ''} cursor-pointer text-blue-600`}
                     >
                       بیشتر
                     </span>
-                    {showMore &&
+                    {showCancel &&
                       ` اقامتگاه را
                       به پایان برسانید. پس با خیال راحت, ثبت اقامتگاه خود را شروع
                       کنید.`}

@@ -12,6 +12,7 @@ import Articles from './pages/Articles';
 import Author from './pages/Author';
 import CategoryArticle from './pages/CategoryArticle';
 import Faq from './pages/Faq';
+import Finance from './pages/Finance';
 import Guarantee from './pages/Guarantee';
 import Help from './pages/Help';
 import HomePage from './pages/HomePage';
@@ -19,16 +20,15 @@ import Host from './pages/Host';
 import Hosting from './pages/Hosting';
 import Invite from './pages/Invite';
 import Jobs from './pages/Jobs';
+import NewRoom from './pages/NewRoom';
 import OfflinePage from './pages/OfflinePage';
+import Profile from './pages/Profile';
 import Room from './pages/Room';
+import Rooms from './pages/Rooms';
 import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
-import Rooms from './pages/Rooms';
-import Finance from './pages/Finance';
-import Profile from './pages/Profile';
-import NewRoom from './pages/NewRoom';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -52,9 +52,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/room/:id" element={<Room />} />
-            <Route path="/s/:id" element={<Rooms />} />
           </Route>
           <Route path="/" element={<HomePage />} />
+          <Route path="/s/:id" element={<Rooms />} />
           <Route path="/finance" element={<Finance />} />
           <Route path="/mag" element={<Articles />} />
           <Route path="/create" element={<AddNewRoom />} />
