@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { AiOutlineUser } from 'react-icons/ai';
 import { BiExit, BiSupport } from 'react-icons/bi';
 import { BsExclamationSquare } from 'react-icons/bs';
 import { CiGift } from 'react-icons/ci';
@@ -7,6 +8,7 @@ import {
   IoBriefcaseOutline,
   IoHomeOutline,
   IoShieldCheckmarkOutline,
+  IoWalletOutline,
 } from 'react-icons/io5';
 import { LiaQuestionCircle } from 'react-icons/lia';
 import { MdOutlineAppSettingsAlt, MdRule } from 'react-icons/md';
@@ -31,10 +33,22 @@ const navMenuLinks = [
     to: '/',
   },
   {
+    id: 14,
+    title: 'کیف پول',
+    icon: <IoWalletOutline />,
+    to: '/finance',
+  },
+  {
     id: 2,
     title: 'علاقه مندی ها',
     icon: <IoIosHeartEmpty />,
     to: '/wishes',
+  },
+  {
+    id: 15,
+    title: 'حساب کاربری',
+    icon: <AiOutlineUser />,
+    to: '/profile',
   },
   {
     id: 3,
@@ -194,25 +208,53 @@ function NavMenu() {
             </header>
             <div className="my-3 border-b"></div>
             <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">
-              {navMenuLinks.map((item) => (
-                <li
-                  key={item.id}
-                  className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
-                >
-                  <Link
-                    onClick={() => setIsMenuOpen(false)}
-                    to={item.to}
-                    className="flex items-center gap-4"
-                  >
-                    <span className="text-lg text-gray-500 dark:text-gray-400">
-                      {item.icon}
-                    </span>
-                    <span className="font-vazirBold text-gray-500 dark:text-gray-400">
-                      {item.title}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+              {navMenuLinks.map((item) => {
+                if (item.title === 'کیف پول' || item.title === 'حساب کاربری') {
+                  return (
+                    <>
+                      {user && (
+                        <li
+                          key={item.id}
+                          className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                        >
+                          <Link
+                            onClick={() => setIsMenuOpen(false)}
+                            to={item.to}
+                            className="flex items-center gap-4"
+                          >
+                            <span className="text-lg text-gray-500 dark:text-gray-400">
+                              {item.icon}
+                            </span>
+                            <span className="font-vazirBold text-gray-500 dark:text-gray-400">
+                              {item.title}
+                            </span>
+                          </Link>
+                        </li>
+                      )}
+                    </>
+                  );
+                } else {
+                  return (
+                    <li
+                      key={item.id}
+                      className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                    >
+                      <Link
+                        onClick={() => setIsMenuOpen(false)}
+                        to={item.to}
+                        className="flex items-center gap-4"
+                      >
+                        <span className="text-lg text-gray-500 dark:text-gray-400">
+                          {item.icon}
+                        </span>
+                        <span className="font-vazirBold text-gray-500 dark:text-gray-400">
+                          {item.title}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
+              })}
               {user && (
                 <li
                   onClick={() => signoutFunc()}

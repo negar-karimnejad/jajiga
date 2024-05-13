@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { hostData } from '../data/data';
 import Button from '../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 interface HostDataProps {
   id: number;
@@ -14,6 +15,7 @@ interface HostDataProps {
 }
 
 function Hosting() {
+  const navigate = useNavigate();
   return (
     <div className="relative dark:bg-gray-800">
       <div className="h-36 w-full bg-yellow-400 bg-[url(/images/patterns/pattern.png)] p-5">
@@ -66,9 +68,12 @@ function Hosting() {
           </div>
         </div>
       ))}
-      <div className="sticky bottom-0 py-2">
+      <div className="sticky bottom-0 py-2 max-md:bottom-14">
         <div className="mx-auto h-16 w-80 rounded-md bg-neutral-600 px-5 py-3">
-          <Button style="h-full w-full rounded-full bg-yellow-400 text-gray-800 hover:bg-yellow-500">
+          <Button
+            onClick={() => navigate('/newroom')}
+            style="h-full w-full rounded-full bg-yellow-400 text-gray-800 hover:bg-yellow-500"
+          >
             ثبت اقامتگاه
           </Button>
         </div>

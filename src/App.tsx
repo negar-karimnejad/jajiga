@@ -26,6 +26,7 @@ import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 import Rooms from './pages/Rooms';
+import Finance from './pages/Finance';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -51,6 +52,7 @@ function App() {
             <Route path="/s/:id" element={<Rooms />} />
           </Route>
           <Route path="/" element={<HomePage />} />
+          <Route path="/finance" element={<Finance />} />
           <Route path="/mag" element={<Articles />} />
           <Route path="/create" element={<AddNewRoom />} />
           <Route path="/mag/:id" element={<Article />} />
