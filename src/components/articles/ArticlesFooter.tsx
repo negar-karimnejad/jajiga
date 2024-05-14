@@ -1,10 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { QuickSearchLinks } from '../footer/QuickSearch';
 import Logo from '../navbar/Logo';
 import Button from '../ui/Button';
 import ArticlesSocials from './ArticlesSocials';
+import { QuickSearchLinks } from '../../data/data';
 
 function ArticlesFooter() {
   const [email, setEmail] = useState('');

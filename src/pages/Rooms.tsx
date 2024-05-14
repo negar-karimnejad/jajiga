@@ -1,11 +1,39 @@
-import { BsStarFill } from 'react-icons/bs';
+import { useState } from 'react';
+import { BiHome } from 'react-icons/bi';
+import { BsShare, BsStarFill } from 'react-icons/bs';
 import { Link, useParams } from 'react-router-dom';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
+import ShareModal from '../components/room/ShareModal';
 import Button from '../components/ui/Button';
+import { QuickSearchArray } from '../data/data';
 import useRooms from '../hooks/useRooms';
 
+const CostumizeDiv = (item: {
+  id: number;
+  title: string;
+  cover: string;
+  to: string;
+}) => {
+  const { title, to } = item;
+
+  return (
+    <Link
+      to={to}
+      className="flex w-52 justify-between rounded-full bg-white py-0.5 pl-0.5 pr-3 text-[13px]"
+    >
+      <div className="">اجاره {title}</div>
+      <div className="flex justify-center gap-1 rounded-full bg-neutral-900 px-2 py-0.5 text-gray-100">
+        <BiHome size={15} />
+        <span className="font-persianNums text-[12px]">9632</span>
+      </div>
+    </Link>
+  );
+};
+
 function Rooms() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const { id } = useParams();
   const { rooms } = useRooms();
   const sRooms = rooms.filter((room) => {
@@ -13,6 +41,10 @@ function Rooms() {
       return room.category?.includes(id);
     }
   });
+
+  const closeModalHandler = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -23,8 +55,38 @@ function Rooms() {
       </div>
       <div className="h-16 bg-gray-200">1</div>
       <div className="-mt-5 grid grid-cols-12 rounded-t-2xl bg-gray-50 dark:bg-gray-800">
-        <div className="col-span-8">
-          <div className="container grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+        <div className=" col-span-8">
+          <header className="container my-10 flex h-40 overflow-hidden rounded-xl shadow-lg">
+            <div className="w-full">
+              <img
+                src="/images/swiss-cottage.webp"
+                className="h-full object-cover"
+                alt=""
+              />
+            </div>
+            <div className="-mr-5 w-[500px] rounded-xl bg-white p-5">
+              <div className="mb-5 flex items-center justify-between">
+                <h1
+                  className="font-vazirBold text-base"
+                  title="اجاره کلبه سوئیسی"
+                >
+                  اجاره کلبه سوئیسی
+                </h1>
+                <button
+                  type="button"
+                  className="ml-8"
+                  onClick={() => setIsOpen(true)}
+                >
+                  <BsShare size={15} />
+                </button>
+              </div>
+              <p className="text-sm text-gray-600">
+                کلبه سوئیسی (مثلثی)؛ اقامتی دلچسب حاصل از تلفیق معماری مدرن و
+                امروزی با آرامش دلنشین چوب.
+              </p>
+            </div>
+          </header>
+          <main className="container grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2 md:grid-cols-3">
             {sRooms?.map((room) => (
               <div key={room.id} className="">
                 <Link to={`/room/${room.code}`} className="relative">
@@ -91,10 +153,23 @@ function Rooms() {
                 </Link>
               </div>
             ))}
-          </div>
+          </main>
+          <footer className="rounded-t-xl bg-neutral-900 p-5">
+            <h4 className="font-vazirMedium text-base text-white">
+              جستجوهای مرتبط
+            </h4>
+            <div className="overflow-auto py-4">
+              <div className="flex w-[42rem] flex-wrap gap-2">
+                {QuickSearchArray.map((item) => (
+                  <CostumizeDiv {...item} key={item.id} />
+                ))}
+              </div>
+            </div>
+          </footer>
         </div>
         <div className="col-span-4 bg-rose-500">k</div>
       </div>
+      <ShareModal isOpen={isOpen} closeModalHandler={closeModalHandler} />
     </>
   );
 }
