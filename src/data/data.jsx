@@ -1,11 +1,26 @@
-import { BiMessageRoundedAdd, BiUser } from 'react-icons/bi';
-import { BsSuitcase } from 'react-icons/bs';
+import { AiOutlineUser } from 'react-icons/ai';
+import { BiMessageRoundedAdd, BiSupport, BiUser } from 'react-icons/bi';
+import { BsExclamationSquare, BsSuitcase } from 'react-icons/bs';
+import { CiGift } from 'react-icons/ci';
 import { GoBell, GoHome, GoKey } from 'react-icons/go';
 import { GrDocumentUpdate } from 'react-icons/gr';
 import { HiOutlineUserGroup } from 'react-icons/hi';
-import { IoEyeOutline } from 'react-icons/io5';
-import { MdOutlineRoomService } from 'react-icons/md';
+import { IoIosHeartEmpty } from 'react-icons/io';
+import {
+  IoBriefcaseOutline,
+  IoEyeOutline,
+  IoHomeOutline,
+  IoShieldCheckmarkOutline,
+  IoWalletOutline,
+} from 'react-icons/io5';
+import { LiaQuestionCircle } from 'react-icons/lia';
+import {
+  MdOutlineAppSettingsAlt,
+  MdOutlineRoomService,
+  MdRule,
+} from 'react-icons/md';
 import { RiCustomerService2Line } from 'react-icons/ri';
+import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { TfiSpray } from 'react-icons/tfi';
 
 export const navMenuLinks = [
@@ -1539,4 +1554,91 @@ export const QuickSearchLinks = [
   { to: '/s/villa', title: 'اجاره ویلا' },
   { to: '/s/gilan', title: 'اجاره ویلا گیلان' },
   { to: '/s/shomal/beach', title: 'اجاره ویلا ساحلی شمال' },
+];
+
+export const mobileNavMenuLinks = [
+  {
+    id: 1,
+    title: 'صفحه اصلی',
+    icon: <IoHomeOutline />,
+    to: '/',
+  },
+  {
+    id: 14,
+    title: 'کیف پول',
+    icon: <IoWalletOutline />,
+    to: '/finance',
+  },
+  {
+    id: 2,
+    title: 'علاقه مندی ها',
+    icon: <IoIosHeartEmpty />,
+    to: '/wishes',
+  },
+  {
+    id: 15,
+    title: 'حساب کاربری',
+    icon: <AiOutlineUser />,
+    to: '/profile',
+  },
+  {
+    id: 3,
+    title: 'میزبان شو',
+    icon: <TbHomePlus />,
+    to: '/host',
+  },
+  {
+    id: 4,
+    title: 'پشتیبانی',
+    icon: <BiSupport />,
+    to: '/support',
+  },
+  {
+    id: 5,
+    title: 'سوالات متداول',
+    icon: <TbMessageCircleQuestion />,
+    to: '/faq',
+  },
+  {
+    id: 6,
+    title: 'راهنما',
+    icon: <LiaQuestionCircle />,
+    to: '/help',
+  },
+  {
+    id: 7,
+    title: 'ضمانت تحویل',
+    icon: <IoShieldCheckmarkOutline />,
+    to: '/guarantee',
+  },
+  {
+    id: 8,
+    title: 'قوانین وبسایت',
+    icon: <MdRule />,
+    to: '/rules',
+  },
+  {
+    id: 10,
+    title: 'دعوت از دوستان',
+    icon: <CiGift />,
+    to: '/invite',
+  },
+  {
+    id: 11,
+    title: 'نصب جاجیگا',
+    icon: <MdOutlineAppSettingsAlt />,
+    to: '/app',
+  },
+  {
+    id: 12,
+    title: 'فرصت های شغلی',
+    icon: <IoBriefcaseOutline />,
+    to: '/jobs',
+  },
+  {
+    id: 13,
+    title: 'درباره ما',
+    icon: <BsExclamationSquare />,
+    to: '/about',
+  },
 ];

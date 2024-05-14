@@ -1,116 +1,17 @@
 import { useEffect, useState } from 'react';
-import { AiOutlineUser } from 'react-icons/ai';
-import { BiExit, BiSupport } from 'react-icons/bi';
-import { BsExclamationSquare } from 'react-icons/bs';
-import { CiGift } from 'react-icons/ci';
-import { IoIosHeartEmpty } from 'react-icons/io';
-import {
-  IoBriefcaseOutline,
-  IoHomeOutline,
-  IoShieldCheckmarkOutline,
-  IoWalletOutline,
-} from 'react-icons/io5';
-import { LiaQuestionCircle } from 'react-icons/lia';
-import { MdOutlineAppSettingsAlt, MdRule } from 'react-icons/md';
+import { BiExit } from 'react-icons/bi';
 import {
   PiInstagramLogo,
   PiTelegramLogo,
   PiTwitterLogo,
   PiYoutubeLogo,
 } from 'react-icons/pi';
-import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
+import { mobileNavMenuLinks } from '../../data/data';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
 import SigningModal from '../auth/SigningModal';
 import Button from '../ui/Button';
-
-const navMenuLinks = [
-  {
-    id: 1,
-    title: 'صفحه اصلی',
-    icon: <IoHomeOutline />,
-    to: '/',
-  },
-  {
-    id: 14,
-    title: 'کیف پول',
-    icon: <IoWalletOutline />,
-    to: '/finance',
-  },
-  {
-    id: 2,
-    title: 'علاقه مندی ها',
-    icon: <IoIosHeartEmpty />,
-    to: '/wishes',
-  },
-  {
-    id: 15,
-    title: 'حساب کاربری',
-    icon: <AiOutlineUser />,
-    to: '/profile',
-  },
-  {
-    id: 3,
-    title: 'میزبان شو',
-    icon: <TbHomePlus />,
-    to: '/host',
-  },
-  {
-    id: 4,
-    title: 'پشتیبانی',
-    icon: <BiSupport />,
-    to: '/support',
-  },
-  {
-    id: 5,
-    title: 'سوالات متداول',
-    icon: <TbMessageCircleQuestion />,
-    to: '/faq',
-  },
-  {
-    id: 6,
-    title: 'راهنما',
-    icon: <LiaQuestionCircle />,
-    to: '/help',
-  },
-  {
-    id: 7,
-    title: 'ضمانت تحویل',
-    icon: <IoShieldCheckmarkOutline />,
-    to: '/guarantee',
-  },
-  {
-    id: 8,
-    title: 'قوانین وبسایت',
-    icon: <MdRule />,
-    to: '/rules',
-  },
-  {
-    id: 10,
-    title: 'دعوت از دوستان',
-    icon: <CiGift />,
-    to: '/invite',
-  },
-  {
-    id: 11,
-    title: 'نصب جاجیگا',
-    icon: <MdOutlineAppSettingsAlt />,
-    to: '/app',
-  },
-  {
-    id: 12,
-    title: 'فرصت های شغلی',
-    icon: <IoBriefcaseOutline />,
-    to: '/jobs',
-  },
-  {
-    id: 13,
-    title: 'درباره ما',
-    icon: <BsExclamationSquare />,
-    to: '/about',
-  },
-];
 
 function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -208,15 +109,12 @@ function NavMenu() {
             </header>
             <div className="my-3 border-b"></div>
             <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">
-              {navMenuLinks.map((item) => {
+              {mobileNavMenuLinks.map((item) => {
                 if (item.title === 'کیف پول' || item.title === 'حساب کاربری') {
                   return (
-                    <>
+                    <div key={item.id}>
                       {user && (
-                        <li
-                          key={item.id}
-                          className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
-                        >
+                        <li className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800">
                           <Link
                             onClick={() => setIsMenuOpen(false)}
                             to={item.to}
@@ -231,7 +129,7 @@ function NavMenu() {
                           </Link>
                         </li>
                       )}
-                    </>
+                    </div>
                   );
                 } else {
                   return (

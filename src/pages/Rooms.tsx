@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { BiHome } from 'react-icons/bi';
 import { BsShare, BsStarFill } from 'react-icons/bs';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
+import 'swiper/css';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
 import ShareModal from '../components/room/ShareModal';
 import Button from '../components/ui/Button';
 import { QuickSearchArray } from '../data/data';
-import useRooms from '../hooks/useRooms';
 import useRoomsMeta from '../hooks/useRoomaMeta';
+import useRooms from '../hooks/useRooms';
 
 const CostumizeDiv = (item: {
   id: number;
@@ -96,12 +100,47 @@ function Rooms() {
                 <Link to={`/room/${room.code}`} className="relative">
                   <div className="relative rounded-xl">
                     <div className="pointer-events-none absolute inset-0 top-20 rounded-xl bg-gradient-to-t from-black/75 to-transparent"></div>
-                    <img
-                      loading="lazy"
-                      src={room?.images?.at(0)}
-                      className="block h-52 w-80 rounded-xl"
-                      alt=""
-                    />
+                    <div className="group container my-5 flex h-[450px] cursor-pointer gap-2 transition-all md:hidden">
+                      <Swiper
+                        className="room-header-swiper"
+                        spaceBetween={0}
+                        modules={[Navigation, Pagination]}
+                        centeredSlides={true}
+                        pagination={{
+                          clickable: true,
+                          el: '.swiper-pagination',
+                        }}
+                        navigation={{
+                          nextEl: '.roomheader-swiper-button-next',
+                          prevEl: '.roomheader-swiper-button-prev',
+                        }}
+                      >
+                        {room.images.map((image, index) => (
+                          <SwiperSlide key={index}>
+                            <img
+                              loading="lazy"
+                              src={image}
+                              className="h-full w-full object-cover"
+                              alt=""
+                            />
+                          </SwiperSlide>
+                        ))}
+                        <div className="swiper-pagination"></div>
+                      </Swiper>
+                      <div className="roomheader-swiper-button-prev invisible absolute bottom-0 right-10 top-0 z-40 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible">
+                        <FaChevronRight
+                          size={14}
+                          className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
+                        />
+                      </div>
+                      <div className="roomheader-swiper-button-next invisible absolute bottom-0 left-10 top-0 z-40 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible">
+                        <FaChevronLeft
+                          size={14}
+                          className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
+                        />
+                      </div>
+                    </div>
+
                     <div className="absolute left-2 top-2">
                       <LikeAndShareButtons />
                     </div>
