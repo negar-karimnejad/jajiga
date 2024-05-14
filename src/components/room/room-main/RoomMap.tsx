@@ -1,18 +1,15 @@
 import 'leaflet/dist/leaflet.css';
 import { useRef } from 'react';
 import { CircleMarker, MapContainer, TileLayer } from 'react-leaflet';
-import { Room } from '../../../redux/store/room';
 
-function RoomMap({ room }: { room: Room }) {
+function RoomMap({ geo }: { geo: [{ latitude: number; longitude: number }] }) {
   const mapRef = useRef(null);
-  const latitude = room.location.lat;
-  const longitude = room.location.lng;
 
   return (
     <div className="mt-5">
       <h4 className="mb-3 font-vazirBold text-lg">نقشه</h4>
       <MapContainer
-        center={[latitude, longitude]}
+        center={[geo[0].latitude, geo[0].longitude]}
         zoom={13}
         ref={mapRef}
         scrollWheelZoom={false}
@@ -23,7 +20,7 @@ function RoomMap({ room }: { room: Room }) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <CircleMarker
-          center={[latitude, longitude]}
+          center={[geo[0].latitude, geo[0].longitude]}
           pathOptions={{
             fillColor: '#2e1fff',
             fillOpacity: 0.4,

@@ -44,6 +44,8 @@ function RoomMain() {
 
   if (!room) return null;
 
+  const latitude = room.location.lat;
+  const longitude = room.location.lng;
   return (
     <>
       <div
@@ -62,10 +64,10 @@ function RoomMain() {
           <RoomFeatures />
           <RoomCalendar />
           <RoomRules />
-          <RoomMap room={room} />
+          <RoomMap geo={[{ latitude: latitude, longitude: longitude }]} />
           <RoomScore />
           <RoomComments />
-          <RoomHost room={room} hostRef={hostRef}/>
+          <RoomHost room={room} hostRef={hostRef} />
           <FloatingSidebar room={room} openFqlModal={openFqlModal} />
         </div>
         <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />

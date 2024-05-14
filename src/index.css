@@ -85,6 +85,17 @@ body {
 .swiper-button-disabled {
   opacity: 50%;
 }
+/* Rooms Swiper */
+.rooms-swiper .swiper-pagination-bullet {
+  background-color: #e0e0e0;
+  opacity: 90%;
+}
+.rooms-swiper .swiper-pagination-bullet-active {
+  background-color: #ffffff;
+  width: 10px;
+  height: 10px;
+  opacity: 100%;
+}
 
 /* LOADER */
 .loader {
