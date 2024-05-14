@@ -1490,15 +1490,15 @@ export const QuickSearchArray = [
   },
   {
     id: 5,
-    title: 'ویلا شمال',
-    cover: '/images/quick-search/shomal.jpg',
-    to: 'shomal',
+    title: 'اقامتگاه بوم گردی',
+    cover: '/images/quick-search/ecolog.webp',
+    to: 'ecolog',
   },
   {
     id: 6,
-    title: 'خانه روستایی',
-    cover: '/images/quick-search/ruralhome.jpg',
-    to: 'ruralhome',
+    title: 'ویلا شمال',
+    cover: '/images/quick-search/shomal.jpg',
+    to: 'shomal',
   },
   {
     id: 7,
@@ -1508,9 +1508,9 @@ export const QuickSearchArray = [
   },
   {
     id: 8,
-    title: 'خانه روستایی',
-    cover: '/images/quick-search/ruralhome.jpg',
-    to: 'ruralhome',
+    title: 'ویلا جکوزی دار',
+    cover: '/images/quick-search/jacuzzi.webp',
+    to: 'jacuzzi',
   },
 ];
 export const QuickSearchLinks = [

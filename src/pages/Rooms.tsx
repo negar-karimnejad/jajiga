@@ -8,6 +8,7 @@ import ShareModal from '../components/room/ShareModal';
 import Button from '../components/ui/Button';
 import { QuickSearchArray } from '../data/data';
 import useRooms from '../hooks/useRooms';
+import useRoomsMeta from '../hooks/useRoomaMeta';
 
 const CostumizeDiv = (item: {
   id: number;
@@ -19,7 +20,7 @@ const CostumizeDiv = (item: {
 
   return (
     <Link
-      to={to}
+      to={`/s/${to}`}
       className="flex w-52 justify-between rounded-full bg-white py-0.5 pl-0.5 pr-3 text-[13px]"
     >
       <div className="">اجاره {title}</div>
@@ -36,6 +37,9 @@ function Rooms() {
 
   const { id } = useParams();
   const { rooms } = useRooms();
+  const { roomsMeta } = useRoomsMeta();
+
+  const roomMeta = roomsMeta.find((meta) => meta.name === id);
   const sRooms = rooms.filter((room) => {
     if (id) {
       return room.category?.includes(id);
@@ -56,42 +60,42 @@ function Rooms() {
       <div className="h-16 bg-gray-200">1</div>
       <div className="-mt-5 grid grid-cols-12 rounded-t-2xl bg-gray-50 dark:bg-gray-800">
         <div className=" col-span-8">
-          <header className="container my-10 flex h-40 overflow-hidden rounded-xl shadow-lg">
-            <div className="w-full">
-              <img
-                src="/images/swiss-cottage.webp"
-                className="h-full object-cover"
-                alt=""
-              />
-            </div>
-            <div className="-mr-5 w-[500px] rounded-xl bg-white p-5">
-              <div className="mb-5 flex items-center justify-between">
-                <h1
-                  className="font-vazirBold text-base"
-                  title="اجاره کلبه سوئیسی"
-                >
-                  اجاره کلبه سوئیسی
-                </h1>
-                <button
-                  type="button"
-                  className="ml-8"
-                  onClick={() => setIsOpen(true)}
-                >
-                  <BsShare size={15} />
-                </button>
+          <header className="container">
+            <div className=" my-10 flex h-40 overflow-hidden rounded-xl shadow-lg">
+              <div className="w-full">
+                <img
+                  src={roomMeta?.canonical}
+                  className="h-full object-cover"
+                  alt=""
+                />
               </div>
-              <p className="text-sm text-gray-600">
-                کلبه سوئیسی (مثلثی)؛ اقامتی دلچسب حاصل از تلفیق معماری مدرن و
-                امروزی با آرامش دلنشین چوب.
-              </p>
+              <div className="-mr-5 w-[500px] rounded-xl bg-white p-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <h1
+                    className="font-vazirBold text-base"
+                    title="اجاره کلبه سوئیسی"
+                  >
+                    {roomMeta?.title}
+                  </h1>
+                  <button
+                    type="button"
+                    className="ml-8"
+                    onClick={() => setIsOpen(true)}
+                  >
+                    <BsShare size={15} />
+                  </button>
+                </div>
+                <p className="text-sm text-gray-600">{roomMeta?.description}</p>
+              </div>
             </div>
           </header>
+
           <main className="container grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2 md:grid-cols-3">
             {sRooms?.map((room) => (
               <div key={room.id} className="">
                 <Link to={`/room/${room.code}`} className="relative">
                   <div className="relative rounded-xl">
-                    <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+                    <div className="pointer-events-none absolute inset-0 top-20 rounded-xl bg-gradient-to-t from-black/75 to-transparent"></div>
                     <img
                       loading="lazy"
                       src={room?.images?.at(0)}
@@ -159,7 +163,7 @@ function Rooms() {
               جستجوهای مرتبط
             </h4>
             <div className="overflow-auto py-4">
-              <div className="flex w-[42rem] flex-wrap gap-2">
+              <div className="flex w-[55rem] flex-wrap gap-2">
                 {QuickSearchArray.map((item) => (
                   <CostumizeDiv {...item} key={item.id} />
                 ))}

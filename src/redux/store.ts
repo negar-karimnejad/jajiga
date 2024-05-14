@@ -6,10 +6,12 @@ import authorsReducer from './store/authors';
 import categoriesReducer from './store/categories';
 import hostsReducer from './store/hosts';
 import roomsReducer from './store/room';
+import roomsMetaReducer from './store/roomsMeta';
 
 export const store = configureStore({
   reducer: {
     rooms: roomsReducer,
+    roomsMeta: roomsMetaReducer,
     hosts: hostsReducer,
     articles: articlesReducer,
     authors: authorsReducer,
