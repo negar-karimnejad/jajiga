@@ -7,19 +7,18 @@ import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Button from '../components/ui/Button';
-import Loader from '../components/ui/Loader';
-import { useHost } from '../hooks/useHost';
 import useRooms from '../hooks/useRooms';
 import convertToPersianDate from '../utilities/convertToPersianDate';
 
 function Host() {
   const { id } = useParams();
   const { rooms } = useRooms();
-  const { host, loading } = useHost(Number(id));
-  const userRooms = host && rooms.filter((room) => room.host_id === host.id);
+
+  const userRooms = rooms.filter((room) => room.host.id === Number(id));
+  const host = rooms.find((room) => room.host.id === Number(id))?.host;
+  const active_residences = userRooms.length;
 
   if (!host) return null;
-  if (loading) return <Loader />;
 
   const {
     fullname,
@@ -29,9 +28,6 @@ function Host() {
     response_time,
   } = host;
 
-  const active_residences =
-    rooms && rooms.filter((room) => room.host_id === Number(id)).length;
-    
   return (
     <>
       <Application style="h-12" />
@@ -54,7 +50,7 @@ function Host() {
                   <img
                     alt={fullname}
                     src={profile}
-                    className="h-20 w-20 object-top object-cover rounded-full dark:border-2"
+                    className="h-20 w-20 rounded-full object-cover object-top dark:border-2"
                   />
                   <div>
                     <h4 className="mb-3 font-vazirBold text-lg dark:text-white">

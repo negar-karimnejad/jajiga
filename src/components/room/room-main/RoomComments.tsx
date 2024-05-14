@@ -1,14 +1,12 @@
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
-import { useHost } from '../../../hooks/useHost';
 import useRoom from '../../../hooks/useRoom';
 import convertToPersianDate from '../../../utilities/convertToPersianDate';
 
 function RoomComments() {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
-  const { host } = useHost(room?.host_id);
 
   if (!room) return null;
   return (
@@ -58,7 +56,7 @@ function RoomComments() {
                   <div className="flex items-center gap-2">
                     <img
                       alt=""
-                      src={host?.profile}
+                      src={room.host.profile}
                       className="h-10 w-10 rounded-full"
                     />
                     <div>

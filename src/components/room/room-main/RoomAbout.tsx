@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { RefObject, useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import { HiOutlineHome } from 'react-icons/hi';
 import { LiaDoorOpenSolid } from 'react-icons/lia';
@@ -7,14 +7,12 @@ import { PiInfoDuotone, PiUsersThree } from 'react-icons/pi';
 import { TfiRulerPencil } from 'react-icons/tfi';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
-import { useHost } from '../../../hooks/useHost';
 import useRoom from '../../../hooks/useRoom';
 import Button from '../../ui/Button';
 
-function RoomAbout() {
+function RoomAbout({ hostRef }: { hostRef: RefObject<HTMLDivElement> }) {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
-  const { host } = useHost(room?.host_id);
   const [isShowInfo, setIsShowInfo] = useState(false);
 
   if (!room) return null;
@@ -25,8 +23,20 @@ function RoomAbout() {
         <h4 className="font-vazirBold text-base dark:text-white">
           {room.title}
         </h4>
-        <div className="h-16 w-16">
-          <img src={host?.profile} className="rounded-full w-full h-full object-cover object-top" alt="" />
+        <div
+          className="h-16 w-16 cursor-pointer"
+          onClick={() =>
+            hostRef.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+            })
+          }
+        >
+          <img
+            src={room.host.profile}
+            className="h-full w-full rounded-full object-cover object-top"
+            alt=""
+          />
         </div>
       </div>
       <div className="mt-5 flex items-center gap-2">
@@ -69,7 +79,7 @@ function RoomAbout() {
                   className="text-blue-700 dark:text-blue-400"
                 />
                 <div
-                  className={`absolute w-52 bottom-6 -right-5 rounded-lg bg-neutral-700 p-3 text-[13px] leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-0 after:right-0 after:mx-auto after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
+                  className={`absolute -right-5 bottom-6 w-52 rounded-lg bg-neutral-700 p-3 text-[13px] leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-0 after:right-0 after:mx-auto after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
                 >
                   در این حالت یک واحد مستقل در اختیار میهمان قرار می گیرد ولی
                   مواردی همچون ورودی اقامتگاه و یا حیاط و محوطه با میزبان یا

@@ -21,6 +21,7 @@ function RoomMain() {
   const [isOpenFql, setIsOpenFql] = useState(false);
   const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
 
+  const hostRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { id } = useParams();
 
@@ -57,14 +58,14 @@ function RoomMain() {
               links={room.category && [room.category[1]]}
             />
           </div>
-          <RoomAbout />
+          <RoomAbout hostRef={hostRef} />
           <RoomFeatures />
           <RoomCalendar />
           <RoomRules />
-          <RoomMap room={room}/>
+          <RoomMap room={room} />
           <RoomScore />
           <RoomComments />
-          <RoomHost room={room} />
+          <RoomHost room={room} hostRef={hostRef}/>
           <FloatingSidebar room={room} openFqlModal={openFqlModal} />
         </div>
         <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />

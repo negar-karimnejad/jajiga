@@ -1,14 +1,15 @@
+import { RefObject } from 'react';
 import { Link } from 'react-router-dom';
-import { useHost } from '../../../hooks/useHost';
 import { Room } from '../../../redux/store/room';
 import convertToPersianDate from '../../../utilities/convertToPersianDate';
-import RoomHostSkeleton from '../../ui/skeleton/RoomHostSkeleton';
 
-function RoomHost({ room }: { room: Room }) {
-  const { host, loading } = useHost(room?.host_id);
-
-  if (!host) return null;
-  if (loading) return <RoomHostSkeleton />;
+function RoomHost({
+  room,
+  hostRef,
+}: {
+  room: Room;
+  hostRef: RefObject<HTMLDivElement>;
+}) {
   const {
     id,
     fullname,
@@ -16,10 +17,10 @@ function RoomHost({ room }: { room: Room }) {
     registery_date,
     reservation_confirmation,
     response_time,
-  } = host;
+  } = room.host;
 
   return (
-    <div>
+    <div ref={hostRef}>
       <h4 className="mb-5 font-vazirBold text-lg">میزبان</h4>
       <div className="mr-2">
         <div className="flex justify-between">

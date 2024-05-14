@@ -8,7 +8,11 @@ import useRooms from '../hooks/useRooms';
 function Rooms() {
   const { id } = useParams();
   const { rooms } = useRooms();
-  const sRooms = rooms.filter((room) => room.category.at(0) === id);
+  const sRooms = rooms.filter((room) => {
+    if (id) {
+      return room.category?.includes(id);
+    }
+  });
 
   return (
     <>
@@ -19,12 +23,12 @@ function Rooms() {
       </div>
       <div className="h-16 bg-gray-200">1</div>
       <div className="-mt-5 grid grid-cols-12 rounded-t-2xl bg-gray-50 dark:bg-gray-800">
-        <div className="col-span-8 bg-amber-200">
-          <div className="container">
+        <div className="col-span-8">
+          <div className="container grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
             {sRooms?.map((room) => (
               <div key={room.id} className="">
                 <Link to={`/room/${room.code}`} className="relative">
-                  <div className="relative overflow-hidden rounded-xl">
+                  <div className="relative rounded-xl">
                     <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
                     <img
                       loading="lazy"
@@ -34,6 +38,13 @@ function Rooms() {
                     />
                     <div className="absolute left-2 top-2">
                       <LikeAndShareButtons />
+                    </div>
+                    <div className="absolute -bottom-7 left-2">
+                      <img
+                        alt={room.host.fullname}
+                        src={room.host.profile}
+                        className="h-14 w-14 rounded-full border-2 border-white object-cover object-top"
+                      />
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
@@ -51,7 +62,9 @@ function Rooms() {
                   to={`/room/${room.code}`}
                   className="text-sm dark:text-white"
                 >
-                  <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
+                  <p className="mb-1 mt-3 w-[70%] overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold">
+                    {room.title}
+                  </p>
                   <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
                     <span className="font-persianNums">
                       {room.bedroom}خوابه . {room.foundation_meterage} متر . تا{' '}

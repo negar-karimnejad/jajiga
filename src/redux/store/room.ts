@@ -20,10 +20,10 @@ export interface Room {
   min_stay: number;
   max_stay: number;
   extra_person_charge: number;
-  location:{
-    lat:number
-    lng:number
-  }
+  location: {
+    lat: number;
+    lng: number;
+  };
   discount: {
     day: number;
     off: number;
@@ -36,7 +36,14 @@ export interface Room {
   residence_policy: string[];
   entrance_hour: number;
   leaving_hour: number;
-  host_id: number;
+  host: {
+    id: number;
+    fullname: string;
+    registery_date: Date;
+    response_time: number;
+    reservation_confirmation: number;
+    profile: string;
+  };
   price: number;
   category: string[];
   rating: {
