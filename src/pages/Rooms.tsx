@@ -10,11 +10,10 @@ import Navbar from '../components/navbar/Navbar';
 import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
 import ShareModal from '../components/room/ShareModal';
 import Button from '../components/ui/Button';
+import CalendarFunc from '../components/ui/calendar';
 import { QuickSearchArray } from '../data/data';
 import useRoomsMeta from '../hooks/useRoomaMeta';
 import useRooms from '../hooks/useRooms';
-import CalendarFunc from '../components/ui/calendar';
-import RoomMap from '../components/room/room-main/RoomMap';
 
 const CostumizeDiv = (item: {
   id: number;
@@ -41,12 +40,14 @@ const CostumizeDiv = (item: {
 function Rooms() {
   const [isOpen, setIsOpen] = useState(false);
   const [isShowCalendar, setIsShowCalendar] = useState(false);
+  // const roomsGeo: [] = [];
 
   const { id } = useParams();
   const { rooms } = useRooms();
   const { roomsMeta } = useRoomsMeta();
   const roomMeta = roomsMeta.find((meta) => meta.name === id);
   const sRooms = rooms.filter((room) => {
+    // roomsGeo.push([...roomsGeo, room.location]);
     if (id) {
       return room.category?.includes(id);
     }
@@ -59,6 +60,7 @@ function Rooms() {
   const closeCalendarModal = () => {
     setIsShowCalendar(false);
   };
+
 
   return (
     <div className="bg-gray-200">
@@ -243,7 +245,7 @@ function Rooms() {
             </footer>
           </div>
           <div className="col-span-4">
-            <RoomMap geo={[{ latitude: latitude, longitude: longitude }]} />
+            {/* <RoomMap geo={[{ latitude: latitude, longitude: longitude }]} /> */}
           </div>
         </div>
       </div>
