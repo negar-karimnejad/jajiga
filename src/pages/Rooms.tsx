@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BiHome } from 'react-icons/bi';
-import { BsShare, BsStarFill } from 'react-icons/bs';
+import { BsShare } from 'react-icons/bs';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
 import 'swiper/css';
@@ -9,8 +9,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Navbar from '../components/navbar/Navbar';
 import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
 import ShareModal from '../components/room/ShareModal';
+import RoomInfosLink from '../components/room/room-main/RoomInfosLink';
 import RoomMap from '../components/room/room-main/RoomMap';
-import Button from '../components/ui/Button';
 import CalendarFunc from '../components/ui/calendar';
 import { QuickSearchArray } from '../data/data';
 import useRoomsMeta from '../hooks/useRoomaMeta';
@@ -199,7 +199,7 @@ function Rooms() {
                         </div>
                       </div>
                     </Link>
-                    <Link
+                    {/* <Link
                       to={`/room/${room.code}`}
                       className="text-sm dark:text-white"
                     >
@@ -229,7 +229,8 @@ function Rooms() {
                           {room.reserved}+ رزرو موفق
                         </Button>
                       </p>
-                    </Link>
+                    </Link> */}
+                    <RoomInfosLink titleWidth="70%" room={room} />
                   </div>
                 );
               })}
