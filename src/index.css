@@ -97,6 +97,10 @@ body {
   opacity: 100%;
 }
 
+/* FullSizeImage Swiper */
+.fullSizeImageSwiper .swiper-slide-thumb-active img {
+  border: 2px solid white;
+}
 /* LOADER */
 .loader {
   width: fit-content;

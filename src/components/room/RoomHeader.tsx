@@ -6,9 +6,16 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useRoom from '../../hooks/useRoom';
 import LikeAndShareButtons from './LikeAndShareButtons';
+import FullSizeImage from './FullSizeImage';
 
 function RoomHeader() {
   const [hoveredImage, setHoveredImage] = useState<null | number>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
@@ -24,7 +31,7 @@ function RoomHeader() {
   return (
     <>
       <div className="container my-5 flex h-80 cursor-pointer gap-2 transition-all max-md:hidden">
-        <div className="w-full flex-1">
+        <div className="w-full flex-1" onClick={() => setIsOpen(true)}>
           <img
             onMouseEnter={() => handleMouseEnter(0)}
             onMouseLeave={handleMouseLeave}
@@ -91,6 +98,7 @@ function RoomHeader() {
           </div>
         </div>
       </div>
+
       <div className="group container my-5 flex h-[450px] cursor-pointer gap-2 transition-all md:hidden">
         <Swiper
           className="room-header-swiper"
@@ -130,6 +138,11 @@ function RoomHeader() {
             className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
           />
         </div>
+      </div>
+
+      {/* Big Size Images Modal */}
+      <div className="max-md:hidden">
+        <FullSizeImage room={room} isOpen={isOpen} closeModal={closeModal} />
       </div>
     </>
   );
