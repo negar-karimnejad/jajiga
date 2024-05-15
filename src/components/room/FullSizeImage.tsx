@@ -18,7 +18,8 @@ function FullSizeImage({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper] = useState(null);
+  
 
   return (
     <div
@@ -37,15 +38,14 @@ function FullSizeImage({
         </Button>
         <div className="container my-5 h-[450px] cursor-pointer gap-2 transition-all">
           <Swiper
-            className="room-header-swiper"
             spaceBetween={250}
             speed={800}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Thumbs, Navigation]}
             centeredSlides={true}
             navigation={{
-              nextEl: '.roomheader-swiper-button-next',
-              prevEl: '.roomheader-swiper-button-prev',
+              nextEl: '.fullSizeImage-swiper-button-next',
+              prevEl: '.fullSizeImage-swiper-button-prev',
             }}
           >
             {room.images.map((image, index) => (
@@ -63,7 +63,6 @@ function FullSizeImage({
             ))}
           </Swiper>
           <Swiper
-            onSwiper={setThumbsSwiper}
             spaceBetween={0}
             slidesPerView={8}
             freeMode={true}
@@ -82,16 +81,16 @@ function FullSizeImage({
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="roomheader-swiper-button-prev absolute bottom-0 right-10 top-0 z-40 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100">
+          <div className="fullSizeImage-swiper-button-prev absolute bottom-0 right-5 top-0 z-40 m-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-neutral-950/90 shadow-md shadow-black/40 transition-all">
             <FaChevronRight
-              size={14}
-              className="hover:text-gary-950 text-gray-800 transition-all"
+              size={22}
+              className="hover:text-gary-950 text-neutral-300 hover:text-white"
             />
           </div>
-          <div className="roomheader-swiper-button-next absolute bottom-0 left-10 top-0 z-40 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100">
+          <div className="fullSizeImage-swiper-button-next absolute bottom-0 left-5 top-0 z-40 m-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-neutral-950/90 shadow-md shadow-black/40 transition-all">
             <FaChevronLeft
-              size={14}
-              className="hover:text-gary-950 text-gray-800 transition-all"
+              size={22}
+              className="hover:text-gary-950 text-neutral-300 hover:text-white"
             />
           </div>
         </div>

@@ -101,6 +101,9 @@ body {
 .fullSizeImageSwiper .swiper-slide-thumb-active img {
   border: 2px solid white;
 }
+.fullSizeImageSwiper .swiper-slide-fully-visible img:hover {
+  border: 2px solid white;
+}
 /* LOADER */
 .loader {
   width: fit-content;
