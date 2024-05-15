@@ -17,7 +17,7 @@ function RoomScore() {
   ];
   if (!room) return null;
   return (
-    <div className="mt-5" id="commentsRef">
+    <div className="mt-16" id="commentsRef">
       <h4 className="flex justify-between">
         <span className="font-vazirBold text-lg">
           امتیاز{' '}

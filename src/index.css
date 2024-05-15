@@ -151,6 +151,9 @@ body {
 .room-map .leaflet-control-container .leaflet-left {
   left: 93% !important;
 }
+.rooms-page .leaflet-control-container .leaflet-left {
+  left: 87% !important;
+}
 .room-map .leaflet-control-container .leaflet-top {
   top: 61% !important;
 }

@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Navbar from '../components/navbar/Navbar';
 import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
 import ShareModal from '../components/room/ShareModal';
+import RoomMap from '../components/room/room-main/RoomMap';
 import Button from '../components/ui/Button';
 import CalendarFunc from '../components/ui/calendar';
 import { QuickSearchArray } from '../data/data';
@@ -40,14 +41,14 @@ const CostumizeDiv = (item: {
 function Rooms() {
   const [isOpen, setIsOpen] = useState(false);
   const [isShowCalendar, setIsShowCalendar] = useState(false);
-  // const roomsGeo: [] = [];
+
+  const roomsGeo: [number, number][] = [];
 
   const { id } = useParams();
   const { rooms } = useRooms();
   const { roomsMeta } = useRoomsMeta();
   const roomMeta = roomsMeta.find((meta) => meta.name === id);
   const sRooms = rooms.filter((room) => {
-    // roomsGeo.push([...roomsGeo, room.location]);
     if (id) {
       return room.category?.includes(id);
     }
@@ -60,7 +61,6 @@ function Rooms() {
   const closeCalendarModal = () => {
     setIsShowCalendar(false);
   };
-
 
   return (
     <div className="bg-gray-200">
@@ -126,110 +126,113 @@ function Rooms() {
             </header>
 
             <main className="container grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2 md:grid-cols-3">
-              {sRooms?.map((room) => (
-                <div key={room.id}>
-                  <Link to={`/room/${room.code}`} className="group relative">
-                    <div className="relative rounded-xl ">
-                      <div className="cursor-pointer transition-all">
-                        <Swiper
-                          className="rooms-swiper"
-                          spaceBetween={0}
-                          modules={[Navigation, Pagination]}
-                          centeredSlides={true}
-                          pagination={{
-                            clickable: true,
-                            el: '.swiper-pagination',
-                          }}
-                          navigation={{
-                            nextEl: `.rooms-swiper${room.id}-button-next`,
-                            prevEl: `.rooms-swiper${room.id}-button-prev`,
-                          }}
-                        >
-                          {room.images.map((image, index) => (
-                            <SwiperSlide key={index}>
-                              <img
-                                loading="lazy"
-                                src={image}
-                                className="h-48 w-full rounded-xl object-cover"
-                                alt={room.title}
-                              />
-                            </SwiperSlide>
-                          ))}
-                          <div className="swiper-pagination"></div>
-                        </Swiper>
-                        <div
-                          className={`rooms-swiper${room.id}-button-prev invisible absolute bottom-0 right-0 top-0 z-20 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible group-hover:right-2`}
-                        >
-                          <FaChevronRight
-                            size={14}
-                            className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
-                          />
+              {sRooms?.map((room) => {
+                roomsGeo.push([room.location.lat, room.location.lng]);
+                return (
+                  <div key={room.id}>
+                    <Link to={`/room/${room.code}`} className="group relative">
+                      <div className="relative rounded-xl ">
+                        <div className="cursor-pointer transition-all">
+                          <Swiper
+                            className="rooms-swiper"
+                            spaceBetween={0}
+                            modules={[Navigation, Pagination]}
+                            centeredSlides={true}
+                            pagination={{
+                              clickable: true,
+                              el: '.swiper-pagination',
+                            }}
+                            navigation={{
+                              nextEl: `.rooms-swiper${room.id}-button-next`,
+                              prevEl: `.rooms-swiper${room.id}-button-prev`,
+                            }}
+                          >
+                            {room.images.map((image, index) => (
+                              <SwiperSlide key={index}>
+                                <img
+                                  loading="lazy"
+                                  src={image}
+                                  className="h-48 w-full rounded-xl object-cover"
+                                  alt={room.title}
+                                />
+                              </SwiperSlide>
+                            ))}
+                            <div className="swiper-pagination"></div>
+                          </Swiper>
+                          <div
+                            className={`rooms-swiper${room.id}-button-prev invisible absolute bottom-0 right-0 top-0 z-20 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible group-hover:right-2`}
+                          >
+                            <FaChevronRight
+                              size={14}
+                              className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
+                            />
+                          </div>
+                          <div
+                            className={`rooms-swiper${room.id}-button-next invisible absolute bottom-0 left-0 top-0 z-20 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible group-hover:left-2`}
+                          >
+                            <FaChevronLeft
+                              size={14}
+                              className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
+                            />
+                          </div>
                         </div>
-                        <div
-                          className={`rooms-swiper${room.id}-button-next invisible absolute bottom-0 left-0 top-0 z-20 m-auto flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-100/90 shadow-md shadow-black/40 transition-all hover:scale-105 hover:bg-gray-100 group-hover:visible group-hover:left-2`}
-                        >
-                          <FaChevronLeft
-                            size={14}
-                            className="hover:text-gary-950 invisible text-gray-800 transition-all group-hover:visible"
-                          />
-                        </div>
-                      </div>
 
-                      <div className="absolute left-2 top-2 z-20">
-                        <LikeAndShareButtons />
+                        <div className="absolute left-2 top-2 z-20">
+                          <LikeAndShareButtons />
+                        </div>
+                        <div className="absolute -bottom-7 left-2 z-10">
+                          <img
+                            alt={room.host.fullname}
+                            src={room.host.profile}
+                            className="h-14 w-14 rounded-full border-2 border-white object-cover object-top"
+                          />
+                        </div>
                       </div>
-                      <div className="absolute -bottom-7 left-2 z-10">
-                        <img
-                          alt={room.host.fullname}
-                          src={room.host.profile}
-                          className="h-14 w-14 rounded-full border-2 border-white object-cover object-top"
-                        />
+                      <div className="absolute bottom-0 left-0 right-0 z-10 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
+                        <div className="mt-2 flex flex-col items-center gap-2">
+                          <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
+                            ✨ ممتــــــــاز
+                          </p>
+                          <p className="w-20 rounded-full bg-yellow-400 px-1 py-0.5 font-vazirBold text-[11px] text-black">
+                            <span>⚡</span> رزرو فوری
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 z-10 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
-                      <div className="mt-2 flex flex-col items-center gap-2">
-                        <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                          ✨ ممتــــــــاز
-                        </p>
-                        <p className="w-20 rounded-full bg-yellow-400 px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                          <span>⚡</span> رزرو فوری
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link
-                    to={`/room/${room.code}`}
-                    className="text-sm dark:text-white"
-                  >
-                    <p className="mb-1 mt-3 w-[70%] overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold">
-                      {room.title}
-                    </p>
-                    <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
-                      <span className="font-persianNums">
-                        {room.bedroom}خوابه . {room.foundation_meterage} متر .
-                        تا {room.max_capacity} مهمان
-                      </span>
-                      <span className="flex gap-1 font-persianNums">
-                        <BsStarFill className="text-yellow-500" />
-                        {room.rating?.total}
-                      </span>
-                      <span className="font-persianNums">
-                        ({room.reviews} نظر)
-                      </span>
-                    </p>
-                    <p className="mt-1 flex items-center gap-1 text-sm">
-                      هر شب از
-                      <span className="mr-1 font-persianNums">
-                        {room.price?.toLocaleString()}
-                      </span>
-                      تومان
-                      <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">
-                        {room.reserved}+ رزرو موفق
-                      </Button>
-                    </p>
-                  </Link>
-                </div>
-              ))}
+                    </Link>
+                    <Link
+                      to={`/room/${room.code}`}
+                      className="text-sm dark:text-white"
+                    >
+                      <p className="mb-1 mt-3 w-[70%] overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold">
+                        {room.title}
+                      </p>
+                      <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
+                        <span className="font-persianNums">
+                          {room.bedroom}خوابه . {room.foundation_meterage} متر .
+                          تا {room.max_capacity} مهمان
+                        </span>
+                        <span className="flex gap-1 font-persianNums">
+                          <BsStarFill className="text-yellow-500" />
+                          {room.rating?.total}
+                        </span>
+                        <span className="font-persianNums">
+                          ({room.reviews} نظر)
+                        </span>
+                      </p>
+                      <p className="mt-1 flex items-center gap-1 text-sm">
+                        هر شب از
+                        <span className="mr-1 font-persianNums">
+                          {room.price?.toLocaleString()}
+                        </span>
+                        تومان
+                        <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">
+                          {room.reserved}+ رزرو موفق
+                        </Button>
+                      </p>
+                    </Link>
+                  </div>
+                );
+              })}
             </main>
             <footer className="rounded-t-xl bg-neutral-900 p-5">
               <h4 className="font-vazirMedium text-base text-white">
@@ -244,8 +247,10 @@ function Rooms() {
               </div>
             </footer>
           </div>
-          <div className="col-span-4">
-            {/* <RoomMap geo={[{ latitude: latitude, longitude: longitude }]} /> */}
+          <div className="col-span-4 h-screen">
+            <div className=" fixed left-0 top-0 h-screen w-96">
+              <RoomMap blueCircleMarker={false} geo={roomsGeo} />
+            </div>
           </div>
         </div>
       </div>

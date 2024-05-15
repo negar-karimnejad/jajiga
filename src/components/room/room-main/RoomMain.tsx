@@ -43,9 +43,8 @@ function RoomMain() {
   };
 
   if (!room) return null;
+  const roomsGeo: [number, number][] = [[room.location.lat, room.location.lng]];
 
-  const latitude = room.location.lat;
-  const longitude = room.location.lng;
   return (
     <>
       <div
@@ -64,7 +63,10 @@ function RoomMain() {
           <RoomFeatures />
           <RoomCalendar />
           <RoomRules />
-          <RoomMap geo={[{ latitude: latitude, longitude: longitude }]} />
+          <div className="mt-5 h-64">
+            <h4 className="mb-3 font-vazirBold text-lg">نقشه</h4>
+            <RoomMap blueCircleMarker={true} geo={roomsGeo} />
+          </div>
           <RoomScore />
           <RoomComments />
           <RoomHost room={room} hostRef={hostRef} />
