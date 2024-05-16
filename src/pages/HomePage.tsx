@@ -1,3 +1,6 @@
+import { ChangeEvent, useEffect, useState } from 'react';
+import { IoLocationOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import Footer from '../components/footer/Footer';
 import Advantages from '../components/home/Advantages';
 import Application from '../components/home/Application';
@@ -21,10 +24,28 @@ import Logo from '../components/navbar/Logo';
 import NavLinks from '../components/navbar/NavLinks';
 import NavMenu from '../components/navbar/NavMenu';
 import Navbar from '../components/navbar/Navbar';
+import useRooms from '../hooks/useRooms';
 import { useScroll } from '../hooks/useScroll';
+import { Room } from '../redux/store/room';
 
 function HomePage() {
   const { scrollYPosition } = useScroll();
+  const [search, setSearch] = useState('');
+  const [searchResult, setSearchResult] = useState<Room[]>([]);
+
+  const { rooms } = useRooms();
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+  useEffect(() => {
+    let filteredRooms: Room[] = [];
+    if (search) {
+      filteredRooms = rooms.filter((room) => room.title.includes(search));
+    } else {
+      filteredRooms = [];
+    }
+    setSearchResult(filteredRooms);
+  }, [rooms, search]);
 
   return (
     <>
@@ -34,15 +55,15 @@ function HomePage() {
           <div className="cursor-pointer rounded-full bg-gray-300/50 px-2">
             <NavMenu />
           </div>
-          <div className="flex shrink-0 gap-8 text-gray-50 max-md:hidden">
+          <div className="flex shrink-0 gap-8 text-white max-md:hidden">
             <NavLinks />
           </div>
         </div>
-        {scrollYPosition < 480 && <Logo withTitle={true} />}
+        {scrollYPosition < 350 && <Logo withTitle={true} />}
       </div>
       <Hero />
       <div className="relative bg-white dark:bg-gray-900">
-        <Application style="absolute -top-10 right-0 h-14 rounded-t-2xl" />
+        <Application style="absolute -top-12 right-0 h-14 rounded-t-2xl" />
         <Popular />
         <QuickSearch />
         <Advantages />
@@ -60,6 +81,69 @@ function HomePage() {
         <JajigaMag />
         <MoreInfos />
         <Footer />
+      </div>
+      <div className="absolute left-0 right-0 top-40 z-20 mx-auto w-96">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex flex-col items-center justify-center gap-4"
+        >
+          <label htmlFor="" className="font-vazirMedium text-lg text-white">
+            اجاره ویلا در شمال و سراسر ایران زیبا
+          </label>
+          <div className="input input-bordered flex w-96 items-center gap-2 rounded-full pl-1 max-sm:w-72">
+            <input
+              type="text"
+              className="grow text-gray-700 dark:text-white"
+              placeholder="میخوای کجا بری؟"
+              value={search}
+              onChange={changeHandler}
+            />
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-8 w-8 rounded-full bg-yellow-400 p-1 text-gray-800 transition-all hover:bg-yellow-500"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+        {searchResult.length > 0 && (
+          <div className="mt-2 rounded-lg bg-white px-2 py-5 shadow-lg">
+            {searchResult.map((room, index) => (
+              <>
+                <Link
+                  to={`/s/${room.category[0]}`}
+                  key={room.id}
+                  className="flex items-center justify-between py-2.5 text-sm text-gray-700"
+                >
+                  <p className="flex items-center gap-1">
+                    <IoLocationOutline size={16} />
+                    {room.category[2]}
+                  </p>
+                  <p className=" text-gray-500">{room.category[1]}</p>
+                </Link>
+                {searchResult.length > index + 1 && (
+                  <div className="h-0.5 w-full border-b"></div>
+                )}
+              </>
+            ))}
+          </div>
+        )}
+        <div className="text-center mt-10 text-white">
+          <p className="font-vazirMedium text-2xl md:text-3xl">
+            جاجیــــــــــگا
+          </p>
+          <p className="mt-3 font-vazirMedium text-sm md:text-base">
+            مثل خونه خودته :)
+          </p>
+        </div>
       </div>
     </>
   );

@@ -8,7 +8,7 @@ import SectionHeading from './SectionHeading';
 
 function Popular() {
   return (
-    <div className="group relative z-20 mt-[400px] rounded-t-2xl bg-white dark:bg-gray-900 max-xl:mt-[360px]">
+    <div className="group relative z-20 rounded-t-2xl bg-white -translate-y-3 dark:bg-gray-900 max-md:mt-[360px] md:mt-[320px] lg:mt-[320px]">
       <div className="container w-full">
         <SectionHeading>مقاصد پرطرفدار</SectionHeading>
         <div className="relative">

@@ -29,7 +29,7 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
           اعلانات
           <div
             ref={ref}
-            className={`absolute right-0 top-full z-20 w-96 rounded-lg border bg-white p-4 shadow-lg transition-all dark:border-none dark:bg-gray-800 duration-500${isShowNotification ? 'visible opacity-100' : 'invisible opacity-0 hidden'}`}
+            className={`absolute right-0 top-full z-20 w-96 rounded-lg border bg-white p-4 shadow-lg transition-all dark:border-none dark:bg-gray-800 duration-500${isShowNotification ? 'visible opacity-100' : 'invisible hidden opacity-0'}`}
           >
             <div className="mb-2 flex items-center justify-between border-b pb-3 dark:border-b-gray-600">
               <h4 className="text-gray-900 dark:text-white">اعلانات</h4>
@@ -126,17 +126,23 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
         </Button>
       ) : (
         <button
-          className="px-0 py-0 font-vazirBold text-neutral-500 dark:text-white text-base hover:shadow-none"
+          className={`px-0 py-0 font-vazirBold text-base hover:shadow-none ${whiteBg ? 'text-neutral-500' : 'text-white'}`}
           onClick={openModalHandler}
         >
           ورود / ثبت نام
         </button>
       )}
 
-      <Link className="font-vazirBold text-base text-neutral-500 dark:text-white" to="/host">
+      <Link
+        className={`font-vazirBold text-base text-neutral-500 dark:text-white ${whiteBg ? 'text-neutral-500' : 'text-white'}`}
+        to="/host"
+      >
         میزبان شوید
       </Link>
-      <Link className="font-vazirBold text-base text-neutral-500 dark:text-white" to="/wishes">
+      <Link
+        className={`font-vazirBold text-base text-neutral-500 dark:text-white ${whiteBg ? 'text-neutral-500' : 'text-white'}`}
+        to="/wishes"
+      >
         علاقه مندی ها
       </Link>
     </>
