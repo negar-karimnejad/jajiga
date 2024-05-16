@@ -29,12 +29,11 @@ import useSearch from '../hooks/useSearch';
 function HomePage() {
   const { scrollYPosition } = useScroll();
   const [search, setSearch] = useState<string>('');
+  const { searchResult, setSearch: setSearchQuery } = useSearch();
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-
-  const { searchResult, setSearch: setSearchQuery } = useSearch();
 
   useEffect(() => {
     setSearchQuery(search);
@@ -108,7 +107,11 @@ function HomePage() {
               </button>
             </div>
           </form>
-          <SearchResultModal searchResult={searchResult} />
+          {searchResult.length > 0 && (
+            <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
+              <SearchResultModal searchResult={searchResult} />
+            </div>
+          )}
           <div className="absolute left-0 right-0 top-20 -z-10 mx-auto h-fit w-full text-white ">
             <div className="mt-10 text-center text-white">
               <p className="font-vazirMedium text-2xl md:text-3xl">
