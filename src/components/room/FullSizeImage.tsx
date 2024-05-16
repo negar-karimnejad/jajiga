@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { Room } from '../../redux/store/room';
 import Button from '../ui/Button';
 
@@ -15,20 +15,26 @@ function FullSizeImage({
   closeModal,
 }: {
   room: Room;
-  isOpen: boolean;
+  isOpen: number;
   closeModal: () => void;
 }) {
-  const [thumbsSwiper] = useState(null);
-  
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
+  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+
+  useEffect(() => {
+    if (swiperInstance && isOpen >= 0) {
+      swiperInstance.slideTo(isOpen);
+    }
+  }, [isOpen, swiperInstance]);
 
   return (
     <div
-      className={`fixed right-0 top-0 z-50 flex h-full w-full cursor-default flex-col items-center overflow-y-auto bg-neutral-800/95 backdrop-blur-sm transition-all duration-500 max-sm:px-5 ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
+      className={`fixed right-0 top-0 z-50 flex h-full w-full cursor-default flex-col items-center overflow-y-auto bg-neutral-800/95 backdrop-blur-sm transition-all duration-500 max-sm:px-5 ${isOpen >= 0 ? 'visible opacity-100' : 'invisible opacity-0'}`}
       onClick={closeModal}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`flex h-full w-screen justify-center  pt-10 transition-all ${isOpen ? 'scale-100' : 'scale-0'}`}
+        className={`flex h-full w-screen justify-center  pt-10 transition-all ${isOpen >= 0 ? 'scale-100' : 'scale-0'}`}
       >
         <Button
           style="absolute w-5 h-5 top-2 left-8 font-vazirMedium text-5xl text-white"
@@ -36,10 +42,11 @@ function FullSizeImage({
         >
           &times;
         </Button>
-        <div className="container my-5 h-[450px] cursor-pointer gap-2 transition-all">
+        <div className="container my-5 h-[450px] cursor-pointer gap-2">
           <Swiper
+            onSwiper={(swiper) => setSwiperInstance(swiper)}
             spaceBetween={250}
-            speed={800}
+            noSwipingClass="swiper-slide"
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Thumbs, Navigation]}
             centeredSlides={true}
@@ -63,8 +70,9 @@ function FullSizeImage({
             ))}
           </Swiper>
           <Swiper
+            onSwiper={setThumbsSwiper}
             spaceBetween={0}
-            slidesPerView={8}
+            slidesPerView={9}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
@@ -75,7 +83,7 @@ function FullSizeImage({
                 <img
                   loading="lazy"
                   src={image}
-                  className="h-20 w-24 rounded-md border-2 border-black object-cover object-top"
+                  className="h-20 w-28 rounded-md border-2 border-black object-cover object-top"
                   alt=""
                 />
               </SwiperSlide>

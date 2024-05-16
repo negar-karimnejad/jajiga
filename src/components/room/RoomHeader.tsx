@@ -10,10 +10,10 @@ import FullSizeImage from './FullSizeImage';
 
 function RoomHeader() {
   const [hoveredImage, setHoveredImage] = useState<null | number>(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(-1);
 
   const closeModal = () => {
-    setIsOpen(false);
+    setIsOpen(-1);
   };
 
   const { id } = useParams();
@@ -31,8 +31,9 @@ function RoomHeader() {
   return (
     <>
       <div className="container my-5 flex h-80 cursor-pointer gap-2 transition-all max-md:hidden">
-        <div className="w-full flex-1" onClick={() => setIsOpen(true)}>
+        <div className="w-full flex-1">
           <img
+            onClick={() => setIsOpen(0)}
             onMouseEnter={() => handleMouseEnter(0)}
             onMouseLeave={handleMouseLeave}
             className={`h-full w-full rounded-lg object-cover ${
@@ -47,6 +48,7 @@ function RoomHeader() {
         <div className="flex w-full flex-1 gap-2">
           <div className="flex w-full flex-col gap-1">
             <img
+              onClick={() => setIsOpen(1)}
               onMouseEnter={() => handleMouseEnter(1)}
               onMouseLeave={handleMouseLeave}
               className={`h-1/2 rounded-lg object-cover ${
@@ -58,6 +60,7 @@ function RoomHeader() {
               alt=""
             />
             <img
+              onClick={() => setIsOpen(2)}
               onMouseEnter={() => handleMouseEnter(2)}
               onMouseLeave={handleMouseLeave}
               className={`h-1/2 rounded-lg object-cover ${
@@ -71,6 +74,7 @@ function RoomHeader() {
           </div>
           <div className="relative flex w-full flex-col gap-1">
             <img
+              onClick={() => setIsOpen(3)}
               onMouseEnter={() => handleMouseEnter(3)}
               onMouseLeave={handleMouseLeave}
               className={`h-1/2 rounded-lg object-cover ${
@@ -82,6 +86,7 @@ function RoomHeader() {
               alt=""
             />
             <img
+              onClick={() => setIsOpen(4)}
               onMouseEnter={() => handleMouseEnter(4)}
               onMouseLeave={handleMouseLeave}
               className={`h-1/2 rounded-lg object-cover ${

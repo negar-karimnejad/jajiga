@@ -64,27 +64,28 @@ function RoomMap({
           ))
         )}
       </MapContainer>
-
-      <div
-        className={`absolute left-2 right-2 z-40 flex justify-between rounded-xl border bg-white shadow-lg shadow-gray-400 transition-all dark:border-gray-900 dark:bg-gray-800 ${markedRoom ? 'bottom-10' : '-bottom-32'}`}
-      >
-        <Link to={`/room/${markedRoom?.code}`}>
-          <img
-            src={markedRoom?.images[0]}
-            className="h-[6.2rem] w-24 rounded-xl object-cover"
-            alt={markedRoom?.title}
-          />
-        </Link>
-        <div className="pr-1">
-          {markedRoom && <RoomInfosLink titleWidth="96%" room={markedRoom} />}
-        </div>
-        <button
-          onClick={() => setMarkedRoom(null)}
-          className="ml-0.5 mt-1 flex h-5 w-5 items-center justify-center rounded-sm pt-1.5 font-vazirMedium text-2xl hover:bg-gray-200 dark:hover:bg-gray-700"
+      {!blueCircleMarker && (
+        <div
+          className={`absolute left-2 right-2 z-40 flex justify-between rounded-xl border bg-white shadow-lg shadow-gray-400 transition-all dark:border-gray-900 dark:bg-gray-800 ${markedRoom ? 'bottom-10' : '-bottom-32'}`}
         >
-          &times;
-        </button>
-      </div>
+          <Link to={`/room/${markedRoom?.code}`}>
+            <img
+              src={markedRoom?.images[0]}
+              className="h-[6.2rem] w-24 rounded-xl object-cover"
+              alt={markedRoom?.title}
+            />
+          </Link>
+          <div className="pr-1">
+            {markedRoom && <RoomInfosLink titleWidth="96%" room={markedRoom} />}
+          </div>
+          <button
+            onClick={() => setMarkedRoom(null)}
+            className="ml-0.5 mt-1 flex h-5 w-5 items-center justify-center rounded-sm pt-1.5 font-vazirMedium text-2xl hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            &times;
+          </button>
+        </div>
+      )}
     </>
   );
 }
