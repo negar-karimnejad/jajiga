@@ -32,7 +32,7 @@ function NavSearch() {
 
   return (
     <>
-      <form className="max-w-7xl flex-1 max-sm:w-48">
+      <form className="relative max-w-7xl flex-1 max-sm:w-48">
         <label className="relative flex w-full rounded-full border p-2 dark:border-gray-500 ">
           <input
             onClick={() => setIsOpenSearchModal(true)}
@@ -48,7 +48,14 @@ function NavSearch() {
           />
         </label>
         {searchResult.length > 0 && (
-          <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-full">
+            <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
+              <div className="rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-4 shadow-lg dark:text-white">
+                <SearchResultModal searchResult={searchResult} />
+              </div>
+            </div>
+          )}
+        {searchResult.length > 0 && (
+          <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-full md:hidden">
             <SearchResultModal searchResult={searchResult} />
           </div>
         )}

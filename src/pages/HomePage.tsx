@@ -109,7 +109,9 @@ function HomePage() {
           </form>
           {searchResult.length > 0 && (
             <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
-              <SearchResultModal searchResult={searchResult} />
+              <div className="rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-4 shadow-lg dark:text-white">
+                <SearchResultModal searchResult={searchResult} />
+              </div>
             </div>
           )}
           <div className="absolute left-0 right-0 top-20 -z-10 mx-auto h-fit w-full text-white ">
