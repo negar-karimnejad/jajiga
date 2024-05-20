@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import LikeAndShareButtons from '../LikeAndShareButtons';
+import { useParams } from 'react-router-dom';
 
 const navItems = [
   { id: 'imagesRef', label: 'تصاویر' },
@@ -14,6 +15,7 @@ const navItems = [
 function RoomAccessibility() {
   const [scrollYPosition, setScrollYPosition] = useState(0);
   const [activeNavItem, setActiveNavItem] = useState<null | string>('');
+  const { id } = useParams();
 
   const handleScroll = () => {
     const newScrollYPosition = window.pageYOffset;
@@ -70,7 +72,7 @@ function RoomAccessibility() {
           </li>
         ))}
       </ul>
-      <LikeAndShareButtons />
+      <LikeAndShareButtons id={Number(id)} />
     </div>
   );
 }

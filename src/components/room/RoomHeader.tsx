@@ -98,7 +98,7 @@ function RoomHeader() {
               alt=""
             />
             <div className="absolute left-2 top-2 z-30">
-              <LikeAndShareButtons />
+              <LikeAndShareButtons id={Number(id)} />
             </div>
           </div>
         </div>
