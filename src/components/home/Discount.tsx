@@ -13,7 +13,7 @@ function Discount() {
   const selectedRooms = rooms.slice().sort((a, b) => a.price - b.price);
 
   return (
-    <div className="group relative z-30 mt-10 overflow-hidden rounded-t-2xl bg-[#cc0001] pb-12 text-white dark:bg-red-700">
+    <div className="group relative mt-10 overflow-hidden rounded-t-2xl bg-[#cc0001] pb-12 text-white dark:bg-red-700">
       <div
         className="t-0 absolute left-0 h-full w-full
        bg-[url(/images/patterns/pattern.png)] opacity-60"

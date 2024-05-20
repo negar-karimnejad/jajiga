@@ -97,15 +97,29 @@ function NavMenu() {
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-              <Button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  openModalHandler();
-                }}
-                style="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 hover:shadow-md hover:bg-gray-300 dark:bg-gray-600 dark:text-white"
-              >
-                ورود / ثبت نام
-              </Button>
+              {user ? (
+                <Button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    openModalHandler();
+                  }}
+                  style="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 hover:shadow-md hover:bg-gray-300 dark:bg-gray-600 dark:text-white"
+                >
+                  ورود / ثبت نام
+                </Button>
+              ) : (
+                <div>
+                  <p className="mb-2 text-gray-600 dark:text-gray-300">
+                    {user} سارا نظیری
+                  </p>
+                  <Link
+                    to="/profile"
+                    className="rounded-full bg-gray-100 px-3 py-2 text-[10px] text-gray-600 hover:bg-gray-300 hover:shadow-md dark:bg-gray-600 dark:text-white"
+                  >
+                    ویرایش حساب کاربری
+                  </Link>
+                </div>
+              )}
             </header>
             <div className="my-3 border-b"></div>
             <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">

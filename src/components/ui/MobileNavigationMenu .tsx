@@ -31,7 +31,7 @@ function MobileNavigationMenu() {
 
   return (
     <div
-      className={`fixed bottom-0 right-0 z-40 h-16 w-full border-t-2 bg-white p-2 transition-all duration-700 dark:border-t-gray-600 dark:bg-gray-950 md:hidden ${isVisible ? 'translate-y-0' : 'translate-y-20'}`}
+      className={`fixed bottom-0 right-0 z-30 h-16 w-full border-t-2 bg-white p-2 transition-all duration-700 dark:border-t-gray-600 dark:bg-gray-950 md:hidden ${isVisible ? 'translate-y-0' : 'translate-y-20'}`}
     >
       <div className="flex items-center justify-around">
         {navigationLinks.map((link) => (
