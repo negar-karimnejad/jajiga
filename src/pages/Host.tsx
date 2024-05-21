@@ -9,12 +9,10 @@ import Breadcrumb from '../components/ui/Breadcrumb';
 import Button from '../components/ui/Button';
 import useRooms from '../hooks/useRooms';
 import convertToPersianDate from '../utilities/convertToPersianDate';
-import { useWishes } from '../context/WishesContext';
 
 function Host() {
   const { id } = useParams();
   const { rooms } = useRooms();
-  const { toggleWish, wishes } = useWishes();
 
   const userRooms = rooms.filter((room) => room.host.id === Number(id));
   const host = rooms.find((room) => room.host.id === Number(id))?.host;
@@ -95,8 +93,8 @@ function Host() {
               </h3>
               <div className="flex flex-col flex-wrap items-center gap-10 lg:flex-row">
                 {userRooms?.map((room) => (
-                  <div key={room.id} className="">
-                    <Link to={`/room/${room.code}`} className="relative">
+                  <div key={room.id} className="relative">
+                    <Link to={`/room/${room.code}`}>
                       <div className="relative overflow-hidden rounded-xl">
                         <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
                         <img
@@ -105,11 +103,8 @@ function Host() {
                           className="block h-52 w-80 rounded-xl"
                           alt=""
                         />
-                        <div className="absolute left-2 top-2 z-50">
-                          <LikeAndShareButtons id={room.code} />
-                        </div>
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
+                      <div className="absolute bottom-0 left-0 right-0 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                         <div className="mt-2 flex flex-col items-center gap-2">
                           <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
                             ✨ ممتــــــــاز
@@ -149,6 +144,9 @@ function Host() {
                         </Button>
                       </p>
                     </Link>
+                    <div className="absolute left-2 top-2 ">
+                      <LikeAndShareButtons id={room.code} />
+                    </div>
                   </div>
                 ))}
               </div>

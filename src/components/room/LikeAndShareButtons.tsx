@@ -53,7 +53,11 @@ function LikeAndShareButtons({ id }: { id: number }) {
               </div> */}
         </div>
       </div>
-      <ShareModal isOpen={isOpen} id={id} closeModalHandler={closeModalHandler} />
+      <ShareModal
+        isOpen={isOpen}
+        id={id}
+        closeModalHandler={closeModalHandler}
+      />
     </>
   );
 }

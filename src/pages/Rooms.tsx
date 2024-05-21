@@ -130,8 +130,11 @@ function Rooms() {
                 roomsGeo.push([room.location.lat, room.location.lng]);
                 return (
                   <div key={room.id} className="relative">
+                    <div className="absolute left-2 top-2 z-40">
+                      <LikeAndShareButtons id={room.code} />
+                    </div>
                     <Link to={`/room/${room.code}`} className="group relative">
-                      <div className="relative rounded-xl ">
+                      <div className="relative rounded-xl">
                         <div className="cursor-pointer transition-all">
                           <Swiper
                             className="rooms-swiper"
@@ -196,9 +199,6 @@ function Rooms() {
                         </div>
                       </div>
                     </Link>
-                    <div className="absolute left-2 top-2 z-40">
-                      <LikeAndShareButtons id={room.code} />
-                    </div>
                     <RoomInfosLink titleWidth="70%" room={room} />
                   </div>
                 );
