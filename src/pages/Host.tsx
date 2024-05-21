@@ -1,12 +1,12 @@
-import { BsJournalCheck, BsStarFill } from 'react-icons/bs';
+import { BsJournalCheck } from 'react-icons/bs';
 import { FiHome } from 'react-icons/fi';
 import { TbClockCheck } from 'react-icons/tb';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import 'swiper/css';
 import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
-import LikeAndShareButtons from '../components/room/LikeAndShareButtons';
+import RoomsContainer from '../components/rooms/RoomsContainer';
 import Breadcrumb from '../components/ui/Breadcrumb';
-import Button from '../components/ui/Button';
 import useRooms from '../hooks/useRooms';
 import convertToPersianDate from '../utilities/convertToPersianDate';
 
@@ -91,63 +91,9 @@ function Host() {
               <h3 className="mb-3 font-vazirBold text-lg dark:text-white">
                 لیست اقامتگاه ها
               </h3>
-              <div className="flex flex-col flex-wrap items-center gap-10 lg:flex-row">
+              <div className="container grid grid-cols-1 gap-5 pb-20 lg:grid-cols-2">
                 {userRooms?.map((room) => (
-                  <div key={room.id} className="relative">
-                    <Link to={`/room/${room.code}`}>
-                      <div className="relative overflow-hidden rounded-xl">
-                        <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
-                        <img
-                          loading="lazy"
-                          src={room?.images?.at(0)}
-                          className="block h-52 w-80 rounded-xl"
-                          alt=""
-                        />
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
-                        <div className="mt-2 flex flex-col items-center gap-2">
-                          <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                            ✨ ممتــــــــاز
-                          </p>
-                          <p className="w-20 rounded-full bg-yellow-400 px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                            <span>⚡</span> رزرو فوری
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                    <Link
-                      to={`/room/${room.code}`}
-                      className="text-sm dark:text-white"
-                    >
-                      <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                      <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
-                        <span className="font-persianNums">
-                          {room.bedroom}خوابه . {room.foundation_meterage} متر .
-                          تا {room.max_capacity} مهمان
-                        </span>
-                        <span className="flex gap-1 font-persianNums">
-                          <BsStarFill className="text-yellow-500" />
-                          {room.rating?.total}
-                        </span>
-                        <span className="font-persianNums">
-                          ({room.reviews} نظر)
-                        </span>
-                      </p>
-                      <p className="mt-1 flex items-center gap-1 text-sm">
-                        هر شب از
-                        <span className="mr-1 font-persianNums">
-                          {room.price?.toLocaleString()}
-                        </span>
-                        تومان
-                        <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">
-                          {room.reserved}+ رزرو موفق
-                        </Button>
-                      </p>
-                    </Link>
-                    <div className="absolute left-2 top-2 ">
-                      <LikeAndShareButtons id={room.code} />
-                    </div>
-                  </div>
+                  <RoomsContainer isHost={true} room={room} key={room.id} />
                 ))}
               </div>
             </div>

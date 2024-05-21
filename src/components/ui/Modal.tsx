@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import Button from './Button';
 
 function Modal({
@@ -12,9 +12,18 @@ function Modal({
   centered?: boolean;
   closeModalHandler: () => void;
 }) {
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
+
   return (
     <div
-      className={`fixed right-0 top-0 z-50 h-screen w-full cursor-default flex-col items-center overflow-y-auto bg-black/60 transition-all duration-500 max-sm:px-5 ${centered ? 'justify-center' : 'py-20'} ${isOpen ? 'visible opacity-100 flex' : 'invisible opacity-0 hidden'}`}
+      className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center overflow-y-auto bg-black/60 transition-all duration-500 max-sm:px-5 ${centered ? 'justify-center' : 'py-20'} ${isOpen ? 'visible opacity-100' : 'hidden opacity-0'}`}
       onClick={closeModalHandler}
     >
       <div
