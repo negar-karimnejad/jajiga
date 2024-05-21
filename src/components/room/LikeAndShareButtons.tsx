@@ -1,44 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BsShare } from 'react-icons/bs';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
+import { useWishes } from '../../context/WishesContext';
 import ShareModal from './ShareModal';
 
 function LikeAndShareButtons({ id }: { id: number }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [wishesItem, setWishesItem] = useState<number | null>(null);
-  // const { value } = useLocalStorageState([Number(id)], 'wishes');
+  const { toggleWish, wishes } = useWishes();
+
+  const hasWish = wishes.includes(id);
 
   const closeModalHandler = () => {
     setIsOpen(false);
   };
-  const wishesHandler = () => {
-    setWishesItem(Number(id));
-  };
-
-  const [value] = useState<number[] | []>(function () {
-    const storedValue = localStorage.getItem('wishes');
-    return storedValue ? JSON.parse(storedValue) : wishesItem;
-  });
-
-  useEffect(
-    function () {
-      localStorage.setItem('wishes', JSON.stringify(value));
-    },
-    [value],
-  );
-
-  console.log(value);
-
-  const islike = true;
 
   return (
     <>
       <div className="flex gap-2">
-        <div
-          onClick={wishesHandler}
-          className="relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-white/90 dark:bg-gray-800/80"
+        <button
+          onClick={() => toggleWish(id)}
+          className="relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-md  bg-white/90 hover:opacity-80 active:ring-2 active:ring-gray-100/50 dark:bg-gray-800/90 dark:active:ring-gray-600/50"
         >
-          {islike ? (
+          {hasWish ? (
             <>
               <GoHeartFill className="my-2 text-red-600" size={18} />
               {/* <div className="absolute -bottom-9 left-1/2 w-fit -translate-x-1/2 transform whitespace-nowrap rounded-md bg-white/90 p-1 text-[12px] shadow-md after:absolute after:-top-1.5 after:left-1/2 after:h-3 after:w-3 after:-translate-x-1/2 after:rotate-45 after:bg-white/85">
@@ -50,7 +33,7 @@ function LikeAndShareButtons({ id }: { id: number }) {
             </>
           ) : (
             <>
-              <GoHeart size={18} className="my-2" />
+              <GoHeart size={18} className="my-2 dark:text-gray-200" />
               {/* <div className="absolute -bottom-9 left-1/2 w-fit -translate-x-1/2 transform whitespace-nowrap rounded-md bg-white/90 p-1 text-[12px] shadow-md after:absolute after:-top-1.5 after:left-1/2 after:h-3 after:w-3 after:-translate-x-1/2 after:rotate-45 after:bg-white/85">
                     افزودن به علاقه مندی ها
                   </div>
@@ -59,10 +42,10 @@ function LikeAndShareButtons({ id }: { id: number }) {
                   </div> */}
             </>
           )}
-        </div>
+        </button>
         <div
           onClick={() => setIsOpen(true)}
-          className="relative flex h-8 w-8 items-center justify-center rounded-md bg-white/90 dark:bg-gray-800/80 dark:text-white"
+          className="relative flex h-8 w-8 items-center justify-center rounded-md bg-white/90 hover:opacity-80 active:ring-2 active:ring-gray-100/50 dark:bg-gray-800/90 dark:text-white dark:active:ring-gray-600/50"
         >
           <BsShare size={18} />
           {/* <div className="absolute -bottom-9 left-1/2 w-fit -translate-x-1/4 transform whitespace-nowrap rounded-md bg-white/90 p-1 text-[12px] shadow-md after:absolute after:-top-1.5 after:left-3 after:h-3 after:w-3 after:rotate-45 after:bg-white/85">
@@ -70,8 +53,7 @@ function LikeAndShareButtons({ id }: { id: number }) {
               </div> */}
         </div>
       </div>
-
-      <ShareModal isOpen={isOpen} closeModalHandler={closeModalHandler} />
+      <ShareModal isOpen={isOpen} id={id} closeModalHandler={closeModalHandler} />
     </>
   );
 }

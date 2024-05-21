@@ -129,7 +129,7 @@ function Rooms() {
               {sRooms?.map((room) => {
                 roomsGeo.push([room.location.lat, room.location.lng]);
                 return (
-                  <div key={room.id}>
+                  <div key={room.id} className="relative">
                     <Link to={`/room/${room.code}`} className="group relative">
                       <div className="relative rounded-xl ">
                         <div className="cursor-pointer transition-all">
@@ -177,9 +177,6 @@ function Rooms() {
                           </div>
                         </div>
 
-                        <div className="absolute left-2 top-2 z-20">
-                          <LikeAndShareButtons />
-                        </div>
                         <div className="absolute -bottom-7 left-2 z-10">
                           <img
                             alt={room.host.fullname}
@@ -199,37 +196,9 @@ function Rooms() {
                         </div>
                       </div>
                     </Link>
-                    {/* <Link
-                      to={`/room/${room.code}`}
-                      className="text-sm dark:text-white"
-                    >
-                      <p className="mb-1 mt-3 w-[70%] overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold">
-                        {room.title}
-                      </p>
-                      <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
-                        <span className="font-persianNums">
-                          {room.bedroom}خوابه . {room.foundation_meterage} متر .
-                          تا {room.max_capacity} مهمان
-                        </span>
-                        <span className="flex gap-1 font-persianNums">
-                          <BsStarFill className="text-yellow-500" />
-                          {room.rating?.total}
-                        </span>
-                        <span className="font-persianNums">
-                          ({room.reviews} نظر)
-                        </span>
-                      </p>
-                      <p className="mt-1 flex items-center gap-1 text-sm">
-                        هر شب از
-                        <span className="mr-1 font-persianNums">
-                          {room.price?.toLocaleString()}
-                        </span>
-                        تومان
-                        <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">
-                          {room.reserved}+ رزرو موفق
-                        </Button>
-                      </p>
-                    </Link> */}
+                    <div className="absolute left-2 top-2 z-40">
+                      <LikeAndShareButtons id={room.code} />
+                    </div>
                     <RoomInfosLink titleWidth="70%" room={room} />
                   </div>
                 );

@@ -9,10 +9,12 @@ import Breadcrumb from '../components/ui/Breadcrumb';
 import Button from '../components/ui/Button';
 import useRooms from '../hooks/useRooms';
 import convertToPersianDate from '../utilities/convertToPersianDate';
+import { useWishes } from '../context/WishesContext';
 
 function Host() {
   const { id } = useParams();
   const { rooms } = useRooms();
+  const { toggleWish, wishes } = useWishes();
 
   const userRooms = rooms.filter((room) => room.host.id === Number(id));
   const host = rooms.find((room) => room.host.id === Number(id))?.host;
@@ -103,8 +105,8 @@ function Host() {
                           className="block h-52 w-80 rounded-xl"
                           alt=""
                         />
-                        <div className="absolute left-2 top-2">
-                          <LikeAndShareButtons />
+                        <div className="absolute left-2 top-2 z-50">
+                          <LikeAndShareButtons id={room.code} />
                         </div>
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
