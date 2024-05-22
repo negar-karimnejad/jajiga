@@ -29,6 +29,7 @@ function NavSearch() {
     searchHandler(searchValue);
   }, [searchHandler, searchValue]);
 
+  
   return (
     <>
       <form className="relative max-w-7xl flex-1 max-sm:w-48">

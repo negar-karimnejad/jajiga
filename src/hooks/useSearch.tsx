@@ -21,7 +21,6 @@ function useSearch() {
   const searchHandler = (search: string) => {
     setSearchValue(search);
   };
-  console.log(searchResult);
 
   return { searchResult, searchHandler, searchValue };
 }
