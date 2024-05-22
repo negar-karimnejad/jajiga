@@ -13,7 +13,7 @@ function HelpSection({ modal }: { modal?: boolean }) {
   const changeActive = (id: number) => {
     setIsActive(id);
   };
-
+// helpComments روی این سرچ بزن
   return (
     <>
       <div className="-mt-5 min-h-screen rounded-t-2xl bg-white dark:bg-gray-900">

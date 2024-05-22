@@ -20,7 +20,7 @@ function SearchResultModal({
             <Link
               to={`/s/${room.category[0]}`}
               key={room.id}
-              className="flex items-center justify-between py-2.5 text-sm text-gray-700 dark:text-white"
+              className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700 px-1 transition-all justify-between py-2.5 text-sm text-gray-700 dark:text-white"
             >
               <p className="flex items-center gap-1">
                 <IoLocationOutline size={16} />
