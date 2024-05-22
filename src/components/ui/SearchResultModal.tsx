@@ -5,7 +5,6 @@ import { Room } from '../../redux/store/room';
 interface SearchResultModalProps {
   searchResult: Room[];
   resetForm?: () => void;
-  hiddenHandler?: () => void;
 }
 
 function SearchResultModal({

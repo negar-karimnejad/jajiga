@@ -22,7 +22,7 @@ function Rooms() {
   const { id } = useParams();
   const { rooms } = useRooms();
   const { roomsMeta } = useRoomsMeta();
-  
+
   const roomMeta = roomsMeta.find((meta) => meta.name === id);
   const sRooms = rooms.filter((room) => {
     if (id) {
@@ -53,8 +53,10 @@ function Rooms() {
                 <div className="ml-1 h-2 w-2 animate-pulse rounded-full bg-yellow-400">
                   <span className="absolute -right-0.5 bottom-1 h-3 w-3 animate-ping rounded-full bg-yellow-400"></span>
                 </div>
-                برای مشاهده نتایج دقیق‌تر،<strong className='cursor-default'>تاریخ سفر</strong>و
-                <strong className='cursor-default'>تعداد نفرات</strong>را انتخاب نمایید
+                برای مشاهده نتایج دقیق‌تر،
+                <strong className="cursor-default">تاریخ سفر</strong>و
+                <strong className="cursor-default">تعداد نفرات</strong>را انتخاب
+                نمایید
                 <div
                   onClick={(e) => e.stopPropagation()}
                   className={`absolute left-0 top-0 z-30 rounded-xl border bg-white shadow-lg shadow-gray-500 ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
@@ -78,10 +80,10 @@ function Rooms() {
                     alt={roomMeta?.title}
                   />
                 </div>
-                <div className="sm:-mr-5 w-[500px] max-sm:w-full rounded-xl bg-white dark:bg-gray-900 p-5">
+                <div className="w-[500px] rounded-xl bg-white p-5 dark:bg-gray-900 max-sm:w-full sm:-mr-5">
                   <div className="mb-5 flex items-center justify-between">
                     <h1
-                      className="font-vazirBold dark:text-white text-base max-md:pr-5"
+                      className="font-vazirBold text-base dark:text-white max-md:pr-5"
                       title={roomMeta?.title}
                     >
                       {roomMeta?.title}

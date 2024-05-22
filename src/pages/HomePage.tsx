@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Footer from '../components/footer/Footer';
 import Advantages from '../components/home/Advantages';
 import Application from '../components/home/Application';
@@ -28,16 +28,11 @@ import useSearch from '../hooks/useSearch';
 
 function HomePage() {
   const { scrollYPosition } = useScroll();
-  const [search, setSearch] = useState<string>('');
-  const { searchResult, setSearch: setSearchQuery } = useSearch();
-
-  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
+  const { searchResult, searchHandler, searchValue } = useSearch();
 
   useEffect(() => {
-    setSearchQuery(search);
-  }, [setSearchQuery, search]);
+    searchHandler(searchValue);
+  }, [searchHandler, searchValue]);
 
   return (
     <>
@@ -88,8 +83,8 @@ function HomePage() {
                 type="text"
                 className="grow text-gray-700 dark:text-white"
                 placeholder="میخوای کجا بری؟"
-                value={search}
-                onChange={changeHandler}
+                value={searchValue}
+                onChange={(e) => searchHandler(e.target.value)}
               />
               <button>
                 <svg
@@ -107,9 +102,9 @@ function HomePage() {
               </button>
             </div>
           </form>
-          {searchResult.length > 0 && (
+          {searchResult.length > 0 &&  (
             <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
-              <div className="rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-4 shadow-lg dark:text-white">
+              <div className="rounded-lg border bg-white px-2 py-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                 <SearchResultModal searchResult={searchResult} />
               </div>
             </div>
