@@ -1,41 +1,47 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import useSearch from '../../hooks/useSearch';
 import SearchResultModal from './SearchResultModal';
 
-function SearchModal({ isOpen }: { isOpen: boolean }) {
-  const [search, setSearch] = useState<string>('');
+function SearchModal({
+  isOpen,
+  closeHandler,
+}: {
+  closeHandler: () => void;
+  isOpen: boolean;
+}) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { searchResult, setSearch: setSearchQuery } = useSearch();
+  const { searchHandler, searchResult, searchValue } = useSearch();
 
-  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+  const resetForm = () => {
+    searchHandler('');
+    closeHandler();
   };
-  console.log(searchResult);
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
   useEffect(() => {
-    setSearchQuery(search);
-  }, [setSearchQuery, search]);
+    searchHandler(searchValue);
+  }, [searchHandler, searchValue]);
+
   return (
     <div
-      className={`md:hidden fixed right-0 top-0 z-50 h-screen w-full bg-black/60 transition-all duration-500 ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
+      className={`fixed right-0 top-0 z-50 h-screen w-full bg-black/60 transition-all duration-500 md:hidden ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute right-0 top-0 w-full rounded-lg bg-white p-5 dark:bg-gray-800 shadow transition-all duration-500 dark:text-white  ${isOpen ? '' : ''}`}
+        className={`absolute right-0 top-0 w-full rounded-lg bg-white p-5 shadow transition-all duration-500 dark:bg-gray-800 dark:text-white  ${isOpen ? '' : ''}`}
       >
         <div className="flex w-full flex-col items-center">
-          <div className="input input-bordered flex w-full items-center gap-2 rounded-full pl-1 bg-white dark:bg-gray-600">
+          <div className="input input-bordered flex w-full items-center gap-2 rounded-full bg-white pl-1 dark:bg-gray-600">
             <input
               ref={inputRef}
               type="text"
               className="w-full grow text-gray-700 dark:text-white"
               placeholder="میخوای کجا بری؟"
-              value={search}
-              onChange={changeHandler}
+              value={searchValue}
+              onChange={(e) => searchHandler(e.target.value)}
             />
             <button>
               <svg
@@ -52,10 +58,13 @@ function SearchModal({ isOpen }: { isOpen: boolean }) {
               </svg>
             </button>
           </div>
-          {searchResult.length > 0 && (
+          {searchResult.length > 0 && searchValue && (
             <div className="mt-2 h-fit w-full">
               <div>
-                <SearchResultModal searchResult={searchResult} />
+                <SearchResultModal
+                  resetForm={resetForm}
+                  searchResult={searchResult}
+                />
               </div>
             </div>
           )}

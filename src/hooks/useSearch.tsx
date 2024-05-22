@@ -18,11 +18,11 @@ function useSearch() {
     setSearchResult(filteredRooms);
   }, [rooms, searchValue]);
 
-  const setSearch = (search: string) => {
+  const searchHandler = (search: string) => {
     setSearchValue(search);
   };
 
-  return { searchResult, setSearch };
+  return { searchResult, searchHandler, searchValue };
 }
 
 export default useSearch;

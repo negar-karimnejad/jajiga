@@ -4,15 +4,22 @@ import { Room } from '../../redux/store/room';
 
 interface SearchResultModalProps {
   searchResult: Room[];
+  resetForm?: () => void;
+  hiddenHandler?: () => void;
 }
 
-function SearchResultModal({ searchResult }: SearchResultModalProps) {
+function SearchResultModal({
+  searchResult,
+  resetForm,
+}: SearchResultModalProps) {
   return (
     <>
-      <h3 className="mt-2 mb-4 text-center font-vazirMedium border-b w-fit mx-auto">لیست شهرها</h3>
+      <h3 className="mx-auto mb-4 mt-2 w-fit border-b text-center font-vazirMedium">
+        لیست شهرها
+      </h3>
       <div className="h-fit max-h-[30rem] overflow-y-auto">
         {searchResult.map((room, index) => (
-          <>
+          <div onClick={resetForm}>
             <Link
               to={`/s/${room.category[0]}`}
               key={room.id}
@@ -29,7 +36,7 @@ function SearchResultModal({ searchResult }: SearchResultModalProps) {
             {searchResult.length > index + 1 && (
               <div className="h-0.5 w-full border-b dark:border-gray-700"></div>
             )}
-          </>
+          </div>
         ))}
       </div>
     </>

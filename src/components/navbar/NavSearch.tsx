@@ -1,20 +1,19 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import useSearch from '../../hooks/useSearch';
 import SearchModal from '../ui/SearchModal';
 import SearchResultModal from '../ui/SearchResultModal';
 
 function NavSearch() {
-  const { searchResult, setSearch: setSearchQuery } = useSearch();
-  const [search, setSearch] = useState<string>('');
+  const { searchResult, searchHandler, searchValue } = useSearch();
   const [isOpenSearchModal, setIsOpenSearchModal] = useState(false);
-
-  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
 
   const closeHandler = () => {
     setIsOpenSearchModal(false);
+  };
+
+  const resetForm = () => {
+    searchHandler('');
   };
 
   useEffect(() => {
@@ -27,8 +26,8 @@ function NavSearch() {
   }, [isOpenSearchModal]);
 
   useEffect(() => {
-    setSearchQuery(search);
-  }, [setSearchQuery, search]);
+    searchHandler(searchValue);
+  }, [searchHandler, searchValue]);
 
   return (
     <>
@@ -36,8 +35,8 @@ function NavSearch() {
         <label className="relative flex w-full rounded-full border p-2 dark:border-gray-500 ">
           <input
             onClick={() => setIsOpenSearchModal(true)}
-            value={search}
-            onChange={changeHandler}
+            value={searchValue}
+            onChange={(e) => searchHandler(e.target.value)}
             type="text"
             className="grow bg-transparent outline-none dark:text-gray-100"
             placeholder="میخوای کجا بری؟"
@@ -47,21 +46,27 @@ function NavSearch() {
             className="absolute left-2 dark:text-gray-200"
           />
         </label>
-        {searchResult.length > 0 && (
-            <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
-              <div className="rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-4 shadow-lg dark:text-white">
-                <SearchResultModal searchResult={searchResult} />
-              </div>
+        {searchResult.length > 0 && searchValue && (
+          <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
+            <div className="rounded-lg border bg-white px-2 py-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white">
+              <SearchResultModal
+                resetForm={resetForm}
+                searchResult={searchResult}
+              />
             </div>
-          )}
-        {searchResult.length > 0 && (
+          </div>
+        )}
+        {searchResult.length > 0 && searchValue && (
           <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-full md:hidden">
-            <SearchResultModal searchResult={searchResult} />
+            <SearchResultModal
+              resetForm={resetForm}
+              searchResult={searchResult}
+            />
           </div>
         )}
       </form>
       <div onClick={closeHandler}>
-        {isOpenSearchModal && <SearchModal isOpen={isOpenSearchModal} />}
+        {isOpenSearchModal && <SearchModal closeHandler={closeHandler} isOpen={isOpenSearchModal} />}
       </div>
     </>
   );
