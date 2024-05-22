@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BiHome } from 'react-icons/bi';
+import { BiChevronUp, BiHome } from 'react-icons/bi';
 import { BsShare } from 'react-icons/bs';
 import { Link, useParams } from 'react-router-dom';
 import 'swiper/css';
@@ -15,6 +15,7 @@ import useRooms from '../hooks/useRooms';
 function Rooms() {
   const [isOpen, setIsOpen] = useState(false);
   const [isShowCalendar, setIsShowCalendar] = useState(false);
+  const [fullsize, setFullsize] = useState(false);
 
   const roomsGeo: [number, number][] = [];
 
@@ -39,12 +40,12 @@ function Rooms() {
   return (
     <div className="bg-gray-200">
       <Navbar />
-      <div className="sticky top-[4.8rem] z-30 h-12 bg-gray-200">1</div>
+      {/* <div className="sticky top-[4.8rem] z-30 h-12 bg-gray-200">1</div> */}
       <div>
-        <div className="grid grid-cols-12 overflow-hidden rounded-t-2xl bg-gray-50 shadow-inner shadow-gray-500/50 dark:bg-gray-800">
-          <div className=" col-span-8">
+        <div className="flex grid-cols-12 flex-col-reverse rounded-t-2xl bg-gray-50 shadow-inner shadow-gray-500/50 dark:bg-gray-800 md:grid">
+          <div className="md:col-span-7 lg:col-span-8">
             <header className="container">
-              <p
+              <div
                 onClick={() => setIsShowCalendar(true)}
                 className="relative my-4 mr-2 flex items-center gap-1 text-[12px]"
               >
@@ -67,9 +68,9 @@ function Rooms() {
                     </button>
                   </div>
                 </div>
-              </p>
-              <div className=" mb-10 flex h-40 overflow-hidden rounded-xl shadow-lg">
-                <div className="w-full">
+              </div>
+              <div className="mb-10 flex overflow-hidden rounded-xl shadow-lg md:h-40">
+                <div className="w-full max-md:hidden">
                   <img
                     src={roomMeta?.canonical}
                     className="h-full object-cover"
@@ -79,7 +80,7 @@ function Rooms() {
                 <div className="-mr-5 w-[500px] rounded-xl bg-white p-5">
                   <div className="mb-5 flex items-center justify-between">
                     <h1
-                      className="font-vazirBold text-base"
+                      className="font-vazirBold text-base max-md:pr-5"
                       title={roomMeta?.title}
                     >
                       {roomMeta?.title}
@@ -92,14 +93,14 @@ function Rooms() {
                       <BsShare size={15} />
                     </button>
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-600 max-md:pr-5">
                     {roomMeta?.description}
                   </p>
                 </div>
               </div>
             </header>
 
-            <main className="container grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2 md:grid-cols-3">
+            <main className="container grid grid-cols-1 gap-5 pb-20 lg:grid-cols-2 xl:grid-cols-3">
               {sRooms?.map((room) => {
                 roomsGeo.push([room.location.lat, room.location.lng]);
                 return (
@@ -133,9 +134,29 @@ function Rooms() {
             </footer>
           </div>
 
-          <div className="col-span-4 h-screen">
-            <div className=" fixed left-0 top-0 h-screen w-96">
-              <RoomMap blueCircleMarker={false} geo={roomsGeo} />
+          <div
+            className="max-md:mb-5 md:col-span-5 md:h-screen lg:col-span-4"
+            onClick={() => setFullsize(true)}
+          >
+            <div
+              className={`left-0 top-0 z-20 h-screen transition-all duration-700 max-md:relative max-md:w-full md:fixed md:w-[20rem] lg:w-[22rem] xl:w-[440px] ${fullsize ? 'max-md:h-[400px]' : 'max-md:h-20 md:h-screen'}`}
+            >
+              <RoomMap
+                fullsize={fullsize}
+                blueCircleMarker={false}
+                geo={roomsGeo}
+              />
+              {fullsize && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setFullsize(false);
+                  }}
+                  className="absolute -bottom-4 left-0 right-0 mx-auto flex w-fit items-center gap-2 rounded-full bg-neutral-800/95 px-5 py-2 text-sm text-white transition-all hover:ring-2 hover:ring-gray-400 md:hidden"
+                >
+                  <BiChevronUp size={20} /> مشاهده نتایج
+                </button>
+              )}
             </div>
           </div>
         </div>

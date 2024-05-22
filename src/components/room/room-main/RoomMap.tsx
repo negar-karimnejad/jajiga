@@ -9,8 +9,10 @@ import RoomInfosLink from './RoomInfosLink';
 
 function RoomMap({
   geo,
+  fullsize,
   blueCircleMarker,
 }: {
+  fullsize: boolean;
   geo: [number, number][];
   blueCircleMarker: boolean;
 }) {
@@ -22,7 +24,6 @@ function RoomMap({
   if (!geo.length) return null;
 
   const handleMarkerClick = ({ lat, lng }: { lat: number; lng: number }) => {
-    console.log(lat, lng);
     const room = rooms?.find(
       (room) => room.location.lat === lat && room.location.lng === lng,
     );
@@ -66,7 +67,7 @@ function RoomMap({
       </MapContainer>
       {!blueCircleMarker && (
         <div
-          className={`absolute left-2 right-2 z-40 flex justify-between rounded-xl border bg-white shadow-lg shadow-gray-400 transition-all dark:border-gray-900 dark:bg-gray-800 ${markedRoom ? 'bottom-10' : '-bottom-32'}`}
+          className={`absolute left-2 right-2 z-40 flex justify-between rounded-xl border bg-white shadow-lg shadow-gray-400 transition-all dark:border-gray-900 dark:bg-gray-800 ${markedRoom ? 'visible bottom-10 max-md:bottom-10' : 'invisible -bottom-32 max-md:-bottom-32'} ${fullsize ? 'visible w-96 mx-auto' : 'max-md:invisible'}`}
         >
           <Link to={`/room/${markedRoom?.code}`}>
             <img
