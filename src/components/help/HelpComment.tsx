@@ -22,18 +22,18 @@ function HelpComment(comment: HelpCommentProps) {
         style="flex w-full py-0 hover:shadow-none px-0 text-white items-center justify-between"
       >
         <div className="flex items-center gap-2 text-gray-800 dark:text-white">
-          <RiFileUnknowLine size={18} />
-          <p className="text-right font-vazirBold">{comment.title}</p>
+          <RiFileUnknowLine size={18} className='shrink-0' />
+          <p className="text-right">{comment.title}</p>
         </div>
 
         <BiChevronDown
           size={24}
-          className={`text-gray-800 transition-all duration-700 dark:text-white ${activeComment === comment.id ? 'rotate-180' : 'rotate-0'}`}
+          className={`shrink-0 text-gray-800 transition-all duration-700 dark:text-white ${activeComment === comment.id ? 'rotate-180' : 'rotate-0'}`}
         />
       </Button>
       <article
         dangerouslySetInnerHTML={{ __html: comment.content }}
-        className={`flex flex-col gap-5 overflow-hidden text-sm leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${activeComment === comment.id ? 'visible max-h-[100rem] min-h-fit py-8' : 'invisible max-h-0'}`}
+        className={`flex flex-col gap-5 overflow-hidden text-sm leading-6 text-gray-500 transition-all duration-500 dark:text-gray-400 ${activeComment === comment.id ? 'visible max-h-[100rem] min-h-fit py-8' : 'invisible max-h-0'}`}
       ></article>
     </div>
   );

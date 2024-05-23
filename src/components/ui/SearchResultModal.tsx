@@ -5,22 +5,24 @@ import { Room } from '../../redux/store/room';
 interface SearchResultModalProps {
   searchResult: Room[];
   resetForm?: () => void;
-  hiddenHandler?: () => void;
 }
 
 function SearchResultModal({
   searchResult,
   resetForm,
-}: SearchResultModalProps) {  return (
+}: SearchResultModalProps) {
+  return (
     <>
-      <h3 className="mt-2 mb-4 text-center font-vazirMedium border-b w-fit mx-auto">لیست شهرها</h3>
+      <h3 className="mx-auto mb-4 mt-2 w-fit border-b text-center font-vazirMedium">
+        لیست شهرها
+      </h3>
       <div className="h-fit max-h-[30rem] overflow-y-auto">
         {searchResult.map((room, index) => (
           <div onClick={resetForm}>
             <Link
               to={`/s/${room.category[0]}`}
               key={room.id}
-              className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700 px-1 transition-all justify-between py-2.5 text-sm text-gray-700 dark:text-white"
+              className="flex items-center justify-between px-1 py-2.5 text-sm text-gray-700 transition-all hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               <p className="flex items-center gap-1">
                 <IoLocationOutline size={16} />

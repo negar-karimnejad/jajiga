@@ -5,8 +5,8 @@ import Breadcrumb from '../components/ui/Breadcrumb';
 function Help() {
   return (
     <>
-      <div className="sticky top-0 bg-white py-2 shadow-md dark:bg-gray-900">
-        <div className="container flex items-center justify-between gap-x-3">
+      <div className="sticky top-0 z-40 bg-white py-2 shadow-md dark:bg-gray-900">
+        <div className="container  flex items-center justify-between gap-x-3">
           <WhiteBgNavbar />
         </div>
       </div>
