@@ -7,6 +7,7 @@ function useRefHook() {
   const showModal = () => {
     setIsShowNotification(true);
   };
+  
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
       setIsShowNotification(false);
@@ -14,14 +15,13 @@ function useRefHook() {
   };
 
   useEffect(() => {
-    if (isShowNotification) {
       document.addEventListener('mousedown', handleClickOutside);
-    }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isShowNotification]);
+  }, [ref]);
+
   return { ref, showModal, isShowNotification };
 }
 

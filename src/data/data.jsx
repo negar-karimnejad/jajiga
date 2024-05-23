@@ -1,8 +1,8 @@
 import { AiOutlineUser } from 'react-icons/ai';
 import { BiMessageRoundedAdd, BiSupport, BiUser } from 'react-icons/bi';
-import { BsExclamationSquare, BsSuitcase } from 'react-icons/bs';
+import { BsExclamationSquare, BsHouseAdd, BsSuitcase } from 'react-icons/bs';
 import { CiGift } from 'react-icons/ci';
-import { GoBell, GoHome, GoKey } from 'react-icons/go';
+import { GoBell, GoHeart, GoHome, GoKey } from 'react-icons/go';
 import { GrDocumentUpdate } from 'react-icons/gr';
 import { HiOutlineUserGroup } from 'react-icons/hi';
 import { IoIosHeartEmpty } from 'react-icons/io';
@@ -19,9 +19,11 @@ import {
   MdOutlineRoomService,
   MdRule,
 } from 'react-icons/md';
+import { PiHouseLight } from 'react-icons/pi';
 import { RiCustomerService2Line } from 'react-icons/ri';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { TfiSpray } from 'react-icons/tfi';
+import DarkMode from '../components/ui/DarkMode';
 
 export const navMenuLinks = [
   {
@@ -1641,4 +1643,10 @@ export const mobileNavMenuLinks = [
     icon: <BsExclamationSquare />,
     to: '/about',
   },
+];
+export const navigationLinks = [
+  { id: 1, icon: <BsHouseAdd size={25} />, title: 'میزبان شوید', to: '/host' },
+  { id: 2, icon: <DarkMode /> },
+  { id: 3, icon: <GoHeart size={25} />, title: 'علاقه مندی ها', to: '/wishes' },
+  { id: 4, icon: <PiHouseLight size={25} />, title: 'صفحه اصلی', to: '/' },
 ];

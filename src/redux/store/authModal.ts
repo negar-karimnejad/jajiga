@@ -23,3 +23,5 @@ const modalSlice = createSlice({
 
 export const { openModal, closeModal } = modalSlice.actions;
 export default modalSlice.reducer;
+
+// به جای این باید هوک بنویسی
