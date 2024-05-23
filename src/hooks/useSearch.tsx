@@ -5,7 +5,7 @@ import useRooms from './useRooms';
 function useSearch() {
   const [searchResult, setSearchResult] = useState<Room[]>([]);
   const [searchValue, setSearchValue] = useState('');
-  const { rooms, loading } = useRooms();
+  const { rooms } = useRooms();
 
   useEffect(() => {
     let filteredRooms: Room[] = [];
@@ -22,7 +22,7 @@ function useSearch() {
     setSearchValue(search);
   };
 
-  return { searchResult, searchHandler, searchValue, loading };
+  return { searchResult, searchHandler, searchValue };
 }
 
 export default useSearch;
