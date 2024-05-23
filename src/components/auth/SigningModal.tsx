@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import { useAuth } from '../../hooks/useAuth';
@@ -65,9 +66,18 @@ function SigningModal() {
     }
   };
 
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
+
   return (
     <div
-      className={`fixed right-0 top-0 flex h-screen w-full cursor-default flex-col items-center justify-center max-md:justify-end bg-black/60 transition-all duration-500 ${isOpen ? 'visible z-50 opacity-100' : 'invisible z-0 opacity-0'}`}
+      className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center justify-center bg-black/60 transition-all duration-500 max-md:justify-end ${isOpen ? 'visible z-50 opacity-100' : 'invisible z-0 opacity-0'}`}
       onClick={closeModalHandler}
     >
       <div

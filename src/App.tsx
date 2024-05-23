@@ -29,6 +29,7 @@ import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 import DarkMode from './components/ui/DarkMode';
+import SigningModal from './components/auth/SigningModal';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -42,6 +43,7 @@ function App() {
           <DarkMode />
         </div>
         <MobileNavigationMenu />
+        <SigningModal />
         <Routes>
           {/* <Route element={<BlankLayout />}></Route> */}
           <Route element={<AppLayout />}>
