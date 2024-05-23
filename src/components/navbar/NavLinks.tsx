@@ -6,8 +6,8 @@ import Announcements from '../ui/Announcements';
 import Button from '../ui/Button';
 
 function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
-  const { openModalHandler } = useAuthModal();
   const { user } = useAuth();
+  const { openModalHandler } = useAuthModal();
   const { showModal, ref, isShowNotification } = useRefHook();
 
   return (

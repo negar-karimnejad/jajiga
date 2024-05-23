@@ -37,7 +37,7 @@ function MobileNavigationMenu() {
       className={`fixed bottom-0 right-0 z-30 h-16 w-full border-t-2 bg-white py-2 transition-all duration-700 dark:border-t-gray-600 dark:bg-gray-950 md:hidden ${isVisible ? 'translate-y-0' : 'translate-y-24'}`}
     >
       <div className="flex items-center">
-        {!user ? (
+        {user ? (
           <button
             className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600`}
             onClick={showModal}
@@ -46,7 +46,7 @@ function MobileNavigationMenu() {
             <span className="font-vazirMedium text-[13px]">اعلانات</span>
             <div
               ref={ref}
-              className={`absolute bottom-full right-0 z-20 w-96 rounded-lg border bg-white p-4 shadow-lg transition-all dark:border-none dark:bg-gray-800 duration-500${isShowNotification ? 'visible opacity-100' : 'invisible hidden opacity-0'}`}
+              className={`absolute bottom-0 right-0 z-20 w-full rounded-t-lg border bg-white p-4 shadow-lg transition-all duration-500 dark:border-none dark:bg-gray-800 ${isShowNotification ? 'visible translate-y-0' : 'invisible translate-y-80'}`}
             >
               <Announcements />
             </div>
