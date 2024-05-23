@@ -1,7 +1,6 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useOfflineCheck } from './OfflineRedirect ';
-import DarkMode from './components/ui/DarkMode';
 import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 import About from './pages/About';
 import AddNewRoom from './pages/AddNewRoom';
@@ -29,6 +28,7 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
+import DarkMode from './components/ui/DarkMode';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -38,7 +38,9 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <DarkMode />
+        <div className="max-md:hidden">
+          <DarkMode />
+        </div>
         <MobileNavigationMenu />
         <Routes>
           {/* <Route element={<BlankLayout />}></Route> */}

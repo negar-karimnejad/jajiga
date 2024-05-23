@@ -28,7 +28,7 @@ import useSearch from '../hooks/useSearch';
 
 function HomePage() {
   const { scrollYPosition } = useScroll();
-  const { searchResult, searchHandler, searchValue } = useSearch();
+  const { searchResult, searchHandler, searchValue, loading } = useSearch();
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     searchHandler(e.target.value);
@@ -90,20 +90,23 @@ function HomePage() {
                 value={searchValue}
                 onChange={changeHandler}
               />
-              <button>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  className="h-8 w-8 rounded-full bg-yellow-400 p-1 text-gray-800 transition-all hover:bg-yellow-500"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-400 p-1 text-gray-800 transition-all hover:bg-yellow-500">
+                {loading ? (
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </div>
             </div>
           </form>
           {searchResult.length > 0 && (
