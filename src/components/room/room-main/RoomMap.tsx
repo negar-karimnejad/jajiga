@@ -12,7 +12,7 @@ function RoomMap({
   fullsize,
   blueCircleMarker,
 }: {
-  fullsize: boolean;
+  fullsize?: boolean;
   geo: [number, number][];
   blueCircleMarker: boolean;
 }) {

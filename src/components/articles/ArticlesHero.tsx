@@ -16,8 +16,8 @@ function ArticlesHero() {
       modules={[Navigation]}
       loop={true}
       navigation={{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.mag-swiper-button-next',
+        prevEl: '.mag-swiper-button-prev',
       }}
       className="articles-hero"
     >
@@ -51,13 +51,13 @@ function ArticlesHero() {
           </div>
         </SwiperSlide>
       ))}
-      <div className="swiper-button-prev absolute bottom-5 left-16 z-40 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100/50 sm:bottom-16 sm:left-32">
+      <div className="mag-swiper-button-prev absolute bottom-5 left-16 z-40 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100/50 sm:bottom-16 sm:left-32">
         <FaChevronRight
           size={23}
           className="text-white transition-all duration-500 hover:text-red-600"
         />
       </div>
-      <div className="swiper-button-next absolute bottom-5 left-5 z-40 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100/50 sm:bottom-16 sm:left-20">
+      <div className="mag-swiper-button-next absolute bottom-5 left-5 z-40 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-gray-100/50 sm:bottom-16 sm:left-20">
         <FaChevronLeft
           size={23}
           className="text-white transition-all duration-500 hover:text-red-600"
