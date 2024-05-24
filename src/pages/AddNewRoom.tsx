@@ -1,55 +1,49 @@
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
-import Swal from 'sweetalert2';
-import * as Yup from 'yup';
-import Button from '../components/ui/Button';
-import useRooms from '../hooks/useRooms';
-import { Room } from '../redux/store/room';
 
 function AddNewRoom() {
-  const { addRoom } = useRooms();
+  // const { addRoom } = useRooms();
 
-  const initialValues: Room = {
-    id: Math.floor(Math.random() * 10000),
-    title: '',
-    description: '',
-  };
+  // const initialValues: Room = {
+  //   id: Math.floor(Math.random() * 10000),
+  //   title: '',
+  //   description: '',
+  // };
 
-  const NewRoomSchema = Yup.object().shape({
-    title: Yup.string()
-      .min(3, 'عنوان باید حداقل 3 کاراکتر باشد')
-      .required('لطفا عنوان اقامتگاه را وارد کنید'),
-    description: Yup.string()
-      .min(10, 'توضیحات باید حداقل 10 کاراکتر باشد')
-      .required('لطفا توضیحات اقامتگاه را وارد کنید'),
-  });
+  // const NewRoomSchema = Yup.object().shape({
+  //   title: Yup.string()
+  //     .min(3, 'عنوان باید حداقل 3 کاراکتر باشد')
+  //     .required('لطفا عنوان اقامتگاه را وارد کنید'),
+  //   description: Yup.string()
+  //     .min(10, 'توضیحات باید حداقل 10 کاراکتر باشد')
+  //     .required('لطفا توضیحات اقامتگاه را وارد کنید'),
+  // });
 
-  const submitHandler = (values: Room, { resetForm }: FormikHelpers<Room>) => {
-    try {
-      addRoom(values);
-      Swal.fire({
-        title: 'اقامتگاه جدید با موفقیت افزوده شد',
-        toast: false,
-        position: 'center',
-        showConfirmButton: true,
-        icon: 'success',
-        customClass: { icon: 'm-auto mt-4' },
-        confirmButtonText: 'باشه',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          resetForm();
-        }
-      });
-    } catch (error) {
-      Swal.fire({
-        text: 'متاسفانه عملیات انجام نشد',
-        toast: true,
-        timer: 5000,
-        position: 'top-right',
-        showConfirmButton: false,
-        icon: 'error',
-      });
-    }
-  };
+  // const submitHandler = (values: Room, { resetForm }: FormikHelpers<Room>) => {
+  //   try {
+  //     addRoom(values);
+  //     Swal.fire({
+  //       title: 'اقامتگاه جدید با موفقیت افزوده شد',
+  //       toast: false,
+  //       position: 'center',
+  //       showConfirmButton: true,
+  //       icon: 'success',
+  //       customClass: { icon: 'm-auto mt-4' },
+  //       confirmButtonText: 'باشه',
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         resetForm();
+  //       }
+  //     });
+  //   } catch (error) {
+  //     Swal.fire({
+  //       text: 'متاسفانه عملیات انجام نشد',
+  //       toast: true,
+  //       timer: 5000,
+  //       position: 'top-right',
+  //       showConfirmButton: false,
+  //       icon: 'error',
+  //     });
+  //   }
+  // };
   return (
     <div className="flex h-screen items-center justify-center bg-gray-700 dark:bg-gray-900">
       {/* Logo */}
@@ -95,7 +89,7 @@ function AddNewRoom() {
       {/* Logo */}
       <div className="flex h-full w-full items-center justify-center p-5">
         <div className="rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:bg-gray-700 dark:text-white max-[600px]:w-[450px] max-[490px]:w-[300px] min-[600px]:w-[500px]">
-          <Formik
+          {/* <Formik
             initialValues={initialValues}
             validationSchema={NewRoomSchema}
             onSubmit={submitHandler}
@@ -144,7 +138,7 @@ function AddNewRoom() {
                 </div>
               </Form>
             )}
-          </Formik>
+          </Formik> */}
         </div>
       </div>
     </div>
