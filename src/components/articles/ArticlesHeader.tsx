@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react';
 import { IoClose, IoSearch } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import useArticlesSearch from '../../hooks/useArticlesSearch';
 import Logo from '../navbar/Logo';
 import Button from '../ui/Button';
 import ArticalMenu from './ArticalMenu';
 
 function ArticlesHeader({ id }: { id?: string }) {
-  // const [searchResult, setSearchResult] = useState<Article[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [search, setSearch] = useState('');
 
-  // const navigate = useNavigate();
-  // const { articles } = useArticles();
-
+  const { search, setSearch, submitSearch } = useArticlesSearch();
+  
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -26,15 +25,6 @@ function ArticlesHeader({ id }: { id?: string }) {
       document.body.style.overflow = 'auto';
     }
   }, [isMenuOpen]);
-
-  // const submitHandler = (e: SubmitEvent) => {
-  //   e.preventDefault();
-  //   setSearchResult(
-  //     articles.filter((article) => article.title.includes(search)),
-  //   );
-  //   navigate(`/mag/?s=${search}`);
-  // };
-  // console.log(searchResult);
 
   return (
     <div className="sticky top-0 z-40 bg-white shadow-md dark:border-b dark:border-b-gray-400 dark:bg-gray-700">
@@ -74,12 +64,16 @@ function ArticlesHeader({ id }: { id?: string }) {
               {isSearchOpen && (
                 <div className="absolute right-0 top-9 w-80 max-w-96 border border-gray-100 bg-white p-5 px-10 shadow-lg dark:border-gray-400 dark:bg-gray-700">
                   <form
-                    // onSubmit={submitHandler}
+                    onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+                      submitSearch(e);
+                      setIsSearchOpen(false);
+                    }}
                     className="flex flex-col gap-2"
                   >
                     <input
                       className="rounded-sm border border-gray-100 p-2 outline-0 placeholder:text-[12px] placeholder:text-gray-400 dark:border-0 dark:bg-gray-800 dark:text-white"
                       type="text"
+                      required
                       placeholder="عبارت کلیدی خود را بنویسید..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
