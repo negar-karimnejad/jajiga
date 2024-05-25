@@ -4,25 +4,18 @@ import Advantages from '../components/home/Advantages';
 import Application from '../components/home/Application';
 import Comments from '../components/home/Comments';
 import Discount from '../components/home/Discount';
-import Economic from '../components/home/Economic';
 import Hero from '../components/home/Hero';
 import Host from '../components/home/Host';
-import InstantBooking from '../components/home/InstantBooking';
 import JajigaMag from '../components/home/JajigaMag';
-import Junub from '../components/home/Junub';
-import Luxury from '../components/home/Luxury';
 import MoreInfos from '../components/home/MoreInfos';
 import Popular from '../components/home/Popular';
-import Premium from '../components/home/Premium';
 import QuickSearch from '../components/home/QuickSearch';
-import Shomal from '../components/home/Shomal';
-import Specials from '../components/home/Specials';
-import SuburbTehran from '../components/home/SuburbTehran';
 import Logo from '../components/navbar/Logo';
 import NavLinks from '../components/navbar/NavLinks';
 import NavMenu from '../components/navbar/NavMenu';
 import Navbar from '../components/navbar/Navbar';
 import SearchResultModal from '../components/ui/SearchResultModal';
+import SliderSection from '../components/ui/SliderSection';
 import { useScroll } from '../hooks/useScroll';
 import useSearch from '../hooks/useSearch';
 
@@ -58,16 +51,59 @@ function HomePage() {
         <Popular />
         <QuickSearch />
         <Advantages />
-        <Premium />
-        <Specials />
-        <InstantBooking />
+        <SliderSection
+          title="اقامتگاه های ممتاز"
+          text="گلچینی از اقامتگاه های باکیفیت با میزبانهای مهمان نواز"
+          nextBtn="premium-swiper-button-next"
+          prevBtn="premium-swiper-button-prev"
+        />
+        <SliderSection
+          title="اقامتگاه های خاص"
+          text="اقامتگاه های متفاوت و جذاب برای افراد خاص"
+          nextBtn="specials-swiper-button-next"
+          prevBtn="specials-swiper-button-prev"
+        />
+        <SliderSection
+          title="اقامتگاه های رزرو فوری"
+          text="رزرو فوری بدون نیاز به تایید میزبان"
+          nextBtn="instantbooking-swiper-button-next"
+          prevBtn="instantbooking-swiper-button-prev"
+        />
         <Discount />
-        <Luxury />
-        <Economic />
+        <SliderSection
+          title="ویلاهای لوکس و مجلل"
+          text="ویلاهای لوکس و لاکچری برای مشکل پسندها"
+          nextBtn="luxury-swiper-button-next"
+          prevBtn="luxury-swiper-button-prev"
+        />
+        <SliderSection
+          title="اقامتگاه های اقتصادی"
+          text="اقامتگاه های با کیفیت و نرخ مناسب"
+          nextBtn="economic-swiper-button-next"
+          prevBtn="economic-swiper-button-prev"
+        />
         <Host />
-        <Shomal />
-        <SuburbTehran />
-        <Junub />
+        <SliderSection
+          title="اجاره ویلا شمال"
+          category="shomal"
+          text="بهترین ویلاهای گیلان، مازندران و گلستان"
+          nextBtn="shomal-swiper-button-next"
+          prevBtn="shomal-swiper-button-prev"
+        />
+        <SliderSection
+          category="tehran"
+          title="اجاره ویلا اطراف تهران"
+          text="ویلاهای کردان، دماوند، شهریار و سایر مناطق اطراف تهران"
+          nextBtn="suburbtehran-swiper-button-next"
+          prevBtn="suburbtehran-swiper-button-prev"
+        />
+        <SliderSection
+          category="junub"
+          title="اجاره سوئیت و اقامتگاه در جنوب"
+          text="اقامتگاه های کیش، قشم، بوشهر، بندرعباس و چابهار"
+          nextBtn="junub-swiper-button-next"
+          prevBtn="junub-swiper-button-prev"
+        />
         <Comments />
         <JajigaMag />
         <MoreInfos />

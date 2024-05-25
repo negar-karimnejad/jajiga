@@ -11,11 +11,10 @@ function ArticlesHeader({ id }: { id?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { search, setSearch, submitSearch } = useArticlesSearch();
-  
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
 
   useEffect(() => {
     // Disable body scroll when the modal is open

@@ -22,7 +22,7 @@ function HelpComment(comment: HelpCommentProps) {
         style="flex w-full py-0 hover:shadow-none px-0 text-white items-center justify-between"
       >
         <div className="flex items-center gap-2 text-gray-800 dark:text-white">
-          <RiFileUnknowLine size={18} className='shrink-0' />
+          <RiFileUnknowLine size={18} className="shrink-0" />
           <p className="text-right">{comment.title}</p>
         </div>
 

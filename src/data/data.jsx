@@ -1650,3 +1650,47 @@ export const navigationLinks = [
   { id: 3, icon: <GoHeart size={25} />, title: 'علاقه مندی ها', to: '/wishes' },
   { id: 4, icon: <PiHouseLight size={25} />, title: 'صفحه اصلی', to: '/' },
 ];
+
+export const AccessLinksArray = [
+  {
+    id: 1,
+    title: 'چگونه مهمان شوم',
+    to: '/guest',
+  },
+  {
+    id: 2,
+    title: 'قوانین و مقررات',
+    to: '/rules',
+  },
+  {
+    id: 3,
+    title: 'پــشــتــیــبــانــی',
+    to: '/support',
+  },
+  {
+    id: 4,
+    title: 'فرصت های شغلی',
+    to: '/jobs',
+  },
+  {
+    id: 5,
+    title: 'چگونه میزبان شوم',
+    to: '/host',
+  },
+
+  {
+    id: 6,
+    title: 'مقــررات لـــغـو رزرو',
+    to: '/cancellation',
+  },
+  {
+    id: 7,
+    title: 'ثــبـــت شـــکــــایـــت',
+    to: '/guarantee',
+  },
+  {
+    id: 8,
+    title: 'راهـنــــمــای ســایــت',
+    to: '/help',
+  },
+];
