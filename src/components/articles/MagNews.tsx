@@ -10,7 +10,7 @@ function MagNews({ article }: { article: Article }) {
       <figure className="shrink-0 sm:w-1/2">
         <div
           className="relative h-full w-full cursor-pointer"
-          onClick={() => navigate(`/${article.title}`)}
+          onClick={() => navigate(`/mag/${article.title.replaceAll(' ', '-')}`)}
         >
           <div className="h-full w-full">
             <img
@@ -27,7 +27,7 @@ function MagNews({ article }: { article: Article }) {
             <div className="flex h-full flex-col justify-between p-10 sm:hidden">
               <div title={article.title} className="">
                 <Link
-                  to={`category/${article.category.en_title}`}
+                  to={`/mag/category/${article.category.en_title}`}
                   className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700 ${article.category.id === 2 ? 'bg-emerald-600' : 'bg-red-600'}`}
                 >
                   {article.category.title}
@@ -48,8 +48,9 @@ function MagNews({ article }: { article: Article }) {
       <div className="card-body justify-between max-sm:hidden">
         <div title={article.title} className="">
           <Link
-            to={`category/${article.category.en_title}`}
-            className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50 ${article.category.id === 2 ? 'bg-emerald-600' : 'bg-red-600'}`}
+            to={`/mag/category/${article.category.en_title}`}
+            className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50 bg-${article.category.color}-600`}
+            style={{ backgroundColor: article.category.color }}
           >
             {article.category.title}
           </Link>

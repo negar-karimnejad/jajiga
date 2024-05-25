@@ -7,7 +7,7 @@ import MagTravelers from './MagTravelers';
 
 function ArticlesMain() {
   const { hosting, knowing, travelers, wherewhy, news } = useArticles();
-  
+
   return (
     <div className="container mb-10">
       <div className="grid grid-cols-12 gap-5">
@@ -33,7 +33,7 @@ function ArticlesMain() {
           <ArticleHeading title="بچه‌های سفری" />
         </div>
         {travelers.map((article) => {
-          if (article.id % 2 === 0) {
+          if (article.id === 6) {
             return <MagTravelers key={article.id} article={article} />;
           } else {
             return <MagPost key={article.id} article={article} />;

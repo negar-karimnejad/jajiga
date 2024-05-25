@@ -10,7 +10,7 @@ function MagKnowing({ article }: { article: Article }) {
       <figure className="shrink-0 sm:w-1/2">
         <div
           className="relative h-full w-full cursor-pointer"
-          onClick={() => navigate(`/${article.title}`)}
+          onClick={() => navigate(`/mag/${article.title.replaceAll(' ', '-')}`)}
         >
           <img
             loading="lazy"
@@ -25,7 +25,7 @@ function MagKnowing({ article }: { article: Article }) {
             <div className="flex h-full flex-col justify-between p-10 sm:hidden">
               <div title={article.title} className="">
                 <Link
-                  to="category/knowing"
+                  to="/mag/category/knowing"
                   className="w-fit rounded-full bg-purple-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700"
                 >
                   {article.category.title}
@@ -46,7 +46,7 @@ function MagKnowing({ article }: { article: Article }) {
       <div className="card-body justify-between max-sm:hidden">
         <div title={article.title}>
           <Link
-            to="category/knowing"
+            to="/mag/category/knowing"
             className="w-fit rounded-full bg-purple-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50"
           >
             {article.category.title}

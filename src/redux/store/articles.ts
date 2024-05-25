@@ -10,6 +10,7 @@ export interface Article {
   author_id: number;
   category: {
     id: number;
+    color: string;
     title: string;
     en_title: string;
   };

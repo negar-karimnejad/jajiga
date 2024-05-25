@@ -16,11 +16,11 @@ const useArticles = () => {
 
   // Mapping object to hold filtered articles for each category
   const categoryArticles = {
-    wherewhy: articles.filter((article) => article.category_id === 1),
-    hosting: articles.filter((article) => article.category_id === 2),
-    travelers: articles.filter((article) => article.category_id === 3),
-    knowing: articles.filter((article) => article.category_id === 4),
-    news: articles.filter((article) => article.category_id === 5),
+    wherewhy: articles.filter((article) => article.category.id === 1),
+    hosting: articles.filter((article) => article.category.id === 2),
+    travelers: articles.filter((article) => article.category.id === 3),
+    knowing: articles.filter((article) => article.category.id === 4),
+    news: articles.filter((article) => article.category.id === 5),
   };
 
   return {

@@ -20,6 +20,7 @@ function Article() {
   const { article } = useArticle(title);
 
   if (!article) return;
+
   return (
     <div className="bg-base-200 dark:bg-gray-900">
       <ArticlesHeader id={id} />
@@ -277,8 +278,9 @@ function Article() {
                 <Link
                   to="category/knowing"
                   className="w-fit rounded-full bg-sky-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700"
+                  style={{ backgroundColor: article.category.color }}
                 >
-                  سفر به کجا؟
+                  {article.category.title}
                 </Link>
                 <h2 className="my-5 font-vazirBold text-2xl dark:text-white">
                   {article.title}
