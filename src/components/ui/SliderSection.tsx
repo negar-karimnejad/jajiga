@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useRooms from '../../hooks/useRooms';
 import { Room } from '../../redux/store/room';
 import SectionHeading from '../home/SectionHeading';
+import RoomInfoCard from '../room/RoomInfoCard';
 import SwiperButtons from '../ui/SwiperButtons';
 
 interface SliderSectionProps {
@@ -35,12 +36,11 @@ function SliderSection({
       shuffledRooms = list;
     } else {
       if (category) {
-        shuffledRooms = rooms.filter(
-          (room) => room.category?.at(0) === category,
+        shuffledRooms = rooms.filter((room) =>
+          room.category.includes(category),
         );
       } else {
-        shuffledRooms = rooms.slice(); 
-        shuffledRooms.sort(() => Math.random() - 0.5); 
+        shuffledRooms = rooms;
       }
     }
 
@@ -95,14 +95,10 @@ function SliderSection({
                     />
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
-                    <div className="mt-2 flex flex-col items-center gap-2">
-                      <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                        ✨ ممتــــــــاز
-                      </p>
-                      <p className="w-20 rounded-full bg-yellow-400 px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                        <span>⚡</span> رزرو فوری
-                      </p>
-                    </div>
+                    <RoomInfoCard
+                      premium={room.category.includes('premium')}
+                      fastbooking={room.category.includes('fastbooking')}
+                    />
                     <p className="font-persianNums">
                       از {room.price?.toLocaleString()} تومان
                     </p>

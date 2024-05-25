@@ -30,7 +30,6 @@ function HomePage() {
   useEffect(() => {
     searchHandler(searchValue);
   }, [searchHandler, searchValue]);
-  console.log('aaa');
 
   return (
     <>
@@ -59,12 +58,14 @@ function HomePage() {
           title="اقامتگاه های ممتاز"
           text="گلچینی از اقامتگاه های باکیفیت با میزبانهای مهمان نواز"
           nextBtn="premium-swiper-button-next"
+          category="premium"
           prevBtn="premium-swiper-button-prev"
         />
         <SliderSection
           title="اقامتگاه های خاص"
           text="اقامتگاه های متفاوت و جذاب برای افراد خاص"
           nextBtn="specials-swiper-button-next"
+          category="special"
           prevBtn="specials-swiper-button-prev"
         />
         <SliderSection
@@ -72,6 +73,7 @@ function HomePage() {
           text="رزرو فوری بدون نیاز به تایید میزبان"
           nextBtn="instantbooking-swiper-button-next"
           prevBtn="instantbooking-swiper-button-prev"
+          category="fastbooking"
         />
         <Discount />
         <SliderSection
@@ -79,12 +81,14 @@ function HomePage() {
           text="ویلاهای لوکس و لاکچری برای مشکل پسندها"
           nextBtn="luxury-swiper-button-next"
           prevBtn="luxury-swiper-button-prev"
+          category="luxray"
         />
         <SliderSection
           title="اقامتگاه های اقتصادی"
           text="اقامتگاه های با کیفیت و نرخ مناسب"
           nextBtn="economic-swiper-button-next"
           prevBtn="economic-swiper-button-prev"
+          category="economic"
         />
         <Host />
         <SliderSection

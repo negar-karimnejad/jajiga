@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useRooms from '../../hooks/useRooms';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
+import RoomInfoCard from '../room/RoomInfoCard';
 
 function Discount() {
   const { rooms } = useRooms();
@@ -59,14 +60,10 @@ function Discount() {
                     />
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
-                    <div className="mt-2 flex flex-col items-center gap-2">
-                      <p className="w-20 rounded-full bg-white px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                        ✨ ممتــــــــاز
-                      </p>
-                      <p className="w-20 rounded-full bg-yellow-400 px-1 py-0.5 font-vazirBold text-[11px] text-black">
-                        <span>⚡</span> رزرو فوری
-                      </p>
-                    </div>
+                    <RoomInfoCard
+                      premium={room.category.includes('premium')}
+                      fastbooking={room.category.includes('fastbooking')}
+                    />
                     <p className="font-persianNums">
                       از {room.price.toLocaleString()} تومان
                     </p>
