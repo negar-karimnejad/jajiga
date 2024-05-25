@@ -7,7 +7,7 @@ import MagTravelers from './MagTravelers';
 
 function ArticlesMain() {
   const { hosting, knowing, travelers, wherewhy, news } = useArticles();
-
+  
   return (
     <div className="container mb-10">
       <div className="grid grid-cols-12 gap-5">
