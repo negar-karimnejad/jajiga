@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +11,7 @@ import SectionHeading from './SectionHeading';
 function JajigaMag() {
   const { articles } = useArticles();
   const { categories } = useCategories();
+  const navigate = useNavigate();
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">
@@ -52,7 +53,12 @@ function JajigaMag() {
             {articles.map((article) => (
               <SwiperSlide key={article.id}>
                 <div className="relative overflow-hidden rounded-3xl">
-                  <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
+                  <div
+                    onClick={() =>
+                      navigate(`/mag/${article.title.replaceAll(' ', '-')}`)
+                    }
+                    className="cursor-pointer"
+                  >
                     <div className="absolute left-0 top-0 h-full w-full rounded-3xl bg-black/10"></div>
                     <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
                       <img
@@ -79,7 +85,7 @@ function JajigaMag() {
                       <MagAuthor id={article.author_id} lightColor={true} />
                     </div>
                     <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
-                  </Link>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}

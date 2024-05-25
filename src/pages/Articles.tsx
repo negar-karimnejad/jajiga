@@ -11,7 +11,7 @@ import { Article } from '../redux/store/articles';
 const Articles = memo(function Articles() {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const searchResult = (location.state?.results as Article[]) || [];
   const searchParams = new URLSearchParams(location.search);
   const search = searchParams.get('s') || '';

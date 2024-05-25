@@ -14,7 +14,10 @@ function WhiteBgNavbar() {
         <NavLinks whiteBg={true} />
       </div>
       <div className="flex items-center gap-2 sm:w-full">
-        <div className="h-10 w-10 rounded-full border p-1 dark:border-gray-500 max-md:hidden">
+        <Link
+          to="/support"
+          className="h-10 w-10 cursor-pointer rounded-full border p-1 dark:border-gray-500 max-md:hidden"
+        >
           <svg
             className="sc-679cb2a8-0 iBzALU sc-31312756-1 cbqNKi"
             fill="none"
@@ -71,7 +74,7 @@ function WhiteBgNavbar() {
               className="dark:stroke-white"
             ></path>
           </svg>
-        </div>
+        </Link>
         <NavSearch />
       </div>
       <Link to="/" className="max-lg:hidden sm:shrink-0">

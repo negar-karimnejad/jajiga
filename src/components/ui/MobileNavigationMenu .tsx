@@ -71,7 +71,10 @@ function MobileNavigationMenu() {
               <span className="font-vazirMedium text-[13px]">{link.title}</span>
             </Link>
           ) : (
-            <div className="flex flex-col  items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600">
+            <div
+              key={link.id}
+              className="flex flex-col  items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600"
+            >
               <span>{link.icon}</span>
               <span className="font-vazirMedium text-[13px]">
                 {link?.title}
