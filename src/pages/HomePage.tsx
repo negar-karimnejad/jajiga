@@ -30,6 +30,7 @@ function HomePage() {
   useEffect(() => {
     searchHandler(searchValue);
   }, [searchHandler, searchValue]);
+  console.log('aaa');
 
   return (
     <>

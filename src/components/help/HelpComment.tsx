@@ -11,7 +11,6 @@ interface HelpCommentProps {
 
 function HelpComment(comment: HelpCommentProps) {
   const [activeComment, setActiveComment] = useState(0);
-  console.log(comment);
 
   return (
     <div className="border-b py-5">
