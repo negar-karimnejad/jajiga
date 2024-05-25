@@ -1,12 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useCategory } from '../../hooks/useCategory';
 import { Article } from '../../redux/store/articles';
 import MagAuthor from './MagAuthor';
 
 function MagKnowing({ article }: { article: Article }) {
   const navigate = useNavigate();
-  const { category } = useCategory(article.category_id);
-
 
   return (
     <div className="card card-side col-span-12 h-80 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 lg:col-span-6">
@@ -31,7 +28,7 @@ function MagKnowing({ article }: { article: Article }) {
                   to="category/knowing"
                   className="w-fit rounded-full bg-purple-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700"
                 >
-                  {category?.title}
+                  {article.category.title}
                 </Link>
                 <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
                   <h2 className="card-title mt-5 w-1/2 text-white">
@@ -52,7 +49,7 @@ function MagKnowing({ article }: { article: Article }) {
             to="category/knowing"
             className="w-fit rounded-full bg-purple-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50"
           >
-            {category?.title}
+            {article.category.title}
           </Link>
         </div>
         <h2 className="card-title">

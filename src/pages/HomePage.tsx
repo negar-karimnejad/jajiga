@@ -45,7 +45,10 @@ function HomePage() {
         </div>
         {scrollYPosition < 350 && <Logo withTitle={true} />}
       </div>
+
       <Hero />
+
+      {/* Homepage main section */}
       <div className="relative bg-white dark:bg-gray-900">
         <Application style="absolute -top-12 right-0 h-14 rounded-t-2xl" />
         <Popular />
@@ -109,6 +112,8 @@ function HomePage() {
         <MoreInfos />
         <Footer />
       </div>
+
+      {/* Homepage hero content */}
       <div className="absolute left-0 right-0 top-40 z-20 mx-auto w-96">
         <div className="relative">
           <form

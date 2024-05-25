@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useCategory } from '../../hooks/useCategory';
 import { Article } from '../../redux/store/articles';
 import MagAuthor from './MagAuthor';
 
 function MagTravelers({ article }: { article: Article }) {
-  const { category } = useCategory(article.category_id);
-
   return (
     <div className="card col-span-12 h-80 justify-between overflow-hidden bg-base-100  p-5 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
       <Link
-        to="category/knowing"
+        to="category/travelers"
         className="w-fit rounded-full bg-orange-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-black hover:text-gray-50"
       >
-        {category?.title}
+        {article.category.title}
       </Link>
       <h2 className="card-title">
         <Link
