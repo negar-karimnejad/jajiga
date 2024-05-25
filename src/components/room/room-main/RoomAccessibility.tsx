@@ -53,7 +53,7 @@ function RoomAccessibility() {
 
   return (
     <div
-      className={`duration-400 sticky top-[77px] z-20 h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg transition-all dark:bg-gray-950/90 max-lg:top-[62px] max-md:hidden ${scrollYPosition > 400 ? 'flex' : 'hidden'}`}
+      className={`duration-400 sticky top-[77px] z-40 h-14 items-center justify-between rounded-b-lg bg-black/80 px-8 py-3 shadow-lg transition-all dark:bg-gray-950/90 max-lg:top-[62px] max-md:hidden ${scrollYPosition > 400 ? 'flex' : 'hidden'}`}
     >
       <ul className="flex items-center gap-5 text-sm text-white lg:gap-8">
         {navItems.map((item) => (

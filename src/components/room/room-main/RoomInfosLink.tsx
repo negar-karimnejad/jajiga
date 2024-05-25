@@ -11,7 +11,8 @@ function RoomInfosLink({ room, titleWidth }: RoomInfosLinkProps) {
   return (
     <Link to={`/room/${room?.code}`} className="text-sm dark:text-white">
       <p
-        className={`mb-1 mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold w-[${titleWidth}]`}
+        className="mb-1 mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold"
+        style={{ width: titleWidth }}
         title={room?.title}
       >
         {room?.title}

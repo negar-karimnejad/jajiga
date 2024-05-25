@@ -39,7 +39,7 @@ function Rooms() {
   };
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-white dark:bg-gray-700">
       <Navbar />
       {/* <div className="sticky top-[4.8rem] z-30 h-12 bg-gray-200">1</div> */}
       <div>

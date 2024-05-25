@@ -23,7 +23,7 @@ function Modal({
 
   return (
     <div
-      className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center overflow-y-auto bg-black/60 transition-all duration-500 max-sm:px-5 ${centered ? 'justify-center' : 'py-20'} ${isOpen ? 'visible opacity-100' : 'hidden opacity-0'}`}
+      className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center overflow-y-auto bg-black/60 transition-all duration-500 max-sm:px-5 ${centered ? 'justify-center' : 'py-20'} ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
       onClick={closeModalHandler}
     >
       <div

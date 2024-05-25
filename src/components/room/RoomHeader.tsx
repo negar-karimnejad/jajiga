@@ -97,7 +97,7 @@ function RoomHeader() {
               src={room.images.at(4)}
               alt=""
             />
-            <div className="absolute left-2 top-2 z-30">
+            <div className="absolute left-2 top-2 z-40">
               <LikeAndShareButtons id={Number(id)} />
             </div>
           </div>
