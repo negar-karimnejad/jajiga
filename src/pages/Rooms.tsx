@@ -24,11 +24,12 @@ function Rooms() {
   const { roomsMeta } = useRoomsMeta();
 
   const roomMeta = roomsMeta.find((meta) => meta.name === id);
-  const sRooms = rooms.filter((room) => {
-    if (id) {
-      return room.category?.includes(id);
-    }
-  });
+  
+  const sRooms = id
+    ? rooms.filter((room) => room.category?.includes(id))
+    : rooms;
+
+  console.log(sRooms);
 
   const closeModalHandler = () => {
     setIsOpen(false);
