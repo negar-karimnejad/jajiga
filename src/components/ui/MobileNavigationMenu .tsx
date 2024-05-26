@@ -31,7 +31,6 @@ function MobileNavigationMenu() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [prevScrollPos]);
-  console.log(location);
 
   return (
     <div
