@@ -9,6 +9,7 @@ import Button from '../components/ui/Button';
 import { useWishes } from '../context/WishesContext';
 import useRooms from '../hooks/useRooms';
 import { Room } from '../redux/store/room';
+import { Link } from 'react-router-dom';
 
 function Wishes() {
   const { wishes } = useWishes();
@@ -85,9 +86,11 @@ function Wishes() {
                 <TiHeartOutline size={24} className="text-red-500" />
                 به این لیست اضافه کن، تا وقتی تخفیف میخوره خبرت کنیم
               </div>
-              <Button style="flex items-center gap-2 rounded-md bg-yellow-400 px-3 py-2 transition-all hover:bg-yellow-500 dark:text-black">
-                <BiSearch />
-                جستجو
+              <Button style="rounded-md bg-yellow-400 px-3 py-2 transition-all hover:bg-yellow-500 dark:text-black">
+                <Link className='flex items-center gap-2' to="/s">
+                  <BiSearch />
+                  جستجو
+                </Link>
               </Button>
             </div>
           </div>

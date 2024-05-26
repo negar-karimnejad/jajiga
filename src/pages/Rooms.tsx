@@ -24,12 +24,10 @@ function Rooms() {
   const { roomsMeta } = useRoomsMeta();
 
   const roomMeta = roomsMeta.find((meta) => meta.name === id);
-  
+
   const sRooms = id
     ? rooms.filter((room) => room.category?.includes(id))
     : rooms;
-
-  console.log(sRooms);
 
   const closeModalHandler = () => {
     setIsOpen(false);
@@ -77,7 +75,7 @@ function Rooms() {
                 <div className="w-full max-sm:hidden">
                   <img
                     src={roomMeta?.canonical}
-                    className="h-full object-cover"
+                    className="h-full w-full object-cover object-center"
                     alt={roomMeta?.title}
                   />
                 </div>
@@ -105,12 +103,16 @@ function Rooms() {
             </header>
 
             <main className="container grid grid-cols-1 gap-5 pb-20 lg:grid-cols-2 xl:grid-cols-3">
-              {sRooms?.map((room) => {
-                roomsGeo.push([room.location.lat, room.location.lng]);
-                return (
-                  <RoomsContainer isHost={false} room={room} key={room.id} />
-                );
-              })}
+              {sRooms.length > 0 ? (
+                sRooms.map((room) => {
+                  roomsGeo.push([room.location.lat, room.location.lng]);
+                  return (
+                    <RoomsContainer isHost={false} room={room} key={room.id} />
+                  );
+                })
+              ) : (
+                <p className="container">اقامتگاهی یافت نشد.</p>
+              )}
             </main>
 
             <footer className="rounded-t-xl bg-neutral-900 p-5">
