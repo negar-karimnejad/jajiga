@@ -22,27 +22,25 @@ function QuickSearch() {
             spaceBetween={20}
             breakpoints={{
               0: {
-                slidesPerView: 2.5,
+                slidesPerView: 2.3,
               },
               680: {
                 slidesPerView: 3.5,
               },
               1024: {
-                slidesPerView: 4.5,
-              },
-              1280: {
                 slidesPerView: 5.2,
               },
+             
             }}
           >
             {QuickSearchArray.map((item) => (
               <SwiperSlide key={item.id}>
-                <div className="relative overflow-hidden rounded-3xl">
+                <div className="relative overflow-hidden rounded-xl">
                   <Link to={`/s/${item.to}`}>
                     <img
                       loading="lazy"
                       src={item.cover}
-                      className="block h-80 w-full object-cover"
+                      className="block h-72 w-full object-cover"
                       alt={item.title}
                     />
                   </Link>

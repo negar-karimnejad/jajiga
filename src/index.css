@@ -231,6 +231,24 @@ body {
 .rmdp-left:hover {
   background-color: rgb(198, 198, 198) !important;
 }
+
+.animate-fade-down {
+  animation: fadeDown infinite 2000ms;
+  animation-delay: 1000ms;
+}
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+}
 @media screen and (min-width: 200px) {
   .custom-calendar .rmdp-day {
     width: 41px;
