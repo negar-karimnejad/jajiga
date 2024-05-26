@@ -7,9 +7,10 @@ import useRooms from '../../hooks/useRooms';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
 import RoomInfoCard from '../room/RoomInfoCard';
+import RoomCardSkeleton from '../ui/skeleton/RoomCardSkeleton';
 
 function Discount() {
-  const { rooms } = useRooms();
+  const { rooms, loading } = useRooms();
 
   const selectedRooms = rooms.slice().sort((a, b) => a.price - b.price);
 
@@ -46,53 +47,59 @@ function Discount() {
               },
             }}
           >
-            {selectedRooms.map((room) => (
-              <SwiperSlide key={room.id}>
-                <Link to={`/room/${room.code}`} className="relative">
-                  <div className="relative overflow-hidden rounded-3xl">
-                    <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+            {loading
+              ? Array.from({ length: 6 }).map((_, index) => (
+                  <SwiperSlide key={index}>
+                    <RoomCardSkeleton />
+                  </SwiperSlide>
+                ))
+              : selectedRooms.map((room) => (
+                  <SwiperSlide key={room.id}>
+                    <Link to={`/room/${room.code}`} className="relative">
+                      <div className="relative overflow-hidden rounded-3xl">
+                        <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
 
-                    <img
-                      loading="lazy"
-                      src={room.images.at(0)}
-                      className="block h-52 w-full rounded-3xl object-cover"
-                      alt=""
-                    />
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
-                    <RoomInfoCard
-                      premium={room.category.includes('premium')}
-                      fastbooking={room.category.includes('fastbooking')}
-                    />
-                    <p className="font-persianNums">
-                      از {room.price.toLocaleString()} تومان
-                    </p>
-                  </div>
-                </Link>
-                <Link
-                  to={`/room/${room.code}`}
-                  className="text-sm dark:text-white"
-                >
-                  <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                  <p className="mt-2 flex gap-2 text-[13px] text-gray-50">
-                    <span className="font-persianNums">
-                      {room.bedroom === 0
-                        ? 'بدون اتاق خواب'
-                        : `${room.bedroom} خوابه`}{' '}
-                      . {room.foundation_meterage} متر . تا {room.max_capacity}{' '}
-                      مهمان
-                    </span>
-                    <span className="flex gap-1 font-persianNums">
-                      <BsStarFill className="text-yellow-500" />
-                      {room.rating.total}
-                    </span>
-                    <span className="font-persianNums">
-                      ({room.reviews} نظر)
-                    </span>
-                  </p>
-                </Link>
-              </SwiperSlide>
-            ))}
+                        <img
+                          loading="lazy"
+                          src={room.images.at(0)}
+                          className="block h-52 w-full rounded-3xl object-cover"
+                          alt=""
+                        />
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
+                        <RoomInfoCard
+                          premium={room.category.includes('premium')}
+                          fastbooking={room.category.includes('fastbooking')}
+                        />
+                        <p className="font-persianNums">
+                          از {room.price.toLocaleString()} تومان
+                        </p>
+                      </div>
+                    </Link>
+                    <Link
+                      to={`/room/${room.code}`}
+                      className="text-sm dark:text-white"
+                    >
+                      <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
+                      <p className="mt-2 flex gap-2 text-[13px] text-gray-50">
+                        <span className="font-persianNums">
+                          {room.bedroom === 0
+                            ? 'بدون اتاق خواب'
+                            : `${room.bedroom} خوابه`}{' '}
+                          . {room.foundation_meterage} متر . تا{' '}
+                          {room.max_capacity} مهمان
+                        </span>
+                        <span className="flex gap-1 font-persianNums">
+                          <BsStarFill className="text-yellow-500" />
+                          {room.rating.total}
+                        </span>
+                        <span className="font-persianNums">
+                          ({room.reviews} نظر)
+                        </span>
+                      </p>
+                    </Link>
+                  </SwiperSlide>
+                ))}
             <div className="hidden"></div>
             <div className="hidden"></div>
           </Swiper>

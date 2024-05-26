@@ -11,6 +11,7 @@ import CalendarFunc from '../components/ui/calendar';
 import { QuickSearchArray } from '../data/data';
 import useRoomsMeta from '../hooks/useRoomaMeta';
 import useRooms from '../hooks/useRooms';
+import RoomCardSkeleton from '../components/ui/skeleton/RoomCardSkeleton';
 
 function Rooms() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +21,8 @@ function Rooms() {
   const roomsGeo: [number, number][] = [];
 
   const { id } = useParams();
-  const { rooms } = useRooms();
-  const { roomsMeta } = useRoomsMeta();
+  const { rooms, loading: roomsLoading } = useRooms();
+  const { roomsMeta, loading } = useRoomsMeta();
 
   const roomMeta = roomsMeta.find((meta) => meta.name === id);
 
@@ -73,11 +74,15 @@ function Rooms() {
               </div>
               <div className="mb-10 flex overflow-hidden rounded-xl shadow-lg md:h-40">
                 <div className="w-full max-sm:hidden">
-                  <img
-                    src={roomMeta?.canonical}
-                    className="h-full w-full object-cover object-center"
-                    alt={roomMeta?.title}
-                  />
+                  {loading ? (
+                    <RoomCardSkeleton />
+                  ) : (
+                    <img
+                      src={roomMeta?.canonical}
+                      className="h-full w-full object-cover object-center"
+                      alt={roomMeta?.title}
+                    />
+                  )}
                 </div>
                 <div className="w-[500px] rounded-xl bg-white p-5 dark:bg-gray-900 max-sm:w-full sm:-mr-5">
                   <div className="mb-5 flex items-center justify-between">
@@ -104,12 +109,22 @@ function Rooms() {
 
             <main className="container grid grid-cols-1 gap-5 pb-20 lg:grid-cols-2 xl:grid-cols-3">
               {sRooms.length > 0 ? (
-                sRooms.map((room) => {
-                  roomsGeo.push([room.location.lat, room.location.lng]);
-                  return (
-                    <RoomsContainer isHost={false} room={room} key={room.id} />
-                  );
-                })
+                roomsLoading ? (
+                  Array.from({ length: sRooms.length }).map((_, index) => (
+                    <RoomCardSkeleton key={index} />
+                  ))
+                ) : (
+                  sRooms.map((room) => {
+                    roomsGeo.push([room.location.lat, room.location.lng]);
+                    return (
+                      <RoomsContainer
+                        isHost={false}
+                        room={room}
+                        key={room.id}
+                      />
+                    );
+                  })
+                )
               ) : (
                 <p className="container">اقامتگاهی یافت نشد.</p>
               )}

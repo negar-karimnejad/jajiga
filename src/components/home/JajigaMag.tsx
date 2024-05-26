@@ -6,9 +6,10 @@ import { useArticles } from '../../hooks/useArticles';
 import MagAuthor from '../articles/MagAuthor';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
+import RoomCardSkeleton from '../ui/skeleton/RoomCardSkeleton';
 
 function JajigaMag() {
-  const { articles } = useArticles();
+  const { articles, loading } = useArticles();
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">
@@ -47,40 +48,48 @@ function JajigaMag() {
               },
             }}
           >
-            {articles.map((article) => (
-              <SwiperSlide key={article.id}>
-                <div className="relative overflow-hidden rounded-3xl">
-                  <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
-                    <div className="absolute left-0 top-0 h-full w-full rounded-3xl bg-black/10"></div>
-                    <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
-                      <img
-                        // loading="lazy"
-                        src={article.cover}
-                        className="h-64 w-full rounded-3xl object-cover"
-                        alt={article.title}
-                      />
-                    </Link>
-                    <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
-                      <div className="mt-2 flex flex-col gap-2">
-                        <Link
-                          to={`/mag/category/${article.category.en_title}`}
-                          className="w-fit rounded-full bg-yellow-400 px-2 py-0.5 font-vazirBold text-[11px] text-gray-900"
-                        >
-                          {article.category.title}
-                        </Link>
+            {loading
+              ? Array.from({ length: 6 }).map((_, index) => (
+                  <SwiperSlide key={index}>
+                    <RoomCardSkeleton />
+                  </SwiperSlide>
+                ))
+              : articles.map((article) => (
+                  <SwiperSlide key={article.id}>
+                    <div className="relative overflow-hidden rounded-3xl">
+                      <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
+                        <div className="absolute left-0 top-0 h-full w-full rounded-3xl bg-black/10"></div>
                         <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
-                          <p className="font-vazirBold text-base">
-                            {article.title}
-                          </p>
+                          <img
+                            // loading="lazy"
+                            src={article.cover}
+                            className="h-64 w-full rounded-3xl object-cover"
+                            alt={article.title}
+                          />
                         </Link>
-                      </div>
-                      <MagAuthor id={article.author_id} lightColor={true} />
+                        <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
+                          <div className="mt-2 flex flex-col gap-2">
+                            <Link
+                              to={`/mag/category/${article.category.en_title}`}
+                              className="w-fit rounded-full bg-yellow-400 px-2 py-0.5 font-vazirBold text-[11px] text-gray-900"
+                            >
+                              {article.category.title}
+                            </Link>
+                            <Link
+                              to={`/mag/${article.title.replaceAll(' ', '-')}`}
+                            >
+                              <p className="font-vazirBold text-base">
+                                {article.title}
+                              </p>
+                            </Link>
+                          </div>
+                          <MagAuthor id={article.author_id} lightColor={true} />
+                        </div>
+                        <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
+                      </Link>
                     </div>
-                    <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
-                  </Link>
-                </div>
-              </SwiperSlide>
-            ))}
+                  </SwiperSlide>
+                ))}
           </Swiper>
           <SwiperButtons
             nextBtn="jajigaMag-swiper-button-next"
