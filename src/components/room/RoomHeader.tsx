@@ -7,17 +7,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useRoom from '../../hooks/useRoom';
 import LikeAndShareButtons from './LikeAndShareButtons';
 import FullSizeImage from './FullSizeImage';
+import { useShareModal } from '../../hooks/useShareModal';
 
 function RoomHeader() {
   const [hoveredImage, setHoveredImage] = useState<null | number>(null);
   const [isOpen, setIsOpen] = useState(-1);
 
+  
   const closeModal = () => {
     setIsOpen(-1);
   };
-
+  
   const { id } = useParams();
   const { room } = useRoom(Number(id));
+  const { isOpen: isOpenShare } = useShareModal();
 
   const handleMouseEnter = (index: number) => {
     setHoveredImage(index);
@@ -26,6 +29,7 @@ function RoomHeader() {
   const handleMouseLeave = () => {
     setHoveredImage(null);
   };
+console.log(isOpenShare);
 
   if (!room) return null;
   return (
@@ -97,7 +101,9 @@ function RoomHeader() {
               src={room.images.at(4)}
               alt=""
             />
-            <div className="absolute left-2 top-2 z-40">
+            <div
+              className={`absolute left-2 top-2  ${isOpenShare ? 'z-50 bg-red-500' : 'z-40 bg-green-500'}`}
+            >
               <LikeAndShareButtons id={Number(id)} />
             </div>
           </div>

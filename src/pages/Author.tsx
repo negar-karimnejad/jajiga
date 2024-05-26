@@ -2,18 +2,19 @@ import { useParams } from 'react-router-dom';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
 import MagPost from '../components/articles/MagPost';
+import RoomCardSkeleton from '../components/ui/skeleton/RoomCardSkeleton';
 import { useArticles } from '../hooks/useArticles';
 import { useAuthors } from '../hooks/useAuthors';
 
 function Author() {
   const { id } = useParams();
   const { authors } = useAuthors();
-  const { articles } = useArticles();
+  const { articles, loading } = useArticles();
 
   const author = authors.find(
     (author) => author.fullname === id?.replaceAll('-', ' '),
   );
-  const filteredArticles = articles.filter(
+  const authorArticles = articles.filter(
     (article) => article.author_id === author?.id,
   );
 
@@ -26,9 +27,17 @@ function Author() {
             نوشته‌های {author?.fullname}
           </h3>
           <div className="grid grid-cols-12 gap-5">
-            {filteredArticles.map((article) => (
-              <MagPost key={article.id} article={article} />
-            ))}
+            {loading
+              ? Array.from({ length: authorArticles.length }).map(
+                  (_, index) => (
+                    <div key={index} className="col-span-4">
+                      <RoomCardSkeleton key={index} />
+                    </div>
+                  ),
+                )
+              : authorArticles.map((article) => (
+                  <MagPost key={article.id} article={article} />
+                ))}
           </div>
         </div>
       </div>

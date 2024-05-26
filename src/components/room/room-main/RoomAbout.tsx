@@ -174,7 +174,7 @@ function RoomAbout({ hostRef }: { hostRef: RefObject<HTMLDivElement> }) {
             {room?.bedroom === 0 ? 'بدون' : room.bedroom} اتاق خواب
           </span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {room.housing_space?.map((space, index) => (
             <div
               key={index}

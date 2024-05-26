@@ -33,7 +33,6 @@ import { store } from './redux/store';
 
 function App() {
   const { isOnline } = useOfflineCheck();
-
   if (!isOnline) return <OfflinePage />;
 
   return (

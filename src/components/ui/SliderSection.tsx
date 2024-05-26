@@ -31,6 +31,10 @@ function SliderSection({
   const { rooms, loading } = useRooms();
   const [selectedRooms, setSelectedRooms] = useState<Room[]>([]);
 
+  const scrollUp = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     let shuffledRooms: Room[] = [];
     if (list?.length) {
@@ -89,11 +93,10 @@ function SliderSection({
                   </SwiperSlide>
                 ))
               : selectedRooms.map((room) => (
-                  <SwiperSlide key={room.id}>
+                  <SwiperSlide key={room.id} onClick={scrollUp}>
                     <Link to={`/room/${room.code}`} className="relative h-52">
                       <div className="relative overflow-hidden rounded-3xl">
                         <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
-
                         <img
                           loading="lazy"
                           src={room.images?.at(0)}
