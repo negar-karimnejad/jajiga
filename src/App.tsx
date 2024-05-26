@@ -1,6 +1,8 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useOfflineCheck } from './OfflineRedirect ';
+import SigningModal from './components/auth/SigningModal';
+import DarkMode from './components/ui/DarkMode';
 import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 import About from './pages/About';
 import AddNewRoom from './pages/AddNewRoom';
@@ -28,8 +30,6 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
-import DarkMode from './components/ui/DarkMode';
-import SigningModal from './components/auth/SigningModal';
 
 function App() {
   const { isOnline } = useOfflineCheck();
