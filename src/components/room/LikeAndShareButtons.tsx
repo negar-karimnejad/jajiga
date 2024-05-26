@@ -3,15 +3,17 @@ import { BsShare } from 'react-icons/bs';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
 import { useWishes } from '../../context/WishesContext';
 import ShareModal from './ShareModal';
-import { useShareModal } from '../../hooks/useShareModal';
 
 function LikeAndShareButtons({ id }: { id: number }) {
+  const [isOpen, setIsOpen] = useState(false);
   const [wishTooltip, setWishTooltip] = useState('');
-
   const { toggleWish, wishes } = useWishes();
-  const { openModal } = useShareModal();
 
   const hasWish = wishes.includes(id);
+
+  const closeModalHandler = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     if (wishTooltip) {
@@ -65,7 +67,7 @@ function LikeAndShareButtons({ id }: { id: number }) {
           )}
         </button>
         <div
-          onClick={openModal}
+          onClick={() => setIsOpen(true)}
           className="group relative flex h-8 w-8 items-center justify-center rounded-md bg-white/90 hover:opacity-95 active:ring-2 active:ring-gray-100/50 dark:bg-gray-800/90 dark:text-white dark:active:ring-gray-600/50"
         >
           <BsShare size={18} />
@@ -75,7 +77,11 @@ function LikeAndShareButtons({ id }: { id: number }) {
         </div>
       </div>
 
-      <ShareModal id={id} />
+      <ShareModal
+        isOpen={isOpen}
+        id={id}
+        closeModalHandler={closeModalHandler}
+      />
     </>
   );
 }

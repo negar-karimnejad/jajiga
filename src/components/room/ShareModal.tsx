@@ -5,7 +5,15 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Modal from '../ui/Modal';
 
-function ShareModal({ id }: { id?: number }) {
+function ShareModal({
+  isOpen,
+  id,
+  closeModalHandler,
+}: {
+  isOpen: boolean;
+  id?: number;
+  closeModalHandler: () => void;
+}) {
   const handleClick = () => {
     // TODOLIST: CHANGE WEB ADDRESS AFTER ONLINE
     navigator.clipboard
@@ -25,7 +33,7 @@ function ShareModal({ id }: { id?: number }) {
   };
 
   return (
-    <Modal>
+    <Modal isOpen={isOpen} closeModalHandler={closeModalHandler}>
       <h4>برای ارسال این صفحه به دوستانت، کلیک کن</h4>
       <div className="my-5 flex flex-col space-y-3">
         <Link
