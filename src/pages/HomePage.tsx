@@ -18,6 +18,7 @@ import SearchResultModal from '../components/ui/SearchResultModal';
 import SliderSection from '../components/ui/SliderSection';
 import { useScroll } from '../hooks/useScroll';
 import useSearch from '../hooks/useSearch';
+import { BiChevronDown } from 'react-icons/bi';
 
 function HomePage() {
   const { scrollYPosition } = useScroll();
@@ -119,7 +120,7 @@ function HomePage() {
       </div>
 
       {/* Homepage hero content */}
-      <div className="absolute left-0 right-0 top-40 z-20 mx-auto w-96">
+      <div className="absolute left-0 right-0 top-36 z-20 mx-auto w-96">
         <div className="relative">
           <form
             onSubmit={(e) => e.preventDefault()}
@@ -159,13 +160,14 @@ function HomePage() {
             </div>
           )}
           <div className="absolute left-0 right-0 top-20 -z-10 mx-auto h-fit w-full text-white ">
-            <div className="mt-10 text-center text-white">
+            <div className="mt-10 flex flex-col items-center text-white">
               <p className="font-vazirMedium text-2xl md:text-3xl">
                 جاجیــــــــــگا
               </p>
               <p className="mt-3 font-vazirMedium text-sm md:text-base">
                 مثل خونه خودته :)
               </p>
+              <BiChevronDown size={45} className='animate-fade-down animate-infinite animate-duration-[2000ms] animate-delay-[2000ms] '/>
             </div>
           </div>
         </div>
