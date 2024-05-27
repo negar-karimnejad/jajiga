@@ -13,7 +13,7 @@ function WhiteBgNavbar() {
       <div className="flex shrink-0 gap-8 text-gray-500 dark:text-white max-md:hidden">
         <NavLinks whiteBg={true} />
       </div>
-      <div className="flex items-center gap-2 sm:w-full">
+      <div className="flex items-center gap-2 mr-3 sm:w-full">
         <Link
           to="/support"
           className="h-10 w-10 cursor-pointer rounded-full border p-1 dark:border-gray-500 max-md:hidden"

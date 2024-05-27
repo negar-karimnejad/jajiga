@@ -12,12 +12,14 @@ import ArticlesHeader from '../components/articles/ArticlesHeader';
 import MagAuthor from '../components/articles/MagAuthor';
 import Button from '../components/ui/Button';
 import { useArticle } from '../hooks/useArticle';
+import { useArticles } from '../hooks/useArticles';
 import convertToPersianDate from '../utilities/convertToPersianDate';
 
 function Article() {
   const { id } = useParams();
   const title = id ? id.replaceAll('-', ' ') : '';
   const { article } = useArticle(title);
+  const { articles } = useArticles();
 
   if (!article) return;
 
@@ -42,12 +44,13 @@ function Article() {
                 </h3>
                 <div className="relative">
                   <Swiper
+                    className="mb-5"
                     navigation={{
                       nextEl: '.article-swiper-button-next',
                       prevEl: '.article-swiper-button-prev',
                     }}
                     loop={true}
-                    // slidesPerView={1}
+                    allowTouchMove={false}
                     modules={[Navigation]}
                     breakpoints={{
                       0: {
@@ -64,198 +67,74 @@ function Article() {
                       },
                     }}
                   >
-                    <SwiperSlide className="flex flex-col gap-5">
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col gap-5">
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col gap-5">
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col gap-5">
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col gap-5">
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col gap-5">
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                      <Link to="" className="group flex">
-                        <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                          <img
-                            className="h-full w-24 object-cover"
-                            loading="lazy"
-                            src="/images/popular/anzali.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="mr-3 flex flex-1 items-center">
-                          <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
-                            دریاچه قو یکی از مناظر زلال و سرسبز رامسر
-                          </p>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
+                    {articles.slice(0, 5).map((article) => (
+                      <SwiperSlide className="flex flex-col gap-5">
+                        <Link
+                          to={`/mag/${article.title.replaceAll(' ', '-')}`}
+                          className="group flex"
+                        >
+                          <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                            <img
+                              className="h-full w-24 object-cover"
+                              loading="lazy"
+                              src={article.cover}
+                              alt=""
+                            />
+                          </div>
+                          <div className="mr-3 flex flex-1 items-center">
+                            <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                              {article.title}
+                            </p>
+                          </div>
+                        </Link>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <Swiper
+                    navigation={{
+                      nextEl: '.article-swiper-button-next',
+                      prevEl: '.article-swiper-button-prev',
+                    }}
+                    loop={true}
+                    allowTouchMove={false}
+                    modules={[Navigation]}
+                    breakpoints={{
+                      0: {
+                        slidesPerView: 1,
+                        spaceBetween: 250,
+                      },
+                      700: {
+                        slidesPerView: 2,
+                        spaceBetween: 100,
+                      },
+                      1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 250,
+                      },
+                    }}
+                  >
+                    {articles.slice(5, 10).map((article) => (
+                      <SwiperSlide className="flex flex-col gap-5">
+                        <Link
+                          to={`/mag/${article.title.replaceAll(' ', '-')}`}
+                          className="group flex"
+                        >
+                          <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
+                            <img
+                              className="h-full w-24 object-cover"
+                              loading="lazy"
+                              src={article.cover}
+                              alt=""
+                            />
+                          </div>
+                          <div className="mr-3 flex flex-1 items-center">
+                            <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
+                              {article.title}
+                            </p>
+                          </div>
+                        </Link>
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
 
                   <div className="article-swiper-button-next absolute -top-12 left-7 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-200 transition-all hover:bg-gray-400 dark:bg-gray-900 dark:hover:bg-gray-950">

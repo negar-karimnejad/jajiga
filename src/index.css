@@ -231,6 +231,9 @@ body {
 .rmdp-left:hover {
   background-color: rgb(198, 198, 198) !important;
 }
+.premium:hover .premium-dis {
+  visibility: visible;
+}
 
 .animate-fade-down {
   animation: fadeDown infinite 2000ms;

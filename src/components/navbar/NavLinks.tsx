@@ -4,9 +4,11 @@ import { useAuthModal } from '../../hooks/useAuthModal';
 import useRefHook from '../../hooks/useRefHook';
 import Announcements from '../ui/Announcements';
 import Button from '../ui/Button';
+import { useWishes } from '../../context/WishesContext';
 
 function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
   const { user } = useAuth();
+  const { wishes } = useWishes();
   const { openModalHandler } = useAuthModal();
   const { showModal, ref, isShowNotification } = useRefHook();
 
@@ -41,10 +43,15 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
         میزبان شوید
       </Link>
       <Link
-        className={`font-vazirBold text-base text-neutral-500 dark:text-white ${whiteBg ? 'text-neutral-500' : 'text-white'}`}
+        className={`relative font-vazirBold text-base text-neutral-500 dark:text-white ${whiteBg ? 'text-neutral-500' : 'text-white'}`}
         to="/wishes"
       >
         علاقه مندی ها
+        {wishes.length > 0 && (
+          <span className="absolute -left-4 -top-3 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 pt-1 font-persianNums text-sm text-black ">
+            {wishes.length}
+          </span>
+        )}
       </Link>
     </>
   );
