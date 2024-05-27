@@ -109,7 +109,7 @@ function NavMenu() {
               ) : (
                 <div>
                   <p className="mb-2 text-gray-600 dark:text-gray-300">
-                    {user} سارا نظیری
+                    {/* {user?.user_metadata?.fullname} */}
                   </p>
                   <Link
                     to="/profile"

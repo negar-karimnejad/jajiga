@@ -27,7 +27,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 function SigningModal() {
-  const { signupFunc, isLoading } = useAuth();
+  const { signupFunc, signinFunc, isLoading } = useAuth();
   const { isOpen, closeModalHandler } = useAuthModal();
 
   const submitHandler = async (
@@ -36,8 +36,9 @@ function SigningModal() {
   ) => {
     try {
       await signupFunc(values);
+      await signinFunc({ email: values.email, password: values.password });
       Swal.fire({
-        title: 'ثبت نام با موفقیت انجام شد',
+        title: 'ثبت نام و ورود با موفقیت انجام شد',
         toast: false,
         position: 'center',
         showConfirmButton: true,
