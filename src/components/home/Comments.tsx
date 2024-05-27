@@ -3,9 +3,9 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { homepageComments } from '../../data/data';
 import SwiperButtons from '../ui/SwiperButtons';
 import SectionHeading from './SectionHeading';
-import { homepageComments } from '../../data/data';
 
 function Comments() {
   return (

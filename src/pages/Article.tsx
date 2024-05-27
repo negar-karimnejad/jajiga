@@ -82,7 +82,7 @@ function Article() {
   if (!article) return;
 
   return (
-    <div className="bg-base-200 dark:bg-gray-900">
+    <div className="bg-gray-200 dark:bg-gray-900">
       <ArticlesHeader id={id} />
       <img
         src={article.cover}
@@ -258,7 +258,7 @@ function Article() {
                 <div className="mt-5 grid h-10 grid-cols-4 gap-2 lg:hidden">
                   <MagSocials />
                 </div>
-                <p className="mt-5 text-justify leading-8 text-gray-600 dark:text-gray-200">
+                <p className="mt-5 text-justify text-base leading-8 text-gray-600 dark:text-gray-200">
                   {article.description}
                 </p>
               </div>
@@ -361,7 +361,7 @@ function Article() {
                           </div>
                         </div>
                       </div>
-                      <p className="mr-20 mt-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
+                      <p className="mr-20 mt-2 max-sm:text-justify leading-6 text-gray-500 text-base dark:text-gray-300">
                         {comment.content}
                       </p>
                     </div>

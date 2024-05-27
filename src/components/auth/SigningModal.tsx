@@ -1,18 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
+import { UserProps } from '../../redux/store/auth';
 import Button from '../ui/Button';
 
-interface SignupFormValues {
-  fullname: string;
-  email: string;
-  password: string;
-}
-
-const initialValues: SignupFormValues = {
+const initialValues: UserProps = {
   fullname: '',
   email: '',
   password: '',
@@ -31,15 +27,15 @@ const SignupSchema = Yup.object().shape({
 });
 
 function SigningModal() {
-  const { signupFunc } = useAuth();
+  const { signupFunc, isLoading } = useAuth();
   const { isOpen, closeModalHandler } = useAuthModal();
 
-  const submitHandler = (
-    values: SignupFormValues,
-    { resetForm }: FormikHelpers<SignupFormValues>,
+  const submitHandler = async (
+    values: UserProps,
+    { resetForm }: FormikHelpers<UserProps>,
   ) => {
     try {
-      signupFunc(values);
+      await signupFunc(values);
       Swal.fire({
         title: 'ثبت نام با موفقیت انجام شد',
         toast: false,
@@ -54,9 +50,9 @@ function SigningModal() {
           resetForm();
         }
       });
-    } catch (error) {
+    } catch (error: any) {
       Swal.fire({
-        text: 'متاسفانه ثبت نام انجام نشد',
+        text: error.message,
         toast: true,
         timer: 5000,
         position: 'top-right',
@@ -106,6 +102,7 @@ function SigningModal() {
                   id="fullname"
                   name="fullname"
                   placeholder="نام و نام خانوادگی"
+                  disabled={isLoading}
                 />
                 <ErrorMessage
                   name="fullname"
@@ -120,6 +117,7 @@ function SigningModal() {
                   id="email"
                   name="email"
                   placeholder="ایمیل"
+                  disabled={isLoading}
                 />
                 <ErrorMessage
                   name="email"
@@ -134,6 +132,7 @@ function SigningModal() {
                   id="password"
                   name="password"
                   placeholder="رمز کاربری"
+                  disabled={isLoading}
                 />
                 <ErrorMessage
                   name="password"
@@ -145,8 +144,14 @@ function SigningModal() {
                 <Button
                   style="w-40 rounded-full bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                   type="submit"
+                  disabled={isLoading}
                 >
-                  ثبت نام
+                  <div className="flex items-center justify-center gap-2">
+                    <span>{isLoading ? 'در حال ثبت نام...' : 'ثبت نام'}</span>
+                    {isLoading && (
+                      <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
+                    )}
+                  </div>
                 </Button>
               </div>
             </Form>

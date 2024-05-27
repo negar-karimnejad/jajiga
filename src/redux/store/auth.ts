@@ -1,13 +1,20 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
-interface SigningParams {
+interface SupabaseUser {
+  id: string;
+  email: string;
+}
+
+export interface UserProps {
+  role?: 'admin' | 'user';
   email: string;
   password: string;
+  fullname: string;
 }
 
 interface UserState {
-  user: any | null;
+  user: SupabaseUser | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -20,22 +27,29 @@ const initialState: UserState = {
 
 export const signupUser = createAsyncThunk(
   'auth/signupUser',
-  async (credentials: SigningParams) => {
-    try {
-      const { email, password } = credentials;
-      const { data: user, error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-      if (error) {
-        throw error;
+  async (credentials: UserProps) => {
+    const { email, password, fullname } = credentials;
+    const role = password.startsWith('admin') ? 'admin' : 'user';
+
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          fullname,
+          role,
+        },
+      },
+    });
+
+    if (error) {
+      if (error.code === '422') {
+        throw Error('این ایمیل قبلا ثبت نام کرده است');
       }
-      return user;
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
+      throw Error('متاسفانه ثبت نام انجام نشد');
     }
+
+    return data.user as SupabaseUser;
   },
 );
 
@@ -43,14 +57,14 @@ export const signinUser = createAsyncThunk(
   'auth/signinUser',
   async ({ email, password }: { email: string; password: string }) => {
     try {
-      const { data: user, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
       if (error) {
         throw error;
       }
-      return user;
+      return data.user as SupabaseUser;
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);
@@ -62,7 +76,6 @@ export const signinUser = createAsyncThunk(
 export const signoutUser = createAsyncThunk('auth/signoutUser', async () => {
   try {
     const { error } = await supabase.auth.signOut();
-
     if (error) {
       throw error;
     }
@@ -77,16 +90,15 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setUser(state, action) {
+    setUser(state, action: PayloadAction<SupabaseUser | null>) {
       state.user = action.payload;
     },
-    setLoading(state, action) {
+    setLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
-    setError(state, action) {
+    setError(state, action: PayloadAction<string | null>) {
       state.error = action.payload;
     },
-
     clearError(state) {
       state.error = null;
     },
@@ -98,30 +110,36 @@ export const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(signupUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.user = action.payload;
-      })
+      .addCase(
+        signupUser.fulfilled,
+        (state, action: PayloadAction<SupabaseUser | undefined>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.user = action.payload ?? null; // Handle undefined case
+        },
+      )
       .addCase(signupUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string;
+        state.error = action.error.message || 'An error occurred';
       })
-      //   Signin
+      // Signin
       .addCase(signinUser.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(signinUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.user = action.payload;
-      })
+      .addCase(
+        signinUser.fulfilled,
+        (state, action: PayloadAction<SupabaseUser | undefined>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.user = action.payload ?? null; // Handle undefined case
+        },
+      )
       .addCase(signinUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string;
+        state.error = action.error.message || 'An error occurred';
       })
-      //   Signout
+      // Signout
       .addCase(signoutUser.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -133,7 +151,7 @@ export const authSlice = createSlice({
       })
       .addCase(signoutUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string;
+        state.error = action.error.message || 'An error occurred';
       });
   },
 });
