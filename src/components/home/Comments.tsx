@@ -42,14 +42,14 @@ function Comments() {
             className="comments-swiper cursor-default"
           >
             {homepageComments.map((comment) => (
-              <SwiperSlide>
+              <SwiperSlide key={comment.id}>
                 <div className="relative my-14 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">
                   <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-yellow-500 bg-white p-0.5 dark:bg-gray-900">
                     <img
                       loading="lazy"
                       src={comment.profile}
                       alt=""
-                      className="rounded-full w-full h-full object-cover"
+                      className="h-full w-full rounded-full object-cover"
                     />
                   </div>
 

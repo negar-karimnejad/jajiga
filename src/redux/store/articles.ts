@@ -8,6 +8,13 @@ export interface Article {
   description: string;
   cover: string;
   author_id: number;
+  comments: {
+    id: number | null | undefined;
+    email: string;
+    content: string;
+    createdAt: Date;
+    fullname: string;
+  }[];
   category: {
     id: number;
     color: string;
