@@ -10,7 +10,7 @@ export interface UserProps {
   role?: 'admin' | 'user';
   email: string;
   password: string;
-  fullname: string;
+  fullname?: string;
 }
 
 interface UserState {
@@ -58,20 +58,15 @@ export const signupUser = createAsyncThunk(
 export const signinUser = createAsyncThunk(
   'auth/signinUser',
   async ({ email, password }: { email: string; password: string }) => {
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (error) {
-        throw error;
-      }
-      return data.user as SupabaseUser;
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      throw Error('متاسفانه ثبت نام انجام نشد');
     }
+    return data.user as SupabaseUser;
   },
 );
 

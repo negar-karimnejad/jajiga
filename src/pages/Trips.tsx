@@ -4,12 +4,9 @@ import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import useRooms from '../hooks/useRooms';
-import { useAuth } from '../hooks/useAuth';
 
 function Trips() {
   const { rooms } = useRooms();
-  const { users } = useAuth();
-  console.log(users);
 
   return (
     <>

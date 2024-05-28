@@ -66,7 +66,7 @@ function NavMenu() {
 
       {/* NavMenue Modal */}
       <div
-        className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 ${isMenuOpen ? 'visible z-50' : 'invisible z-0'}`}
+        className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 z-50 ${isMenuOpen ? 'visible ' : 'invisible'}`}
         onClick={() => setIsMenuOpen(false)}
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
