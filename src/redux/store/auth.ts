@@ -14,12 +14,14 @@ export interface UserProps {
 }
 
 interface UserState {
+  users: SupabaseUser[];
   user: SupabaseUser | null;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: UserState = {
+  users: [],
   user: null,
   isLoading: false,
   error: null,
@@ -70,6 +72,20 @@ export const signinUser = createAsyncThunk(
         throw new Error(error.message);
       }
     }
+  },
+);
+
+export const fetchUsers = createAsyncThunk(
+  'auth/fetchUsers',
+  async (): Promise<SupabaseUser[]> => {
+    const { data, error } = await supabase.auth.admin.listUsers();
+    console.log('Fetch Users Response:', data, error); // Debugging line
+
+    if (error) {
+      throw error;
+    }
+
+    return data.users as SupabaseUser[];
   },
 );
 
@@ -136,6 +152,22 @@ export const authSlice = createSlice({
         },
       )
       .addCase(signinUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'An error occurred';
+      })
+      // Fetch Users
+      .addCase(fetchUsers.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(
+        fetchUsers.fulfilled,
+        (state, action: PayloadAction<SupabaseUser[]>) => {
+          state.isLoading = false;
+          state.users = action.payload;
+        },
+      )
+      .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || 'An error occurred';
       })

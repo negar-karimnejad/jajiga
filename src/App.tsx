@@ -28,6 +28,7 @@ import Room from './pages/Room';
 import Rooms from './pages/Rooms';
 import Rules from './pages/Rules';
 import Support from './pages/Support';
+import Trips from './pages/Trips';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/help" element={<Help />} />
           <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />
+          <Route path="/trips" element={<Trips />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/user/:id" element={<Host />} />
           <Route path="/app" element={<Appstore />} />

@@ -12,7 +12,7 @@ const useAuth = () => {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.auth);
 
-  const { error, isLoading, user } = data;
+  const { error, isLoading, user,users } = data;
 
   const signupFunc = async ({ email, password, fullname }: UserProps) => {
     await dispatch(signupUser({ email, password, fullname })).unwrap();
@@ -32,7 +32,8 @@ const useAuth = () => {
     await dispatch(signoutUser()).unwrap();
   };
 
-  return { error, isLoading, user, signoutFunc, signinFunc, signupFunc };
+  return { error, isLoading, user, users, signoutFunc, signinFunc, signupFunc };
 };
 
 export { useAuth };
+
