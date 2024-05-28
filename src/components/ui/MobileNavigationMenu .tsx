@@ -8,6 +8,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
 import useRefHook from '../../hooks/useRefHook';
 import Announcements from './Announcements';
+import Button from './Button';
 
 function MobileNavigationMenu() {
   const location = useLocation();
@@ -35,126 +36,144 @@ function MobileNavigationMenu() {
   }, [prevScrollPos]);
 
   return (
-    <div
-      className={`fixed bottom-0 right-0 z-30 h-16 w-full border-t-2 bg-white py-2 transition-all duration-700 dark:border-t-gray-600 dark:bg-gray-950 md:hidden ${isVisible ? 'translate-y-0' : 'translate-y-32'}`}
-    >
-      <div className="flex items-center">
-        {user ? (
-          <button
-            className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600`}
-            onClick={showModal}
-          >
-            <GoBell size={25} />
-            <span className="font-vazirMedium text-[13px]">اعلانات</span>
-            <div
-              ref={ref}
-              className={`absolute bottom-0 right-0 z-20 w-full rounded-t-lg border bg-white p-4 shadow-lg transition-all duration-500 dark:border-none dark:bg-gray-800 ${isShowNotification ? 'visible translate-y-0' : 'invisible translate-y-80'}`}
+    <>
+      <div
+        className={`fixed bottom-0 right-0 z-30 h-16 w-full border-t-2 bg-white py-2 transition-all duration-700 dark:border-t-gray-600 dark:bg-gray-950 md:hidden ${isVisible ? 'translate-y-0' : 'translate-y-32'}`}
+      >
+        <div className="flex items-center">
+          {user ? (
+            <button
+              className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600`}
+              onClick={showModal}
             >
-              <Announcements />
-            </div>
-          </button>
-        ) : (
-          <button
-            className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600`}
-            onClick={openModalHandler}
-          >
-            <BiUser size={25} />
-            <span className="font-vazirMedium text-[13px]">ورود / ثبت نام</span>
-          </button>
-        )}
-        {navigationLinks.map((link) =>
-          link.title ? (
-            <Link
-              key={link.id}
-              to={link.to}
-              className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600 ${location.pathname === link.to ? 'border-b-4 border-b-red-600 text-red-600 dark:border-b-red-600 dark:text-red-600' : ''}`}
-            >
-              <span className="relative">
-                {link.icon}
-                {wishes.length > 0 && link.to === '/wishes' && (
-                  <span className="absolute -left-3 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 pt-1 font-persianNums text-sm text-black ">
-                    {wishes.length}
-                  </span>
-                )}
-              </span>
-              <span className="font-vazirMedium text-[13px]">{link.title}</span>
-            </Link>
+              <GoBell size={25} />
+              <span className="font-vazirMedium text-[13px]">اعلانات</span>
+            </button>
           ) : (
-            <div
-              key={link.id}
-              className="flex flex-col  items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600"
+            <button
+              className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600`}
+              onClick={openModalHandler}
             >
-              <span>{link.icon}</span>
+              <BiUser size={25} />
               <span className="font-vazirMedium text-[13px]">
-                {link?.title}
+                ورود / ثبت نام
               </span>
-            </div>
-          ),
+            </button>
+          )}
+          {navigationLinks.map((link) =>
+            link.title ? (
+              <Link
+                key={link.id}
+                to={link.to}
+                className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600 ${location.pathname === link.to ? 'border-b-4 border-b-red-600 text-red-600 dark:border-b-red-600 dark:text-red-600' : ''}`}
+              >
+                <span className="relative">
+                  {link.icon}
+                  {wishes.length > 0 && link.to === '/wishes' && (
+                    <span className="absolute -left-3 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 pt-1 font-persianNums text-sm text-black ">
+                      {wishes.length}
+                    </span>
+                  )}
+                </span>
+                <span className="font-vazirMedium text-[13px]">
+                  {link.title}
+                </span>
+              </Link>
+            ) : (
+              <div
+                key={link.id}
+                className="flex flex-col  items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600"
+              >
+                <span>{link.icon}</span>
+                <span className="font-vazirMedium text-[13px]">
+                  {link?.title}
+                </span>
+              </div>
+            ),
+          )}
+        </div>
+        {location.pathname !== '/support' && (
+          <Link
+            to="/support"
+            className="absolute bottom-20 left-4 h-10 w-10 cursor-pointer rounded-full border-2 border-gray-300 bg-white p-1 dark:border-gray-500 dark:bg-gray-800"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M19 17H18C17.448 17 17 16.552 17 16V11C17 10.448 17.448 10 18 10H19C20.105 10 21 10.895 21 12V15C21 16.105 20.105 17 19 17Z"
+                fill="#F0C807"
+                stroke="#323232"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="dark:stroke-white"
+              ></path>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M6 17H5C3.895 17 3 16.105 3 15V12C3 10.895 3.895 10 5 10H6C6.552 10 7 10.448 7 11V16C7 16.552 6.552 17 6 17Z"
+                fill="#F0C807"
+                stroke="#323232"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="dark:stroke-white"
+              ></path>
+              <path
+                d="M18.5 10V9.5C18.5 5.91 15.59 3 12 3V3C8.41 3 5.5 5.91 5.5 9.5V10"
+                stroke="#252525"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="dark:stroke-white"
+              ></path>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12.625 21.25H11.375C10.685 21.25 10.125 20.69 10.125 20C10.125 19.31 10.685 18.75 11.375 18.75H12.625C13.315 18.75 13.875 19.31 13.875 20C13.875 20.69 13.315 21.25 12.625 21.25Z"
+                fill="#F0C807"
+                stroke="#323232"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="dark:stroke-white"
+              ></path>
+              <path
+                d="M13.875 20H16C17.105 20 18 19.105 18 18V17"
+                stroke="#323232"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="dark:stroke-white"
+              ></path>
+            </svg>
+          </Link>
         )}
       </div>
-      {location.pathname !== '/support' && (
-        <Link
-          to="/support"
-          className="absolute bottom-20 left-4 h-10 w-10 cursor-pointer rounded-full border-2 border-gray-300 bg-white p-1 dark:border-gray-500 dark:bg-gray-800"
-        >
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            preserveAspectRatio="xMidYMid meet"
+      <div
+        className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center justify-center bg-black/60 transition-all duration-500 max-md:justify-end ${isShowNotification ? 'visible' : 'invisible'}`}
+      >
+        <div className="relative">
+          <Button
+            style={`fixed w-5 h-5 font-vazirBold text-4xl text-white transition-all duration-700 ${isShowNotification ? 'top-60 left-4' : '-left-10 top-60'}`}
           >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M19 17H18C17.448 17 17 16.552 17 16V11C17 10.448 17.448 10 18 10H19C20.105 10 21 10.895 21 12V15C21 16.105 20.105 17 19 17Z"
-              fill="#F0C807"
-              stroke="#323232"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="dark:stroke-white"
-            ></path>
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M6 17H5C3.895 17 3 16.105 3 15V12C3 10.895 3.895 10 5 10H6C6.552 10 7 10.448 7 11V16C7 16.552 6.552 17 6 17Z"
-              fill="#F0C807"
-              stroke="#323232"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="dark:stroke-white"
-            ></path>
-            <path
-              d="M18.5 10V9.5C18.5 5.91 15.59 3 12 3V3C8.41 3 5.5 5.91 5.5 9.5V10"
-              stroke="#252525"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="dark:stroke-white"
-            ></path>
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M12.625 21.25H11.375C10.685 21.25 10.125 20.69 10.125 20C10.125 19.31 10.685 18.75 11.375 18.75H12.625C13.315 18.75 13.875 19.31 13.875 20C13.875 20.69 13.315 21.25 12.625 21.25Z"
-              fill="#F0C807"
-              stroke="#323232"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="dark:stroke-white"
-            ></path>
-            <path
-              d="M13.875 20H16C17.105 20 18 19.105 18 18V17"
-              stroke="#323232"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="dark:stroke-white"
-            ></path>
-          </svg>
-        </Link>
-      )}
-    </div>
+            &times;
+          </Button>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            ref={ref}
+            className={`fixed right-0 z-20 w-full rounded-t-lg border bg-white p-4 shadow-lg transition-all duration-500 dark:border-none dark:bg-gray-800 ${isShowNotification ? 'bottom-0' : '-bottom-96'}`}
+          >
+            <Announcements />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
