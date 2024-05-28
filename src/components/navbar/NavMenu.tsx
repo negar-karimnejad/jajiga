@@ -66,11 +66,13 @@ function NavMenu() {
 
       {/* NavMenue Modal */}
       <div
-        className={`fixed right-0 top-0 h-screen w-full bg-black/60 transition-all duration-500 z-50 ${isMenuOpen ? 'visible ' : 'invisible'}`}
+        className={`fixed right-0 top-0 z-50 h-screen w-full bg-black/60 transition-all duration-500 ${isMenuOpen ? 'visible' : 'invisible'}`}
         onClick={() => setIsMenuOpen(false)}
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
-          <Button style="absolute -left-3 top-2 font-vazirBold text-4xl text-white px-0 py-0 hover:shadow-none">
+          <Button
+            style={`absolute top-2 font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none ${isMenuOpen ? 'right-[22rem]' : '-right-[420px]'}`}
+          >
             &times;
           </Button>
           <div
@@ -133,10 +135,10 @@ function NavMenu() {
                             to={item.to}
                             className="flex items-center gap-4"
                           >
-                            <span className="text-lg text-gray-500 dark:text-gray-400">
+                            <span className="text-lg text-gray-500 dark:text-gray-200">
                               {item.icon}
                             </span>
-                            <span className="font-vazirBold text-gray-500 dark:text-gray-400">
+                            <span className="font-vazirBold text-gray-500 dark:text-gray-200">
                               {item.title}
                             </span>
                           </Link>
@@ -155,10 +157,10 @@ function NavMenu() {
                         to={item.to}
                         className="flex items-center gap-4"
                       >
-                        <span className="text-lg text-gray-500 dark:text-gray-400">
+                        <span className="text-lg text-gray-500 dark:text-gray-200">
                           {item.icon}
                         </span>
-                        <span className="font-vazirBold text-gray-500 dark:text-gray-400">
+                        <span className="font-vazirBold text-gray-500 dark:text-gray-200">
                           {item.title}
                         </span>
                       </Link>
@@ -175,10 +177,10 @@ function NavMenu() {
                     onClick={() => setIsMenuOpen(false)}
                     style="flex items-center gap-4 px-0 py-0 hover:shadow-none"
                   >
-                    <span className="text-lg text-gray-500 dark:text-gray-400">
+                    <span className="text-lg text-gray-500 dark:text-gray-200">
                       <BiExit />
                     </span>
-                    <span className="font-vazirBold text-gray-500 dark:text-gray-400">
+                    <span className="font-vazirBold text-gray-500 dark:text-gray-200">
                       خروج
                     </span>
                   </Button>
@@ -186,29 +188,29 @@ function NavMenu() {
               )}
             </ul>
             <div className="px-4 text-gray-500">0.139.7</div>
-            <footer className="flex items-center justify-between rounded-t-xl bg-gray-200 px-10 py-3 dark:bg-gray-600">
+            <footer className="flex items-center justify-between rounded-t-xl bg-gray-200 px-10 py-3 dark:bg-gray-400">
               <Link target="_blank" to="https://www.aparat.com/jajiga">
                 <PiYoutubeLogo
                   size={20}
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-900 dark:hover:text-gray-400"
+                  className="text-gray-500 transition-all hover:text-gray-900 dark:text-gray-900 dark:hover:text-white"
                 />
               </Link>
               <Link target="_blank" to="https://twitter.com/jajiga_iran">
                 <PiTwitterLogo
                   size={20}
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-900 dark:hover:text-gray-400"
+                  className="text-gray-500 transition-all hover:text-gray-900 dark:text-gray-900 dark:hover:text-white"
                 />
               </Link>
               <Link target="_blank" to="https://www.instagram.com/jajiga.iran">
                 <PiInstagramLogo
                   size={20}
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-900 dark:hover:text-gray-400"
+                  className="text-gray-500 transition-all hover:text-gray-900 dark:text-gray-900 dark:hover:text-white"
                 />
               </Link>
               <Link target="_blank" to="https://t.me/jajiga">
                 <PiTelegramLogo
                   size={20}
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-900 dark:hover:text-gray-400"
+                  className="text-gray-500 transition-all hover:text-gray-900 dark:text-gray-900 dark:hover:text-white"
                 />
               </Link>
             </footer>
