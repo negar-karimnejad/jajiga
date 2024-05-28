@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { BiUser } from 'react-icons/bi';
 import { GoBell } from 'react-icons/go';
 import { Link, useLocation } from 'react-router-dom';
-import { useWishes } from '../../context/WishesContext';
 import { navigationLinks } from '../../data/data';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
 import useRefHook from '../../hooks/useRefHook';
 import Announcements from './Announcements';
 import Button from './Button';
+import NavigationLink from './NavigationLink';
 
 function MobileNavigationMenu() {
   const location = useLocation();
@@ -19,7 +19,6 @@ function MobileNavigationMenu() {
   const { user } = useAuth();
   const { showModal, isShowNotification, ref } = useRefHook();
   const { openModalHandler } = useAuthModal();
-  const { wishes } = useWishes();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +33,6 @@ function MobileNavigationMenu() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [prevScrollPos]);
-
   return (
     <>
       <div
@@ -62,23 +60,7 @@ function MobileNavigationMenu() {
           )}
           {navigationLinks.map((link) =>
             link.title ? (
-              <Link
-                key={link.id}
-                to={link.to}
-                className={`flex flex-1 flex-col items-center justify-center gap-1 transition-all hover:text-red-600 dark:text-white dark:hover:text-red-600 ${location.pathname === link.to ? 'border-b-4 border-b-red-600 text-red-600 dark:border-b-red-600 dark:text-red-600' : ''}`}
-              >
-                <span className="relative">
-                  {link.icon}
-                  {wishes.length > 0 && link.to === '/wishes' && (
-                    <span className="absolute -left-3 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 pt-1 font-persianNums text-sm text-black ">
-                      {wishes.length}
-                    </span>
-                  )}
-                </span>
-                <span className="font-vazirMedium text-[13px]">
-                  {link.title}
-                </span>
-              </Link>
+              <NavigationLink key={link.id} link={link} />
             ) : (
               <div
                 key={link.id}
