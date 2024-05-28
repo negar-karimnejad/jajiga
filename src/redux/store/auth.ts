@@ -3,7 +3,7 @@ import supabase from '../../services/supabase';
 
 interface SupabaseUser {
   id: string;
-  email: string;
+  email?: string;
 }
 
 export interface UserProps {
@@ -81,6 +81,16 @@ export const fetchUsers = createAsyncThunk(
     }
 
     return data.users as SupabaseUser[];
+  },
+);
+
+export const restoreSession = createAsyncThunk(
+  'auth/restoreSession',
+  async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    return session?.user || null;
   },
 );
 
@@ -163,6 +173,22 @@ export const authSlice = createSlice({
         },
       )
       .addCase(fetchUsers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'An error occurred';
+      })
+      // restoreSession
+      .addCase(restoreSession.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(
+        restoreSession.fulfilled,
+        (state, action: PayloadAction<SupabaseUser | null>) => {
+          state.isLoading = false;
+          state.user = action.payload;
+        },
+      )
+      .addCase(restoreSession.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || 'An error occurred';
       })
