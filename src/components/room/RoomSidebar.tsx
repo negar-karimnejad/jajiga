@@ -3,6 +3,7 @@ import { GoQuestion, GoShieldCheck } from 'react-icons/go';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import { IoChatbubblesOutline } from 'react-icons/io5';
 import { useParams } from 'react-router-dom';
+import { useCalendarContext } from '../../context/CalendarContext';
 import useRoom from '../../hooks/useRoom';
 import Button from '../ui/Button';
 import CalendarFunc from '../ui/calendar';
@@ -18,6 +19,7 @@ function RoomSidebar({
   const [isShowCalendar, setIsShowCalendar] = useState(false);
   const { id } = useParams();
   const { room } = useRoom(Number(id));
+  const { dates } = useCalendarContext();
 
   const closeCalendarModal = () => {
     setIsShowCalendar(false);
@@ -58,13 +60,28 @@ function RoomSidebar({
               >
                 <div className="flex items-center justify-between">
                   <div
-                    className={`duration-400 mx-1 flex-1 cursor-pointer rounded-lg py-2 text-center text-gray-400 transition-all ${isShowCalendar ? 'border border-blue-500 text-blue-500' : 'border border-transparent'}`}
+                    className={`duration-400 mx-1 flex-1 cursor-pointer rounded-lg text-center text-gray-400 transition-all ${isShowCalendar ? 'border border-blue-500 text-blue-500' : 'border border-transparent'}`}
                   >
-                    تاریخ ورود{' '}
+                    {dates[0] ? (
+                      <p className="flex flex-col">
+                        <span className="text-[12px]">ورود</span>
+                        <span className='text-gray-700'>{dates[0].format()}</span>
+                      </p>
+                    ) : (
+                      'تاریخ ورود'
+                    )}
+                    {/* {formatDate(dates[0] as DateObject)} */}
                   </div>
                   <div className="h-6 w-0.5 bg-gray-200"></div>
                   <div className="flex-1 cursor-pointer text-center text-gray-400">
-                    تاریخ خروج{' '}
+                  {dates[1] ? (
+                      <p className="flex flex-col">
+                        <span className="text-[12px]">خروج</span>
+                        <span className='text-gray-700'>{dates[1].format()}</span>
+                      </p>
+                    ) : (
+                      'تاریخ خروج'
+                    )}
                   </div>
                 </div>
               </div>
