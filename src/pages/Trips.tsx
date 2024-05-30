@@ -2,11 +2,11 @@ import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import TripCard from '../components/trips/TripCard';
 import Breadcrumb from '../components/ui/Breadcrumb';
+import RoomCardSkeleton from '../components/ui/skeleton/RoomCardSkeleton';
 import useTrips from '../hooks/useTrips';
 
 function Trips() {
-  const { trips } = useTrips();
-
+  const { trips, loading } = useTrips();
   return (
     <>
       <Application style="h-12" />
@@ -22,7 +22,13 @@ function Trips() {
           </div>
         </div>
         <div className="container mt-5 grid grid-cols-1 gap-8 pb-20 sm:grid-cols-2 lg:grid-cols-3">
-          {trips?.map((trip, index) => <TripCard key={index} trip={trip} />)}
+          {loading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <RoomCardSkeleton key={index} />
+              ))
+            : trips?.map((trip) => (
+                <TripCard loading={loading} key={trip.id} trip={trip} />
+              ))}
         </div>
       </div>
     </>

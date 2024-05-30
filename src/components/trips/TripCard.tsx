@@ -2,50 +2,28 @@ import moment from 'jalali-moment';
 import { GoChevronLeft } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import { Trip } from '../../redux/store/trips';
+import RoomCardSkeleton from '../ui/skeleton/RoomCardSkeleton';
 
-function TripCard({ trip }: { trip: Trip }) {
-  const inputDate = '۱۴۰۳/۰۳/۱۴';
+function TripCard({ trip, loading }: { trip: Trip; loading: boolean }) {
+  if (loading) return <RoomCardSkeleton />;
 
-  // Parse the Jalali date
-  const jalaliMoment = moment(inputDate, 'jYYYY/jMM/jDD').locale('fa');
+  // Assuming trip.enter and trip.exit are in the format '۱۴۰۳/۰۴/۰۳' (jYYYY/jMM/jDD)
+  const jalaliDateEnter = moment(trip.enter, 'jYYYY/jMM/jDD').locale('fa');
+  const jalaliDateExit = moment(trip.exit, 'jYYYY/jMM/jDD').locale('fa');
 
-  // Define arrays for Persian months and weekdays
-  const persianMonths = [
-    'فروردین',
-    'اردیبهشت',
-    'خرداد',
-    'تیر',
-    'مرداد',
-    'شهریور',
-    'مهر',
-    'آبان',
-    'آذر',
-    'دی',
-    'بهمن',
-    'اسفند',
-  ];
+  // Format the dates
+  const formattedEnterDate = jalaliDateEnter.format('DD MMMM dddd');
+  const formattedExitDate = jalaliDateExit.format('DD MMMM dddd');
 
-  const persianWeekdays = [
-    'شنبه',
-    'یک‌شنبه',
-    'دوشنبه',
-    'سه‌شنبه',
-    'چهارشنبه',
-    'پنج‌شنبه',
-    'جمعه',
-  ];
+  // Extract parts for individual use
+  const enterDay = jalaliDateEnter.format('DD');
+  const enterMonth = jalaliDateEnter.format('MMMM');
+  const enterWeekday = jalaliDateEnter.format('dddd');
 
-  // Format the date
-  const day = jalaliMoment.jDate();
-  const month = persianMonths[jalaliMoment.jMonth()];
-  const weekday = persianWeekdays[jalaliMoment.day()];
+  const exitDay = jalaliDateExit.format('DD');
+  const exitMonth = jalaliDateExit.format('MMMM');
+  const exitWeekday = jalaliDateExit.format('dddd');
 
-  const jalaliDate = moment('1403/03/14', 'jYYYY-jMM-jDD');
-
-  // Format the date to show day, month, and weekday in Persian
-  const formattedDate = jalaliDate.locale('fa').format('DD MMMM dddd');
-
-  console.log(formattedDate); // Outputs: 14 خرداد دوشنبه
   return (
     <div className="relative rounded-xl shadow-md">
       <Link to={`/room/${trip.room.code}`} className="group">

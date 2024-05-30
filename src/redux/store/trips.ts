@@ -10,6 +10,7 @@ export interface Trip {
   numbers: number;
   cost: number;
   room: Room;
+  userId: string;
 }
 
 interface RoomState {

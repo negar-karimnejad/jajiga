@@ -3,15 +3,15 @@ import { GoQuestion, GoShieldCheck } from 'react-icons/go';
 import { IoIosClose, IoMdInformationCircleOutline } from 'react-icons/io';
 import { IoChatbubblesOutline } from 'react-icons/io5';
 import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useCalendarContext } from '../../context/CalendarContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
 import useRoom from '../../hooks/useRoom';
+import useTrips from '../../hooks/useTrips';
+import { Trip } from '../../redux/store/trips';
 import Button from '../ui/Button';
 import CalendarFunc from '../ui/calendar';
-import useTrips from '../../hooks/useTrips';
-import Swal from 'sweetalert2';
-import { Trip } from '../../redux/store/trips';
 
 function RoomSidebar({
   openFqlModal,
@@ -61,6 +61,7 @@ function RoomSidebar({
           nights: nights,
           numbers,
           cost: totalPrice,
+          userId: user.id,
         };
 
         try {
@@ -209,7 +210,7 @@ function RoomSidebar({
                   </option>
                   {Array.from({ length: room.max_capacity }).map((_, index) => (
                     <option
-                    key={index}
+                      key={index}
                       value={index + 1}
                       className="font-persianNums text-gray-700"
                     >
