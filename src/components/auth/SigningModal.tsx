@@ -6,7 +6,7 @@ import Signin from './Signin';
 import Signup from './Signup';
 
 function SigningModal() {
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(true);
   const { isOpen, closeModalHandler } = useAuthModal();
 
   useEffect(() => {

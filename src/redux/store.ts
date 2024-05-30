@@ -5,6 +5,7 @@ import modalReducer from './store/authModal';
 import authorsReducer from './store/authors';
 import roomsReducer from './store/room';
 import roomsMetaReducer from './store/roomsMeta';
+import tripsReducer from './store/trips';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     authors: authorsReducer,
     auth: authReducer,
     modal: modalReducer,
+    trips: tripsReducer,
   },
 });
 

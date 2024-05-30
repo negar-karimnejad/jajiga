@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 import { GoQuestion, GoShieldCheck } from 'react-icons/go';
-import { IoMdInformationCircleOutline } from 'react-icons/io';
+import { IoIosClose, IoMdInformationCircleOutline } from 'react-icons/io';
 import { IoChatbubblesOutline } from 'react-icons/io5';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useCalendarContext } from '../../context/CalendarContext';
+import { useAuth } from '../../hooks/useAuth';
+import { useAuthModal } from '../../hooks/useAuthModal';
 import useRoom from '../../hooks/useRoom';
 import Button from '../ui/Button';
 import CalendarFunc from '../ui/calendar';
+import useTrips from '../../hooks/useTrips';
+import Swal from 'sweetalert2';
+import { Trip } from '../../redux/store/trips';
 
 function RoomSidebar({
   openFqlModal,
@@ -15,14 +20,76 @@ function RoomSidebar({
   openFqlModal: () => void;
   openGuaranteeModal: () => void;
 }) {
+  const navigate = useNavigate();
+
   const [isShowInfo, setIsShowInfo] = useState(false);
+  const [numbers, setNumbers] = useState(-1);
   const [isShowCalendar, setIsShowCalendar] = useState(false);
+  const [dateError, setDateError] = useState(false);
+  const [numbersError, setNumbersError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showCost, setShowCost] = useState(false);
+
   const { id } = useParams();
   const { room } = useRoom(Number(id));
-  const { dates } = useCalendarContext();
+  const { dates, calculateNights } = useCalendarContext();
+  const { user } = useAuth();
+  const { addTrip } = useTrips();
+  const { openModalHandler } = useAuthModal();
+
+  const nights = calculateNights();
 
   const closeCalendarModal = () => {
     setIsShowCalendar(false);
+  };
+
+  const reservationHandler = async () => {
+    if (!dates[0] || !dates[1]) {
+      setDateError(true);
+    }
+    if (numbers === -1) {
+      setNumbersError(true);
+    } else {
+      if (!user) {
+        openModalHandler();
+      } else {
+        const newTrip: Trip = {
+          id: Math.floor(Math.random() * 100),
+          enter: dates[0].format(),
+          exit: dates[1].format(),
+          room: room,
+          nights: nights,
+          numbers,
+          cost: totalPrice,
+        };
+
+        try {
+          await addTrip(newTrip);
+          Swal.fire({
+            title: 'اقامتگاه با موفقیت رزرو شد.',
+            toast: false,
+            position: 'center',
+            showConfirmButton: true,
+            icon: 'success',
+            customClass: { icon: 'm-auto mt-4' },
+            confirmButtonText: 'باشه',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate('/trips');
+            }
+          });
+        } catch (error) {
+          Swal.fire({
+            text: 'متاسفانه عملیات انجام نشد',
+            toast: true,
+            timer: 5000,
+            position: 'top-right',
+            showConfirmButton: false,
+            icon: 'error',
+          });
+        }
+      }
+    }
   };
 
   useEffect(() => {
@@ -39,11 +106,42 @@ function RoomSidebar({
     };
   }, []);
 
+  useEffect(() => {
+    if (dates[1]) {
+      closeCalendarModal();
+    }
+  }, [dates]);
+
+  useEffect(() => {
+    if (dates[0] || dates[1]) {
+      setDateError(false);
+    }
+
+    if (numbers !== -1) {
+      setNumbersError(false);
+    }
+
+    if (numbers !== -1 && dates[0] && dates[1]) {
+      setShowCost(true);
+      setLoading(true);
+      const timeoutId = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [dates, numbers]);
+
   if (!room) return null;
+
+  const totalPrice =
+    numbers > room?.capacity
+      ? room?.extra_person_charge + nights * room?.price
+      : nights * room?.price;
 
   return (
     <>
-      <div className="relative top-[78px] h-fit max-lg:top-[63px] max-md:hidden md:sticky md:col-span-4">
+      <div className="relative top-0 h-fit max-lg:top-[63px] max-md:hidden md:sticky md:col-span-4">
         <div className="overflow-hidden rounded-xl shadow-lg dark:border dark:border-gray-700 dark:bg-gray-800">
           <header className="flex justify-between bg-neutral-700 p-4 text-white dark:bg-gray-900">
             <span className="font-vazirMedium text-base">نرخ هر شب از:</span>
@@ -51,12 +149,12 @@ function RoomSidebar({
               {room.price.toLocaleString()} تومان
             </span>
           </header>
-          <div className="my-6 px-4">
+          <div className="my-5 px-4">
             <form className="flex flex-col">
               <p className="mb-1 dark:text-white">تاریخ سفر</p>
               <div
                 onClick={() => setIsShowCalendar(true)}
-                className="z-30 rounded-xl border py-1"
+                className={`z-30 rounded-xl border py-1 ${dateError ? ' border-red-500' : ''}`}
               >
                 <div className="flex items-center justify-between">
                   <div
@@ -65,7 +163,9 @@ function RoomSidebar({
                     {dates[0] ? (
                       <p className="flex flex-col">
                         <span className="text-[12px]">ورود</span>
-                        <span className='text-gray-700'>{dates[0].format()}</span>
+                        <span className="text-gray-700">
+                          {dates[0].format()}
+                        </span>
                       </p>
                     ) : (
                       'تاریخ ورود'
@@ -74,10 +174,12 @@ function RoomSidebar({
                   </div>
                   <div className="h-6 w-0.5 bg-gray-200"></div>
                   <div className="flex-1 cursor-pointer text-center text-gray-400">
-                  {dates[1] ? (
+                    {dates[1] ? (
                       <p className="flex flex-col">
                         <span className="text-[12px]">خروج</span>
-                        <span className='text-gray-700'>{dates[1].format()}</span>
+                        <span className="text-gray-700">
+                          {dates[1].format()}
+                        </span>
                       </p>
                     ) : (
                       'تاریخ خروج'
@@ -85,40 +187,116 @@ function RoomSidebar({
                   </div>
                 </div>
               </div>
-              <label htmlFor="" className="my-5 flex flex-col dark:text-white">
+              {dateError && (
+                <p className="font-vazirMedium text-[12px] text-red-600">
+                  تاریخ سفر را مشخص کنید
+                </p>
+              )}
+              <label
+                htmlFor="numbers"
+                className="my-4 flex flex-col dark:text-white"
+              >
                 تعداد نفرات
                 <select
-                  name=""
-                  id=""
-                  className="mt-1 rounded-xl border bg-transparent px-4 py-2 text-gray-400 outline-none"
+                  name="numbers"
+                  id="numbers"
+                  value={numbers}
+                  onChange={(e) => setNumbers(Number(e.target.value))}
+                  className={`mt-1 rounded-xl border bg-transparent px-4 py-2 text-gray-700 outline-none ${numbersError ? ' border-red-500' : ''}`}
                 >
-                  <option value="" className="text-gray-500">
+                  <option value={-1} className="text-gray-500">
                     تعداد نفرات را مشخص کنید
                   </option>
-                  <option value="1" className="font-persianNums text-gray-700">
-                    1 نفر
-                  </option>
-                  <option value="2" className="font-persianNums text-gray-700">
-                    2 نفر
-                  </option>
-                  <option value="3" className="font-persianNums text-gray-700">
-                    3 نفر
-                  </option>
-                  <option value="4" className="font-persianNums text-gray-700">
-                    4 نفر
-                  </option>
-                  <option value="5" className="font-persianNums text-gray-700">
-                    5 نفر
-                  </option>
-                  <option value="6" className="font-persianNums text-gray-700">
-                    6 نفر
-                  </option>
+                  {Array.from({ length: room.max_capacity }).map((_, index) => (
+                    <option
+                    key={index}
+                      value={index + 1}
+                      className="font-persianNums text-gray-700"
+                    >
+                      {room.capacity >= index + 1
+                        ? `${index + 1} نفر`
+                        : `${index + 1} نفر (${room.capacity} نفر + ${index + 1 - room.capacity} نفر اضافه)`}
+                    </option>
+                  ))}
                 </select>
-                <p className="mt-1 text-[12px] text-gray-500 dark:text-gray-200">
-                  تا 1 کودک زیر 5 سال در صورتحساب لحاظ نمی گردد.
-                </p>
+                {numbersError ? (
+                  <p className="font-vazirMedium text-[12px] text-red-600">
+                    تعداد نفرات را مشخص کنید
+                  </p>
+                ) : (
+                  <p className="mt-1 text-[12px] text-gray-500 dark:text-gray-200">
+                    تا 1 کودک زیر 5 سال در صورتحساب لحاظ نمی گردد.
+                  </p>
+                )}
               </label>
-              <Button style="font-vazirMedium relative bg-yellow-400 hover:bg-yellow-500 rounded-full w-full my-5">
+              {loading ? (
+                <div className="flex min-h-40 items-center justify-center">
+                  <div className="flex h-full w-full items-center justify-center">
+                    <div className="spin-loader"></div>
+                  </div>
+                </div>
+              ) : (
+                showCost && (
+                  <div className="my-1 w-full rounded-md border border-gray-100 p-2 shadow-md">
+                    <div className="mb-3 flex items-center justify-between border border-dashed bg-gray-50 p-1 text-sm text-gray-600">
+                      <p className="flex items-center gap-0.5">
+                        <span className="font-persianNums">{nights}</span> شب{' '}
+                        <IoIosClose />{' '}
+                        <span className="font-persianNums">
+                          {room.price.toLocaleString()}{' '}
+                        </span>
+                        تومان
+                      </p>
+                      <p>
+                        <span className="font-persianNums">
+                          {(numbers > room.max_capacity
+                            ? room.extra_person_charge + room.price * nights
+                            : room.price * nights
+                          ).toLocaleString()}
+                        </span>{' '}
+                        تومان
+                      </p>
+                    </div>
+                    {numbers > room.capacity && (
+                      <div className="flex  items-center justify-between text-sm text-gray-600">
+                        <p>هزینه نفرات اضافه</p>
+                        <p>
+                          <span className="font-persianNums">
+                            {numbers > room.capacity &&
+                              (
+                                (numbers - room.capacity) *
+                                room?.extra_person_charge
+                              ).toLocaleString()}
+                          </span>{' '}
+                          تومان
+                        </p>
+                      </div>
+                    )}
+                    <div className="my-3 flex items-center justify-between border-t border-dashed py-1 text-sm">
+                      <p className="font-vazirBold">مبلغ صورتحساب</p>
+                      <p className="font-vazirBold">
+                        <span className="font-persianNums font-bold">
+                          {totalPrice.toLocaleString()}
+                        </span>{' '}
+                        تومان
+                      </p>
+                    </div>
+                    <div className="my-3 flex items-center justify-between border-t border-dashed py-1 text-sm">
+                      <p className="font-vazirBold">مبلغ قابل پرداخت</p>
+                      <p className="font-vazirBold">
+                        <span className="font-persianNums font-bold">
+                          {totalPrice.toLocaleString()}
+                        </span>{' '}
+                        تومان
+                      </p>
+                    </div>
+                  </div>
+                )
+              )}
+              <Button
+                onClick={reservationHandler}
+                style="font-vazirMedium relative bg-yellow-400 hover:bg-yellow-500 rounded-full w-full my-5"
+              >
                 ثبت درخواست رزرو{' '}
                 <span className="font-vazirMedium text-[12px]">(رایگان)</span>
               </Button>
