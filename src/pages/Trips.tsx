@@ -3,7 +3,6 @@ import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import TripCard from '../components/trips/TripCard';
 import Breadcrumb from '../components/ui/Breadcrumb';
-import Loader from '../components/ui/Loader';
 import RoomCardSkeleton from '../components/ui/skeleton/RoomCardSkeleton';
 import { useAuth } from '../hooks/useAuth';
 import useTrips from '../hooks/useTrips';
