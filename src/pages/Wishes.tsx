@@ -17,7 +17,6 @@ function Wishes() {
 
   const [wishesRooms, setWishesRooms] = useState<Room[]>([]);
 
-  console.log(wishes);
   useEffect(() => {
     setWishesRooms(rooms.filter((room) => wishes.includes(room.code)));
   }, [rooms, wishes]);

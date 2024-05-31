@@ -23,7 +23,7 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({
     const end = new Date(dates[1]);
 
     const differenceInTime = end.getTime() - start.getTime();
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24) + 1;
 
     return differenceInDays > 0 ? differenceInDays : 0;
   };

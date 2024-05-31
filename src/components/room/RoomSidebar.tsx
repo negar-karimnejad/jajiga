@@ -32,67 +32,10 @@ function RoomSidebar({
 
   const { id } = useParams();
   const { room } = useRoom(Number(id));
-  const { dates, calculateNights } = useCalendarContext();
+  const { dates, setDates, calculateNights } = useCalendarContext();
   const { user } = useAuth();
-  const { addTrip } = useTrips();
+  const { trips, addTrip } = useTrips();
   const { openModalHandler } = useAuthModal();
-
-  const nights = calculateNights();
-
-  const closeCalendarModal = () => {
-    setIsShowCalendar(false);
-  };
-
-  const reservationHandler = async () => {
-    if (!dates[0] || !dates[1]) {
-      setDateError(true);
-    }
-    if (numbers === -1) {
-      setNumbersError(true);
-    } else {
-      if (!user) {
-        openModalHandler();
-      } else {
-        const newTrip: Trip = {
-          id: Math.floor(Math.random() * 100),
-          enter: dates[0].format(),
-          exit: dates[1].format(),
-          room: room,
-          nights: nights,
-          numbers,
-          cost: totalPrice,
-          userId: user.id,
-        };
-
-        try {
-          await addTrip(newTrip);
-          Swal.fire({
-            title: 'اقامتگاه با موفقیت رزرو شد.',
-            toast: false,
-            position: 'center',
-            showConfirmButton: true,
-            icon: 'success',
-            customClass: { icon: 'm-auto mt-4' },
-            confirmButtonText: 'باشه',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              navigate('/trips');
-            }
-          });
-        } catch (error) {
-          Swal.fire({
-            text: 'متاسفانه عملیات انجام نشد',
-            toast: true,
-            timer: 5000,
-            position: 'top-right',
-            showConfirmButton: false,
-            icon: 'error',
-          });
-        }
-      }
-    }
-  };
-
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -134,6 +77,87 @@ function RoomSidebar({
   }, [dates, numbers]);
 
   if (!room) return null;
+
+  const nights = calculateNights();
+
+  const closeCalendarModal = () => {
+    setIsShowCalendar(false);
+  };
+
+  const reservationHandler = async () => {
+    if (!dates[0] || !dates[1]) {
+      setDateError(true);
+    }
+    if (numbers === -1) {
+      setNumbersError(true);
+    } else {
+      if (!user) {
+        openModalHandler();
+      } else {
+        const existedTrip = trips.find(
+          (trip) =>
+            trip.room.id === room.id &&
+            trip.userId === user.id &&
+            trip.enter === dates[0].format(),
+        );
+        console.log(existedTrip);
+
+        if (existedTrip) {
+          Swal.fire({
+            title: 'این اقامتگاه را قبلا رزرو کرده اید.',
+            toast: true,
+            showConfirmButton: false,
+            position: 'top-right',
+            icon: 'error',
+            timerProgressBar: true,
+            timer: 2000,
+          });
+          return;
+        } else {
+          const newTrip: Trip = {
+            id: Math.floor(Math.random() * 100),
+            enter: dates[0].format(),
+            exit: dates[1].format(),
+            room: room,
+            nights: nights,
+            numbers,
+            cost: totalPrice,
+            userId: user.id,
+          };
+          try {
+            await addTrip(newTrip);
+            Swal.fire({
+              title: 'اقامتگاه با موفقیت رزرو شد.',
+              toast: false,
+              position: 'center',
+              showConfirmButton: true,
+              showCancelButton: true,
+              icon: 'success',
+              customClass: { icon: 'm-auto mt-4' },
+              confirmButtonText: 'برو به سفرها',
+              cancelButtonText: 'باشه',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                setDates([null, null]);
+                setNumbers(-1);
+                setShowCost(false);
+                navigate('/trips');
+              }
+            });
+          } catch (error) {
+            Swal.fire({
+              text: 'متاسفانه عملیات انجام نشد',
+              toast: true,
+              timer: 5000,
+              position: 'top-right',
+              showConfirmButton: false,
+              icon: 'error',
+            });
+          }
+        }
+      }
+    }
+  };
 
   const totalPrice =
     numbers > room?.capacity

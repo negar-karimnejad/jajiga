@@ -5,13 +5,14 @@ import { useAuthModal } from '../../hooks/useAuthModal';
 import useRefHook from '../../hooks/useRefHook';
 import Announcements from '../ui/Announcements';
 import Button from '../ui/Button';
+import useTrips from '../../hooks/useTrips';
 
 function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
   const { user } = useAuth();
   const { wishes } = useWishes();
   const { openModalHandler } = useAuthModal();
   const { showModal, ref, isShowNotification } = useRefHook();
-  const trips = ['1', '2'];
+  const {trips}=useTrips()
 
   const hasTrip = user && trips.length > 0;
 

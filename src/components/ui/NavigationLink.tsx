@@ -2,6 +2,7 @@ import { RiSuitcase2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { useWishes } from '../../context/WishesContext';
 import { useAuth } from '../../hooks/useAuth';
+import useTrips from '../../hooks/useTrips';
 
 interface NavigationLinkProps {
   id: number;
@@ -13,8 +14,7 @@ interface NavigationLinkProps {
 function NavigationLink({ link }: { link: NavigationLinkProps }) {
   const { wishes } = useWishes();
   const { user } = useAuth();
-
-  const trips = ['1'];
+  const { trips } = useTrips();
 
   const hasTrip = link.to === '/host' && user && trips.length > 0;
 

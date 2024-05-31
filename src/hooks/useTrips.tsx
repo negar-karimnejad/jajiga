@@ -6,6 +6,7 @@ import {
   Trip,
   addTripToServer,
   getTripsFromServer,
+  removeTripToServer,
 } from '../redux/store/trips';
 
 function useTrips() {
@@ -16,12 +17,15 @@ function useTrips() {
   const addTrip = (tripData: Trip) => {
     dispatch(addTripToServer(tripData));
   };
+  const removeTrip = (id: number) => {
+    dispatch(removeTripToServer(id));
+  };
 
   useEffect(() => {
     dispatch(getTripsFromServer());
   }, [dispatch]);
 
-  return { error, loading, trips, addTrip };
+  return { error, loading, trips, addTrip, removeTrip };
 }
 
 export default useTrips;
