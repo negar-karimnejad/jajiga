@@ -45,7 +45,7 @@ function Jobs() {
               className="rounded-lg shadow-lg dark:shadow-gray-950"
             />
 
-            <p className="font-persianNums absolute -bottom-6 left-0 text-[12px] text-gray-500 dark:text-gray-700 md:-left-16 md:bottom-14 md:-rotate-90">
+            <p className="absolute -bottom-6 left-0 font-persianNums text-[12px] text-gray-500 dark:text-gray-700 md:-left-16 md:bottom-14 md:-rotate-90">
               باغ چای | پاییز 98
             </p>
           </div>
@@ -72,7 +72,7 @@ function Jobs() {
               className="rounded-md shadow-lg shadow-gray-300 dark:shadow-gray-950"
               alt=""
             />
-            <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+            <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
               خانواده جاجیگا | پاییز 1400
             </p>
           </div>
@@ -90,7 +90,7 @@ function Jobs() {
                 alt=""
                 className="rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
-              <p className="righ-5 font-persianNums absolute -bottom-6 text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
+              <p className="righ-5 absolute -bottom-6 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
                 دفتر جاجیگا | 1400
               </p>
             </div>
@@ -106,7 +106,7 @@ function Jobs() {
                 alt=""
                 className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
               />
-              <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+              <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
                 لاهیجان | بهار 99
               </p>
             </div>
@@ -126,7 +126,7 @@ function Jobs() {
                 alt=""
                 className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
               />
-              <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+              <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
                 لاهیجان | بهار 99
               </p>
             </div>
@@ -139,7 +139,7 @@ function Jobs() {
                 alt=""
                 className="w-full rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
-              <p className="righ-5 font-persianNums absolute -bottom-6 text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
+              <p className="righ-5 absolute -bottom-6 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
                 الکامپ تهران | بهار 98
               </p>
             </div>
@@ -152,7 +152,7 @@ function Jobs() {
                   alt=""
                   className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
                 />
-                <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+                <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
                   لاهیجان | پاییز 1400
                 </p>
               </div>
@@ -163,7 +163,7 @@ function Jobs() {
                   alt=""
                   className="rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
                 />
-                <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+                <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
                   الکامپ تهران | بهار 98
                 </p>
               </div>
@@ -177,7 +177,7 @@ function Jobs() {
                 alt=""
                 className="w-full rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
-              <p className="righ-5 font-persianNums absolute -bottom-6 text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
+              <p className="righ-5 absolute -bottom-6 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
                 هویج بستنی | تابستان 98
               </p>
             </div>
@@ -190,7 +190,7 @@ function Jobs() {
                   alt=""
                   className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
                 />
-                <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+                <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
                   لاهیجان | پاییز 1400
                 </p>
               </div>
@@ -213,7 +213,7 @@ function Jobs() {
                 alt=""
                 className="rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
-              <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
+              <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
                 گیله بوم | بهار 97
               </p>
             </div>
@@ -226,7 +226,7 @@ function Jobs() {
                 alt=""
                 className="h-80 w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
-              <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500">
+              <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500">
                 ویلای چمخاله | بهار 97
               </p>
             </div>
@@ -237,7 +237,7 @@ function Jobs() {
                 alt=""
                 className="h-80 w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
-              <p className="font-persianNums absolute -bottom-6 left-5 text-[12px] text-gray-400 dark:text-gray-500">
+              <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500">
                 تراس جاجیگا | تابستان 99
               </p>
             </div>
@@ -246,7 +246,7 @@ function Jobs() {
       </div>
 
       <div
-      ref={buttonRef}
+        ref={buttonRef}
         className="bg-yellow-400 pb-20 pt-10 md:pb-32"
         style={{ clipPath: 'polygon(0px 0px, 100% 5%, 100% 100%, 0% 100%)' }}
       >

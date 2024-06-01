@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { hostData } from '../data/data';
-import Button from '../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/ui/Button';
+import { hostData } from '../data/data';
 
 interface HostDataProps {
   id: number;
