@@ -34,9 +34,6 @@ function RoomMain() {
   const openFqlModal = () => {
     setIsOpenFql(true);
   };
-  const openGuaranteeModal = () => {
-    setIsOpenGuarantee(true);
-  };
 
   const closeGuaranteeModal = () => {
     setIsOpenGuarantee(false);
@@ -80,10 +77,7 @@ function RoomMain() {
         >
           <Guarantee />
         </Modal>
-        <RoomSidebar
-          openGuaranteeModal={openGuaranteeModal}
-          openFqlModal={openFqlModal}
-        />
+        <RoomSidebar />
       </div>
     </>
   );

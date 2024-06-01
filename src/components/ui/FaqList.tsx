@@ -24,7 +24,9 @@ function FaqList({ list }: { list: FaqDateProps[] }) {
                 setOpenAnswer((prev) => (prev === item.id ? 0 : item.id))
               }
             >
-              <h3 className="text-right font-vazirMedium text-sm text-gray-600 dark:text-gray-50 sm:text-base">
+              <h3
+                className="text-right font-vazirMedium text-sm text-gray-600 dark:text-gray-50 sm:text-base"
+              >
                 {item.question}
               </h3>
               {openAnswer === item.id ? (
@@ -41,7 +43,7 @@ function FaqList({ list }: { list: FaqDateProps[] }) {
             </Button>
             <p
               dangerouslySetInnerHTML={{ __html: item.answer }}
-              className={`overflow-hidden text-sm leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${openAnswer === item.id ? 'visible max-h-[100rem] min-h-fit py-5' : 'invisible max-h-0'}`}
+              className={`overflow-hidden text-sm text-right leading-6 text-gray-700 transition-all duration-500 dark:text-gray-400 ${openAnswer === item.id ? 'visible max-h-[100rem] min-h-fit py-5' : 'invisible max-h-0'}`}
             ></p>
           </div>
         ))}

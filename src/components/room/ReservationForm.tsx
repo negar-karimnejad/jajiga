@@ -190,7 +190,7 @@ function ReservationForm({
           <p className="mb-1 dark:text-white">تاریخ سفر</p>
           <div
             onClick={openCalendarModal}
-            className={`z-30 rounded-xl border py-1 ${dateError ? ' border-red-500' : ''}`}
+            className={`z-30 rounded-xl border bg-white py-1 ${dateError ? ' border-red-500' : ''}`}
           >
             <div className="flex items-center justify-between">
               <div
@@ -233,7 +233,7 @@ function ReservationForm({
               id="numbers"
               value={numbers}
               onChange={(e) => setNumbers(Number(e.target.value))}
-              className={`mt-1 rounded-xl border bg-transparent px-4 py-2 text-gray-700 outline-none ${numbersError ? ' border-red-500' : ''}`}
+              className={`mt-1 rounded-xl border bg-transparent bg-white px-4 py-2 text-gray-700 outline-none ${numbersError ? ' border-red-500' : ''}`}
             >
               <option value={-1} className="text-gray-500">
                 تعداد نفرات را مشخص کنید
@@ -268,7 +268,7 @@ function ReservationForm({
             </div>
           ) : (
             showCost && (
-              <div className="my-1 w-full rounded-md border border-gray-100 p-2 shadow-md">
+              <div className="my-1 w-full rounded-md border border-gray-100 bg-white p-2 shadow-md dark:text-gray-600">
                 <div className="mb-3 flex items-center justify-between border border-dashed bg-gray-50 p-1 text-sm text-gray-600">
                   <p className="flex items-center gap-0.5">
                     <span className="font-persianNums">{nights}</span> شب{' '}
@@ -289,7 +289,7 @@ function ReservationForm({
                   </p>
                 </div>
                 {numbers > room.capacity && (
-                  <div className="flex  items-center justify-between text-sm text-gray-600">
+                  <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-600">
                     <p>هزینه نفرات اضافه</p>
                     <p>
                       <span className="font-persianNums">
@@ -349,17 +349,17 @@ function ReservationForm({
             </div>
           </div>
         </p>
-        <div className="flex flex-col gap-3 lg:flex-row">
+        <div className="flex gap-3 md:flex-col lg:flex-row">
           <Button
             onClick={openGuaranteeModal}
-            style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
+            style="bg-white dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
           >
             <GoShieldCheck />
             ضمانت تحویل
           </Button>
           <Button
             onClick={openFqlModal}
-            style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
+            style="bg-white dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
           >
             <GoQuestion />
             راهنمای رزرو
