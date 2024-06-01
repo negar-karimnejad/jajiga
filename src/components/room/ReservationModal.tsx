@@ -10,8 +10,6 @@ function ReservationModal({
   isOpen: boolean;
   closeModalHandler: () => void;
 }) {
- 
-
   useEffect(() => {
     //   Disable body scroll when the modal is open
     if (isOpen) {

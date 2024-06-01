@@ -9,10 +9,21 @@ import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
 import useRoom from '../../hooks/useRoom';
 import useTrips from '../../hooks/useTrips';
+import Guarantee from '../../pages/Guarantee';
 import { Trip } from '../../redux/store/trips';
 import Button from '../ui/Button';
+import FaqModal from '../ui/FaqModal';
+import Modal from '../ui/Modal';
 
-function ReservationForm() {
+function ReservationForm({
+  isShowCalendar,
+  openCalendarModal,
+  closeCalendarModal,
+}: {
+  isShowCalendar: boolean;
+  openCalendarModal: () => void;
+  closeCalendarModal: () => void;
+}) {
   const navigate = useNavigate();
 
   const { user } = useAuth();
@@ -24,33 +35,19 @@ function ReservationForm() {
 
   const [dateError, setDateError] = useState(false);
   const [numbersError, setNumbersError] = useState(false);
+  const [numbers, setNumbers] = useState(-1);
   const [loading, setLoading] = useState(false);
   const [showCost, setShowCost] = useState(false);
   const [isShowInfo, setIsShowInfo] = useState(false);
-  const [numbers, setNumbers] = useState(-1);
-
-  const nights = calculateNights();
-
-  const [isShowCalendar, setIsShowCalendar] = useState(false);
   const [isOpenFql, setIsOpenFql] = useState(false);
   const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
 
-  const openCalendarModal = () => setIsShowCalendar(true);
+  const nights = calculateNights();
 
-  const closeCalendarModal = () => setIsShowCalendar(false);
-
-  const closeFqlModal = () => {
-    setIsOpenFql(false);
-  };
-  const closeGuaranteeModal = () => {
-    setIsOpenGuarantee(false);
-  };
-  const openFqlModal = () => {
-    setIsOpenFql(true);
-  };
-  const openGuaranteeModal = () => {
-    setIsOpenGuarantee(true);
-  };
+  const openFqlModal = () => setIsOpenFql(true);
+  const closeFqlModal = () => setIsOpenFql(false);
+  const openGuaranteeModal = () => setIsOpenGuarantee(true);
+  const closeGuaranteeModal = () => setIsOpenGuarantee(false);
 
   useEffect(() => {
     if (dates[1]) {
@@ -177,7 +174,8 @@ function ReservationForm() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [closeCalendarModal]);
+
   if (!room) return null;
 
   const totalPrice =
@@ -186,184 +184,198 @@ function ReservationForm() {
       : nights * room?.price;
 
   return (
-    <div className="my-5 px-4">
-      <form className="flex flex-col">
-        <p className="mb-1 dark:text-white">تاریخ سفر</p>
-        <div
-          onClick={openCalendarModal}
-          className={`z-30 rounded-xl border py-1 ${dateError ? ' border-red-500' : ''}`}
-        >
-          <div className="flex items-center justify-between">
-            <div
-              className={`duration-400 mx-1 flex-1 cursor-pointer rounded-lg text-center text-gray-400 transition-all ${isShowCalendar ? 'border border-blue-500 text-blue-500' : 'border border-transparent'}`}
-            >
-              {dates[0] ? (
-                <p className="flex flex-col">
-                  <span className="text-[12px]">ورود</span>
-                  <span className="text-gray-700">{dates[0].format()}</span>
-                </p>
-              ) : (
-                'تاریخ ورود'
-              )}
-            </div>
-            <div className="h-6 w-0.5 bg-gray-200"></div>
-            <div className="flex-1 cursor-pointer text-center text-gray-400">
-              {dates[1] ? (
-                <p className="flex flex-col">
-                  <span className="text-[12px]">خروج</span>
-                  <span className="text-gray-700">{dates[1].format()}</span>
-                </p>
-              ) : (
-                'تاریخ خروج'
-              )}
+    <>
+      <div className="my-5 px-4">
+        <form className="flex flex-col">
+          <p className="mb-1 dark:text-white">تاریخ سفر</p>
+          <div
+            onClick={openCalendarModal}
+            className={`z-30 rounded-xl border py-1 ${dateError ? ' border-red-500' : ''}`}
+          >
+            <div className="flex items-center justify-between">
+              <div
+                className={`duration-400 mx-1 flex-1 cursor-pointer rounded-lg text-center text-gray-400 transition-all ${isShowCalendar ? 'border border-blue-500 text-blue-500' : 'border border-transparent'}`}
+              >
+                {dates[0] ? (
+                  <p className="flex flex-col">
+                    <span className="text-[12px]">ورود</span>
+                    <span className="text-gray-700">{dates[0].format()}</span>
+                  </p>
+                ) : (
+                  'تاریخ ورود'
+                )}
+              </div>
+              <div className="h-6 w-0.5 bg-gray-200"></div>
+              <div className="flex-1 cursor-pointer text-center text-gray-400">
+                {dates[1] ? (
+                  <p className="flex flex-col">
+                    <span className="text-[12px]">خروج</span>
+                    <span className="text-gray-700">{dates[1].format()}</span>
+                  </p>
+                ) : (
+                  'تاریخ خروج'
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        {dateError && (
-          <p className="font-vazirMedium text-[12px] text-red-600">
-            تاریخ سفر را مشخص کنید
-          </p>
-        )}
-        <label htmlFor="numbers" className="my-4 flex flex-col dark:text-white">
-          تعداد نفرات
-          <select
-            name="numbers"
-            id="numbers"
-            value={numbers}
-            onChange={(e) => setNumbers(Number(e.target.value))}
-            className={`mt-1 rounded-xl border bg-transparent px-4 py-2 text-gray-700 outline-none ${numbersError ? ' border-red-500' : ''}`}
-          >
-            <option value={-1} className="text-gray-500">
-              تعداد نفرات را مشخص کنید
-            </option>
-            {Array.from({ length: room.max_capacity }).map((_, index) => (
-              <option
-                key={index}
-                value={index + 1}
-                className="font-persianNums text-gray-700"
-              >
-                {room.capacity >= index + 1
-                  ? `${index + 1} نفر`
-                  : `${index + 1} نفر (${room.capacity} نفر + ${index + 1 - room.capacity} نفر اضافه)`}
-              </option>
-            ))}
-          </select>
-          {numbersError ? (
+          {dateError && (
             <p className="font-vazirMedium text-[12px] text-red-600">
-              تعداد نفرات را مشخص کنید
-            </p>
-          ) : (
-            <p className="mt-1 text-[12px] text-gray-500 dark:text-gray-200">
-              تا 1 کودک زیر 5 سال در صورتحساب لحاظ نمی گردد.
+              تاریخ سفر را مشخص کنید
             </p>
           )}
-        </label>
-        {loading ? (
-          <div className="flex min-h-40 items-center justify-center">
-            <div className="flex h-full w-full items-center justify-center">
-              <div className="spin-loader"></div>
-            </div>
-          </div>
-        ) : (
-          showCost && (
-            <div className="my-1 w-full rounded-md border border-gray-100 p-2 shadow-md">
-              <div className="mb-3 flex items-center justify-between border border-dashed bg-gray-50 p-1 text-sm text-gray-600">
-                <p className="flex items-center gap-0.5">
-                  <span className="font-persianNums">{nights}</span> شب{' '}
-                  <IoIosClose />{' '}
-                  <span className="font-persianNums">
-                    {room.price.toLocaleString()}{' '}
-                  </span>
-                  تومان
-                </p>
-                <p>
-                  <span className="font-persianNums">
-                    {(numbers > room.max_capacity
-                      ? room.extra_person_charge + room.price * nights
-                      : room.price * nights
-                    ).toLocaleString()}
-                  </span>{' '}
-                  تومان
-                </p>
+          <label
+            htmlFor="numbers"
+            className="my-4 flex flex-col dark:text-white"
+          >
+            تعداد نفرات
+            <select
+              name="numbers"
+              id="numbers"
+              value={numbers}
+              onChange={(e) => setNumbers(Number(e.target.value))}
+              className={`mt-1 rounded-xl border bg-transparent px-4 py-2 text-gray-700 outline-none ${numbersError ? ' border-red-500' : ''}`}
+            >
+              <option value={-1} className="text-gray-500">
+                تعداد نفرات را مشخص کنید
+              </option>
+              {Array.from({ length: room.max_capacity }).map((_, index) => (
+                <option
+                  key={index}
+                  value={index + 1}
+                  className="font-persianNums text-gray-700"
+                >
+                  {room.capacity >= index + 1
+                    ? `${index + 1} نفر`
+                    : `${index + 1} نفر (${room.capacity} نفر + ${index + 1 - room.capacity} نفر اضافه)`}
+                </option>
+              ))}
+            </select>
+            {numbersError ? (
+              <p className="font-vazirMedium text-[12px] text-red-600">
+                تعداد نفرات را مشخص کنید
+              </p>
+            ) : (
+              <p className="mt-1 text-[12px] text-gray-500 dark:text-gray-200">
+                تا 1 کودک زیر 5 سال در صورتحساب لحاظ نمی گردد.
+              </p>
+            )}
+          </label>
+          {loading ? (
+            <div className="flex min-h-40 items-center justify-center">
+              <div className="flex h-full w-full items-center justify-center">
+                <div className="spin-loader"></div>
               </div>
-              {numbers > room.capacity && (
-                <div className="flex  items-center justify-between text-sm text-gray-600">
-                  <p>هزینه نفرات اضافه</p>
+            </div>
+          ) : (
+            showCost && (
+              <div className="my-1 w-full rounded-md border border-gray-100 p-2 shadow-md">
+                <div className="mb-3 flex items-center justify-between border border-dashed bg-gray-50 p-1 text-sm text-gray-600">
+                  <p className="flex items-center gap-0.5">
+                    <span className="font-persianNums">{nights}</span> شب{' '}
+                    <IoIosClose />{' '}
+                    <span className="font-persianNums">
+                      {room.price.toLocaleString()}{' '}
+                    </span>
+                    تومان
+                  </p>
                   <p>
                     <span className="font-persianNums">
-                      {numbers > room.capacity &&
-                        (
-                          (numbers - room.capacity) *
-                          room?.extra_person_charge
-                        ).toLocaleString()}
+                      {(numbers > room.max_capacity
+                        ? room.extra_person_charge + room.price * nights
+                        : room.price * nights
+                      ).toLocaleString()}
                     </span>{' '}
                     تومان
                   </p>
                 </div>
-              )}
-              <div className="my-3 flex items-center justify-between border-t border-dashed py-1 text-sm">
-                <p className="font-vazirBold">مبلغ صورتحساب</p>
-                <p className="font-vazirBold">
-                  <span className="font-persianNums font-bold">
-                    {totalPrice.toLocaleString()}
-                  </span>{' '}
-                  تومان
-                </p>
+                {numbers > room.capacity && (
+                  <div className="flex  items-center justify-between text-sm text-gray-600">
+                    <p>هزینه نفرات اضافه</p>
+                    <p>
+                      <span className="font-persianNums">
+                        {numbers > room.capacity &&
+                          (
+                            (numbers - room.capacity) *
+                            room?.extra_person_charge
+                          ).toLocaleString()}
+                      </span>{' '}
+                      تومان
+                    </p>
+                  </div>
+                )}
+                <div className="my-3 flex items-center justify-between border-t border-dashed py-1 text-sm">
+                  <p className="font-vazirBold">مبلغ صورتحساب</p>
+                  <p className="font-vazirBold">
+                    <span className="font-persianNums font-bold">
+                      {totalPrice.toLocaleString()}
+                    </span>{' '}
+                    تومان
+                  </p>
+                </div>
+                <div className="my-3 flex items-center justify-between border-t border-dashed py-1 text-sm">
+                  <p className="font-vazirBold">مبلغ قابل پرداخت</p>
+                  <p className="font-vazirBold">
+                    <span className="font-persianNums font-bold">
+                      {totalPrice.toLocaleString()}
+                    </span>{' '}
+                    تومان
+                  </p>
+                </div>
               </div>
-              <div className="my-3 flex items-center justify-between border-t border-dashed py-1 text-sm">
-                <p className="font-vazirBold">مبلغ قابل پرداخت</p>
-                <p className="font-vazirBold">
-                  <span className="font-persianNums font-bold">
-                    {totalPrice.toLocaleString()}
-                  </span>{' '}
-                  تومان
-                </p>
-              </div>
-            </div>
-          )
-        )}
-        <Button
-          onClick={reservationHandler}
-          style="font-vazirMedium relative bg-yellow-400 hover:bg-yellow-500 rounded-full w-full my-5"
-        >
-          ثبت درخواست رزرو{' '}
-          <span className="font-vazirMedium text-[12px]">(رایگان)</span>
-        </Button>
-      </form>
-      <p className="mb-4 flex items-center justify-center gap-2 text-center text-[13px] text-gray-600 dark:text-gray-100">
-        <IoChatbubblesOutline size={18} />
-        با امکان چت آنلاین با میزبان
-        <div
-          className="relative"
-          onMouseEnter={() => setIsShowInfo(true)}
-          onMouseLeave={() => setIsShowInfo(false)}
-        >
-          <IoMdInformationCircleOutline size={18} className="text-sky-500" />
-          <div
-            className={`absolute -left-2 -top-20 whitespace-nowrap rounded-lg bg-neutral-700 px-5 py-3 text-sm leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-3 after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
+            )
+          )}
+          <Button
+            onClick={reservationHandler}
+            style="font-vazirMedium relative bg-yellow-400 hover:bg-yellow-500 rounded-full w-full my-5"
           >
-            برای چت با میزبان ابتدا درخواست رزرو
-            <br /> (رایگان) خود را ثبت نمایید.
+            ثبت درخواست رزرو{' '}
+            <span className="font-vazirMedium text-[12px]">(رایگان)</span>
+          </Button>
+        </form>
+        <p className="mb-4 flex items-center justify-center gap-2 text-center text-[13px] text-gray-600 dark:text-gray-100">
+          <IoChatbubblesOutline size={18} />
+          با امکان چت آنلاین با میزبان
+          <div
+            className="relative"
+            onMouseEnter={() => setIsShowInfo(true)}
+            onMouseLeave={() => setIsShowInfo(false)}
+          >
+            <IoMdInformationCircleOutline size={18} className="text-sky-500" />
+            <div
+              className={`absolute -left-2 -top-20 whitespace-nowrap rounded-lg bg-neutral-700 px-5 py-3 text-sm leading-6 text-white shadow-lg after:absolute after:-bottom-1 after:left-3 after:h-2 after:w-2 after:rotate-45 after:bg-neutral-700 ${isShowInfo ? 'block' : 'hidden'}`}
+            >
+              برای چت با میزبان ابتدا درخواست رزرو
+              <br /> (رایگان) خود را ثبت نمایید.
+            </div>
           </div>
+        </p>
+        <div className="flex flex-col gap-3 lg:flex-row">
+          <Button
+            onClick={openGuaranteeModal}
+            style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
+          >
+            <GoShieldCheck />
+            ضمانت تحویل
+          </Button>
+          <Button
+            onClick={openFqlModal}
+            style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
+          >
+            <GoQuestion />
+            راهنمای رزرو
+          </Button>
         </div>
-      </p>
-      <div className="flex flex-col gap-3 lg:flex-row">
-        <Button
-          onClick={openGuaranteeModal}
-          style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
-        >
-          <GoShieldCheck />
-          ضمانت تحویل
-        </Button>
-        <Button
-          onClick={openFqlModal}
-          style="dark:text-gray-50 dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"
-        >
-          <GoQuestion />
-          راهنمای رزرو
-        </Button>
       </div>
-    </div>
+
+      <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />
+      <Modal
+        centered={false}
+        isOpen={isOpenGuarantee}
+        closeModalHandler={closeGuaranteeModal}
+      >
+        <Guarantee />
+      </Modal>
+    </>
   );
 }
 

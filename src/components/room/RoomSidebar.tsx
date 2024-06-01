@@ -1,28 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useRoom from '../../hooks/useRoom';
-import Guarantee from '../../pages/Guarantee';
-import FaqModal from '../ui/FaqModal';
-import Modal from '../ui/Modal';
 import CalendarFunc from '../ui/calendar';
-import FloatingSidebar from './FloatingSidebar';
 import ReservationForm from './ReservationForm';
 
 function RoomSidebar() {
   const [isShowCalendar, setIsShowCalendar] = useState(false);
-  const [isOpenFql, setIsOpenFql] = useState(false);
-  const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
 
-  const closeFqlModal = () => {
-    setIsOpenFql(false);
-  };
-  const closeGuaranteeModal = () => {
-    setIsOpenGuarantee(false);
-  };
-  const openFqlModal = () => {
-    setIsOpenFql(true);
-  };
- 
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
@@ -40,11 +24,10 @@ function RoomSidebar() {
     };
   }, []);
 
-  const closeCalendarModal = () => {
-    setIsShowCalendar(false);
-  };
+  if (!room) return null;
 
-
+  const openCalendarModal = () => setIsShowCalendar(true);
+  const closeCalendarModal = () => setIsShowCalendar(false);
 
   return (
     <>
@@ -53,10 +36,14 @@ function RoomSidebar() {
           <header className="flex justify-between bg-neutral-700 p-4 text-white dark:bg-gray-900">
             <span className="font-vazirMedium text-base">نرخ هر شب از:</span>
             <span className="font-persianNums text-base">
-              {room?.price.toLocaleString()} تومان
+              {room.price.toLocaleString()} تومان
             </span>
           </header>
-          <ReservationForm />
+          <ReservationForm
+            isShowCalendar={isShowCalendar}
+            openCalendarModal={openCalendarModal}
+            closeCalendarModal={closeCalendarModal}
+          />
         </div>
 
         <div
@@ -74,17 +61,6 @@ function RoomSidebar() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center">
-        <FloatingSidebar openFqlModal={openFqlModal} />
-      </div>
-      <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />
-      <Modal
-        centered={false}
-        isOpen={isOpenGuarantee}
-        closeModalHandler={closeGuaranteeModal}
-      >
-        <Guarantee />
-      </Modal>
     </>
   );
 }
