@@ -1,13 +1,11 @@
 import moment from 'jalali-moment';
 import { GoChevronLeft } from 'react-icons/go';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { Trip } from '../../redux/store/trips';
 import Button from '../ui/Button';
 
-function TripCard({ trip }: { trip: Trip }) {
+function TripCard({ trip,deleteHandler }: { trip: Trip,deleteHandler:(id:number)=>void }) {
   if (!trip) return null;
-
   // Assuming trip.enter and trip.exit are in the format '۱۴۰۳/۰۴/۰۳' (jYYYY/jMM/jDD)
   const jalaliDateEnter = moment(trip.enter, 'jYYYY/jMM/jDD').locale('fa');
   const jalaliDateExit = moment(trip.exit, 'jYYYY/jMM/jDD').locale('fa');
@@ -25,23 +23,7 @@ function TripCard({ trip }: { trip: Trip }) {
   const exitMonth = jalaliDateExit.format('MMMM');
   const exitWeekday = jalaliDateExit.format('dddd');
 
-  const deleteHandler = () => {
-    Swal.fire({
-      title: 'آیا از حذف رزرو مطمئنید؟',
-      toast: false,
-      position: 'center',
-      showConfirmButton: true,
-      showCancelButton: true,
-      icon: 'warning',
-      customClass: { icon: 'm-auto mt-4' },
-      confirmButtonText: 'بله',
-      cancelButtonText: 'انصراف',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        //
-      }
-    });
-  };
+
   return (
     <div className="relative rounded-xl shadow-md">
       <Link to={`/room/${trip.room.code}`} className="group">
@@ -107,7 +89,7 @@ function TripCard({ trip }: { trip: Trip }) {
       </Link>
       <div className="mb-3 mt-8 text-center">
         <Button
-          onClick={deleteHandler}
+          onClick={()=>deleteHandler(trip.id)}
           style="bg-red-500 text-white w-11/12 rounded-md hover:bg-red-600"
         >
           حذف رزرو

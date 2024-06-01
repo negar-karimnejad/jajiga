@@ -12,9 +12,7 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
   const { wishes } = useWishes();
   const { openModalHandler } = useAuthModal();
   const { showModal, ref, isShowNotification } = useRefHook();
-  const {trips}=useTrips()
-
-  const hasTrip = user && trips.length > 0;
+  const { trips } = useTrips();
 
   return (
     <>
@@ -39,13 +37,13 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
           ورود / ثبت نام
         </button>
       )}
-      {hasTrip ? (
+      {user ? (
         <Link
           className={`relative font-vazirBold text-base text-neutral-500 dark:text-white ${whiteBg ? 'text-neutral-500' : 'text-white'}`}
           to="/trips"
         >
           سفرها
-          {trips.length > 0 && (
+          {trips?.length > 0 && (
             <span className="absolute -left-4 -top-3 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 pt-1 font-persianNums text-sm text-black ">
               {trips.length}
             </span>
@@ -65,7 +63,7 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
         to="/wishes"
       >
         علاقه مندی ها
-        {wishes.length > 0 && (
+        {wishes?.length > 0 && (
           <span className="absolute -left-4 -top-3 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 pt-1 font-persianNums text-sm text-black ">
             {wishes.length}
           </span>

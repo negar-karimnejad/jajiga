@@ -1,11 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import useRoom from '../../../hooks/useRoom';
-import Guarantee from '../../../pages/Guarantee';
 import Breadcrumb from '../../ui/Breadcrumb';
-import FaqModal from '../../ui/FaqModal';
-import Modal from '../../ui/Modal';
-import FloatingSidebar from '../FloatingSidebar';
 import RoomSidebar from '../RoomSidebar';
 import RoomAbout from './RoomAbout';
 import RoomAccessibility from './RoomAccessibility';
@@ -18,29 +14,11 @@ import RoomRules from './RoomRules';
 import RoomScore from './RoomScore';
 
 function RoomMain() {
-  const [isOpenFql, setIsOpenFql] = useState(false);
-  const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
-
   const hostRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { id } = useParams();
 
   const { room } = useRoom(Number(id));
-
-  const closeFqlModal = () => {
-    setIsOpenFql(false);
-  };
-
-  const openFqlModal = () => {
-    setIsOpenFql(true);
-  };
-  const openGuaranteeModal = () => {
-    setIsOpenGuarantee(true);
-  };
-
-  const closeGuaranteeModal = () => {
-    setIsOpenGuarantee(false);
-  };
 
   if (!room) return null;
   const roomsGeo: [number, number][] = [[room.location.lat, room.location.lng]];
@@ -70,20 +48,8 @@ function RoomMain() {
           <RoomScore />
           <RoomComments />
           <RoomHost room={room} hostRef={hostRef} />
-          <FloatingSidebar room={room} openFqlModal={openFqlModal} />
         </div>
-        <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />
-        <Modal
-          centered={false}
-          isOpen={isOpenGuarantee}
-          closeModalHandler={closeGuaranteeModal}
-        >
-          <Guarantee />
-        </Modal>
-        <RoomSidebar
-          openGuaranteeModal={openGuaranteeModal}
-          openFqlModal={openFqlModal}
-        />
+        <RoomSidebar />
       </div>
     </>
   );

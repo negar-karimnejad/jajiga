@@ -1,9 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from 'react';
-import { Value } from 'react-multi-date-picker';
+import { DateObject } from 'react-multi-date-picker';
 
 interface CalendarContextProps {
-  dates: Value;
-  setDates: (dates: Value) => void;
+  dates: (DateObject | null)[];
+  setDates: (dates: (DateObject | null)[]) => void;
   calculateNights: () => number;
 }
 
@@ -14,13 +15,13 @@ const CalendarContext = createContext<CalendarContextProps | undefined>(
 export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [dates, setDates] = useState<Value>([]);
+  const [dates, setDates] = useState<(DateObject | null)[]>([null, null]);
 
   const calculateNights = (): number => {
-    if (dates.length < 2) return 0;
+    if (!dates[0] || !dates[1]) return 0;
 
-    const start = new Date(dates[0]);
-    const end = new Date(dates[1]);
+    const start = (dates[0] as DateObject).toDate();
+    const end = (dates[1] as DateObject).toDate();
 
     const differenceInTime = end.getTime() - start.getTime();
     const differenceInDays = differenceInTime / (1000 * 3600 * 24) + 1;

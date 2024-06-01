@@ -48,16 +48,17 @@ export const addTripToServer = createAsyncThunk(
     return data;
   },
 );
-export const removeTripToServer = createAsyncThunk(
+
+export const removeTripToServer = createAsyncThunk<number, number>(
   'rooms/removeTripToServer',
   async (id: number) => {
-    const { data, error } = await supabase.from('trips').delete().eq('id', id);
+    const { error } = await supabase.from('trips').delete().eq('id', id);
 
     if (error) {
       throw error;
     }
 
-    return data;
+    return id;
   },
 );
 
@@ -100,11 +101,14 @@ const tripsSlice = createSlice({
       state.loading = true;
       state.error = null;
     });
-    builder.addCase(removeTripToServer.fulfilled.type, (state, action) => {
-      state.loading = false;
-      state.error = null;
-      state.trips = action.payload;
-    });
+    builder.addCase(
+      removeTripToServer.fulfilled,
+      (state, action: PayloadAction<number>) => {
+        state.loading = false;
+        state.error = null;
+        state.trips = state.trips.filter((trip) => trip.id !== action.payload);
+      },
+    );
     builder.addCase(removeTripToServer.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message ?? 'Something went wrong.';

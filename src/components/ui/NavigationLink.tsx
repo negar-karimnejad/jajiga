@@ -16,7 +16,7 @@ function NavigationLink({ link }: { link: NavigationLinkProps }) {
   const { user } = useAuth();
   const { trips } = useTrips();
 
-  const hasTrip = link.to === '/host' && user && trips.length > 0;
+  const hasTrip = link.to === '/host' && user 
 
   return (
     <>
