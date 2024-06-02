@@ -10,7 +10,7 @@ import 'react-multi-date-picker/styles/layouts/mobile.css';
 import { useCalendarContext } from '../../context/CalendarContext';
 import Button from './Button';
 
-function CalendarFunc() {
+function CalendarFunc({ openModalHandler }: { openModalHandler?: () => void }) {
   const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
 
   const { dates, setDates } = useCalendarContext();
@@ -34,9 +34,9 @@ function CalendarFunc() {
       ? dateObjects
       : [dateObjects].filter((date) => date !== null);
     setDates(normalizedDates);
-    // if (normalizedDates.length === 1) {
-    //   onDatesChange;
-    // }
+    if (openModalHandler && normalizedDates.length === 2) {
+      openModalHandler();
+    }
   };
 
   return (

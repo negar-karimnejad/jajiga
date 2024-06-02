@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import useRoom from '../../../hooks/useRoom';
 import CalendarFunc from '../../ui/CalendarFunc';
 
-function RoomCalendar() {
+function RoomCalendar({ openModalHandler }: { openModalHandler: () => void }) {
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
@@ -116,7 +116,7 @@ function RoomCalendar() {
             تقویم / نرخ
           </h3>
           <div>
-            <CalendarFunc />
+            <CalendarFunc openModalHandler={openModalHandler} />
           </div>
           <div className="my-2 flex gap-3 text-sm">
             <strong className="dark:text-gray-200">

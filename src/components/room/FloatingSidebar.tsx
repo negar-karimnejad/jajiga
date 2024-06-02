@@ -1,25 +1,21 @@
 import { PiQuestionFill } from 'react-icons/pi';
 import { Room } from '../../redux/store/room';
 import Button from '../ui/Button';
-import { useState } from 'react';
 import ReservationModal from './ReservationModal';
 
 function FloatingSidebar({
+  isOpenReserveModal,
+  closeModalHandler,
+  openModalHandler,
   openFqlModal,
   room,
 }: {
+  isOpenReserveModal: boolean;
+  closeModalHandler: () => void;
+  openModalHandler: () => void;
   room: Room;
   openFqlModal: () => void;
 }) {
-  const [isOpenReserveModal, setIsOpenReserveModal] = useState(false);
-
-  const closeModalHandler = () => {
-    setIsOpenReserveModal(false);
-  };
-  const openModalHandler = () => {
-    setIsOpenReserveModal(true);
-  };
-
   return (
     <>
       <div className="sticky bottom-16 mt-5 flex items-center justify-between rounded-lg bg-neutral-800/70 px-4 py-2.5 text-white backdrop-blur-[3px] dark:bg-gray-700/70 md:hidden">

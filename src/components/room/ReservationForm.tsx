@@ -143,14 +143,12 @@ function ReservationForm({
             cancelButtonText: 'باشه',
           }).then((result) => {
             if (result.isConfirmed) {
-              console.log('isConfirmed');
-
-              setDates([null, null]);
-              setNumbers(-1);
-              setShowCost(false);
               navigate('/trips');
             }
-            if (result.isDismissed && closeModalHandler) {
+            setDates([null, null]);
+            setNumbers(-1);
+            setShowCost(false);
+            if (closeModalHandler) {
               closeModalHandler();
             }
           });
@@ -355,7 +353,7 @@ function ReservationForm({
             </div>
           </div>
         </p>
-        <div className="flex gap-3 md:flex-col lg:flex-row">
+        <div className="flex gap-3">
           <Button
             onClick={openGuaranteeModal}
             style="bg-white dark:border-gray-300 flex items-center gap-2 bg-transparent rounded-xl border-2 border-gray-100 hover:border-gray-200 hover:shadow-none w-full"

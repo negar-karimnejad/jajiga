@@ -20,6 +20,7 @@ import RoomScore from './RoomScore';
 function RoomMain() {
   const [isOpenFql, setIsOpenFql] = useState(false);
   const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
+  const [isOpenReserveModal, setIsOpenReserveModal] = useState(false);
 
   const hostRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,6 +28,12 @@ function RoomMain() {
 
   const { room } = useRoom(Number(id));
 
+  const closeModalHandler = () => {
+    setIsOpenReserveModal(false);
+  };
+  const openModalHandler = () => {
+    setIsOpenReserveModal(true);
+  };
   const closeFqlModal = () => {
     setIsOpenFql(false);
   };
@@ -58,7 +65,7 @@ function RoomMain() {
           </div>
           <RoomAbout hostRef={hostRef} />
           <RoomFeatures />
-          <RoomCalendar />
+          <RoomCalendar openModalHandler={openModalHandler} />
           <RoomRules />
           <div className="mt-5 h-64">
             <h4 className="mb-3 font-vazirBold text-lg">نقشه</h4>
@@ -67,7 +74,13 @@ function RoomMain() {
           <RoomScore />
           <RoomComments />
           <RoomHost room={room} hostRef={hostRef} />
-          <FloatingSidebar room={room} openFqlModal={openFqlModal} />
+          <FloatingSidebar
+            isOpenReserveModal={isOpenReserveModal}
+            closeModalHandler={closeModalHandler}
+            openModalHandler={openModalHandler}
+            room={room}
+            openFqlModal={openFqlModal}
+          />
         </div>
         <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />
 
