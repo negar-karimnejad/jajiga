@@ -31,7 +31,6 @@ function ReservationForm({
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
-  console.log('trip😜', trips);
 
   const {
     isShowCalendar,

@@ -3,8 +3,21 @@ import { GoChevronLeft } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import { Trip } from '../../redux/store/trips';
 import Button from '../ui/Button';
+const convertTimestampToPersianDate = (timestamp) => {
+  // Convert milliseconds to seconds
+  const date = moment.unix(timestamp / 1000);
+  // Convert to Persian date
+  const persianDate = date.locale('fa').format('dddd jD jMMMM');
+  return persianDate;
+};
 
-function TripCard({ trip,deleteHandler }: { trip: Trip,deleteHandler:(id:number)=>void }) {
+function TripCard({
+  trip,
+  deleteHandler,
+}: {
+  trip: Trip;
+  deleteHandler: (id: number) => void;
+}) {
   if (!trip) return null;
   // Assuming trip.enter and trip.exit are in the format '۱۴۰۳/۰۴/۰۳' (jYYYY/jMM/jDD)
   const jalaliDateEnter = moment(trip.enter, 'jYYYY/jMM/jDD').locale('fa');
@@ -22,7 +35,8 @@ function TripCard({ trip,deleteHandler }: { trip: Trip,deleteHandler:(id:number)
   const exitDay = jalaliDateExit.format('DD');
   const exitMonth = jalaliDateExit.format('MMMM');
   const exitWeekday = jalaliDateExit.format('dddd');
-
+  const tripEnter = convertTimestampToPersianDate(trip.enter);
+  const tripExit = convertTimestampToPersianDate(trip.exit);
 
   return (
     <div className="relative rounded-xl shadow-md">
@@ -54,7 +68,7 @@ function TripCard({ trip,deleteHandler }: { trip: Trip,deleteHandler:(id:number)
             <div className="flex">
               <div className="space-y-2">
                 <p className="font-vazirBold ">
-                  <span className="font-persianNums">{enterDay}</span>{' '}
+                  <span className="font-persianNums">{tripEnter}</span>{' '}
                   {enterMonth}
                 </p>
                 <p className="text-sm">{enterWeekday}</p>
@@ -89,7 +103,7 @@ function TripCard({ trip,deleteHandler }: { trip: Trip,deleteHandler:(id:number)
       </Link>
       <div className="mb-3 mt-8 text-center">
         <Button
-          onClick={()=>deleteHandler(trip.id)}
+          onClick={() => deleteHandler(trip.id)}
           style="bg-red-500 text-white w-11/12 rounded-md hover:bg-red-600"
         >
           حذف رزرو
