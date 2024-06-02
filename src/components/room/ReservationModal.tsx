@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Button from '../ui/Button';
 import CalendarFunc from '../ui/CalendarFunc';
 import ReservationForm from './ReservationForm';
+import { useCalendarContext } from '../../context/CalendarContext';
 
 function ReservationModal({
   isOpen,
@@ -10,9 +11,7 @@ function ReservationModal({
   isOpen: boolean;
   closeModalHandler: () => void;
 }) {
-  const [isShowCalendar, setIsShowCalendar] = useState(false);
-  const openCalendarModal = () => setIsShowCalendar(true);
-  const closeCalendarModal = () => setIsShowCalendar(false);
+  const { closeCalendarModal, isShowCalendar } = useCalendarContext();
 
   useEffect(() => {
     //   Disable body scroll when the modal is open
@@ -26,7 +25,7 @@ function ReservationModal({
   return (
     <>
       <div
-        className={`fixed right-0 top-0 z-10 flex h-screen w-full cursor-default flex-col items-center max-md:justify-end justify-center bg-black/60 transition-all duration-500 ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
+        className={`fixed right-0 top-0 z-40 flex h-screen w-full cursor-default flex-col items-center justify-center bg-black/60 transition-all duration-500 max-md:justify-end ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
         onClick={closeModalHandler}
       >
         <div
@@ -39,16 +38,12 @@ function ReservationModal({
           >
             &times;
           </Button>
-          <ReservationForm
-            isShowCalendar={isShowCalendar}
-            openCalendarModal={openCalendarModal}
-            closeCalendarModal={closeCalendarModal}
-            closeModalHandler={closeModalHandler}
-          />
+          <ReservationForm closeModalHandler={closeModalHandler} />
         </div>
+
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`absolute left-0 right-0 top-24 z-50 rounded-xl border bg-white shadow-lg shadow-gray-500 ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
+          className={`absolute left-0 right-0 top-24 z-50 mx-auto rounded-xl border bg-white shadow-lg shadow-gray-500 sm:w-fit ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
         >
           <div className="relative scale-90 pt-5">
             <CalendarFunc />

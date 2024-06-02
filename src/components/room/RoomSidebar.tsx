@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useCalendarContext } from '../../context/CalendarContext';
 import useRoom from '../../hooks/useRoom';
 import CalendarFunc from '../ui/CalendarFunc';
 import ReservationForm from './ReservationForm';
 
 function RoomSidebar() {
-  const [isShowCalendar, setIsShowCalendar] = useState(false);
-
   const { id } = useParams();
   const { room } = useRoom(Number(id));
+  const { closeCalendarModal, isShowCalendar } = useCalendarContext();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -22,12 +22,9 @@ function RoomSidebar() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [closeCalendarModal]);
 
   if (!room) return null;
-
-  const openCalendarModal = () => setIsShowCalendar(true);
-  const closeCalendarModal = () => setIsShowCalendar(false);
 
   return (
     <>
@@ -39,11 +36,7 @@ function RoomSidebar() {
               {room.price.toLocaleString()} تومان
             </span>
           </header>
-          <ReservationForm
-            isShowCalendar={isShowCalendar}
-            openCalendarModal={openCalendarModal}
-            closeCalendarModal={closeCalendarModal}
-          />
+          <ReservationForm />
         </div>
 
         <div

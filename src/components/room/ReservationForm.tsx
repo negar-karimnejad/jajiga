@@ -16,14 +16,8 @@ import FaqModal from '../ui/FaqModal';
 import Modal from '../ui/Modal';
 
 function ReservationForm({
-  isShowCalendar,
-  openCalendarModal,
-  closeCalendarModal,
   closeModalHandler,
 }: {
-  isShowCalendar: boolean;
-  openCalendarModal: () => void;
-  closeCalendarModal: () => void;
   closeModalHandler?: () => void;
 }) {
   const navigate = useNavigate();
@@ -31,15 +25,26 @@ function ReservationForm({
   const { user } = useAuth();
   const { trips, addTrip } = useTrips();
   const { openModalHandler } = useAuthModal();
-  const { dates, setDates, calculateNights } = useCalendarContext();
   const { id } = useParams();
   const { room } = useRoom(Number(id));
+  const {
+    dates,
+    setDates,
+    calculateNights,
+    closeCalendarModal,
+    isShowCalendar,
+    openCalendarModal,
+    dateError,
+    loading,
+    numbers,
+    numbersError,
+    showCost,
+    setNumbers,
+    resetShowCost,
+    setDateError,
+    setNumbersError,
+  } = useCalendarContext();
 
-  const [dateError, setDateError] = useState(false);
-  const [numbersError, setNumbersError] = useState(false);
-  const [numbers, setNumbers] = useState(-1);
-  const [loading, setLoading] = useState(false);
-  const [showCost, setShowCost] = useState(false);
   const [isShowInfo, setIsShowInfo] = useState(false);
   const [isOpenFql, setIsOpenFql] = useState(false);
   const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
@@ -50,38 +55,6 @@ function ReservationForm({
   const closeFqlModal = () => setIsOpenFql(false);
   const openGuaranteeModal = () => setIsOpenGuarantee(true);
   const closeGuaranteeModal = () => setIsOpenGuarantee(false);
-
-  useEffect(() => {
-    setDates([null, null]);
-    setShowCost(false);
-    setNumbers(-1);
-  }, [room, setDates]);
-
-  useEffect(() => {
-    if (!dates[0] || !dates[1] || numbers === -1) {
-      setShowCost(false);
-    }
-  }, [dates, numbers]);
-
-  useEffect(() => {
-    if (dates[0] || dates[1]) {
-      setDateError(false);
-    }
-
-    if (numbers !== -1) {
-      setNumbersError(false);
-    }
-
-    if (numbers !== -1 && dates[0] && dates[1]) {
-      setShowCost(true);
-      setLoading(true);
-      const timeoutId = setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-
-      return () => clearTimeout(timeoutId);
-    }
-  }, [dates, numbers]);
 
   const reservationHandler = async () => {
     if (!dates[0] || !dates[1]) {
@@ -147,7 +120,7 @@ function ReservationForm({
             }
             setDates([null, null]);
             setNumbers(-1);
-            setShowCost(false);
+            resetShowCost();
             if (closeModalHandler) {
               closeModalHandler();
             }
@@ -189,7 +162,7 @@ function ReservationForm({
 
   return (
     <>
-      <div className="my-3 px-4">
+      <div className="my-2 px-4">
         <form className="flex flex-col">
           <p className="mb-1 dark:text-white">تاریخ سفر</p>
           <div
