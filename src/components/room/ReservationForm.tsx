@@ -50,16 +50,16 @@ function ReservationForm({
   const closeGuaranteeModal = () => setIsOpenGuarantee(false);
 
   useEffect(() => {
-    if (dates[1]) {
-      closeCalendarModal();
-    }
-  }, [closeCalendarModal, dates]);
+    setDates([null, null]);
+    setShowCost(false);
+    setNumbers(-1);
+  }, [room, setDates]);
 
   useEffect(() => {
-    setDates([null, null]);
-    setNumbers(-1);
-    setShowCost(false);
-  }, [room, setDates]);
+    if (!dates[0] || !dates[1] || numbers === -1) {
+      setShowCost(false);
+    }
+  }, [dates, numbers]);
 
   useEffect(() => {
     if (dates[0] || dates[1]) {
@@ -84,7 +84,6 @@ function ReservationForm({
   const reservationHandler = async () => {
     if (!dates[0] || !dates[1]) {
       setDateError(true);
-      return;
     }
     if (numbers === -1) {
       setNumbersError(true);
@@ -366,7 +365,6 @@ function ReservationForm({
           </Button>
         </div>
       </div>
-
       <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />
       <Modal
         centered={false}

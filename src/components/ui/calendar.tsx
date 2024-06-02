@@ -3,7 +3,7 @@ import persian from 'react-date-object/calendars/persian';
 import persian_fa from 'react-date-object/locales/persian_fa';
 import { CiCircleQuestion } from 'react-icons/ci';
 import { IoTrashOutline } from 'react-icons/io5';
-import { Calendar } from 'react-multi-date-picker';
+import { Calendar, DateObject } from 'react-multi-date-picker';
 import DatePanel from 'react-multi-date-picker/plugins/date_panel';
 import weekends from 'react-multi-date-picker/plugins/highlight_weekends';
 import 'react-multi-date-picker/styles/layouts/mobile.css';
@@ -11,6 +11,8 @@ import { useCalendarContext } from '../../context/CalendarContext';
 import Button from './Button';
 
 function CalendarFunc() {
+  const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
+
   const { dates, setDates } = useCalendarContext();
 
   const [numberOfMonths, setNumberOfMonths] = useState(() => {
@@ -27,14 +29,17 @@ function CalendarFunc() {
     };
   }, []);
 
-  const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
-  // const holidays = ['2024-05-06', '2024-05-07', '2024-05-08'];
-
+  const handleDateChange = (dateObjects: DateObject | DateObject[] | null) => {
+    const normalizedDates = Array.isArray(dateObjects)
+      ? dateObjects
+      : [dateObjects].filter((date) => date !== null);
+    setDates(normalizedDates);
+  };
   return (
     <>
       <Calendar
-        value={dates}
-        onChange={(dateObjects) => setDates(dateObjects)}
+        value={dates.filter((date): date is DateObject => date !== null)} // Filter out null values
+        onChange={handleDateChange}
         className="custom-calendar mt-5 !w-full !border-0 dark:bg-white"
         numberOfMonths={numberOfMonths}
         locale={persian_fa}
