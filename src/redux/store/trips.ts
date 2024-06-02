@@ -4,8 +4,8 @@ import { Room } from './room';
 
 export interface Trip {
   id: number;
-  enter: Date;
-  exit: Date;
+  enter: Date | null;
+  exit: Date | null;
   nights: number;
   numbers: number;
   cost: number;

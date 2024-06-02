@@ -16,6 +16,10 @@ function FloatingSidebar({
   const closeModalHandler = () => {
     setIsOpenReserveModal(false);
   };
+  const openModalHandler = () => {
+    setIsOpenReserveModal(true);
+  };
+
   return (
     <>
       <div className="sticky bottom-16 mt-5 flex items-center justify-between rounded-lg bg-neutral-800/70 px-4 py-2.5 text-white backdrop-blur-[3px] dark:bg-gray-700/70 md:hidden">
@@ -36,7 +40,7 @@ function FloatingSidebar({
           </button>
         </div>
         <Button
-          onClick={() => setIsOpenReserveModal(true)}
+          onClick={openModalHandler}
           style="rounded-full px-3 font-vazirBold hover:bg-yellow-500 bg-yellow-400"
         >
           درخواست رزرو

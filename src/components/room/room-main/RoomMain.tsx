@@ -70,6 +70,7 @@ function RoomMain() {
           <FloatingSidebar room={room} openFqlModal={openFqlModal} />
         </div>
         <FaqModal isOpen={isOpenFql} closeHandler={closeFqlModal} />
+
         <Modal
           centered={false}
           isOpen={isOpenGuarantee}

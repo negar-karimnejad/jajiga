@@ -28,7 +28,7 @@ function Modal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`min-h-fit w-full rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:text-white ${centered ? 'dark:bg-gray-700 min-[600px]:w-[500px]' : 'dark:bg-gray-800 min-[600px]:w-[750px]'} ${isOpen ? 'translate-y-0' : 'translate-y-96'}`}
+        className={`min-h-fit w-full rounded-lg bg-white px-5 shadow transition-all duration-500 dark:text-white ${centered ? 'dark:bg-gray-700 min-[600px]:w-[500px]' : 'dark:bg-gray-800 min-[600px]:w-[750px]'} ${isOpen ? 'translate-y-0' : 'translate-y-96'}`}
       >
         <Button
           style="absolute w-5 h-5 -top-10 min-[600px]:left-2 left-3 font-vazirBold text-4xl text-white"

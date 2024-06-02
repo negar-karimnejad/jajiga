@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import Button from '../ui/Button';
 import CalendarFunc from '../ui/calendar';
@@ -27,15 +26,15 @@ function ReservationModal({
   return (
     <>
       <div
-        className={`fixed right-0 top-0 z-40 flex h-screen w-full cursor-default flex-col items-center justify-center bg-black/60 transition-all duration-500 max-md:justify-end ${isOpen ? 'visible z-50 opacity-100' : 'invisible z-0 opacity-0'}`}
+        className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center justify-end bg-black/60 transition-all duration-500 ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
         onClick={closeModalHandler}
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`overflow-y-auto rounded-lg bg-gray-50 p-2 shadow transition-all duration-500 dark:bg-gray-800 dark:text-white max-md:w-full min-[768px]:w-[500px] ${isOpen ? 'max-h-[30rem] min-h-[25rem]' : 'h-0'}`}
+          className={`min-h-fit w-full rounded-lg bg-white px-5 shadow transition-all duration-500 dark:text-white ${isOpen ? 'translate-y-0' : 'translate-y-96'}`}
         >
           <Button
-            style="absolute w-5 h-5 top-40 left-4 font-vazirBold text-4xl text-white"
+            style="absolute w-5 h-5 -top-10 min-[600px]:left-2 left-3 font-vazirBold text-4xl text-white"
             onClick={closeModalHandler}
           >
             &times;
@@ -44,6 +43,7 @@ function ReservationModal({
             isShowCalendar={isShowCalendar}
             openCalendarModal={openCalendarModal}
             closeCalendarModal={closeCalendarModal}
+            closeModalHandler={closeModalHandler}
           />
         </div>
         <div

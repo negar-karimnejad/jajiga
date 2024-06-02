@@ -19,10 +19,12 @@ function ReservationForm({
   isShowCalendar,
   openCalendarModal,
   closeCalendarModal,
+  closeModalHandler,
 }: {
   isShowCalendar: boolean;
   openCalendarModal: () => void;
   closeCalendarModal: () => void;
+  closeModalHandler?: () => void;
 }) {
   const navigate = useNavigate();
 
@@ -96,13 +98,13 @@ function ReservationForm({
     if (!user) {
       openModalHandler();
     } else {
-      const enteredDate = new Date(dates[0].format());
+      const enteredDate = dates[0] ? new Date(dates[0]!.format()) : null;
 
       const existedTrip = trips.find(
         (trip: Trip) =>
           trip.room.id === room.id &&
           trip.userId === user.id &&
-          trip.enter.getTime() === enteredDate.getTime(),
+          trip.enter?.getTime() === enteredDate?.getTime(),
       );
 
       if (existedTrip) {
@@ -119,8 +121,8 @@ function ReservationForm({
       } else {
         const newTrip: Trip = {
           id: Math.floor(Math.random() * 100),
-          enter: new Date(dates[0].format()),
-          exit: new Date(dates[1].format()),
+          enter: dates[0] ? new Date(dates[0]!.format()) : null,
+          exit: dates[1] ? new Date(dates[1]!.format()) : null,
           room: room,
           nights: nights,
           numbers,
@@ -141,10 +143,15 @@ function ReservationForm({
             cancelButtonText: 'باشه',
           }).then((result) => {
             if (result.isConfirmed) {
+              console.log('isConfirmed');
+
               setDates([null, null]);
               setNumbers(-1);
               setShowCost(false);
               navigate('/trips');
+            }
+            if (result.isDismissed && closeModalHandler) {
+              closeModalHandler();
             }
           });
         } catch (error) {
@@ -184,7 +191,7 @@ function ReservationForm({
 
   return (
     <>
-      <div className="my-5 px-4">
+      <div className="my-3 px-4">
         <form className="flex flex-col">
           <p className="mb-1 dark:text-white">تاریخ سفر</p>
           <div

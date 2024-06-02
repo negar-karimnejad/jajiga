@@ -34,7 +34,11 @@ function CalendarFunc() {
       ? dateObjects
       : [dateObjects].filter((date) => date !== null);
     setDates(normalizedDates);
+    // if (normalizedDates.length === 1) {
+    //   onDatesChange;
+    // }
   };
+
   return (
     <>
       <Calendar
