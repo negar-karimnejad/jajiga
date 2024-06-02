@@ -12,13 +12,16 @@ import useTrips from '../../hooks/useTrips';
 import Guarantee from '../../pages/Guarantee';
 import { Trip } from '../../redux/store/trips';
 import Button from '../ui/Button';
+import CalendarFunc from '../ui/CalendarFunc';
 import FaqModal from '../ui/FaqModal';
 import Modal from '../ui/Modal';
 
 function ReservationForm({
   closeModalHandler,
+  centered,
 }: {
   closeModalHandler?: () => void;
+  centered?: boolean;
 }) {
   const navigate = useNavigate();
 
@@ -27,29 +30,32 @@ function ReservationForm({
   const { openModalHandler } = useAuthModal();
   const { id } = useParams();
   const { room } = useRoom(Number(id));
+
+  console.log('trip😜', trips);
+
   const {
+    isShowCalendar,
+    numbersError,
+    dateError,
+    showCost,
+    numbers,
+    loading,
     dates,
     setDates,
+    setNumbers,
+    setDateError,
+    resetShowCost,
+    setNumbersError,
     calculateNights,
     closeCalendarModal,
-    isShowCalendar,
     openCalendarModal,
-    dateError,
-    loading,
-    numbers,
-    numbersError,
-    showCost,
-    setNumbers,
-    resetShowCost,
-    setDateError,
-    setNumbersError,
   } = useCalendarContext();
+
+  const nights = calculateNights();
 
   const [isShowInfo, setIsShowInfo] = useState(false);
   const [isOpenFql, setIsOpenFql] = useState(false);
   const [isOpenGuarantee, setIsOpenGuarantee] = useState(false);
-
-  const nights = calculateNights();
 
   const openFqlModal = () => setIsOpenFql(true);
   const closeFqlModal = () => setIsOpenFql(false);
@@ -77,7 +83,7 @@ function ReservationForm({
         (trip: Trip) =>
           trip.room.id === room.id &&
           trip.userId === user.id &&
-          trip.enter?.getTime() === enteredDate?.getTime(),
+          trip.enter === enteredDate,
       );
 
       if (existedTrip) {
@@ -94,8 +100,8 @@ function ReservationForm({
       } else {
         const newTrip: Trip = {
           id: Math.floor(Math.random() * 100),
-          enter: dates[0] ? new Date(dates[0]!.format()) : null,
-          exit: dates[1] ? new Date(dates[1]!.format()) : null,
+          enter: dates[0],
+          exit: dates[1],
           room: room,
           nights: nights,
           numbers,
@@ -162,6 +168,20 @@ function ReservationForm({
 
   return (
     <>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className={`${centered ? '-top-10 z-50 max-md:-top-40' : 'top-[5.5rem] z-10'} absolute left-0 rounded-xl border bg-white shadow-lg shadow-gray-500 max-md:right-0 ${isShowCalendar ? 'visible opacity-100' : 'invisible opacity-0'}`}
+      >
+        <div className="relative scale-90 pt-5">
+          <CalendarFunc />
+          <button
+            onClick={closeCalendarModal}
+            className="absolute -right-5 -top-3 h-6 w-6 font-vazirBold text-3xl text-black/40 transition-all hover:text-black"
+          >
+            &times;
+          </button>
+        </div>
+      </div>
       <div className="my-2 px-4">
         <form className="flex flex-col">
           <p className="mb-1 dark:text-white">تاریخ سفر</p>

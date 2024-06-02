@@ -1,11 +1,12 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 import { Room } from './room';
+import { DateObject } from 'react-multi-date-picker';
 
 export interface Trip {
   id: number;
-  enter: Date | null;
-  exit: Date | null;
+  enter: DateObject | null;
+  exit: DateObject | null;
   nights: number;
   numbers: number;
   cost: number;

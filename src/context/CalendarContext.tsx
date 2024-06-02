@@ -86,6 +86,7 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({
   return (
     <CalendarContext.Provider
       value={{
+        dates,
         dateError,
         numbersError,
         numbers,
@@ -94,11 +95,12 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({
         isShowCalendar,
         openCalendarModal,
         closeCalendarModal,
-        dates,
         setDates,
         calculateNights,
         resetShowCost,
-        setNumbers,setDateError,setNumbersError
+        setNumbers,
+        setDateError,
+        setNumbersError,
       }}
     >
       {children}
