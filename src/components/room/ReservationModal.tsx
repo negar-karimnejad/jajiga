@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Button from '../ui/Button';
-import CalendarFunc from '../ui/calendar';
+import CalendarFunc from '../ui/CalendarFunc';
 import ReservationForm from './ReservationForm';
 
 function ReservationModal({

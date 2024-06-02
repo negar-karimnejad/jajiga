@@ -7,7 +7,7 @@ import Navbar from '../components/navbar/Navbar';
 import ShareModal from '../components/room/ShareModal';
 import RoomMap from '../components/room/room-main/RoomMap';
 import RoomsContainer from '../components/rooms/RoomsContainer';
-import CalendarFunc from '../components/ui/calendar';
+import CalendarFunc from '../components/ui/CalendarFunc';
 import { QuickSearchArray } from '../data/data';
 import useRoomsMeta from '../hooks/useRoomaMeta';
 import useRooms from '../hooks/useRooms';

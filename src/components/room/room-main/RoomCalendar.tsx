@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import useRoom from '../../../hooks/useRoom';
-import CalendarFunc from '../../ui/calendar';
+import CalendarFunc from '../../ui/CalendarFunc';
 
 function RoomCalendar() {
   const { id } = useParams();
