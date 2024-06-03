@@ -2,6 +2,10 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
 interface SupabaseUser {
+  user_metadata: {
+    fullname: string;
+    role: string;
+  };
   id: string;
   email?: string;
 }

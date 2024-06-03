@@ -20,7 +20,7 @@ import {
   MdRule,
 } from 'react-icons/md';
 import { PiHouseLight } from 'react-icons/pi';
-import { RiCustomerService2Line } from 'react-icons/ri';
+import { RiCustomerService2Line, RiSuitcase2Line } from 'react-icons/ri';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { TfiSpray } from 'react-icons/tfi';
 import DarkMode from '../components/ui/DarkMode';
@@ -1570,6 +1570,12 @@ export const mobileNavMenuLinks = [
     title: 'کیف پول',
     icon: <IoWalletOutline />,
     to: '/finance',
+  },
+  {
+    id: 14,
+    title: 'سفرها',
+    icon: <RiSuitcase2Line />,
+    to: '/trips',
   },
   {
     id: 2,

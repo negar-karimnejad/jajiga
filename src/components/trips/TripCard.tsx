@@ -3,43 +3,28 @@ import { GoChevronLeft } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import { Trip } from '../../redux/store/trips';
 import Button from '../ui/Button';
-const convertTimestampToPersianDate = (timestamp) => {
-  // Convert milliseconds to seconds
-  const date = moment.unix(timestamp / 1000);
-  // Convert to Persian date
-  const persianDate = date.locale('fa').format('dddd jD jMMMM');
-  return persianDate;
-};
 
-function TripCard({
-  trip,
-  deleteHandler,
-}: {
+interface TripCardProps {
   trip: Trip;
   deleteHandler: (id: number) => void;
-}) {
+}
+
+function TripCard({ trip, deleteHandler }: TripCardProps) {
   if (!trip) return null;
-  // Assuming trip.enter and trip.exit are in the format '۱۴۰۳/۰۴/۰۳' (jYYYY/jMM/jDD)
-  const jalaliDateEnter = moment(trip.enter, 'jYYYY/jMM/jDD').locale('fa');
-  const jalaliDateExit = moment(trip.exit, 'jYYYY/jMM/jDD').locale('fa');
 
-  // Format the dates
-  const formattedEnterDate = jalaliDateEnter.format('DD MMMM dddd');
-  const formattedExitDate = jalaliDateExit.format('DD MMMM dddd');
+  const enterDate = moment.unix(Number(trip.enter) / 1000).locale('fa');
+  const ExitDate = moment.unix(Number(trip.exit) / 1000).locale('fa');
 
-  // Extract parts for individual use
-  const enterDay = jalaliDateEnter.format('DD');
-  const enterMonth = jalaliDateEnter.format('MMMM');
-  const enterWeekday = jalaliDateEnter.format('dddd');
+  const enterWeekday = enterDate.format('dddd');
+  const enterDay = enterDate.format('jD');
+  const enterMonth = enterDate.format('jMMMM');
 
-  const exitDay = jalaliDateExit.format('DD');
-  const exitMonth = jalaliDateExit.format('MMMM');
-  const exitWeekday = jalaliDateExit.format('dddd');
-  const tripEnter = convertTimestampToPersianDate(trip.enter);
-  const tripExit = convertTimestampToPersianDate(trip.exit);
+  const ExitWeekday = ExitDate.format('dddd');
+  const ExitDay = ExitDate.format('jD');
+  const ExitMonth = ExitDate.format('jMMMM');
 
   return (
-    <div className="relative rounded-xl shadow-md">
+    <div className="relative rounded-xl shadow-md dark:shadow-gray-950">
       <Link to={`/room/${trip.room.code}`} className="group">
         <div className="relative">
           <div className="absolute inset-0 bottom-0 left-0 rounded-xl bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -63,12 +48,12 @@ function TripCard({
           </div>
         </div>
 
-        <div className="mb-5 mt-2 flex items-end justify-between px-2 text-gray-600">
+        <div className="mb-5 mt-2 flex items-end justify-between px-2 text-gray-600 dark:text-white">
           <div className="space-y-5 text-sm">
             <div className="flex">
               <div className="space-y-2">
-                <p className="font-vazirBold ">
-                  <span className="font-persianNums">{tripEnter}</span>{' '}
+                <p className="font-vazirBold">
+                  <span className="font-persianNums">{enterDay}</span>{' '}
                   {enterMonth}
                 </p>
                 <p className="text-sm">{enterWeekday}</p>
@@ -78,13 +63,13 @@ function TripCard({
               </div>
               <div className="space-y-2">
                 <p className="font-vazirBold">
-                  <span className="font-persianNums">{exitDay}</span>{' '}
-                  {exitMonth}
+                  <span className="font-persianNums">{ExitDay}</span>{' '}
+                  {ExitMonth}
                 </p>
-                <p className="text-sm">{exitWeekday}</p>
+                <p className="text-sm">{ExitWeekday}</p>
               </div>
             </div>
-            <div className="font-bold">
+            <div>
               <span className="font-persianNums">{trip.numbers}</span> نفر{' '}
               <span className="font-light">به مدت</span>{' '}
               <span className="font-persianNums">{trip.nights}</span> شب
@@ -92,7 +77,7 @@ function TripCard({
           </div>
           <div className="space-y-5 text-left">
             <p>{trip.room.host.fullname}</p>
-            <p className="text-sm font-bold">
+            <p className="text-sm ">
               <span className="font-persianNums">
                 مبلغ: {trip.cost.toLocaleString()}
               </span>{' '}

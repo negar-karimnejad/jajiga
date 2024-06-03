@@ -10,12 +10,14 @@ import { Link } from 'react-router-dom';
 import { mobileNavMenuLinks } from '../../data/data';
 import { useAuth } from '../../hooks/useAuth';
 import { useAuthModal } from '../../hooks/useAuthModal';
+import useTrips from '../../hooks/useTrips';
 import Button from '../ui/Button';
 
 function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModalHandler } = useAuthModal();
   const { user, signoutFunc } = useAuth();
+  const { trips } = useTrips();
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -110,8 +112,8 @@ function NavMenu() {
                 </Button>
               ) : (
                 <div>
-                  <p className="mb-2 text-gray-600 dark:text-gray-300">
-                    {/* {user?.user_metadata?.fullname} */}
+                  <p className="mb-2 mr-2 text-gray-600 dark:text-gray-300">
+                    {user.user_metadata.fullname}
                   </p>
                   <Link
                     to="/profile"
@@ -125,11 +127,15 @@ function NavMenu() {
             <div className="my-3 border-b"></div>
             <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">
               {mobileNavMenuLinks.map((item) => {
-                if (item.title === 'کیف پول' || item.title === 'حساب کاربری') {
+                if (
+                  item.title === 'کیف پول' ||
+                  item.title === 'سفرها' ||
+                  item.title === 'حساب کاربری'
+                ) {
                   return (
                     <div key={item.id}>
                       {user && (
-                        <li className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <li className="relative rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800">
                           <Link
                             onClick={() => setIsMenuOpen(false)}
                             to={item.to}
@@ -142,6 +148,11 @@ function NavMenu() {
                               {item.title}
                             </span>
                           </Link>
+                          {item.title === 'سفرها' && (
+                            <div className="absolute bottom-0 left-5 top-0 m-auto flex h-5 w-5 items-center justify-center rounded-full bg-gray-200 pt-1 font-persianNums dark:text-gray-950">
+                              {trips.length}
+                            </div>
+                          )}
                         </li>
                       )}
                     </div>
@@ -150,7 +161,7 @@ function NavMenu() {
                   return (
                     <li
                       key={item.id}
-                      className="rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                      className="relative rounded-s-full p-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
                       <Link
                         onClick={() => setIsMenuOpen(false)}
@@ -164,6 +175,11 @@ function NavMenu() {
                           {item.title}
                         </span>
                       </Link>
+                      {item.title === 'فرصت های شغلی' && (
+                        <div className="absolute bottom-0 left-5 top-0 m-auto flex h-5 w-5 items-center justify-center rounded-full bg-gray-200 pt-1 font-persianNums dark:text-gray-950">
+                          7
+                        </div>
+                      )}
                     </li>
                   );
                 }
