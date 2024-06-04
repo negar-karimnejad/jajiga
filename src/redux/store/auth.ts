@@ -55,7 +55,7 @@ export const signupUser = createAsyncThunk(
       throw Error('متاسفانه ثبت نام انجام نشد');
     }
 
-    return data.user as SupabaseUser;
+    return data.user;
   },
 );
 
@@ -70,7 +70,7 @@ export const signinUser = createAsyncThunk(
     if (error) {
       throw Error('متاسفانه ثبت نام انجام نشد');
     }
-    return data.user as SupabaseUser;
+    return data.user;
   },
 );
 
@@ -78,13 +78,12 @@ export const fetchUsers = createAsyncThunk(
   'auth/fetchUsers',
   async (): Promise<SupabaseUser[]> => {
     const { data, error } = await supabase.auth.admin.listUsers();
-    console.log('Fetch Users Response:', data, error); // Debugging line
 
     if (error) {
       throw error;
     }
 
-    return data.users as SupabaseUser[];
+    return data.users as [];
   },
 );
 

@@ -31,6 +31,8 @@ import Support from './pages/Support';
 import Trips from './pages/Trips';
 import Wishes from './pages/Wishes';
 import { store } from './redux/store';
+import BlankLayout from './pages/BlankLayout';
+import AdminP from './pages/admin-p/AdminP';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -45,9 +47,12 @@ function App() {
         <MobileNavigationMenu />
         <SigningModal />
         <Routes>
-          {/* <Route element={<BlankLayout />}></Route> */}
+          <Route element={<BlankLayout />}>
+            <Route path="/admin-p" element={<AdminP />} />
+          </Route>
           <Route element={<AppLayout />}>
             <Route path="/host" element={<Hosting />} />
+
             <Route path="/newroom" element={<NewRoom />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/guarantee" element={<Guarantee />} />
@@ -57,7 +62,7 @@ function App() {
             <Route path="/jobs" element={<Jobs />} />
           </Route>
           <Route path="/" element={<HomePage />} />
-            <Route path="/room/:id" element={<Room />} />
+          <Route path="/room/:id" element={<Room />} />
           <Route path="/s" element={<Rooms />} />
           <Route path="/s/:id" element={<Rooms />} />
           <Route path="/finance" element={<Finance />} />

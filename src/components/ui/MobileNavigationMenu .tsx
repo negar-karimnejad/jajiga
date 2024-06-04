@@ -33,6 +33,8 @@ function MobileNavigationMenu() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [prevScrollPos]);
+  if (location.pathname === '/admin-p') return null;
+
   return (
     <>
       <div
