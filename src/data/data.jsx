@@ -13,17 +13,20 @@ import {
   IoShieldCheckmarkOutline,
   IoWalletOutline,
 } from 'react-icons/io5';
-import { LiaQuestionCircle } from 'react-icons/lia';
+import { LiaQuestionCircle, LiaUsersSolid } from 'react-icons/lia';
 import {
+  MdDashboard,
   MdOutlineAppSettingsAlt,
   MdOutlineRoomService,
   MdRule,
 } from 'react-icons/md';
 import { PiHouseLight } from 'react-icons/pi';
-import { RiCustomerService2Line, RiSuitcase2Line } from 'react-icons/ri';
+import { RiCustomerService2Line, RiHotelFill, RiSuitcase2Line } from 'react-icons/ri';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { TfiSpray } from 'react-icons/tfi';
 import DarkMode from '../components/ui/DarkMode';
+import { FaUserTie } from 'react-icons/fa';
+import { SiGitbook } from 'react-icons/si';
 
 export const navMenuLinks = [
   {
@@ -1760,4 +1763,12 @@ export const homepageComments = [
     date: 'اردیبهشت 96',
     profile:"/images/commentsProfile/8.webp"
   },
+];
+
+export const adminPMenus = [
+  { id: 1, title: 'داشبورد',to:"/admin-p", icon: <MdDashboard size={20} /> },
+  { id: 2, title: 'اقامتگاه ها',to:"/admin-p/rooms", icon: <RiHotelFill size={20} /> },
+  { id: 3, title: 'میزبانان',to:"/admin-p/hosts", icon: <FaUserTie size={20} /> },
+  { id: 4, title: 'مشتریان',to:"/admin-p/customers", icon: <LiaUsersSolid size={20} /> },
+  { id: 5, title: 'رزروها',to:"/admin-p/reserves", icon: <SiGitbook size={20} /> },
 ];
