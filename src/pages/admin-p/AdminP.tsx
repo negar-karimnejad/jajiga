@@ -2,7 +2,7 @@
 function AdminP() {
   
   return (
-    <div className="bg-gray-100">
+    <div className="">
     AdminP
     </div>
   );
