@@ -28,7 +28,11 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
         </div>
         <label className="input flex items-center gap-2 bg-gray-100 dark:bg-gray-700">
-          <input type="text" className="grow" placeholder="جستجو..." />
+          <input
+            type="text"
+            className="dark:text-gray-100 grow"
+            placeholder="جستجو..."
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"

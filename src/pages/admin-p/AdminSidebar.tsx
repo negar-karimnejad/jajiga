@@ -42,7 +42,7 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
             <div className="rounded-md border-2 p-3 dark:border-gray-700 dark:text-white">
               <p>{user?.user_metadata.fullname}</p>
             </div>
-            <div className=" my-7">
+            <div className="my-7">
               <h5 className="text-lg text-gray-600 dark:text-white">
                 منوی اصلی
               </h5>
@@ -62,7 +62,7 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
               </ul>
             </div>
           </div>
-          <p className="pb-1 text-center text-[12px] text-gray-500 dark:text-gray-400">
+          <p className="pb-5 text-center text-[12px] text-gray-500 dark:text-gray-400">
             داشبورد
             <br />© 2024 تمامی حقوق محفوظ است
           </p>
