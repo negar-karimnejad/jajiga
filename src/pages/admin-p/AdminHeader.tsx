@@ -2,7 +2,7 @@ import { HiOutlineChatAlt2 } from 'react-icons/hi';
 
 function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
   return (
-    <div className="navbar sticky top-5 h-20 rounded-md bg-white shadow dark:border-b-2 dark:border-b-gray-600 dark:bg-gray-800">
+    <div className="navbar sticky top-5 h-20 z-20 rounded-md bg-white shadow dark:border-b-2 dark:border-b-gray-600 dark:bg-gray-800">
       <div className="navbar-start">
         <div className="">
           <div

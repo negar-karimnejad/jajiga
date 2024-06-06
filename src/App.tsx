@@ -35,7 +35,7 @@ import AdminPDashboard from './pages/admin-p/AdminPDashboard';
 import AdminPHosts from './pages/admin-p/AdminPHosts';
 import AdminPLayout from './pages/admin-p/AdminPLayout';
 import AdminPReserves from './pages/admin-p/AdminPReserves';
-import AdminPRoom from './pages/admin-p/AdminPRoom';
+import AdminPRooms from './pages/admin-p/AdminPRooms';
 import { store } from './redux/store';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
         <Routes>
           <Route element={<AdminPLayout />}>
             <Route path="/admin-p" element={<AdminPDashboard />} />
-            <Route path="/admin-p/rooms" element={<AdminPRoom />} />
+            <Route path="/admin-p/rooms" element={<AdminPRooms />} />
             <Route path="/admin-p/hosts" element={<AdminPHosts />} />
             <Route path="/admin-p/customers" element={<AdminPCustomers />} />
             <Route path="/admin-p/reserves" element={<AdminPReserves />} />

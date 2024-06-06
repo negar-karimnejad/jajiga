@@ -18,9 +18,9 @@ function AdminPLayout() {
         <div
           className={`transition-all duration-300 ease-linear space-y-5 rounded-md dark:bg-gray-900 ${isPushMenu ? 'col-span-11' : 'col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9'}`}
         >
-          <div className="fixed top-0 h-5 w-full bg-gray-100 dark:bg-gray-900"></div>
+          <div className="fixed top-0 z-20 h-5 w-full bg-gray-100 dark:bg-gray-900"></div>
           <AdminHeader toggleMenu={toggleMenu} />
-          <div className="h-[100rem] rounded-md bg-white p-5 dark:bg-gray-800">
+          <div className="h-[100rem] z-10 rounded-md bg-white dark:bg-gray-800">
             <Outlet />
           </div>
         </div>

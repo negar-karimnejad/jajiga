@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../components/navbar/Logo';
 import { adminPMenus } from '../../data/data';
 import { useAuth } from '../../hooks/useAuth';
 
 function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
   const { user } = useAuth();
-  const [activeItem, setActiveItem] = useState(1);
+  const location = useLocation();
+
+  const [activeItem, setActiveItem] = useState(location.pathname);
   return (
     <div className="sticky top-5 overflow-hidden rounded-lg bg-white dark:bg-gray-800 max-md:hidden">
       {isPushMenu ? (
@@ -20,12 +22,11 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
                 {adminPMenus.map((item) => (
                   <li
                     key={item.id}
-                    onClick={() => setActiveItem(item.id)}
-                    className={`transition-all hover:text-purple-500 dark:hover:text-purple-500 ${activeItem === item.id ? 'text-purple-500' : 'text-gray-600 dark:text-gray-100'}`}
+                    onClick={() => setActiveItem(item.to)}
+                    className={`transition-all hover:text-purple-500 dark:hover:text-purple-500 ${activeItem === item.to ? 'text-purple-500' : 'text-gray-600 dark:text-gray-100'}`}
                   >
                     <Link to={item.to} className="flex items-center gap-4">
                       {item.icon}
-                      {/* {item.title} */}
                     </Link>
                   </li>
                 ))}
@@ -50,8 +51,8 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
                 {adminPMenus.map((item) => (
                   <li
                     key={item.id}
-                    onClick={() => setActiveItem(item.id)}
-                    className={`transition-all hover:text-purple-500 dark:hover:text-purple-500 ${activeItem === item.id ? 'text-purple-500' : 'text-gray-600 dark:text-gray-100'}`}
+                    onClick={() => setActiveItem(item.to)}
+                    className={`transition-all hover:text-purple-500 dark:hover:text-purple-500 ${activeItem === item.to ? 'text-purple-500' : 'text-gray-600 dark:text-gray-100'}`}
                   >
                     <Link to={item.to} className="flex items-center gap-4">
                       {item.icon}
