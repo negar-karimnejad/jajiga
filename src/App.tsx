@@ -30,8 +30,12 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Trips from './pages/Trips';
 import Wishes from './pages/Wishes';
-import AdminP from './pages/admin-p/AdminP';
+import AdminPCustomers from './pages/admin-p/AdminPCustomers';
+import AdminPDashboard from './pages/admin-p/AdminPDashboard';
+import AdminPHosts from './pages/admin-p/AdminPHosts';
 import AdminPLayout from './pages/admin-p/AdminPLayout';
+import AdminPReserves from './pages/admin-p/AdminPReserves';
+import AdminPRoom from './pages/admin-p/AdminPRoom';
 import { store } from './redux/store';
 
 function App() {
@@ -48,8 +52,11 @@ function App() {
         <SigningModal />
         <Routes>
           <Route element={<AdminPLayout />}>
-            <Route path="/admin-p" element={<AdminP />} />
-            <Route path="/admin-p/:id" element={<AdminP />} />
+            <Route path="/admin-p" element={<AdminPDashboard />} />
+            <Route path="/admin-p/rooms" element={<AdminPRoom />} />
+            <Route path="/admin-p/hosts" element={<AdminPHosts />} />
+            <Route path="/admin-p/customers" element={<AdminPCustomers />} />
+            <Route path="/admin-p/reserves" element={<AdminPReserves />} />
           </Route>
           <Route element={<AppLayout />}>
             <Route path="/host" element={<Hosting />} />
