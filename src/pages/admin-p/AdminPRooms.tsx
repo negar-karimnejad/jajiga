@@ -1,15 +1,22 @@
-import { BiEdit, BiTrash } from 'react-icons/bi';
+import { BiEdit, BiPlus, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import useRooms from '../../hooks/useRooms';
+import { Link } from 'react-router-dom';
 
 function AdminPRooms() {
   const { rooms } = useRooms();
   return (
-    <div className="bg-gray-100">
-      <h2 className="py-5 font-vazirBold text-3xl text-gray-600">
-        اقامتگاه ها
-      </h2>
-      <div className="flex min-h-screen w-full z-10 items-center justify-center bg-white">
+    <>
+      <div className="flex items-center justify-between">
+        <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
+          اقامتگاه ها
+        </h2>
+        <button className="btn bg-violet-500 font-vazirBold text-white hover:bg-violet-600">
+          <BiPlus size={24} />
+          افزودن اقامتگاه
+        </button>
+      </div>
+      <div className="z-10 flex min-h-screen w-full items-center justify-center bg-white">
         <div className="w-full">
           <table className="table w-full">
             <thead>
@@ -66,12 +73,13 @@ function AdminPRooms() {
                       </span>
                     </p>
                   </td>
-                  <td className="border-blue-gray-50 border-b p-4">
+                  <td className="flex items-center gap-2 p-4">
+                    <img src={room.host.profile} className='w-10 h-10 object-cover rounded-full' alt="" />
                     <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
                       {room.host.fullname}
                     </p>
                   </td>
-                  
+
                   <td className="border-blue-gray-50 border-b p-4">
                     <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
                       {room.code}
@@ -92,22 +100,22 @@ function AdminPRooms() {
                         className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
                       >
                         {' '}
-                        <li className="py-0.5 hover:text-purple-500">
+                        <li className="py-0.5 hover:text-violet-500">
                           <a>
                             <BiEdit />
-                            ویرایش محصول
+                            ویرایش اقامتگاه
                           </a>
                         </li>
-                        <li className="py-0.5 hover:text-purple-500">
-                          <a>
+                        <li className="py-0.5 hover:text-violet-500">
+                          <Link to={`/admin-p/rooms/${room.code}`}>
                             <FaEye />
-                            مشاهده محصول
-                          </a>
+                            مشاهده اقامتگاه
+                          </Link>
                         </li>
-                        <li className="py-0.5 hover:text-purple-500">
+                        <li className="py-0.5 hover:text-violet-500">
                           <a>
                             <BiTrash />
-                            حذف محصول
+                            حذف اقامتگاه
                           </a>
                         </li>
                       </ul>
@@ -119,7 +127,7 @@ function AdminPRooms() {
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

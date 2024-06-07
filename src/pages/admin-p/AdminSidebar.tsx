@@ -22,8 +22,9 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
                 {adminPMenus.map((item) => (
                   <li
                     key={item.id}
+                    title={item.title}
                     onClick={() => setActiveItem(item.to)}
-                    className={`transition-all hover:text-purple-500 dark:hover:text-purple-500 ${activeItem === item.to ? 'text-purple-500' : 'text-gray-600 dark:text-gray-100'}`}
+                    className={`transition-all hover:text-violet-500 dark:hover:text-violet-500 ${activeItem === item.to ? 'text-violet-500' : 'text-gray-600 dark:text-gray-100'}`}
                   >
                     <Link to={item.to} className="flex items-center gap-4">
                       {item.icon}
@@ -40,19 +41,16 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
             <Logo withTitle={true} />
           </div>
           <div className="p-5">
-            <div className="rounded-md border-2 p-3 dark:border-gray-700 dark:text-white">
+            <div className="border-b-2 p-3 dark:border-b-gray-700 dark:text-white">
               <p>{user?.user_metadata.fullname}</p>
             </div>
-            <div className="my-7">
-              <h5 className="text-lg text-gray-600 dark:text-white">
-                منوی اصلی
-              </h5>
+            <div className="my-14">
               <ul className="mt-6 flex flex-col gap-8 text-base">
                 {adminPMenus.map((item) => (
                   <li
                     key={item.id}
                     onClick={() => setActiveItem(item.to)}
-                    className={`transition-all hover:text-purple-500 dark:hover:text-purple-500 ${activeItem === item.to ? 'text-purple-500' : 'text-gray-600 dark:text-gray-100'}`}
+                    className={`transition-all hover:text-violet-500 dark:hover:text-violet-500 ${activeItem === item.to ? 'text-violet-500' : 'text-gray-600 dark:text-gray-100'}`}
                   >
                     <Link to={item.to} className="flex items-center gap-4">
                       {item.icon}

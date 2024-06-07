@@ -37,6 +37,7 @@ import AdminPLayout from './pages/admin-p/AdminPLayout';
 import AdminPReserves from './pages/admin-p/AdminPReserves';
 import AdminPRooms from './pages/admin-p/AdminPRooms';
 import { store } from './redux/store';
+import AdminPRoomsDetails from './pages/admin-p/AdminPRoomsDetails';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -54,6 +55,7 @@ function App() {
           <Route element={<AdminPLayout />}>
             <Route path="/admin-p" element={<AdminPDashboard />} />
             <Route path="/admin-p/rooms" element={<AdminPRooms />} />
+            <Route path="/admin-p/rooms/:id" element={<AdminPRoomsDetails />} />
             <Route path="/admin-p/hosts" element={<AdminPHosts />} />
             <Route path="/admin-p/customers" element={<AdminPCustomers />} />
             <Route path="/admin-p/reserves" element={<AdminPReserves />} />
