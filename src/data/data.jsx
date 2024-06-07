@@ -1,7 +1,13 @@
 import { AiOutlineUser } from 'react-icons/ai';
 import { BiMessageRoundedAdd, BiSupport, BiUser } from 'react-icons/bi';
-import { BsExclamationSquare, BsHouseAdd, BsSuitcase } from 'react-icons/bs';
+import {
+  BsExclamationSquare,
+  BsHouseAdd,
+  BsHouseAddFill,
+  BsSuitcase,
+} from 'react-icons/bs';
 import { CiGift } from 'react-icons/ci';
+import { FaUserTie } from 'react-icons/fa';
 import { GoBell, GoHeart, GoHome, GoKey } from 'react-icons/go';
 import { GrDocumentUpdate } from 'react-icons/gr';
 import { HiOutlineUserGroup } from 'react-icons/hi';
@@ -21,12 +27,16 @@ import {
   MdRule,
 } from 'react-icons/md';
 import { PiHouseLight } from 'react-icons/pi';
-import { RiCustomerService2Line, RiHotelFill, RiSuitcase2Line } from 'react-icons/ri';
+import {
+  RiCustomerService2Line,
+  RiHotelFill,
+  RiSuitcase2Line,
+  RiUserAddFill,
+} from 'react-icons/ri';
+import { SiGitbook } from 'react-icons/si';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
 import { TfiSpray } from 'react-icons/tfi';
 import DarkMode from '../components/ui/DarkMode';
-import { FaUserTie } from 'react-icons/fa';
-import { SiGitbook } from 'react-icons/si';
 
 export const navMenuLinks = [
   {
@@ -1711,7 +1721,7 @@ export const homepageComments = [
     comment:
       'راستش حاجی, کار کردن با این وبسایت شما برام سخت بود و اعصابمو خورد کرد! چون کلی مراحل داره و آسمون ریسمون میکنه ... من دفعه بعد از همون لب جاده یه خونه‌ای چیزی پیدا می‌کنم و اجاره می‌کنم برام راحت تره. دم شمام گرم',
     date: 'آبان 96',
-    profile:"/images/commentsProfile/1.webp"
+    profile: '/images/commentsProfile/1.webp',
   },
   {
     id: 2,
@@ -1719,56 +1729,94 @@ export const homepageComments = [
     comment:
       'جاجیگا خیلی خوبه. اینکه بتونی از قبل جات رو رزرو کنی و بعد با خیال راحت بری سفر عالیه... ما حتی یه مشکلی پیش اومد رزرو رو تغییر دادیم و تو سایت کارمون رو به سرعت انجام دادن. مرسی',
     date: 'مهر 96',
-    profile:"/images/commentsProfile/2.webp"
+    profile: '/images/commentsProfile/2.webp',
   },
   {
     id: 3,
     name: 'میلاد',
-    comment:"عملکرد وبسایت خیلی خوب و اثر بخش بود. من حتما دوستان اهل سفرم رو به استفاده از این وبسایت ترغیب می کنم. پیشنهاد می‌کنم شهرها و اقامتگاه‌های بیشتری رو تحت پوشش بگیرید.",
+    comment:
+      'عملکرد وبسایت خیلی خوب و اثر بخش بود. من حتما دوستان اهل سفرم رو به استفاده از این وبسایت ترغیب می کنم. پیشنهاد می‌کنم شهرها و اقامتگاه‌های بیشتری رو تحت پوشش بگیرید.',
     date: 'مرداد 96',
-    profile:"/images/commentsProfile/3.webp"
+    profile: '/images/commentsProfile/3.webp',
   },
   {
     id: 4,
     name: 'آیسان',
-    comment:"من امسال یک مسافرت یک هفته‌ای شمال رفتم و ۴ اقامتگاه تو شهرهای مختلف از سایت شما گرفتم که من و همه همراهانم خیلی راضی بودیم. از این به بعد سفر به همه جای ایران فقط با جاجیگا :)",
+    comment:
+      'من امسال یک مسافرت یک هفته‌ای شمال رفتم و ۴ اقامتگاه تو شهرهای مختلف از سایت شما گرفتم که من و همه همراهانم خیلی راضی بودیم. از این به بعد سفر به همه جای ایران فقط با جاجیگا :)',
     date: 'مرداد 99',
-    profile:"/images/commentsProfile/4.webp"
+    profile: '/images/commentsProfile/4.webp',
   },
   {
     id: 5,
     name: 'پدرام',
-    comment:"من رزرو لحظه آخری داشتم در جاجیگا و چون وقت تنگ بود نگران پاسخ میزبان بودم و اگر که شما کمک نمی‌کردین شاید رزرو رو لغو می کردم ولی الان میدونم که اگه از قبل رزرو کنم دیگه هیچ مشکلی نخواهد بود.",
+    comment:
+      'من رزرو لحظه آخری داشتم در جاجیگا و چون وقت تنگ بود نگران پاسخ میزبان بودم و اگر که شما کمک نمی‌کردین شاید رزرو رو لغو می کردم ولی الان میدونم که اگه از قبل رزرو کنم دیگه هیچ مشکلی نخواهد بود.',
     date: 'بهمن 99',
-    profile:"/images/commentsProfile/5.webp"
+    profile: '/images/commentsProfile/5.webp',
   },
   {
     id: 6,
     name: 'مجید',
-    comment:"کارتون عالیه دوستان... هرچند برای تایید رزرو منتظر موندم ولی واقعا تجربه خوبی داشتم از رزروی که انجام دادم, فقط کاش شهرها و مناطق بیشتری رو تحت پوشش بگیرید تا بتونیم بیشتر ازش استفاده کنیم.",
+    comment:
+      'کارتون عالیه دوستان... هرچند برای تایید رزرو منتظر موندم ولی واقعا تجربه خوبی داشتم از رزروی که انجام دادم, فقط کاش شهرها و مناطق بیشتری رو تحت پوشش بگیرید تا بتونیم بیشتر ازش استفاده کنیم.',
     date: 'فروردین 97',
-    profile:"/images/commentsProfile/6.webp"
+    profile: '/images/commentsProfile/6.webp',
   },
   {
     id: 7,
     name: 'علی',
-    comment:"اولین بار واقعا با شک و تردید از سایت استفاده کردم که نکنه پول رو واریز کنم و از کسی خبری نشه! ولی واقعا راضی هستم و دیگه میدونم داستان چیه ...  از این به بعد حتما هر شهری برم از سایت شما استفاده می‌کنم.",
+    comment:
+      'اولین بار واقعا با شک و تردید از سایت استفاده کردم که نکنه پول رو واریز کنم و از کسی خبری نشه! ولی واقعا راضی هستم و دیگه میدونم داستان چیه ...  از این به بعد حتما هر شهری برم از سایت شما استفاده می‌کنم.',
     date: 'خرداد 98',
-    profile:"/images/commentsProfile/7.webp"
+    profile: '/images/commentsProfile/7.webp',
   },
   {
     id: 8,
     name: 'فریبرز',
-    comment:"من یه جایی رو تو قلعه رودخان رزرو کردم و راستش انتظار نداشتم همه چیز انقدر خوب و مرتب پیش بره ... چون عادت دارم مکان اقامتم رو از قبل مشخص کنم جاجیگا گزینه خوبی برام بود و در سفرهای بعدی هم استفاده می‌کنم.",
+    comment:
+      'من یه جایی رو تو قلعه رودخان رزرو کردم و راستش انتظار نداشتم همه چیز انقدر خوب و مرتب پیش بره ... چون عادت دارم مکان اقامتم رو از قبل مشخص کنم جاجیگا گزینه خوبی برام بود و در سفرهای بعدی هم استفاده می‌کنم.',
     date: 'اردیبهشت 96',
-    profile:"/images/commentsProfile/8.webp"
+    profile: '/images/commentsProfile/8.webp',
   },
 ];
 
 export const adminPMenus = [
-  { id: 1, title: 'داشبورد',to:"/admin-p", icon: <MdDashboard size={20} /> },
-  { id: 2, title: 'اقامتگاه ها',to:"/admin-p/rooms", icon: <RiHotelFill size={20} /> },
-  { id: 3, title: 'میزبانان',to:"/admin-p/hosts", icon: <FaUserTie size={20} /> },
-  { id: 4, title: 'مشتریان',to:"/admin-p/customers", icon: <LiaUsersSolid size={20} /> },
-  { id: 5, title: 'رزروها',to:"/admin-p/reserves", icon: <SiGitbook size={20} /> },
+  { id: 1, title: 'داشبورد', to: '/admin-p', icon: <MdDashboard size={20} /> },
+  {
+    id: 2,
+    title: 'اقامتگاه ها',
+    to: '/admin-p/rooms',
+    icon: <RiHotelFill size={20} />,
+  },
+  {
+    id: 3,
+    title: 'افزودن اقامتگاه',
+    to: '/admin-p/rooms/new-room',
+    icon: <BsHouseAddFill size={20} />,
+  },
+  {
+    id: 4,
+    title: 'میزبانان',
+    to: '/admin-p/hosts',
+    icon: <FaUserTie size={20} />,
+  },
+  {
+    id: 4,
+    title: 'افزودن میزبان',
+    to: '/admin-p/hosts/new-host',
+    icon: <RiUserAddFill  size={20} />,
+  },
+  {
+    id: 4,
+    title: 'مشتریان',
+    to: '/admin-p/customers',
+    icon: <LiaUsersSolid size={20} />,
+  },
+  {
+    id: 5,
+    title: 'رزروها',
+    to: '/admin-p/reserves',
+    icon: <SiGitbook size={20} />,
+  },
 ];

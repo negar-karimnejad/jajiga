@@ -17,22 +17,20 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
             <Logo />
           </div>
           <div className="p-5">
-            <div className=" my-7">
-              <ul className="mt-6 flex flex-col gap-8 text-base">
-                {adminPMenus.map((item) => (
-                  <li
-                    key={item.id}
-                    title={item.title}
-                    onClick={() => setActiveItem(item.to)}
-                    className={`transition-all hover:text-violet-500 dark:hover:text-violet-500 ${activeItem === item.to ? 'text-violet-500' : 'text-gray-600 dark:text-gray-100'}`}
-                  >
-                    <Link to={item.to} className="flex items-center gap-4">
-                      {item.icon}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="my-12 flex flex-col gap-10 text-base">
+              {adminPMenus.map((item) => (
+                <li
+                  key={item.id}
+                  title={item.title}
+                  onClick={() => setActiveItem(item.to)}
+                  className={`transition-all hover:text-violet-500 dark:hover:text-violet-500 ${activeItem === item.to ? 'text-violet-500' : 'text-gray-600 dark:text-gray-100'}`}
+                >
+                  <Link to={item.to} className="flex items-center gap-4">
+                    {item.icon}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </>
       ) : (
@@ -44,26 +42,23 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
             <div className="border-b-2 p-3 dark:border-b-gray-700 dark:text-white">
               <p>{user?.user_metadata.fullname}</p>
             </div>
-            <div className="my-14">
-              <ul className="mt-6 flex flex-col gap-8 text-base">
-                {adminPMenus.map((item) => (
-                  <li
-                    key={item.id}
-                    onClick={() => setActiveItem(item.to)}
-                    className={`transition-all hover:text-violet-500 dark:hover:text-violet-500 ${activeItem === item.to ? 'text-violet-500' : 'text-gray-600 dark:text-gray-100'}`}
-                  >
-                    <Link to={item.to} className="flex items-center gap-4">
-                      {item.icon}
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="my-8 flex flex-col gap-6 text-base">
+              {adminPMenus.map((item) => (
+                <li
+                  key={item.id}
+                  onClick={() => setActiveItem(item.to)}
+                  className={`transition-all hover:text-violet-500 dark:hover:text-violet-500 ${activeItem === item.to ? 'text-violet-500' : 'text-gray-600 dark:text-gray-100'}`}
+                >
+                  <Link to={item.to} className="flex items-center gap-4">
+                    {item.icon}
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="pb-5 text-center text-[12px] text-gray-500 dark:text-gray-400">
-            داشبورد
-            <br />© 2024 تمامی حقوق محفوظ است
+          <p className="py-2 text-center text-[12px] text-gray-500 dark:text-gray-400">
+            داشبورد © 2024 تمامی حقوق محفوظ است
           </p>
         </>
       )}
