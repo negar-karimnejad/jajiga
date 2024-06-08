@@ -1,5 +1,10 @@
 import { AiOutlineUser } from 'react-icons/ai';
-import { BiMessageRoundedAdd, BiSupport, BiUser } from 'react-icons/bi';
+import {
+  BiMessageRoundedAdd,
+  BiSolidBookAdd,
+  BiSupport,
+  BiUser,
+} from 'react-icons/bi';
 import {
   BsExclamationSquare,
   BsHouseAdd,
@@ -1810,14 +1815,20 @@ export const adminPMenus = [
   },
   {
     id: 6,
-    title: 'رزروها',
-    to: '/admin-p/reserves',
-    icon: <SiGitbook size={20} />,
+    title: 'مقالات',
+    to: '/admin-p/articles',
+    icon: <RiArticleFill size={20} />,
   },
   {
     id: 7,
-    title: 'مجلات',
-    to: '/admin-p/articles',
-    icon: <RiArticleFill size={20} />,
+    title: 'افزودن مقاله',
+    to: '/admin-p/new-article',
+    icon: <BiSolidBookAdd size={20} />,
+  },
+  {
+    id: 8,
+    title: 'رزروها',
+    to: '/admin-p/reserves',
+    icon: <SiGitbook size={20} />,
   },
 ];

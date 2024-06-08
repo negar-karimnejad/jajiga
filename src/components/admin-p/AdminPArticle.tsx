@@ -55,19 +55,19 @@ function AdminPArticle({ article }: { article: Article }) {
             <li className="py-0.5 hover:text-violet-500">
               <a>
                 <BiEdit />
-                ویرایش مجله
+                ویرایش مقاله
               </a>
             </li>
             <li className="py-0.5 hover:text-violet-500">
               <Link to={`/admin-p/articles/${article.title.replaceAll(" ","-")}`}>
                 <FaEye />
-                مشاهده مجله
+                مشاهده مقاله
               </Link>
             </li>
             <li className="py-0.5 hover:text-violet-500">
               <a>
                 <BiTrash />
-                حذف مجله
+                حذف مقاله
               </a>
             </li>
           </ul>
