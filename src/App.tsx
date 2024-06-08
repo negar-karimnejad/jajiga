@@ -30,14 +30,15 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Trips from './pages/Trips';
 import Wishes from './pages/Wishes';
-import AdminPCustomers from './pages/admin-p/AdminPCustomers';
+import AdminPArticles from './pages/admin-p/AdminPArticles';
 import AdminPDashboard from './pages/admin-p/AdminPDashboard';
 import AdminPHosts from './pages/admin-p/AdminPHosts';
 import AdminPLayout from './pages/admin-p/AdminPLayout';
 import AdminPReserves from './pages/admin-p/AdminPReserves';
 import AdminPRooms from './pages/admin-p/AdminPRooms';
-import { store } from './redux/store';
 import AdminPRoomsDetails from './pages/admin-p/AdminPRoomsDetails';
+import { store } from './redux/store';
+import AdminPArticleDetails from './pages/admin-p/AdminPArticleDetails';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -57,7 +58,8 @@ function App() {
             <Route path="/admin-p/rooms" element={<AdminPRooms />} />
             <Route path="/admin-p/rooms/:id" element={<AdminPRoomsDetails />} />
             <Route path="/admin-p/hosts" element={<AdminPHosts />} />
-            <Route path="/admin-p/customers" element={<AdminPCustomers />} />
+            <Route path="/admin-p/articles" element={<AdminPArticles />} />
+            <Route path="/admin-p/articles/:id" element={<AdminPArticleDetails />} />
             <Route path="/admin-p/reserves" element={<AdminPReserves />} />
           </Route>
           <Route element={<AppLayout />}>

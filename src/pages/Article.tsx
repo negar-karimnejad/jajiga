@@ -3,10 +3,13 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { FiClock } from 'react-icons/fi';
 import { Link, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import * as Yup from 'yup';
+import ArticleSocials from '../components/article/ArticleSocials';
+import ArticleAuthor from '../components/articles/ArticleAuthor';
 import ArticleMenuList from '../components/articles/ArticleMenuList';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
@@ -14,10 +17,6 @@ import Button from '../components/ui/Button';
 import { useArticle } from '../hooks/useArticle';
 import { useArticles } from '../hooks/useArticles';
 import convertToPersianDate from '../utilities/convertToPersianDate';
-import Swal from 'sweetalert2';
-import ArticleAuthor from '../components/articles/ArticleAuthor';
-import ArticleSocials from '../components/article/MagSocials';
-import ArticlesSocials from '../components/articles/ArticlesSocials';
 
 interface articleCommentsValue {
   fullname: string;
@@ -371,7 +370,7 @@ function Article() {
             </div>
             <div className="max-lg:hidden lg:col-span-2">
               <div className="grid h-60 w-20 gap-3 border bg-white p-5 shadow-md shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-gray-950">
-                <ArticlesSocials />
+                <ArticleSocials />
               </div>
             </div>
           </div>

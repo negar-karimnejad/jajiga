@@ -77,16 +77,23 @@ function AdminPHosts() {
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
                     <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
-                      {host.reservation_confirmation} درصد
+                      <span className="font-persianNums">
+                        {host.reservation_confirmation}
+                      </span>{' '}
+                      درصد
                     </p>
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
                     <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
-                      کمتر از {host.response_time} دقیقه
+                      کمتر از{' '}
+                      <span className="font-persianNums">
+                        {host.response_time}
+                      </span>{' '}
+                      دقیقه
                     </p>
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
-                    <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
+                    <p className="text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased">
                       {convertToPersianDate(host.registery_date)}
                     </p>
                   </td>

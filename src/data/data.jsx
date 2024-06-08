@@ -19,7 +19,7 @@ import {
   IoShieldCheckmarkOutline,
   IoWalletOutline,
 } from 'react-icons/io5';
-import { LiaQuestionCircle, LiaUsersSolid } from 'react-icons/lia';
+import { LiaQuestionCircle } from 'react-icons/lia';
 import {
   MdDashboard,
   MdOutlineAppSettingsAlt,
@@ -28,10 +28,11 @@ import {
 } from 'react-icons/md';
 import { PiHouseLight } from 'react-icons/pi';
 import {
+  RiArticleFill,
   RiCustomerService2Line,
   RiHotelFill,
   RiSuitcase2Line,
-  RiUserAddFill,
+  RiUserAddFill
 } from 'react-icons/ri';
 import { SiGitbook } from 'react-icons/si';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
@@ -1816,7 +1817,7 @@ export const adminPMenus = [
   {
     id: 7,
     title: 'مجلات',
-    to: '/admin-p/article',
-    icon: <LiaUsersSolid size={20} />,
+    to: '/admin-p/articles',
+    icon: <RiArticleFill size={20} />,
   },
 ];
