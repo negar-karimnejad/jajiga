@@ -4,7 +4,7 @@ function AdminPNewRoom() {
       <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
         افزودن اقامتگاه جدید
       </h2>
-      <div className="grid grid-cols-12 gap-5 rounded-md bg-white p-5">
+      <div className="grid grid-cols-12 gap-5 rounded-md">
         <div className="box-body">
           <form action="#">
             <div className="form-body">
@@ -14,7 +14,7 @@ function AdminPNewRoom() {
                     <label className="fw-700 fs-16 form-label">نام</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control border"
                       placeholder="نام محصول"
                     />
                   </div>
@@ -25,7 +25,7 @@ function AdminPNewRoom() {
                     <label className="fw-700 fs-16 form-label">متن خلاصه</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control border"
                       placeholder="خلاصه توضیحات"
                     />
                   </div>
@@ -90,7 +90,7 @@ function AdminPNewRoom() {
                       </div>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control border"
                         placeholder="270"
                       />
                     </div>
@@ -106,7 +106,7 @@ function AdminPNewRoom() {
                       </div>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control border"
                         placeholder="50%"
                       />
                     </div>
@@ -119,7 +119,7 @@ function AdminPNewRoom() {
                     <label className="fw-700 fs-16 form-label">
                       توضیحات محصول
                     </label>
-                    <textarea className="p-15 form-control" rows={4}>
+                    <textarea className="p-15 form-control border" rows={4}>
                       توضیحات را براحتی ویرایش کنید
                     </textarea>
                   </div>
@@ -130,7 +130,7 @@ function AdminPNewRoom() {
                 <div className="col-md-6">
                   <div className="form-group">
                     <label className="fw-700 fs-16 form-label">عنوان</label>
-                    <input type="text" className="form-control" />{' '}
+                    <input type="text" className="form-control border" />{' '}
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ function AdminPNewRoom() {
                     <label className="fw-700 fs-16 form-label">
                       کلمات کلیدی
                     </label>
-                    <input type="text" className="form-control" />{' '}
+                    <input type="text" className="form-control border" />{' '}
                   </div>
                 </div>
 
@@ -156,7 +156,7 @@ function AdminPNewRoom() {
                       </label>
                       <input
                         type="file"
-                        className="form-control"
+                        className="form-control border"
                         id="inputGroupFile01"
                       />
                     </div>
@@ -175,14 +175,14 @@ function AdminPNewRoom() {
                           <td>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border"
                               placeholder="برند"
                             />
                           </td>
                           <td>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border"
                               placeholder="فروشنده"
                             />
                           </td>
@@ -191,14 +191,14 @@ function AdminPNewRoom() {
                           <td>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border"
                               placeholder="نحوه ارسال"
                             />
                           </td>
                           <td>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border"
                               placeholder="بیشتر"
                             />
                           </td>
@@ -207,14 +207,14 @@ function AdminPNewRoom() {
                           <td>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border"
                               placeholder="رنگ"
                             />
                           </td>
                           <td>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border"
                               placeholder="گیف پک"
                             />
                           </td>

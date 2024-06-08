@@ -36,8 +36,7 @@ import {
   RiArticleFill,
   RiCustomerService2Line,
   RiHotelFill,
-  RiSuitcase2Line,
-  RiUserAddFill,
+  RiSuitcase2Line
 } from 'react-icons/ri';
 import { SiGitbook } from 'react-icons/si';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
@@ -1809,24 +1808,18 @@ export const adminPMenus = [
   },
   {
     id: 5,
-    title: 'افزودن میزبان',
-    to: '/admin-p/new-host',
-    icon: <RiUserAddFill size={20} />,
-  },
-  {
-    id: 6,
     title: 'مقالات',
     to: '/admin-p/articles',
     icon: <RiArticleFill size={20} />,
   },
   {
-    id: 7,
+    id: 6,
     title: 'افزودن مقاله',
     to: '/admin-p/new-article',
     icon: <BiSolidBookAdd size={20} />,
   },
   {
-    id: 8,
+    id: 7,
     title: 'رزروها',
     to: '/admin-p/reserves',
     icon: <SiGitbook size={20} />,

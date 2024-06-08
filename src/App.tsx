@@ -41,7 +41,6 @@ import { store } from './redux/store';
 import AdminPArticleDetails from './pages/admin-p/AdminPArticleDetails';
 import AdminPNewRoom from './pages/admin-p/AdminPNewRoom';
 import AdminPNewArticle from './pages/admin-p/AdminPNewArticle';
-import AdminPNewHost from './pages/admin-p/AdminPNewHost';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -62,7 +61,6 @@ function App() {
             <Route path="/admin-p/new-room" element={<AdminPNewRoom />} />
             <Route path="/admin-p/rooms/:id" element={<AdminPRoomsDetails />} />
             <Route path="/admin-p/hosts" element={<AdminPHosts />} />
-            <Route path="/admin-p/new-host" element={<AdminPNewHost />} />
             <Route path="/admin-p/articles" element={<AdminPArticles />} />
             <Route path="/admin-p/new-article" element={<AdminPNewArticle />} />
             <Route
