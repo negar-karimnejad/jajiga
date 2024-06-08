@@ -8,7 +8,7 @@ function AdminPRooms() {
   const { rooms } = useRooms();
   return (
     <>
-      <SectionHeader btnTitle="افزودن اقامتگاه" title="اقامتگاه ها" />
+      <SectionHeader btnTitle="افزودن اقامتگاه" title="اقامتگاه ها" to="/admin-p/new-room" />
       <div className="z-10 flex min-h-screen w-full items-center justify-center bg-white">
         <div className="w-full">
           <table className="table w-full">

@@ -15,7 +15,7 @@ function AdminPHosts() {
 
   return (
     <>
-      <SectionHeader btnTitle="افزودن میزبان" title="میزبان ها" />
+      <SectionHeader to="/admin-p/new-host" btnTitle="افزودن میزبان" title="میزبان ها" />
       <div className="z-10 flex min-h-screen w-full items-center justify-center bg-white">
         <div className="w-full">
           <table className="table w-full">

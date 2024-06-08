@@ -71,7 +71,7 @@ function AdminPRoomsDetails() {
         </div>
         <div className="col-span-8">
           <div className="mt-1 flex items-center justify-between gap-2">
-            <Link to={`/room/${room.code}`} className="text-xl">
+            <Link to={`/room/${room.code}`} className="text-xl text-sky-600 hover:underline">
               {room.title}
             </Link>
             <div className="flex items-center gap-2">

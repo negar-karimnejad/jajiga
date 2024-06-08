@@ -39,6 +39,9 @@ import AdminPRooms from './pages/admin-p/AdminPRooms';
 import AdminPRoomsDetails from './pages/admin-p/AdminPRoomsDetails';
 import { store } from './redux/store';
 import AdminPArticleDetails from './pages/admin-p/AdminPArticleDetails';
+import AdminPNewRoom from './pages/admin-p/AdminPNewRoom';
+import AdminPNewArticle from './pages/admin-p/AdminPNewArticle';
+import AdminPNewHost from './pages/admin-p/AdminPNewHost';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -56,10 +59,16 @@ function App() {
           <Route element={<AdminPLayout />}>
             <Route path="/admin-p" element={<AdminPDashboard />} />
             <Route path="/admin-p/rooms" element={<AdminPRooms />} />
+            <Route path="/admin-p/new-room" element={<AdminPNewRoom />} />
             <Route path="/admin-p/rooms/:id" element={<AdminPRoomsDetails />} />
             <Route path="/admin-p/hosts" element={<AdminPHosts />} />
+            <Route path="/admin-p/new-host" element={<AdminPNewHost />} />
             <Route path="/admin-p/articles" element={<AdminPArticles />} />
-            <Route path="/admin-p/articles/:id" element={<AdminPArticleDetails />} />
+            <Route path="/admin-p/new-article" element={<AdminPNewArticle />} />
+            <Route
+              path="/admin-p/articles/:id"
+              element={<AdminPArticleDetails />}
+            />
             <Route path="/admin-p/reserves" element={<AdminPReserves />} />
           </Route>
           <Route element={<AppLayout />}>

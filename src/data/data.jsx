@@ -32,7 +32,7 @@ import {
   RiCustomerService2Line,
   RiHotelFill,
   RiSuitcase2Line,
-  RiUserAddFill
+  RiUserAddFill,
 } from 'react-icons/ri';
 import { SiGitbook } from 'react-icons/si';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
@@ -1793,7 +1793,7 @@ export const adminPMenus = [
   {
     id: 3,
     title: 'افزودن اقامتگاه',
-    to: '/admin-p/rooms/new-room',
+    to: '/admin-p/new-room',
     icon: <BsHouseAddFill size={20} />,
   },
   {
@@ -1805,7 +1805,7 @@ export const adminPMenus = [
   {
     id: 5,
     title: 'افزودن میزبان',
-    to: '/admin-p/hosts/new-host',
+    to: '/admin-p/new-host',
     icon: <RiUserAddFill size={20} />,
   },
   {
