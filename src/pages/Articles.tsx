@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import ArticlesFooter from '../components/articles/ArticlesFooter';
-import ArticlesHeader from '../components/articles/ArticlesHeader';
-import ArticlesHero from '../components/articles/ArticlesHero';
-import ArticlesMain from '../components/articles/ArticlesMain';
-import ArticlePost from '../components/articles/ArticlePost';
+
 import Button from '../components/ui/Button';
 import { Article } from '../redux/store/articles';
+import ArticlesHeader from '../components/articles/ArticlesHeader';
+import ArticlePost from '../components/articles/ArticlePost';
+import ArticlesHero from '../components/articles/ArticlesHero';
+import ArticlesMain from '../components/articles/ArticlesMain';
+import ArticlesFooter from '../components/articles/ArticlesFooter';
 
 const Articles = memo(function Articles() {
   const navigate = useNavigate();

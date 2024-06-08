@@ -1,24 +1,25 @@
-import { ChangeEvent, useEffect, useRef } from 'react';
-import { BiChevronDown } from 'react-icons/bi';
-import Footer from '../components/footer/Footer';
-import Advantages from '../components/home/Advantages';
-import Application from '../components/home/Application';
-import Comments from '../components/home/Comments';
-import Discount from '../components/home/Discount';
-import Hero from '../components/home/Hero';
-import Host from '../components/home/Host';
-import JajigaArticle from '../components/home/JajigaArticle';
-import MoreInfos from '../components/home/MoreInfos';
-import Popular from '../components/home/Popular';
-import QuickSearch from '../components/home/QuickSearch';
-import Logo from '../components/navbar/Logo';
-import NavLinks from '../components/navbar/NavLinks';
-import NavMenu from '../components/navbar/NavMenu';
-import Navbar from '../components/navbar/Navbar';
-import SearchResultModal from '../components/ui/SearchResultModal';
-import SliderSection from '../components/ui/SliderSection';
-import { useScroll } from '../hooks/useScroll';
-import useSearch from '../hooks/useSearch';
+import { ChangeEvent, useEffect, useRef } from "react";
+import { useScroll } from "../hooks/useScroll";
+import useSearch from "../hooks/useSearch";
+import Navbar from "../components/navbar/Navbar";
+import NavMenu from "../components/navbar/NavMenu";
+import NavLinks from "../components/navbar/NavLinks";
+import Logo from "../components/navbar/Logo";
+import Hero from "../components/home/Hero";
+import Application from "../components/home/Application";
+import Popular from "../components/home/Popular";
+import QuickSearch from "../components/footer/QuickSearch";
+import Advantages from "../components/home/Advantages";
+import SliderSection from "../components/ui/SliderSection";
+import Discount from "../components/home/Discount";
+import Host from "../components/home/Host";
+import Comments from "../components/home/Comments";
+import JajigaArticle from "../components/home/JajigaMag";
+import MoreInfos from "../components/home/MoreInfos";
+import Footer from "../components/footer/Footer";
+import SearchResultModal from "../components/ui/SearchResultModal";
+import { BiChevronDown } from "react-icons/bi";
+
 
 function HomePage() {
   const arrowRef = useRef<HTMLDivElement>(null);

@@ -7,16 +7,17 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import * as Yup from 'yup';
-import ArticleSocials from '../components/article/ArticleSocials';
 import ArticleMenuList from '../components/articles/ArticleMenuList';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
-import ArticleAuthor from '../components/articles/ArticleAuthor';
 import Button from '../components/ui/Button';
 import { useArticle } from '../hooks/useArticle';
 import { useArticles } from '../hooks/useArticles';
 import convertToPersianDate from '../utilities/convertToPersianDate';
 import Swal from 'sweetalert2';
+import ArticleAuthor from '../components/articles/ArticleAuthor';
+import ArticleSocials from '../components/article/MagSocials';
+import ArticlesSocials from '../components/articles/ArticlesSocials';
 
 interface articleCommentsValue {
   fullname: string;
@@ -370,7 +371,7 @@ function Article() {
             </div>
             <div className="max-lg:hidden lg:col-span-2">
               <div className="grid h-60 w-20 gap-3 border bg-white p-5 shadow-md shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-gray-950">
-                <ArticleSocials />
+                <ArticlesSocials />
               </div>
             </div>
           </div>
