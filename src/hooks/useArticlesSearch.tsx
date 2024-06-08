@@ -17,7 +17,7 @@ function useArticlesSearch() {
       results = articles.filter((article) => article.title.includes(search));
     }
     setSearchResult(results);
-    navigate(`/mag/?s=${search}`, { state: { results } });
+    navigate(`/article/?s=${search}`, { state: { results } });
   };
 
   return { search, setSearch, searchResult, submitSearch };

@@ -7,7 +7,7 @@ import Comments from '../components/home/Comments';
 import Discount from '../components/home/Discount';
 import Hero from '../components/home/Hero';
 import Host from '../components/home/Host';
-import JajigaMag from '../components/home/JajigaMag';
+import JajigaArticle from '../components/home/JajigaArticle';
 import MoreInfos from '../components/home/MoreInfos';
 import Popular from '../components/home/Popular';
 import QuickSearch from '../components/home/QuickSearch';
@@ -117,7 +117,7 @@ function HomePage() {
           prevBtn="junub-swiper-button-prev"
         />
         <Comments />
-        <JajigaMag />
+        <JajigaArticle />
         <MoreInfos />
         <Footer />
       </div>

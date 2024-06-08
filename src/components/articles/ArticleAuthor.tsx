@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useAuthor } from '../../hooks/useAuthor';
 
-interface MagAuthorProps {
+interface ArticleAuthorProps {
   lightColor?: boolean;
   id: number;
 }
 
-function MagAuthor({ id, lightColor }: MagAuthorProps) {
+function ArticleAuthor({ id, lightColor }: ArticleAuthorProps) {
   const { author } = useAuthor(id);
 
   if (!author) return;
 
   return (
     <Link
-      to={`/mag/author/${author?.fullname.replaceAll(' ', '-')}`}
+      to={`/article/author/${author?.fullname.replaceAll(' ', '-')}`}
       className="group flex items-center gap-2"
     >
       <img
@@ -31,4 +31,4 @@ function MagAuthor({ id, lightColor }: MagAuthorProps) {
   );
 }
 
-export default MagAuthor;
+export default ArticleAuthor;

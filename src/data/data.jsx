@@ -1802,21 +1802,21 @@ export const adminPMenus = [
     icon: <FaUserTie size={20} />,
   },
   {
-    id: 4,
+    id: 5,
     title: 'افزودن میزبان',
     to: '/admin-p/hosts/new-host',
-    icon: <RiUserAddFill  size={20} />,
+    icon: <RiUserAddFill size={20} />,
   },
   {
-    id: 4,
-    title: 'مشتریان',
-    to: '/admin-p/customers',
-    icon: <LiaUsersSolid size={20} />,
-  },
-  {
-    id: 5,
+    id: 6,
     title: 'رزروها',
     to: '/admin-p/reserves',
     icon: <SiGitbook size={20} />,
+  },
+  {
+    id: 7,
+    title: 'مجلات',
+    to: '/admin-p/article',
+    icon: <LiaUsersSolid size={20} />,
   },
 ];

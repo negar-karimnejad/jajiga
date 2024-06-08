@@ -7,11 +7,11 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import * as Yup from 'yup';
-import MagSocials from '../components/article/MagSocials';
+import ArticleSocials from '../components/article/ArticleSocials';
 import ArticleMenuList from '../components/articles/ArticleMenuList';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
-import MagAuthor from '../components/articles/MagAuthor';
+import ArticleAuthor from '../components/articles/ArticleAuthor';
 import Button from '../components/ui/Button';
 import { useArticle } from '../hooks/useArticle';
 import { useArticles } from '../hooks/useArticles';
@@ -131,7 +131,7 @@ function Article() {
                         className="flex flex-col gap-5"
                       >
                         <Link
-                          to={`/mag/${article.title.replaceAll(' ', '-')}`}
+                          to={`/article/${article.title.replaceAll(' ', '-')}`}
                           className="group flex"
                         >
                           <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
@@ -180,7 +180,7 @@ function Article() {
                         className="flex flex-col gap-5"
                       >
                         <Link
-                          to={`/mag/${article.title.replaceAll(' ', '-')}`}
+                          to={`/article/${article.title.replaceAll(' ', '-')}`}
                           className="group flex"
                         >
                           <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
@@ -219,7 +219,7 @@ function Article() {
             <div className="col-span-12 -mt-24 space-y-10 lg:col-span-6">
               <div className="border bg-white p-10 py-8 shadow-lg shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-lg dark:shadow-gray-950">
                 <Link
-                  to="/mag/category/knowing"
+                  to="/article/category/knowing"
                   className="w-fit rounded-full bg-sky-600 px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700"
                   style={{ backgroundColor: article.category.color }}
                 >
@@ -230,7 +230,7 @@ function Article() {
                 </h2>
                 <div className="flex gap-3 text-[13px] max-sm:flex-col sm:items-center">
                   <div className="flex items-center gap-3">
-                    <MagAuthor id={article.author_id} />
+                    <ArticleAuthor id={article.author_id} />
                     <div className="flex items-center gap-1">
                       <CiCalendarDate
                         size={17}
@@ -256,7 +256,7 @@ function Article() {
                   </div>
                 </div>
                 <div className="mt-5 grid h-10 grid-cols-4 gap-2 lg:hidden">
-                  <MagSocials />
+                  <ArticleSocials />
                 </div>
                 <p className="mt-5 text-justify text-base leading-8 text-gray-600 dark:text-gray-200">
                   {article.description}
@@ -361,7 +361,7 @@ function Article() {
                           </div>
                         </div>
                       </div>
-                      <p className="mr-20 mt-2 max-sm:text-justify leading-6 text-gray-500 text-base dark:text-gray-300">
+                      <p className="mr-20 mt-2 text-base leading-6 text-gray-500 dark:text-gray-300 max-sm:text-justify">
                         {comment.content}
                       </p>
                     </div>
@@ -370,7 +370,7 @@ function Article() {
             </div>
             <div className="max-lg:hidden lg:col-span-2">
               <div className="grid h-60 w-20 gap-3 border bg-white p-5 shadow-md shadow-gray-300 dark:border-0 dark:bg-gray-800 dark:shadow-gray-950">
-                <MagSocials />
+                <ArticleSocials />
               </div>
             </div>
           </div>

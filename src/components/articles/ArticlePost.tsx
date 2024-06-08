@@ -2,15 +2,15 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
 import { Article } from '../../redux/store/articles';
 import convertToPersianDate from '../../utilities/convertToPersianDate';
-import MagAuthor from './MagAuthor';
+import ArticleAuthor from './ArticleAuthor';
 
-function MagPost({ article }: { article: Article }) {
+function ArticlePost({ article }: { article: Article }) {
   return (
     <div className="card col-span-12 overflow-hidden bg-base-100 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
       <figure className="relative h-40">
         <div className="h-full w-full">
           <Link
-            to={`/mag/${article.title.replaceAll(' ', '-')}`}
+            to={`/article/${article.title.replaceAll(' ', '-')}`}
             className="h-full w-full"
           >
             <img
@@ -22,7 +22,7 @@ function MagPost({ article }: { article: Article }) {
           </Link>
           <div title={article.title} className="absolute right-5 top-5">
             <Link
-              to={`/mag/category/${article.category.en_title}`}
+              to={`/article/category/${article.category.en_title}`}
               className={`w-fit rounded-full px-2 py-1 text-[11px] text-white transition-all hover:bg-amber-50 hover:text-gray-700 bg-${article.category.color}-600`}
               style={{ backgroundColor: article.category.color }}
             >
@@ -34,14 +34,14 @@ function MagPost({ article }: { article: Article }) {
       <div className="card-body justify-between">
         <h2 className="card-title">
           <Link
-            to={`/mag/${article.title.replaceAll(' ', '-')}`}
+            to={`/article/${article.title.replaceAll(' ', '-')}`}
             className="transition-all hover:text-sky-600 dark:text-white"
           >
             {article.title}
           </Link>
         </h2>
         <div className="mt-8 flex items-center gap-3 text-[13px]">
-          <MagAuthor id={article.author_id} />
+          <ArticleAuthor id={article.author_id} />
           <div className="flex items-center gap-1">
             <CiCalendarDate
               size={17}
@@ -57,4 +57,4 @@ function MagPost({ article }: { article: Article }) {
   );
 }
 
-export default MagPost;
+export default ArticlePost;

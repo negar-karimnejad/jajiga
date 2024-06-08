@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 interface LogoProps {
   withTitle?: boolean;
-  magLogo?: boolean;
+  articleLogo?: boolean;
 }
 
-function Logo({ withTitle, magLogo }: LogoProps) {
+function Logo({ withTitle, articleLogo }: LogoProps) {
   return (
     <>
-      {magLogo ? (
-        <Link to="/mag">
+      {articleLogo ? (
+        <Link to="/article">
           <img
             loading="lazy"
             src="/images/logo/jajiga_mag.png"

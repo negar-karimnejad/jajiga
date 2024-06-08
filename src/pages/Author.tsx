@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
-import MagPost from '../components/articles/MagPost';
+import ArticlePost from '../components/articles/ArticlePost';
 import RoomCardSkeleton from '../components/ui/skeleton/RoomCardSkeleton';
 import { useArticles } from '../hooks/useArticles';
 import { useAuthors } from '../hooks/useAuthors';
@@ -36,7 +36,7 @@ function Author() {
                   ),
                 )
               : authorArticles.map((article) => (
-                  <MagPost key={article.id} article={article} />
+                  <ArticlePost key={article.id} article={article} />
                 ))}
           </div>
         </div>

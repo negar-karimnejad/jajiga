@@ -76,11 +76,11 @@ function App() {
           <Route path="/s" element={<Rooms />} />
           <Route path="/s/:id" element={<Rooms />} />
           <Route path="/finance" element={<Finance />} />
-          <Route path="/mag" element={<Articles />} />
+          <Route path="/article" element={<Articles />} />
           <Route path="/create" element={<AddNewRoom />} />
-          <Route path="/mag/:id" element={<Article />} />
-          <Route path="/mag/category/:id" element={<CategoryArticle />} />
-          <Route path="/mag/author/:id" element={<Author />} />
+          <Route path="/article/:id" element={<Article />} />
+          <Route path="/article/category/:id" element={<CategoryArticle />} />
+          <Route path="/article/author/:id" element={<Author />} />
           <Route path="/help" element={<Help />} />
           <Route path="/support" element={<Support />} />
           <Route path="/wishes" element={<Wishes />} />

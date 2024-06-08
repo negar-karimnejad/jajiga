@@ -2,7 +2,7 @@ import { BsWhatsapp } from 'react-icons/bs';
 import { FaLinkedinIn, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-function MagSocials() {
+function ArticleSocials() {
   return (
     <>
       <div>
@@ -45,4 +45,4 @@ function MagSocials() {
   );
 }
 
-export default MagSocials;
+export default ArticleSocials;

@@ -3,19 +3,19 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useArticles } from '../../hooks/useArticles';
-import MagAuthor from '../articles/MagAuthor';
 import SwiperButtons from '../ui/SwiperButtons';
-import SectionHeading from './SectionHeading';
 import RoomCardSkeleton from '../ui/skeleton/RoomCardSkeleton';
+import SectionHeading from './SectionHeading';
+import ArticleAuthor from '../articles/ArticleAuthor';
 
-function JajigaMag() {
+function JajigaArticle() {
   const { articles, loading } = useArticles();
 
   return (
     <div className="group relative bg-white dark:bg-gray-900">
       <div className="container">
         <SectionHeading>
-          <Link to="/mag" className="flex w-fit items-center gap-1">
+          <Link to="/article" className="flex w-fit items-center gap-1">
             مجله جاجیگا
             <span className="flex h-6 w-12 items-center justify-center rounded-3xl bg-red-600 p-1 font-vazirBold text-[12px] text-white">
               MAG
@@ -28,8 +28,8 @@ function JajigaMag() {
         <div className="relative">
           <Swiper
             navigation={{
-              nextEl: '.jajigaMag-swiper-button-next',
-              prevEl: '.jajigaMag-swiper-button-prev',
+              nextEl: '.jajigaArticle-swiper-button-next',
+              prevEl: '.jajigaArticle-swiper-button-prev',
             }}
             modules={[Navigation]}
             spaceBetween={20}
@@ -57,9 +57,13 @@ function JajigaMag() {
               : articles.map((article) => (
                   <SwiperSlide key={article.id}>
                     <div className="relative overflow-hidden rounded-3xl">
-                      <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
+                      <Link
+                        to={`/article/${article.title.replaceAll(' ', '-')}`}
+                      >
                         <div className="absolute left-0 top-0 h-full w-full rounded-3xl bg-black/10"></div>
-                        <Link to={`/mag/${article.title.replaceAll(' ', '-')}`}>
+                        <Link
+                          to={`/article/${article.title.replaceAll(' ', '-')}`}
+                        >
                           <img
                             // loading="lazy"
                             src={article.cover}
@@ -70,20 +74,23 @@ function JajigaMag() {
                         <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                           <div className="mt-2 flex flex-col gap-2">
                             <Link
-                              to={`/mag/category/${article.category.en_title}`}
+                              to={`/article/category/${article.category.en_title}`}
                               className="w-fit rounded-full bg-yellow-400 px-2 py-0.5 font-vazirBold text-[11px] text-gray-900"
                             >
                               {article.category.title}
                             </Link>
                             <Link
-                              to={`/mag/${article.title.replaceAll(' ', '-')}`}
+                              to={`/article/${article.title.replaceAll(' ', '-')}`}
                             >
                               <p className="font-vazirBold text-base">
                                 {article.title}
                               </p>
                             </Link>
                           </div>
-                          <MagAuthor id={article.author_id} lightColor={true} />
+                          <ArticleAuthor
+                            id={article.author_id}
+                            lightColor={true}
+                          />
                         </div>
                         <div className="pointer-events-none absolute inset-0 top-20 bg-gradient-to-t from-black/75 to-transparent"></div>
                       </Link>
@@ -92,8 +99,8 @@ function JajigaMag() {
                 ))}
           </Swiper>
           <SwiperButtons
-            nextBtn="jajigaMag-swiper-button-next"
-            prevBtn="jajigaMag-swiper-button-prev"
+            nextBtn="jajigaArticle-swiper-button-next"
+            prevBtn="jajigaArticle-swiper-button-prev"
           />
         </div>
       </div>
@@ -101,4 +108,4 @@ function JajigaMag() {
   );
 }
 
-export default JajigaMag;
+export default JajigaArticle;

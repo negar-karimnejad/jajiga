@@ -13,7 +13,7 @@ function ArticleMenuList() {
       <ul className="my-3">
         <li className="group border-b py-2">
           <Link
-            to="/mag/category/wherewhy"
+            to="/article/category/wherewhy"
             className="flex items-center justify-between"
           >
             <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-sky-600 dark:text-white">
@@ -26,7 +26,7 @@ function ArticleMenuList() {
         </li>
         <li className="group border-b py-2">
           <Link
-            to="/mag/category/news"
+            to="/article/category/news"
             className="flex items-center justify-between"
           >
             <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-red-600 dark:text-white">
@@ -39,7 +39,7 @@ function ArticleMenuList() {
         </li>
         <li className="group border-b py-2">
           <Link
-            to="/mag/category/travelers"
+            to="/article/category/travelers"
             className="flex items-center justify-between"
           >
             <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-orange-600 dark:text-white">
@@ -52,7 +52,7 @@ function ArticleMenuList() {
         </li>
         <li className="group border-b py-2">
           <Link
-            to="/mag/category/knowing"
+            to="/article/category/knowing"
             className="flex items-center justify-between"
           >
             <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-purple-600 dark:text-white">
@@ -65,7 +65,7 @@ function ArticleMenuList() {
         </li>
         <li className="group py-2">
           <Link
-            to="/mag/category/hosting"
+            to="/article/category/hosting"
             className="flex items-center justify-between"
           >
             <p className="font-vazirBold text-sm text-gray-600 transition-all duration-500 group-hover:-translate-x-2 group-hover:text-emerald-600 dark:text-white">

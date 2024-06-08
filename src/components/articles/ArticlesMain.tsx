@@ -1,9 +1,9 @@
 import { useArticles } from '../../hooks/useArticles';
 import ArticleHeading from './ArticleHeading';
-import MagKnowing from './MagKnowing';
-import MagNews from './MagNews';
-import MagPost from './MagPost';
-import MagTravelers from './MagTravelers';
+import ArticleKnowing from './ArticleKnowing';
+import ArticleNews from './ArticleNews';
+import ArticlePost from './ArticlePost';
+import ArticleTravelers from './ArticleTravelers';
 
 // LoadingSkeleton Component
 const LoadingSkeleton = ({ type }: { type: string }) => {
@@ -35,7 +35,7 @@ function ArticlesMain() {
               </div>
             ))
           : wherewhy.map((article) => (
-              <MagPost key={article.id} article={article} />
+              <ArticlePost key={article.id} article={article} />
             ))}
         <div className="col-span-12">
           {loading ? (
@@ -51,7 +51,7 @@ function ArticlesMain() {
               </div>
             ))
           : hosting.map((article) => (
-              <MagNews key={article.id} article={article} />
+              <ArticleNews key={article.id} article={article} />
             ))}
         <div className="col-span-12">
           {loading ? (
@@ -67,7 +67,7 @@ function ArticlesMain() {
               </div>
             ))
           : knowing.map((article) => (
-              <MagKnowing key={article.id} article={article} />
+              <ArticleKnowing key={article.id} article={article} />
             ))}
         <div className="col-span-12">
           {loading ? (
@@ -84,9 +84,9 @@ function ArticlesMain() {
             ))
           : travelers.map((article) => {
               if (article.id === 6) {
-                return <MagTravelers key={article.id} article={article} />;
+                return <ArticleTravelers key={article.id} article={article} />;
               } else {
-                return <MagPost key={article.id} article={article} />;
+                return <ArticlePost key={article.id} article={article} />;
               }
             })}
         <div className="col-span-12">
@@ -103,7 +103,7 @@ function ArticlesMain() {
               </div>
             ))
           : news.map((article) => (
-              <MagNews key={article.id} article={article} />
+              <ArticleNews key={article.id} article={article} />
             ))}
       </div>
     </div>

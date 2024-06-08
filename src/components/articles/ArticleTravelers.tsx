@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Article } from '../../redux/store/articles';
-import MagAuthor from './MagAuthor';
+import ArticleAuthor from './ArticleAuthor';
 
-function MagTravelers({ article }: { article: Article }) {
+function ArticleTravelers({ article }: { article: Article }) {
   return (
     <div className="card col-span-12 h-80 justify-between overflow-hidden bg-base-100  p-5 shadow-xl dark:bg-gray-800 sm:col-span-6 lg:col-span-4">
       <Link
@@ -13,7 +13,7 @@ function MagTravelers({ article }: { article: Article }) {
       </Link>
       <h2 className="card-title">
         <Link
-          to={`/mag/${article.title.replaceAll(' ', '-')}`}
+          to={`/article/${article.title.replaceAll(' ', '-')}`}
           className="mt-2 transition-all hover:text-sky-600 dark:text-white"
         >
           {article.title}
@@ -23,10 +23,10 @@ function MagTravelers({ article }: { article: Article }) {
         {article.description.slice(0, 200)}...
       </p>
       <div className="mt-8 flex items-center gap-3 text-[14px]">
-        <MagAuthor id={article.author_id} />
+        <ArticleAuthor id={article.author_id} />
       </div>
     </div>
   );
 }
 
-export default MagTravelers;
+export default ArticleTravelers;

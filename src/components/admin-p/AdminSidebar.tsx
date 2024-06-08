@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../../components/navbar/Logo';
+import Logo from '../navbar/Logo';
 import { adminPMenus } from '../../data/data';
 import { useAuth } from '../../hooks/useAuth';
 

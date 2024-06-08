@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
-import MagPost from '../components/articles/MagPost';
 import { useArticles } from '../hooks/useArticles';
+import ArticlePost from '../components/articles/ArticlePost';
 
 function CategoryArticle() {
   const { id } = useParams();
@@ -19,7 +19,7 @@ function CategoryArticle() {
         <div className="my-10">
           <div className="grid grid-cols-12 gap-5">
             {filteredArticles.map((article) => (
-              <MagPost key={article.id} article={article} />
+              <ArticlePost key={article.id} article={article} />
             ))}
           </div>
         </div>

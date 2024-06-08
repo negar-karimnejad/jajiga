@@ -47,7 +47,7 @@ function ArticlesFooter() {
           </div>
         </div>
         <div className="flex flex-col items-center max-md:col-span-12 md:col-span-6 lg:col-span-4">
-          <Logo magLogo={true} />
+          <Logo articleLogo={true} />
           <p className="mb-5 dark:text-white">جاجیگا، مثل خونه خودته :)</p>
           <ArticlesSocials />
         </div>

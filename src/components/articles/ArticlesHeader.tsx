@@ -99,37 +99,37 @@ function ArticlesHeader({ id }: { id?: string }) {
         <div className="flex shrink-0 gap-8 text-gray-700 dark:text-gray-50 max-lg:hidden">
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === undefined ? 'text-sky-500' : ''}`}
-            to="/mag"
+            to="/article"
           >
             صفحه نخست
           </Link>
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'travelers' ? 'text-sky-500' : ''}`}
-            to="/mag/category/travelers"
+            to="/article/category/travelers"
           >
             بچه های سفری
           </Link>
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'wherewhy' ? 'text-sky-500' : ''}`}
-            to="/mag/category/wherewhy"
+            to="/article/category/wherewhy"
           >
             سفر به کجا؟
           </Link>
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'knowing' ? 'text-sky-500' : ''}`}
-            to="/mag/category/knowing"
+            to="/article/category/knowing"
           >
             دانستنی ها
           </Link>
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'news' ? 'text-sky-500' : ''}`}
-            to="/mag/category/news"
+            to="/article/category/news"
           >
             جایگاه راپُرت
           </Link>
           <Link
             className={`font-vazirBold text-base transition-all hover:text-sky-500 ${id === 'hosting' ? 'text-sky-500' : ''}`}
-            to="/mag/category/hosting"
+            to="/article/category/hosting"
           >
             میزبانی در جاجیگا
           </Link>
@@ -137,7 +137,7 @@ function ArticlesHeader({ id }: { id?: string }) {
         {/* Finish NavLinks */}
 
         {/* NavLogo */}
-        <Logo magLogo={true} />
+        <Logo articleLogo={true} />
       </div>
     </div>
   );

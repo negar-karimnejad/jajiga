@@ -1,14 +1,17 @@
 import { BiEdit, BiTrash } from 'react-icons/bi';
-import { FaEye } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/admin-p/SectionHeader';
 import useRooms from '../../hooks/useRooms';
 import convertToPersianDate from '../../utilities/convertToPersianDate';
 
 function AdminPHosts() {
   const { rooms } = useRooms();
-  const hosts = rooms.map((room) => room.host);
-  console.log(hosts);
+
+  const allHosts = rooms.map((room) => room.host);
+
+  // Remove duplicate hosts based on their id
+  const hosts = allHosts.filter(
+    (host, index, self) => index === self.findIndex((h) => h.id === host.id),
+  );
 
   return (
     <>
@@ -36,6 +39,11 @@ function AdminPHosts() {
                     تأیید رزرو
                   </p>
                 </th>
+                <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
+                  <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
+                    میانگین زمان پاسخ‌گویی
+                  </p>
+                </th>
 
                 <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
                   <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
@@ -54,7 +62,7 @@ function AdminPHosts() {
                     <img
                       src={host.profile}
                       alt={host.fullname}
-                      className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-center"
+                      className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top"
                     />
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
@@ -68,12 +76,17 @@ function AdminPHosts() {
                     </p>
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
-                    <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">
+                    <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
                       {host.reservation_confirmation} درصد
                     </p>
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
-                    <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">
+                    <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
+                      کمتر از {host.response_time} دقیقه
+                    </p>
+                  </td>
+                  <td className="border-blue-gray-50 border-b p-4">
+                    <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
                       {convertToPersianDate(host.registery_date)}
                     </p>
                   </td>
@@ -94,19 +107,13 @@ function AdminPHosts() {
                         <li className="py-0.5 hover:text-violet-500">
                           <a>
                             <BiEdit />
-                            ویرایش اقامتگاه
+                            ویرایش میزبان
                           </a>
-                        </li>
-                        <li className="py-0.5 hover:text-violet-500">
-                          <Link to={`/admin-p/rooms/${host.id}`}>
-                            <FaEye />
-                            مشاهده اقامتگاه
-                          </Link>
                         </li>
                         <li className="py-0.5 hover:text-violet-500">
                           <a>
                             <BiTrash />
-                            حذف اقامتگاه
+                            حذف میزبان
                           </a>
                         </li>
                       </ul>

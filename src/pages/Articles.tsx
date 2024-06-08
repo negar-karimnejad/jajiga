@@ -4,7 +4,7 @@ import ArticlesFooter from '../components/articles/ArticlesFooter';
 import ArticlesHeader from '../components/articles/ArticlesHeader';
 import ArticlesHero from '../components/articles/ArticlesHero';
 import ArticlesMain from '../components/articles/ArticlesMain';
-import MagPost from '../components/articles/MagPost';
+import ArticlePost from '../components/articles/ArticlePost';
 import Button from '../components/ui/Button';
 import { Article } from '../redux/store/articles';
 
@@ -29,7 +29,7 @@ const Articles = memo(function Articles() {
                   {search}
                 </h3>
                 <Button
-                  onClick={() => navigate('/mag')}
+                  onClick={() => navigate('/article')}
                   style="group py-0 px-0 flex items-center gap-1 hover:shadow-none"
                 >
                   <span className="text-blue-600">بازگشت</span>
@@ -41,7 +41,7 @@ const Articles = memo(function Articles() {
               <div className="grid grid-cols-12 gap-5">
                 {searchResult.length > 0 ? (
                   searchResult.map((article) => (
-                    <MagPost key={article.id} article={article} />
+                    <ArticlePost key={article.id} article={article} />
                   ))
                 ) : (
                   <p className="col-span-12 p-5">
