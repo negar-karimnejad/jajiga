@@ -1,21 +1,14 @@
-import { BiEdit, BiPlus, BiTrash } from 'react-icons/bi';
+import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
-import useRooms from '../../hooks/useRooms';
 import { Link } from 'react-router-dom';
+import SectionHeader from '../../components/admin-p/SectionHeader';
+import useRooms from '../../hooks/useRooms';
 
 function AdminPRooms() {
   const { rooms } = useRooms();
   return (
     <>
-      <div className="flex items-center justify-between">
-        <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
-          اقامتگاه ها
-        </h2>
-        <button className="btn bg-violet-500 font-vazirBold text-white hover:bg-violet-600">
-          <BiPlus size={24} />
-          افزودن اقامتگاه
-        </button>
-      </div>
+      <SectionHeader btnTitle="افزودن اقامتگاه" title="اقامتگاه ها" />
       <div className="z-10 flex min-h-screen w-full items-center justify-center bg-white">
         <div className="w-full">
           <table className="table w-full">
@@ -32,17 +25,17 @@ function AdminPRooms() {
 
                 <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
                   <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
+                    کد
+                  </p>
+                </th>
+                <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
+                  <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
                     نرخ هر شب
                   </p>
                 </th>
                 <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
                   <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
-                    میزبان
-                  </p>
-                </th>
-                <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
-                  <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
-                    کد
+                  میزبان
                   </p>
                 </th>
                 <th className="border-blue-gray-100 bg-blue-gray-50/50 border-y p-4">
@@ -66,6 +59,11 @@ function AdminPRooms() {
                     </p>
                   </td>
                   <td className="border-blue-gray-50 border-b p-4">
+                    <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
+                      {room.code}
+                    </p>
+                  </td>
+                  <td className="border-blue-gray-50 border-b p-4">
                     <p className="text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased">
                       {room.price.toLocaleString()}{' '}
                       <span className="font-sans text-[12px] text-gray-500">
@@ -74,15 +72,13 @@ function AdminPRooms() {
                     </p>
                   </td>
                   <td className="flex items-center gap-2 p-4">
-                    <img src={room.host.profile} className='w-10 h-10 object-cover rounded-full' alt="" />
+                    <img
+                      src={room.host.profile}
+                      className="h-10 w-10 rounded-full object-cover"
+                      alt=""
+                    />
                     <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
                       {room.host.fullname}
-                    </p>
-                  </td>
-
-                  <td className="border-blue-gray-50 border-b p-4">
-                    <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
-                      {room.code}
                     </p>
                   </td>
 

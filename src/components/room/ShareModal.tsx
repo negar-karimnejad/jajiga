@@ -34,8 +34,8 @@ function ShareModal({
 
   return (
     <Modal isOpen={isOpen} closeModalHandler={closeModalHandler}>
-      <h4>برای ارسال این صفحه به دوستانت، کلیک کن</h4>
-      <div className="my-5 flex flex-col space-y-3">
+      <h4 className='mt-10 mb-5'>برای ارسال این صفحه به دوستانت، کلیک کن</h4>
+      <div className="mb-10 flex flex-col space-y-3">
         <Link
           to="https://api.whatsapp.com/send?text=https%3A%2F%2Fwww.jajiga.com%2Fr%2F1d3e%2Fwr"
           target="_blank"
