@@ -12,10 +12,10 @@ const initialValues: Article = {
   cover: '',
   author_id: null,
   category: {
-    id: 1,
-    color: '',
-    title: '',
-    en_title: '',
+    id: Math.floor(Math.random() * 100),
+    color: 'red',
+    title: 'جاجیگا',
+    en_title: 'jajiga',
   },
   published_at: new Date(),
   readingMinutes: '',
@@ -23,10 +23,20 @@ const initialValues: Article = {
 };
 
 const SigninSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('ایمیل نامعتبر است')
-    .required('لطفا ایمیل خود را وارد کنید'),
+  title: Yup.string()
+    .min(5, 'عنوان مقاله باید حداقل 5 کاراکتر باشد')
+    .required('لطفا عنوان مقاله را وارد کنید'),
+  author_id: Yup.number().required('شناسه نویسنده را وارد کنید'),
+  readingMinutes: Yup.number().required('مدت مطالعه را وارد کنید'),
+  keyword: Yup.string()
+    .min(2, 'تگ باید حداقل 2 کاراکتر باشد')
+    .required('تگ را وارد کنید'),
+  description: Yup.string()
+    .min(10, 'توضیحات مقاله باید حداقل 10 کاراکتر باشد')
+    .required('توضیحات مقاله را وارد کنید'),
+  cover: Yup.string().required('کاور مقاله را آپلود کنید'),
 });
+
 function AdminPNewArticle() {
   const isLoading = false;
 
@@ -51,9 +61,10 @@ function AdminPNewArticle() {
           resetForm();
         }
       });
-    } catch (error: any) {
+    } catch (error) {
+      const typedError = error as Error;
       Swal.fire({
-        text: error.message,
+        text: typedError.message,
         toast: true,
         timer: 5000,
         position: 'top-right',
@@ -74,9 +85,17 @@ function AdminPNewArticle() {
             validationSchema={SigninSchema}
             onSubmit={submitSiginpHandler}
           >
-            {({ errors, touched }) => (
+            {({ errors, touched, setFieldValue }) => (
               <Form>
-                <div className="flex w-full items-center gap-5">
+                <div className="flex w-full items-center max-md:flex-col md:gap-5">
+                  <Field className="hidden" id="id" name="id" />
+                  <Field className="hidden" id="created_at" name="created_at" />
+                  <Field className="hidden" id="category" name="category" />
+                  <Field
+                    className="hidden"
+                    id="published_at"
+                    name="published_at"
+                  />
                   <div className="w-full">
                     <Field
                       className={`input input-bordered my-2 w-full dark:bg-white dark:text-gray-800 ${touched.title && errors.title ? 'error-input border-2 border-error' : ''}`}
@@ -108,7 +127,7 @@ function AdminPNewArticle() {
                     />
                   </div>
                 </div>
-                <div className="flex w-full items-center gap-5">
+                <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="w-full">
                     <Field
                       className={`input input-bordered my-2 w-full dark:bg-white dark:text-gray-800 ${touched.readingMinutes && errors.readingMinutes ? 'error-input border-2 border-error' : ''}`}
@@ -131,6 +150,7 @@ function AdminPNewArticle() {
                       id="keyword"
                       name="keyword"
                       disabled={isLoading}
+                      placeholder="تگ"
                     />
                     <ErrorMessage
                       name="keyword"
@@ -156,106 +176,37 @@ function AdminPNewArticle() {
                   />
                 </div>
 
-                <div className="form-body">
-                  <div className="row">
-                    <div className="col-md-4">
-                      <h4 className="box-title mt-20">اپلود تصویر</h4>
-                      <div className="product-img text-start">
-                        <img src="images/product/product-9.png" alt="" />
-                        <div className="input-group my-3">
-                          <label
-                            className="input-group-text btn-primary"
-                            htmlFor="inputGroupFile01"
-                          >
-                            اپلود تصاویر دیگر
-                          </label>
-                          <input
-                            type="file"
-                            className="form-control border"
-                            id="inputGroupFile01"
-                          />
-                        </div>
-                        <button className="btn btn-success">ویرایش</button>
-                        <button className="btn-danger btn">حذف</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <h4 className="box-title mt-40">توضیحات کلی</h4>
-                      <div className="table-responsive">
-                        <table className="no-border td-padding table">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <input
-                                  type="text"
-                                  className="form-control border"
-                                  placeholder="برند"
-                                />
-                              </td>
-                              <td>
-                                <input
-                                  type="text"
-                                  className="form-control border"
-                                  placeholder="فروشنده"
-                                />
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <input
-                                  type="text"
-                                  className="form-control border"
-                                  placeholder="نحوه ارسال"
-                                />
-                              </td>
-                              <td>
-                                <input
-                                  type="text"
-                                  className="form-control border"
-                                  placeholder="بیشتر"
-                                />
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <input
-                                  type="text"
-                                  className="form-control border"
-                                  placeholder="رنگ"
-                                />
-                              </td>
-                              <td>
-                                <input
-                                  type="text"
-                                  className="form-control border"
-                                  placeholder="گیف پک"
-                                />
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+                <div>
+                  <input
+                    id="cover"
+                    name="cover"
+                    type="file"
+                    onChange={(event) => {
+                      if (
+                        event.currentTarget.files &&
+                        event.currentTarget.files[0]
+                      ) {
+                        setFieldValue('cover', event.currentTarget.files[0]);
+                      }
+                    }}
+                    className={`my-2 w-full dark:bg-white dark:text-gray-800 ${touched.cover && errors.cover ? 'error-input border-2 border-error' : ''}`}
+                    disabled={isLoading}
+                  />
+                  <ErrorMessage
+                    name="cover"
+                    component="div"
+                    className="text-[11px] text-error"
+                  />
                 </div>
+
                 <div className="z-20 mt-4 text-center">
-                  {/* <div className="form-actions mt-10">
-              <button type="submit" className="btn btn-primary">
-                <i className="fa fa-check"></i> ثبت
-              </button>
-              <button type="button" className="btn-danger btn">
-                لغو
-              </button>
-            </div> */}
                   <Button
-                    style="w-40 rounded-full bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
+                    style="w-full rounded-md my-5 bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                     type="submit"
                     //   disabled={isLoading}
                   >
                     <div className="flex items-center justify-center gap-2">
-                      <span>{isLoading ? 'در حال ورود...' : 'ورود'}</span>
+                      <span>{isLoading ? 'در حال ثبت...' : 'ثبت مقاله'}</span>
                       {isLoading && (
                         <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
                       )}

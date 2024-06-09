@@ -8,7 +8,7 @@ export interface Article {
   description: string;
   cover: string;
   author_id: number |null;
-  comments: {
+  comments?: {
     id: number | null | undefined;
     email: string;
     content: string;
