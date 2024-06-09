@@ -20,7 +20,7 @@ function AdminPLayout() {
         >
           <div className="fixed top-0 z-20 h-5 w-full bg-gray-100 dark:bg-gray-900"></div>
           <AdminHeader toggleMenu={toggleMenu} />
-          <div className="container z-10 h-[100rem] rounded-md bg-gray-100 dark:bg-gray-800">
+          <div className="h-[100rem] rounded-md bg-gray-100 dark:bg-gray-800">
             <Outlet />
           </div>
         </div>

@@ -17,7 +17,7 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
             <Logo />
           </div>
           <div className="p-5">
-            <ul className="my-6 flex flex-col gap-9 text-base">
+            <ul className="my-10 flex flex-col gap-10 text-base">
               {adminPMenus.map((item) => (
                 <li
                   key={item.id}
@@ -42,7 +42,7 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
             <div className="border-b-2 px-3 dark:border-b-gray-700 dark:text-white">
               <p>{user?.user_metadata.fullname}</p>
             </div>
-            <ul className="my-4 flex flex-col gap-6 text-base">
+            <ul className="my-8 flex flex-col gap-7 text-base">
               {adminPMenus.map((item) => (
                 <li
                   key={item.id}
@@ -57,7 +57,7 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
               ))}
             </ul>
           </div>
-          <p className="py-2 border-t border-t-gray-200 dark:border-t-gray-900 text-center text-[12px] text-gray-500 dark:text-gray-400">
+          <p className="border-t border-t-gray-200 py-2 text-center text-[12px] text-gray-500 dark:border-t-gray-900 dark:text-gray-400">
             داشبورد © 2024 تمامی حقوق محفوظ است
           </p>
         </>

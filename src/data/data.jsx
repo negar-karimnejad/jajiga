@@ -36,7 +36,7 @@ import {
   RiArticleFill,
   RiCustomerService2Line,
   RiHotelFill,
-  RiSuitcase2Line
+  RiSuitcase2Line,
 } from 'react-icons/ri';
 import { SiGitbook } from 'react-icons/si';
 import { TbHomePlus, TbMessageCircleQuestion } from 'react-icons/tb';
@@ -1800,12 +1800,7 @@ export const adminPMenus = [
     to: '/admin-p/new-room',
     icon: <BsHouseAddFill size={20} />,
   },
-  {
-    id: 4,
-    title: 'میزبانان',
-    to: '/admin-p/hosts',
-    icon: <FaUserTie size={20} />,
-  },
+
   {
     id: 5,
     title: 'مقالات',
@@ -1817,6 +1812,12 @@ export const adminPMenus = [
     title: 'افزودن مقاله',
     to: '/admin-p/new-article',
     icon: <BiSolidBookAdd size={20} />,
+  },
+  {
+    id: 4,
+    title: 'میزبانان',
+    to: '/admin-p/hosts',
+    icon: <FaUserTie size={20} />,
   },
   {
     id: 7,
