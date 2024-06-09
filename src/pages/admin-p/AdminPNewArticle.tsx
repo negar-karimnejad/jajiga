@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import Button from '../../components/ui/Button';
@@ -39,18 +40,18 @@ const SigninSchema = Yup.object().shape({
 });
 
 function AdminPNewArticle() {
-  const { addArticle, loading } = useArticles();
+  const [isLoading, setIsisLoading] = useState(false);
+  const { addArticle } = useArticles();
 
   const submitSiginpHandler = async (
     values: Article,
     { resetForm }: FormikHelpers<Article>,
   ) => {
-    console.log(values);
-
     try {
+      setIsisLoading(true);
       await addArticle(values);
       Swal.fire({
-        title: 'ورود با موفقیت انجام شد',
+        title: 'مقاله با موفقیت ثبت شد',
         toast: false,
         position: 'center',
         showConfirmButton: true,
@@ -72,8 +73,11 @@ function AdminPNewArticle() {
         showConfirmButton: false,
         icon: 'error',
       });
+    } finally {
+      setIsisLoading(false);
     }
   };
+
   return (
     <div>
       <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
@@ -104,7 +108,7 @@ function AdminPNewArticle() {
                       id="title"
                       name="title"
                       placeholder="عنوان مقاله"
-                      disabled={loading}
+                      disabled={isLoading}
                     />
                     <ErrorMessage
                       name="title"
@@ -119,7 +123,7 @@ function AdminPNewArticle() {
                       id="author_id"
                       name="author_id"
                       placeholder="نویسنده"
-                      disabled={loading}
+                      disabled={isLoading}
                     />
                     <ErrorMessage
                       name="author_id"
@@ -136,7 +140,7 @@ function AdminPNewArticle() {
                       id="readingMinutes"
                       name="readingMinutes"
                       placeholder="مدت مطالعه"
-                      disabled={loading}
+                      disabled={isLoading}
                     />
                     <ErrorMessage
                       name="readingMinutes"
@@ -150,7 +154,7 @@ function AdminPNewArticle() {
                       type="text"
                       id="keyword"
                       name="keyword"
-                      disabled={loading}
+                      disabled={isLoading}
                       placeholder="تگ"
                     />
                     <ErrorMessage
@@ -166,7 +170,7 @@ function AdminPNewArticle() {
                     type="text"
                     id="description"
                     name="description"
-                    disabled={loading}
+                    disabled={isLoading}
                     placeholder="توضیحات مقاله"
                     as="textarea"
                   />
@@ -176,7 +180,6 @@ function AdminPNewArticle() {
                     className="text-[11px] text-error"
                   />
                 </div>
-
                 <div>
                   <input
                     id="cover"
@@ -191,7 +194,7 @@ function AdminPNewArticle() {
                       }
                     }}
                     className={`my-2 w-full dark:bg-white dark:text-gray-800 ${touched.cover && errors.cover ? 'error-input border-2 border-error' : ''}`}
-                    disabled={loading}
+                    disabled={isLoading}
                   />
                   <ErrorMessage
                     name="cover"
@@ -199,16 +202,15 @@ function AdminPNewArticle() {
                     className="text-[11px] text-error"
                   />
                 </div>
-
                 <div className="z-20 mt-4 text-center">
                   <Button
                     style="w-full rounded-md my-5 bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                     type="submit"
-                    disabled={loading}
+                    disabled={isLoading}
                   >
                     <div className="flex items-center justify-center gap-2">
-                      <span>{loading ? 'در حال ثبت...' : 'ثبت مقاله'}</span>
-                      {loading && (
+                      <span>{isLoading ? 'در حال ثبت...' : 'ثبت مقاله'}</span>
+                      {isLoading && (
                         <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
                       )}
                     </div>

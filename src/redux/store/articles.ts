@@ -21,7 +21,6 @@ export interface Article {
     title: string;
     en_title: string;
   };
-
   published_at: Date;
   readingMinutes: string;
   keyword: string;
