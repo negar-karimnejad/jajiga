@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
 export interface Article {
@@ -7,7 +7,7 @@ export interface Article {
   title: string;
   description: string;
   cover: string;
-  author_id: number |null;
+  author_id: number | null;
   comments?: {
     id: number | null | undefined;
     email: string;
@@ -53,6 +53,22 @@ export const getArticlesFromServer = createAsyncThunk(
   },
 );
 
+export const addArticleToServer = createAsyncThunk(
+  'rooms/addArticleToServer',
+  async (article: Article) => {
+    const { data, error } = await supabase
+      .from('articles')
+      .insert(article)
+      .single();
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  },
+);
+
 const articleSlice = createSlice({
   name: 'articles',
   initialState,
@@ -67,6 +83,24 @@ const articleSlice = createSlice({
       state.articles = action.payload;
     });
     builder.addCase(getArticlesFromServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error =
+        action.error.message ?? 'Something went wrong. Please try again later.';
+      state.articles = [];
+    });
+    // Add Article
+    builder.addCase(addArticleToServer.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(
+      addArticleToServer.fulfilled.type,
+      (state, action: PayloadAction<Article>) => {
+        state.loading = false;
+        state.error = null;
+        state.articles.push(action.payload);
+      },
+    );
+    builder.addCase(addArticleToServer.rejected, (state, action) => {
       state.loading = false;
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';

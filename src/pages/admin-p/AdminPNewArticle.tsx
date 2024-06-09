@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import Button from '../../components/ui/Button';
+import { useArticles } from '../../hooks/useArticles';
 import { Article } from '../../redux/store/articles';
 
 const initialValues: Article = {
@@ -38,7 +39,7 @@ const SigninSchema = Yup.object().shape({
 });
 
 function AdminPNewArticle() {
-  const isLoading = false;
+  const { addArticle, loading } = useArticles();
 
   const submitSiginpHandler = async (
     values: Article,
@@ -47,7 +48,7 @@ function AdminPNewArticle() {
     console.log(values);
 
     try {
-      //   await signinFunc(values);
+      await addArticle(values);
       Swal.fire({
         title: 'ورود با موفقیت انجام شد',
         toast: false,
@@ -103,7 +104,7 @@ function AdminPNewArticle() {
                       id="title"
                       name="title"
                       placeholder="عنوان مقاله"
-                      disabled={isLoading}
+                      disabled={loading}
                     />
                     <ErrorMessage
                       name="title"
@@ -118,7 +119,7 @@ function AdminPNewArticle() {
                       id="author_id"
                       name="author_id"
                       placeholder="نویسنده"
-                      disabled={isLoading}
+                      disabled={loading}
                     />
                     <ErrorMessage
                       name="author_id"
@@ -135,7 +136,7 @@ function AdminPNewArticle() {
                       id="readingMinutes"
                       name="readingMinutes"
                       placeholder="مدت مطالعه"
-                      disabled={isLoading}
+                      disabled={loading}
                     />
                     <ErrorMessage
                       name="readingMinutes"
@@ -149,7 +150,7 @@ function AdminPNewArticle() {
                       type="text"
                       id="keyword"
                       name="keyword"
-                      disabled={isLoading}
+                      disabled={loading}
                       placeholder="تگ"
                     />
                     <ErrorMessage
@@ -165,7 +166,7 @@ function AdminPNewArticle() {
                     type="text"
                     id="description"
                     name="description"
-                    disabled={isLoading}
+                    disabled={loading}
                     placeholder="توضیحات مقاله"
                     as="textarea"
                   />
@@ -190,7 +191,7 @@ function AdminPNewArticle() {
                       }
                     }}
                     className={`my-2 w-full dark:bg-white dark:text-gray-800 ${touched.cover && errors.cover ? 'error-input border-2 border-error' : ''}`}
-                    disabled={isLoading}
+                    disabled={loading}
                   />
                   <ErrorMessage
                     name="cover"
@@ -203,11 +204,11 @@ function AdminPNewArticle() {
                   <Button
                     style="w-full rounded-md my-5 bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                     type="submit"
-                    //   disabled={isLoading}
+                    disabled={loading}
                   >
                     <div className="flex items-center justify-center gap-2">
-                      <span>{isLoading ? 'در حال ثبت...' : 'ثبت مقاله'}</span>
-                      {isLoading && (
+                      <span>{loading ? 'در حال ثبت...' : 'ثبت مقاله'}</span>
+                      {loading && (
                         <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
                       )}
                     </div>

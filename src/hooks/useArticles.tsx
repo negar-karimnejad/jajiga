@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../hooks';
 import { AppDispatch } from '../redux/store';
-import { getArticlesFromServer } from '../redux/store/articles';
+import {
+  Article,
+  addArticleToServer,
+  getArticlesFromServer,
+} from '../redux/store/articles';
 
 const useArticles = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -14,6 +18,9 @@ const useArticles = () => {
     dispatch(getArticlesFromServer());
   }, [dispatch]);
 
+  const addArticle = (articleData: Article) => {
+    dispatch(addArticleToServer(articleData));
+  };
   // Mapping object to hold filtered articles for each category
   const categoryArticles = {
     wherewhy: articles.filter((article) => article.category.id === 1),
@@ -27,6 +34,7 @@ const useArticles = () => {
     articles,
     loading,
     error,
+    addArticle,
     ...categoryArticles,
   };
 };

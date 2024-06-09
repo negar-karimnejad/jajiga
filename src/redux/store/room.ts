@@ -128,6 +128,7 @@ const roomSlice = createSlice({
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';
     });
+    // Add Room
     builder.addCase(addRoomToServer.pending, (state) => {
       state.loading = true;
       state.error = null;
