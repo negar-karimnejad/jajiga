@@ -9,8 +9,8 @@ function AdminPArticles() {
     <>
       <SectionHeader
         to="/admin-p/new-article"
-        btnTitle="افزودن مجله"
-        title="مجلات"
+        btnTitle="افزودن مقاله"
+        title="مقالات"
       />
       <div className="flex w-full items-center justify-center bg-white">
         <table className="table w-full">

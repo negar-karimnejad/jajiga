@@ -7,7 +7,7 @@ export interface Article {
   title: string;
   description: string;
   cover: string | File;
-  author_id: number | null;
+  author_id: number;
   comments?: {
     id: number | null | undefined;
     email: string;
@@ -49,6 +49,21 @@ export const getArticlesFromServer = createAsyncThunk(
     }
 
     return articles;
+  },
+);
+
+export const removeArticlesFromServer = createAsyncThunk(
+  'articles/removeArticlesFromServer',
+  async (articleId: number) => {
+    const { error } = await supabase
+      .from('articles')
+      .delete()
+      .eq('id', articleId);
+    if (error) {
+      throw new Error('Article could not be deleted');
+    }
+
+    return articleId;
   },
 );
 
@@ -122,6 +137,26 @@ const articleSlice = createSlice({
       },
     );
     builder.addCase(addArticleToServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error =
+        action.error.message ?? 'Something went wrong. Please try again later.';
+      state.articles = [];
+    });
+    // Remove Article
+    builder.addCase(removeArticlesFromServer.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(
+      removeArticlesFromServer.fulfilled,
+      (state, action: PayloadAction<number>) => {
+        state.loading = false;
+        state.error = null;
+        state.articles = state.articles.filter(
+          (article) => article.id !== action.payload,
+        );
+      },
+    );
+    builder.addCase(removeArticlesFromServer.rejected, (state, action) => {
       state.loading = false;
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';

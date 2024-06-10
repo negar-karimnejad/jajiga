@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../navbar/Logo';
 import { adminPMenus } from '../../data/data';
@@ -8,7 +8,12 @@ function AdminSidebar({ isPushMenu }: { isPushMenu: boolean }) {
   const { user } = useAuth();
   const location = useLocation();
 
-  const [activeItem, setActiveItem] = useState(location.pathname);
+  const [activeItem, setActiveItem] = useState('');
+
+  useEffect(() => {
+    setActiveItem(location.pathname);
+  }, [location.pathname]);
+
   return (
     <div className="sticky top-5 overflow-hidden rounded-lg bg-white dark:bg-gray-800 max-md:hidden">
       {isPushMenu ? (

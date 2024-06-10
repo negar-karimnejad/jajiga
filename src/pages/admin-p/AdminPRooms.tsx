@@ -100,16 +100,16 @@ function AdminPRooms() {
                     >
                       {' '}
                       <li className="py-0.5 hover:text-violet-500">
-                        <a>
-                          <BiEdit />
-                          ویرایش اقامتگاه
-                        </a>
-                      </li>
-                      <li className="py-0.5 hover:text-violet-500">
                         <Link to={`/admin-p/rooms/${room.code}`}>
                           <FaEye />
                           مشاهده اقامتگاه
                         </Link>
+                      </li>
+                      <li className="py-0.5 hover:text-violet-500">
+                        <a>
+                          <BiEdit />
+                          ویرایش اقامتگاه
+                        </a>
                       </li>
                       <li className="py-0.5 hover:text-violet-500">
                         <a>
