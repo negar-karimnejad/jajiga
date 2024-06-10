@@ -7,7 +7,7 @@ import { useArticles } from '../../hooks/useArticles';
 import { Article } from '../../redux/store/articles';
 
 const initialValues: Article = {
-  id: Math.floor(Math.random() * 100000),
+  id: Math.floor(Math.random() * 10000),
   created_at: new Date(),
   title: '',
   description: '',

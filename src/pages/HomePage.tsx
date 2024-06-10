@@ -8,7 +8,6 @@ import Logo from "../components/navbar/Logo";
 import Hero from "../components/home/Hero";
 import Application from "../components/home/Application";
 import Popular from "../components/home/Popular";
-import QuickSearch from "../components/footer/QuickSearch";
 import Advantages from "../components/home/Advantages";
 import SliderSection from "../components/ui/SliderSection";
 import Discount from "../components/home/Discount";
@@ -19,6 +18,7 @@ import MoreInfos from "../components/home/MoreInfos";
 import Footer from "../components/footer/Footer";
 import SearchResultModal from "../components/ui/SearchResultModal";
 import { BiChevronDown } from "react-icons/bi";
+import QuickSearch from "../components/home/QuickSearch";
 
 
 function HomePage() {

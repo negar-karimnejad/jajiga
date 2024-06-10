@@ -6,7 +6,7 @@ export interface Article {
   created_at: Date;
   title: string;
   description: string;
-  cover: string;
+  cover: string | File;
   author_id: number | null;
   comments?: {
     id: number | null | undefined;
@@ -55,16 +55,38 @@ export const getArticlesFromServer = createAsyncThunk(
 export const addArticleToServer = createAsyncThunk(
   'rooms/addArticleToServer',
   async (article: Article) => {
-    const { data, error } = await supabase
-      .from('articles')
-      .insert(article)
-      .single();
+    if (typeof article.cover !== 'string') {
+      const imageName = `${Math.random()}-${article.cover.name}`.replaceAll(
+        '/',
+        '',
+      );
 
-    if (error) {
-      throw error;
+      const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/articles/${imageName}`;
+
+      const { data, error } = await supabase
+        .from('articles')
+        .insert([{ ...article, cover: imagePath }]);
+
+      if (error) {
+        console.error(error);
+        throw new Error('Article could not be created');
+      }
+
+      // Upload Image
+      const { error: storageError } = await supabase.storage
+        .from('articles')
+        .upload(imageName, article.cover);
+
+      if (storageError) {
+        console.error(storageError);
+        throw new Error(
+          'Article image could not be uploaded and the article was not created',
+        );
+      }
+      return data;
+    } else {
+      throw new Error('Cover image must be a file');
     }
-
-    return data;
   },
 );
 
