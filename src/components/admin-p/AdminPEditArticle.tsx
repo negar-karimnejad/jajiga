@@ -3,8 +3,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import Button from '../../components/ui/Button';
-import { useArticles } from '../../hooks/useArticles';
-import { Article } from '../../redux/store/articles';
+import { Article, EditedArticleProps } from '../../redux/store/articles';
 
 const SigninSchema = Yup.object().shape({
   title: Yup.string()
@@ -22,34 +21,28 @@ const SigninSchema = Yup.object().shape({
 });
 
 function AdminPEditArticle({ article }: { article: Article }) {
-  const initialValues: Article = {
-    id: Math.floor(Math.random() * 10000),
-    created_at: new Date(),
+  const initialValues: EditedArticleProps = {
+    id: article.id,
     title: article.title,
     description: article.description,
     cover: article.cover,
     author_id: article.author_id,
-    category: {
-      id: Math.floor(Math.random() * 100),
-      color: 'sky',
-      title: 'سفر به کجا؟',
-      en_title: 'wherewhy',
-    },
-    published_at: new Date(),
     readingMinutes: article.readingMinutes,
     keyword: article.keyword,
   };
 
   const [isLoading, setIsisLoading] = useState(false);
-  const { addArticle } = useArticles();
+  //   const { addArticle } = useArticles();
 
   const submitSiginpHandler = async (
-    values: Article,
-    { resetForm }: FormikHelpers<Article>,
+    values: EditedArticleProps,
+    { resetForm }: FormikHelpers<EditedArticleProps>,
   ) => {
+    console.log(values);
+
     try {
       setIsisLoading(true);
-      await addArticle(values);
+      //   await addArticle(values);
       Swal.fire({
         title: 'مقاله با موفقیت ویرایش شد',
         toast: false,
@@ -94,13 +87,6 @@ function AdminPEditArticle({ article }: { article: Article }) {
               <Form>
                 <div className=" w-full items-center max-md:flex-col md:gap-5">
                   <Field className="hidden" id="id" name="id" />
-                  <Field className="hidden" id="created_at" name="created_at" />
-                  <Field className="hidden" id="category" name="category" />
-                  <Field
-                    className="hidden"
-                    id="published_at"
-                    name="published_at"
-                  />
                   <div className="relative h-20 w-full">
                     <Field
                       type="text"

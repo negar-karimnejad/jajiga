@@ -22,7 +22,7 @@ export interface Article {
     en_title: string;
   };
   published_at: Date;
-  readingMinutes: string;
+  readingMinutes: number;
   keyword: string;
 }
 
@@ -30,6 +30,16 @@ interface ArticleState {
   loading: boolean;
   error: string | null;
   articles: Article[];
+}
+
+export interface EditedArticleProps {
+  id: number;
+  title: string;
+  description: string;
+  cover: string | File;
+  author_id: number;
+  readingMinutes: number;
+  keyword: string;
 }
 
 const initialState: ArticleState = {
@@ -49,21 +59,6 @@ export const getArticlesFromServer = createAsyncThunk(
     }
 
     return articles;
-  },
-);
-
-export const removeArticlesFromServer = createAsyncThunk(
-  'articles/removeArticlesFromServer',
-  async (articleId: number) => {
-    const { error } = await supabase
-      .from('articles')
-      .delete()
-      .eq('id', articleId);
-    if (error) {
-      throw new Error('Article could not be deleted');
-    }
-
-    return articleId;
   },
 );
 
@@ -105,6 +100,76 @@ export const addArticleToServer = createAsyncThunk(
   },
 );
 
+export const editArticlesFromServer = createAsyncThunk(
+  'articles/editArticlesFromServer',
+  async (article: EditedArticleProps) => {
+    if (typeof article.cover !== 'string') {
+      const imageName = `${Math.random()}-${article.cover.name}`.replaceAll(
+        '/',
+        '',
+      );
+
+      const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/articles/${imageName}`;
+
+      const { error } = await supabase
+        .from('articles')
+        .update({ ...article, cover: imagePath })
+        .eq('id', article.id);
+
+      if (error) {
+        console.error(error);
+        throw new Error('Article could not be updated');
+      }
+
+      // Upload Image
+      const { error: storageError } = await supabase.storage
+        .from('articles')
+        .upload(imageName, article.cover, { upsert: true });
+
+      if (storageError) {
+        console.error(storageError);
+        throw new Error('Article image could not be uploaded');
+      }
+
+      return { ...article, cover: imagePath };
+    } else {
+      const { error } = await supabase
+        .from('articles')
+        .update({
+          author_id: article.author_id,
+          cover: article.cover,
+          description: article.description,
+          keyword: article.keyword,
+          readingMinutes: article.readingMinutes,
+          title: article.title,
+        })
+        .eq('id', article.id);
+
+      if (error) {
+        console.error(error);
+        throw new Error('Article could not be updated');
+      }
+
+      return article;
+    }
+  },
+);
+
+export const removeArticlesFromServer = createAsyncThunk(
+  'articles/removeArticlesFromServer',
+  async (articleId: number) => {
+    const { error } = await supabase
+      .from('articles')
+      .delete()
+      .eq('id', articleId);
+    if (error) {
+      throw new Error('Article could not be deleted');
+    }
+
+    return articleId;
+  },
+);
+
 const articleSlice = createSlice({
   name: 'articles',
   initialState,
@@ -137,6 +202,30 @@ const articleSlice = createSlice({
       },
     );
     builder.addCase(addArticleToServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error =
+        action.error.message ?? 'Something went wrong. Please try again later.';
+      state.articles = [];
+    });
+    // Edit Article
+    builder.addCase(editArticlesFromServer.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(
+      editArticlesFromServer.fulfilled.type,
+      (state, action: PayloadAction<Article>) => {
+        state.loading = false;
+        state.error = null;
+
+        const index = state.articles.findIndex(
+          (article) => article.id === action.payload.id,
+        );
+        if (index !== -1) {
+          state.articles[index] = action.payload;
+        }
+      },
+    );
+    builder.addCase(editArticlesFromServer.rejected, (state, action) => {
       state.loading = false;
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';
