@@ -24,7 +24,7 @@ function AdminPEditRoom({
     category: room.category,
     entrance_hour: room.entrance_hour,
     reserved: room.reserved,
-    images: [],
+    images: [''],
     max_capacity: room.max_capacity,
     foundation_meterage: room.foundation_meterage,
     zone: room.zone,

@@ -117,7 +117,21 @@ export const editRoomFromServer = createAsyncThunk(
   async (room: Room) => {
     const { error } = await supabase
       .from('rooms')
-      .update({ room })
+      .update({
+        title: room.title,
+        description: room.description,
+        zone: room.zone,
+        reserved: room.reserved,
+        code: room.code,
+        residence_type: room.residence_type,
+        capacity: room.capacity,
+        max_capacity: room.max_capacity,
+        foundation_meterage: room.foundation_meterage,
+        area_meterage: room.area_meterage,
+        bedroom: room.bedroom,
+        price: room.price,
+        max_stay: room.max_stay,
+      })
       .eq('id', room.id);
 
     if (error) {
@@ -160,6 +174,7 @@ const roomSlice = createSlice({
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';
     });
+
     // Add Room
     builder.addCase(addRoomToServer.pending, (state) => {
       state.loading = true;
@@ -177,13 +192,14 @@ const roomSlice = createSlice({
       state.loading = false;
       state.error = action.error.message ?? 'Something went wrong.';
     });
-    // Add Room
-    builder.addCase(addRoomToServer.pending, (state) => {
+
+    // Edit Room
+    builder.addCase(editRoomFromServer.pending, (state) => {
       state.loading = true;
       state.error = null;
     });
     builder.addCase(
-      addRoomToServer.fulfilled.type,
+      editRoomFromServer.fulfilled.type,
       (state, action: PayloadAction<Room>) => {
         state.loading = false;
         state.error = null;
@@ -196,10 +212,11 @@ const roomSlice = createSlice({
         }
       },
     );
-    builder.addCase(addRoomToServer.rejected, (state, action) => {
+    builder.addCase(editRoomFromServer.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message ?? 'Something went wrong.';
     });
+
     // Remove Room
     builder.addCase(removeRoomFromServer.pending, (state) => {
       state.loading = true;

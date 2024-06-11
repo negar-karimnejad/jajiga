@@ -81,8 +81,6 @@ function AdminPNewRoom() {
     { resetForm }: FormikHelpers<Room>,
   ) => {
     try {
-      console.log(values);
-
       setIsisLoading(true);
       await addRoom(values);
       Swal.fire({
