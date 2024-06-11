@@ -10,7 +10,7 @@ function AdminPHosts() {
 
   // Remove duplicate hosts based on their id
   const hosts = allHosts.filter(
-    (host, index, self) => index === self.findIndex((h) => h.id === host.id),
+    (host, index, self) => index === self.findIndex((h) => h?.id === host?.id),
   );
 
   return (
@@ -56,28 +56,28 @@ function AdminPHosts() {
           </thead>
           <tbody>
             {hosts.map((host) => (
-              <tr className="hover:bg-gray-100">
+              <tr key={host?.id} className="hover:bg-gray-100">
                 <td className="border-blue-gray-50 border-b p-4">
                   <img
-                    src={host.profile}
-                    alt={host.fullname}
+                    src={host?.profile}
+                    alt={host?.fullname}
                     className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top"
                   />
                 </td>
                 <td className="border-blue-gray-50 border-b p-4">
                   <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">
-                    {host.fullname}
+                    {host?.fullname}
                   </p>
                 </td>
                 <td className="border-blue-gray-50 border-b py-4">
                   <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
-                    {host.id}
+                    {host?.id}
                   </p>
                 </td>
                 <td className="border-blue-gray-50 border-b p-4">
                   <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
                     <span className="font-persianNums">
-                      {host.reservation_confirmation}
+                      {host?.reservation_confirmation}
                     </span>{' '}
                     درصد
                   </p>
@@ -86,14 +86,15 @@ function AdminPHosts() {
                   <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
                     کمتر از{' '}
                     <span className="font-persianNums">
-                      {host.response_time}
+                      {host?.response_time}
                     </span>{' '}
                     دقیقه
                   </p>
                 </td>
                 <td className="border-blue-gray-50 border-b p-4">
                   <p className="text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased">
-                    {convertToPersianDate(host.registery_date)}
+                    {host?.registery_date &&
+                      convertToPersianDate(host.registery_date)}
                   </p>
                 </td>
                 <td className="border-blue-gray-50 border-b p-4">

@@ -36,7 +36,7 @@ export interface Room {
   residence_policy: string[];
   entrance_hour: number;
   leaving_hour: number;
-  host: {
+  host?: {
     id: number;
     fullname: string;
     registery_date: Date;
@@ -46,7 +46,7 @@ export interface Room {
   };
   price: number;
   category: string[];
-  rating: {
+  rating?: {
     total: number;
     truth: number;
     attitude: number;
@@ -56,7 +56,7 @@ export interface Room {
     quality: number;
   };
   reviews: number;
-  comments: [
+  comments?: [
     {
       id: number;
       created_at: Date | null;
@@ -99,13 +99,51 @@ export const getRoomsFromServer = createAsyncThunk(
 export const addRoomToServer = createAsyncThunk(
   'rooms/addRoomToServer',
   async (room: Room) => {
-    const { data, error } = await supabase.from('rooms').insert(room).single();
+    console.log(room);
+
+    // if (typeof room.images[0] !== 'string') {
+    const imageName = `${Math.random()}-${room.images.name}`.replaceAll(
+      '/',
+      '',
+    );
+
+    const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/rooms/${imageName}`;
+
+    const { data, error } = await supabase
+      .from('rooms')
+      .insert([{ ...room, images: [imagePath] }]);
 
     if (error) {
-      throw error;
+      console.error(error);
+      throw new Error('Room could not be created');
     }
 
+    // Upload Image
+    const { error: storageError } = await supabase.storage
+      .from('rooms')
+      .upload(imageName, room.images[0]);
+
+    if (storageError) {
+      console.error(storageError);
+      throw new Error(
+        'Room image could not be uploaded and the room was not created',
+      );
+    }
     return data;
+    // } else {
+    //   throw new Error('Cover image must be a file');
+    // }
+  },
+);
+export const removeRoomFromServer = createAsyncThunk(
+  'rooms/removeRoomFromServer',
+  async (roomId: number) => {
+    const { error } = await supabase.from('rooms').delete().eq('id', roomId);
+    if (error) {
+      throw new Error('Room could not be deleted');
+    }
+
+    return roomId;
   },
 );
 
@@ -142,6 +180,23 @@ const roomSlice = createSlice({
       },
     );
     builder.addCase(addRoomToServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message ?? 'Something went wrong.';
+    });
+    // Remove Room
+    builder.addCase(removeRoomFromServer.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(
+      removeRoomFromServer.fulfilled.type,
+      (state, action: PayloadAction<number>) => {
+        state.loading = false;
+        state.error = null;
+        state.rooms = state.rooms.filter((room) => room.id !== action.payload);
+      },
+    );
+    builder.addCase(removeRoomFromServer.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message ?? 'Something went wrong.';
     });

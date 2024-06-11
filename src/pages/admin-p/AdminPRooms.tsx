@@ -1,11 +1,38 @@
 import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import SectionHeader from '../../components/admin-p/SectionHeader';
 import useRooms from '../../hooks/useRooms';
 
 function AdminPRooms() {
-  const { rooms } = useRooms();
+  const { rooms, removeRoom } = useRooms();
+
+  const removeHandler = (roomId: number) => {
+    Swal.fire({
+      title: 'آیا از حذف اقامتگاه مطمئنید؟',
+      toast: false,
+      position: 'center',
+      showConfirmButton: true,
+      showCancelButton: true,
+      icon: 'warning',
+      customClass: { icon: 'm-auto mt-4' },
+      confirmButtonText: 'بله',
+      cancelButtonText: 'انصراف',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeRoom(roomId);
+        Swal.fire({
+          title: 'اقامتگاه با موفقیت حذف شد',
+          toast: false,
+          position: 'center',
+          icon: 'success',
+          customClass: { icon: 'm-auto mt-4' },
+        });
+      }
+    });
+  };
+
   return (
     <>
       <SectionHeader
@@ -48,7 +75,7 @@ function AdminPRooms() {
           </thead>
           <tbody>
             {rooms.map((room) => (
-              <tr className="hover:bg-gray-100">
+              <tr key={room.id} className="hover:bg-gray-100">
                 <td className="border-blue-gray-50 border-b p-4">
                   <img
                     src={room.images[0]}
@@ -76,12 +103,12 @@ function AdminPRooms() {
                 </td>
                 <td className="flex items-center gap-2 p-4">
                   <img
-                    src={room.host.profile}
+                    src={room?.host?.profile}
                     className="h-10 w-10 rounded-full object-cover"
                     alt=""
                   />
                   <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
-                    {room.host.fullname}
+                    {room?.host?.fullname}
                   </p>
                 </td>
 
@@ -111,7 +138,10 @@ function AdminPRooms() {
                           ویرایش اقامتگاه
                         </a>
                       </li>
-                      <li className="py-0.5 hover:text-violet-500">
+                      <li
+                        onClick={() => removeHandler(room.id)}
+                        className="py-0.5 hover:text-violet-500"
+                      >
                         <a>
                           <BiTrash />
                           حذف اقامتگاه

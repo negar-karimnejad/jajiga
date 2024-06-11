@@ -160,7 +160,7 @@ function AdminPNewArticle() {
                       className="text-[11px] text-error"
                     />
                     <label
-                      htmlFor="title"
+                      htmlFor="readingMinutes"
                       className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
                     >
                       مدت مطالعه
@@ -181,7 +181,7 @@ function AdminPNewArticle() {
                       className="text-[11px] text-error"
                     />
                     <label
-                      htmlFor="title"
+                      htmlFor="keyword"
                       className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
                     >
                       تگ
@@ -204,7 +204,7 @@ function AdminPNewArticle() {
                     className="text-[11px] text-error"
                   />
                   <label
-                    htmlFor="title"
+                    htmlFor="description"
                     className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
                   >
                     توضیحات مقاله
