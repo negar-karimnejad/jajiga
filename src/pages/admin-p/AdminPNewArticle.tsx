@@ -20,7 +20,7 @@ const initialValues: Article = {
     en_title: 'wherewhy',
   },
   published_at: new Date(),
-  readingMinutes: '',
+  readingMinutes: 0,
   keyword: '',
 };
 
@@ -51,7 +51,7 @@ function AdminPNewArticle() {
       setIsisLoading(true);
       await addArticle(values);
       Swal.fire({
-        title: 'مقاله با موفقیت ثبت شد',
+        title: 'مقاله با موفقیت اضافه شد',
         toast: false,
         position: 'center',
         showConfirmButton: true,

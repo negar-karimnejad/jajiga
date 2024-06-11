@@ -5,6 +5,7 @@ import { AppDispatch } from '../redux/store';
 import {
   Article,
   addArticleToServer,
+  editArticlesFromServer,
   getArticlesFromServer,
   removeArticlesFromServer,
 } from '../redux/store/articles';
@@ -22,9 +23,12 @@ const useArticles = () => {
   const addArticle = (articleData: Article) => {
     dispatch(addArticleToServer(articleData));
   };
-  
+
   const removeArticle = (id: number) => {
     dispatch(removeArticlesFromServer(id));
+  };
+  const editArticle = (article: Article) => {
+    dispatch(editArticlesFromServer(article));
   };
 
   // Mapping object to hold filtered articles for each category
@@ -42,6 +46,7 @@ const useArticles = () => {
     error,
     addArticle,
     removeArticle,
+    editArticle,
     ...categoryArticles,
   };
 };

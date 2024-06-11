@@ -32,15 +32,15 @@ interface ArticleState {
   articles: Article[];
 }
 
-export interface EditedArticleProps {
-  id: number;
-  title: string;
-  description: string;
-  cover: string | File;
-  author_id: number;
-  readingMinutes: number;
-  keyword: string;
-}
+// export interface EditedArticleProps {
+//   id: number;
+//   title: string;
+//   description: string;
+//   cover: string | File;
+//   author_id: number;
+//   readingMinutes: number;
+//   keyword: string;
+// }
 
 const initialState: ArticleState = {
   loading: true,
@@ -102,7 +102,7 @@ export const addArticleToServer = createAsyncThunk(
 
 export const editArticlesFromServer = createAsyncThunk(
   'articles/editArticlesFromServer',
-  async (article: EditedArticleProps) => {
+  async (article: Article) => {
     if (typeof article.cover !== 'string') {
       const imageName = `${Math.random()}-${article.cover.name}`.replaceAll(
         '/',

@@ -71,13 +71,16 @@ function AdminPRoomsDetails() {
         </div>
         <div className="col-span-8">
           <div className="mt-1 flex items-center justify-between gap-2">
-            <Link to={`/room/${room.code}`} className="text-xl text-sky-600 hover:underline">
+            <Link
+              to={`/room/${room.code}`}
+              className="text-xl text-sky-600 hover:underline"
+            >
               {room.title}
             </Link>
             <div className="flex items-center gap-2">
               <p className="text-sm text-gray-500">نرخ هر شب: </p>
               <p className="font-persianNums text-xl">
-                {room.price.toLocaleString()}{' '}
+                {room.price.toLocaleString()}
                 <span className="text-sm text-gray-500">تومان</span>
               </p>
             </div>
@@ -126,18 +129,16 @@ function AdminPRoomsDetails() {
                 </li>
                 <li className="mb-1 flex items-center gap-2">
                   <BiCheck className="text-green-500" size={20} />
-                  {room.zone}{' '}
+                  {room.zone}
                   <span className="font-persianNums">
                     {room.foundation_meterage}
-                  </span>{' '}
+                  </span>
                   متری
                 </li>
                 <li className="mb-1 flex items-center gap-2">
                   <BiCheck className="text-green-500" size={20} />
-                  ظرفیت تا{' '}
-                  <span className="font-persianNums">
-                    {room.max_capacity}
-                  </span>{' '}
+                  ظرفیت تا
+                  <span className="font-persianNums">{room.max_capacity}</span>
                   مهمان
                 </li>
                 <li className="mb-1 flex items-center gap-2">
@@ -150,63 +151,60 @@ function AdminPRoomsDetails() {
           </div>
         </div>
         <div className="col-span-12 mt-10">
-          <h4 className="box-title mb-5 text-lg">اطلاعات کلی</h4>
-          <div className="table-responsive">
-            <table className="table">
-              <tbody>
-                <tr>
-                  <td>
-                    <span className="text-gray-500 ml-10">برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                  <td>
-                    <span className="text-gray-500 ml-10">نام برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span className="text-gray-500 ml-10">برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                  <td>
-                    <span className="text-gray-500 ml-10">نام برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span className="text-gray-500 ml-10">برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                  <td>
-                    <span className="text-gray-500 ml-10">نام برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span className="text-gray-500 ml-10">برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                  <td>
-                    <span className="text-gray-500 ml-10">نام برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span className="text-gray-500 ml-10">برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                  <td>
-                    <span className="text-gray-500 ml-10">نام برند</span>{' '}
-                    <span className="text-black">sdcfsd</span>
-                  </td>
-                </tr>
-                
-              </tbody>
-            </table>
+          <h4 className="box-title mb-8 text-lg">اطلاعات کلی</h4>
+          <div className="flex justify-between">
+            <div className="flex w-full flex-col justify-between">
+              <div className="flex w-full border-b pt-8">
+                <div className="ml-10 w-32 text-gray-500">ظرفیت استاندارد:</div>
+                <div className="text-black">
+                  <span className="font-persianNums">{room.capacity} </span>نفر
+                </div>
+              </div>
+              <div className="flex w-full border-b pt-8">
+                <div className="ml-10 w-32 text-gray-500">منطقه :</div>{' '}
+                <div className="text-black">{room.residence_type}</div>
+              </div>
+              <div className="flex w-full border-b pt-8">
+                <div className="ml-10 w-32 text-gray-500">
+                  نرخ هر نفر اضافه :
+                </div>
+                <div className="text-black">
+                  <span className="font-persianNums">
+                    {room.extra_person_charge.toLocaleString()}
+                  </span>{' '}
+                  تومان
+                </div>
+              </div>
+            </div>
+            <div className="flex w-full flex-col justify-between">
+              <div className="flex w-full border-b pt-8">
+                <div className="ml-10 w-32 text-gray-500">ساعت ورود:</div>
+                <div className="text-black">
+                  <span className="font-persianNums">{room.entrance_hour}</span>{' '}
+                  ظهر
+                </div>
+              </div>
+              <div className="flex w-full border-b pt-8">
+                <div className="ml-10 w-32 text-gray-500">متراژ محوطه:</div>
+                <div className="text-black">
+                  <span className="font-persianNums">{room.area_meterage}</span>{' '}
+                  متر
+                </div>
+              </div>
+              <div className="flex w-full border-b pt-8">
+                <div className="ml-10 w-32 text-gray-500">ساعت خروج:</div>
+                <div className="text-black">
+                  <span className="font-persianNums">{room.leaving_hour}</span>{' '}
+                  ظهر
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between">
+            <div className="flex w-full pt-8">
+              <div className="ml-10 w-32 text-gray-500">تگ:</div>
+              <div className="text-black">{room.category.join(' , ')}</div>
+            </div>
           </div>
         </div>
       </div>

@@ -3,7 +3,8 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import Button from '../../components/ui/Button';
-import { Article, EditedArticleProps } from '../../redux/store/articles';
+import { Article } from '../../redux/store/articles';
+import { useArticles } from '../../hooks/useArticles';
 
 const SigninSchema = Yup.object().shape({
   title: Yup.string()
@@ -20,8 +21,14 @@ const SigninSchema = Yup.object().shape({
   cover: Yup.string().required('کاور مقاله را آپلود کنید'),
 });
 
-function AdminPEditArticle({ article }: { article: Article }) {
-  const initialValues: EditedArticleProps = {
+function AdminPEditArticle({
+  article,
+  closeModal,
+}: {
+  article: Article;
+  closeModal: () => void;
+}) {
+  const initialValues: Article = {
     id: article.id,
     title: article.title,
     description: article.description,
@@ -29,20 +36,23 @@ function AdminPEditArticle({ article }: { article: Article }) {
     author_id: article.author_id,
     readingMinutes: article.readingMinutes,
     keyword: article.keyword,
+    created_at: article.created_at,
+    category: article.category,
+    published_at: article.published_at,
   };
 
   const [isLoading, setIsisLoading] = useState(false);
-  //   const { addArticle } = useArticles();
+  const { editArticle } = useArticles();
 
-  const submitSiginpHandler = async (
-    values: EditedArticleProps,
-    { resetForm }: FormikHelpers<EditedArticleProps>,
+  const submitEditHandler = async (
+    values: Article,
+    { resetForm }: FormikHelpers<Article>,
   ) => {
     console.log(values);
 
     try {
       setIsisLoading(true);
-      //   await addArticle(values);
+      await editArticle(values);
       Swal.fire({
         title: 'مقاله با موفقیت ویرایش شد',
         toast: false,
@@ -54,6 +64,7 @@ function AdminPEditArticle({ article }: { article: Article }) {
       }).then((result) => {
         if (result.isConfirmed) {
           resetForm();
+          closeModal();
         }
       });
     } catch (error) {
@@ -81,7 +92,7 @@ function AdminPEditArticle({ article }: { article: Article }) {
           <Formik
             initialValues={initialValues}
             validationSchema={SigninSchema}
-            onSubmit={submitSiginpHandler}
+            onSubmit={submitEditHandler}
           >
             {({ errors, touched, setFieldValue }) => (
               <Form>

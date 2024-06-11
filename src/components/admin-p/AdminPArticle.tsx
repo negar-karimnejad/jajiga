@@ -121,7 +121,7 @@ function AdminPArticle({ article }: { article: Article }) {
       </tr>
       {isShowEditModal && (
         <Modal closeModalHandler={closeModal} isOpen={isShowEditModal}>
-          <AdminPEditArticle article={article} />
+          <AdminPEditArticle article={article} closeModal={closeModal}/>
         </Modal>
       )}
     </>
