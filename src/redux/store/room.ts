@@ -101,40 +101,34 @@ export const addRoomToServer = createAsyncThunk(
   async (room: Room) => {
     console.log(room);
 
-    // if (typeof room.images[0] !== 'string') {
-    const imageName = `${Math.random()}-${room.images.name}`.replaceAll(
-      '/',
-      '',
-    );
-
-    const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/rooms/${imageName}`;
-
-    const { data, error } = await supabase
-      .from('rooms')
-      .insert([{ ...room, images: [imagePath] }]);
+    const { data, error } = await supabase.from('rooms').insert([room]);
 
     if (error) {
       console.error(error);
       throw new Error('Room could not be created');
     }
 
-    // Upload Image
-    const { error: storageError } = await supabase.storage
-      .from('rooms')
-      .upload(imageName, room.images[0]);
-
-    if (storageError) {
-      console.error(storageError);
-      throw new Error(
-        'Room image could not be uploaded and the room was not created',
-      );
-    }
     return data;
-    // } else {
-    //   throw new Error('Cover image must be a file');
-    // }
   },
 );
+
+export const editRoomFromServer = createAsyncThunk(
+  'rooms/editRoomFromServer',
+  async (room: Room) => {
+    const { error } = await supabase
+      .from('rooms')
+      .update({ room })
+      .eq('id', room.id);
+
+    if (error) {
+      console.error(error);
+      throw new Error('Room could not be updated');
+    }
+
+    return room;
+  },
+);
+
 export const removeRoomFromServer = createAsyncThunk(
   'rooms/removeRoomFromServer',
   async (roomId: number) => {
@@ -177,6 +171,29 @@ const roomSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.rooms.push(action.payload);
+      },
+    );
+    builder.addCase(addRoomToServer.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message ?? 'Something went wrong.';
+    });
+    // Add Room
+    builder.addCase(addRoomToServer.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(
+      addRoomToServer.fulfilled.type,
+      (state, action: PayloadAction<Room>) => {
+        state.loading = false;
+        state.error = null;
+
+        const index = state.rooms.findIndex(
+          (room) => room.id === action.payload.id,
+        );
+        if (index !== -1) {
+          state.rooms[index] = action.payload;
+        }
       },
     );
     builder.addCase(addRoomToServer.rejected, (state, action) => {

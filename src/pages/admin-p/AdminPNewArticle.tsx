@@ -24,7 +24,7 @@ const initialValues: Article = {
   keyword: '',
 };
 
-const SigninSchema = Yup.object().shape({
+const ArticleSchema = Yup.object().shape({
   title: Yup.string()
     .min(5, 'عنوان مقاله باید حداقل 5 کاراکتر باشد')
     .required('لطفا عنوان مقاله را وارد کنید'),
@@ -87,7 +87,7 @@ function AdminPNewArticle() {
         <div className="p-5">
           <Formik
             initialValues={initialValues}
-            validationSchema={SigninSchema}
+            validationSchema={ArticleSchema}
             onSubmit={submitSiginpHandler}
           >
             {({ errors, touched, setFieldValue }) => (

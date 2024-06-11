@@ -1,12 +1,19 @@
+import { useState } from 'react';
 import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import AdminPEditRoom from '../../components/admin-p/AdminPEditRoom';
 import SectionHeader from '../../components/admin-p/SectionHeader';
+import Modal from '../../components/ui/Modal';
 import useRooms from '../../hooks/useRooms';
 
 function AdminPRooms() {
+  const [isShowEditModal, setIsShowEditModal] = useState(false);
+
   const { rooms, removeRoom } = useRooms();
+
+  const closeModal = () => setIsShowEditModal(false);
 
   const removeHandler = (roomId: number) => {
     Swal.fire({
@@ -132,7 +139,10 @@ function AdminPRooms() {
                           مشاهده اقامتگاه
                         </Link>
                       </li>
-                      <li className="py-0.5 hover:text-violet-500">
+                      <li
+                        onClick={() => setIsShowEditModal(true)}
+                        className="py-0.5 hover:text-violet-500"
+                      >
                         <a>
                           <BiEdit />
                           ویرایش اقامتگاه
@@ -150,6 +160,14 @@ function AdminPRooms() {
                     </ul>
                   </div>
                 </td>
+                {isShowEditModal && (
+                  <Modal
+                    closeModalHandler={closeModal}
+                    isOpen={isShowEditModal}
+                  >
+                    <AdminPEditRoom room={room} closeModal={closeModal} />
+                  </Modal>
+                )}
               </tr>
             ))}
           </tbody>

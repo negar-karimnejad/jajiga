@@ -5,6 +5,7 @@ import { AppDispatch } from '../redux/store';
 import {
   Room,
   addRoomToServer,
+  editRoomFromServer,
   getRoomsFromServer,
   removeRoomFromServer,
 } from '../redux/store/room';
@@ -22,11 +23,15 @@ function useRooms() {
     dispatch(removeRoomFromServer(roomId));
   };
 
+  const editRoom = (room: Room) => {
+    dispatch(editRoomFromServer(room));
+  };
+
   useEffect(() => {
     dispatch(getRoomsFromServer());
   }, [dispatch]);
 
-  return { error, loading, rooms, addRoom, removeRoom };
+  return { error, loading, rooms, addRoom, removeRoom, editRoom };
 }
 
 export default useRooms;

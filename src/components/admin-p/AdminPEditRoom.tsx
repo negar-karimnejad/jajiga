@@ -1,92 +1,64 @@
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
-import * as Yup from 'yup';
 import Button from '../../components/ui/Button';
-import { Room } from '../../redux/store/room';
 import useRooms from '../../hooks/useRooms';
+import { RoomSchema } from '../../pages/admin-p/AdminPNewRoom';
+import { Room } from '../../redux/store/room';
 
-const initialValues: Room = {
-  id: Math.floor(Math.random() * 10000),
-  title: '',
-  description: '',
-  code: 0,
-  reserved: 0,
-  images: [''],
-  capacity: 0,
-  max_capacity: 0,
-  foundation_meterage: 0,
-  area_meterage: 0,
-  zone: '',
-  residence_type: '',
-  bedroom: 0,
-  share_house: false,
-  extra_person_charge: 0,
-  features: [''],
-  min_stay: 0,
-  max_stay: 0,
-  price: 0,
-  location: {
-    lat: 0,
-    lng: 0,
-  },
-  discount: [
-    {
-      day: 0,
-      off: 0,
+function AdminPEditRoom({
+  room,
+  closeModal,
+}: {
+  room: Room;
+  closeModal: () => void;
+}) {
+  const initialValues: Room = {
+    id: room.id,
+    title: room.title,
+    description: room.description,
+    area_meterage: room.area_meterage,
+    bedroom: room.bedroom,
+    capacity: room.capacity,
+    code: room.code,
+    category: room.category,
+    entrance_hour: room.entrance_hour,
+    reserved: room.reserved,
+    images: [],
+    max_capacity: room.max_capacity,
+    foundation_meterage: room.foundation_meterage,
+    zone: room.zone,
+    residence_type: room.residence_type,
+    share_house: false,
+    features: [],
+    min_stay: 0,
+    max_stay: 0,
+    extra_person_charge: 0,
+    location: {
+      lat: 0,
+      lng: 0,
     },
-  ],
-  housing_space: [
-    {
-      title: '',
-      rooms: [''],
-    },
-  ],
-  cancellation_policy: '',
-  residence_policy: [''],
-  entrance_hour: 0,
-  leaving_hour: 0,
-  category: [''],
-  reviews: 0,
-};
+    discount: [],
+    housing_space: [],
+    cancellation_policy: '',
+    residence_policy: [],
+    leaving_hour: 0,
+    price: room.price,
+    reviews: 0,
+  };
 
-export const RoomSchema = Yup.object().shape({
-  title: Yup.string()
-    .min(5, 'عنوان اقامتگاه باید حداقل 5 کاراکتر باشد')
-    .required('عنوان اقامتگاه را وارد کنید'),
-  description: Yup.string()
-    .min(10, 'توضیحات اقامتگاه باید حداقل 10 کاراکتر باشد')
-    .required('توضیحات اقامتگاه را وارد کنید'),
-  zone: Yup.string().required('منطقه اقامتگاه را وارد کنید'),
-  reserved: Yup.number().required('تعداد رزرو اقامتگاه را وارد کنید'),
-  code: Yup.number().required('کد اقامتگاه را وارد کنید'),
-  residence_type: Yup.string().required('نوع اقامتگاه را وارد کنید'),
-  capacity: Yup.number().required('ظرفیت استاندارد اقامتگاه را وارد کنید'),
-  max_capacity: Yup.number().required('حداکثر ظرفیت اقامتگاه را وارد کنید'),
-  foundation_meterage: Yup.number().required(
-    'متراژ زیربنا اقامتگاه را وارد کنید',
-  ),
-  area_meterage: Yup.number().required('متراژ محوطه اقامتگاه را وارد کنید'),
-  bedroom: Yup.number().required('تعداد اتاق خواب اقامتگاه را وارد کنید'),
-  price: Yup.number().required('نرخ هر شب اقامتگاه را وارد کنید'),
-  max_stay: Yup.number().required('حداکثر اقامت را وارد کنید'),
-});
-
-function AdminPNewRoom() {
   const [isLoading, setIsisLoading] = useState(false);
-  const { addRoom } = useRooms();
+  const { editRoom } = useRooms();
 
-  const submitSiginpHandler = async (
+  const submitEditHandler = async (
     values: Room,
     { resetForm }: FormikHelpers<Room>,
   ) => {
     try {
-      console.log(values);
-
       setIsisLoading(true);
-      await addRoom(values);
+      await editRoom(values);
       Swal.fire({
-        title: 'اقامتگاه با موفقیت اضافه شد',
+        title: 'اقامتگاه با موفقیت ویرایش شد',
         toast: false,
         position: 'center',
         showConfirmButton: true,
@@ -96,6 +68,7 @@ function AdminPNewRoom() {
       }).then((result) => {
         if (result.isConfirmed) {
           resetForm();
+          closeModal();
         }
       });
     } catch (error) {
@@ -115,21 +88,20 @@ function AdminPNewRoom() {
 
   return (
     <div>
-      <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
-        افزودن اقامتگاه جدید
+      <h2 className="pt-5 font-vazirBold text-2xl text-gray-600">
+        ویرایش اقامتگاه
       </h2>
       <div className="container rounded-md bg-white">
         <div className="p-5">
           <Formik
             initialValues={initialValues}
             validationSchema={RoomSchema}
-            onSubmit={submitSiginpHandler}
+            onSubmit={submitEditHandler}
           >
             {({ errors, touched }) => (
               <Form>
-                <div className="flex w-full items-center max-md:flex-col md:gap-5">
+                <div className=" w-full items-center max-md:flex-col md:gap-5">
                   <Field className="hidden" id="id" name="id" />
-                  <Field className="hidden" id="created_at" name="created_at" />
                   <div className="relative h-20 w-full">
                     <Field
                       type="text"
@@ -422,36 +394,14 @@ function AdminPNewRoom() {
                   </label>
                 </div>
                 <div className="my-5 flex items-center justify-between">
-                  {/* <div>
-                    <input
-                      id="images"
-                      name="images"
-                      type="file"
-                      onChange={(event) => {
-                        if (
-                          event.currentTarget.files &&
-                          event.currentTarget.files[0]
-                        ) {
-                          setFieldValue('images', event.currentTarget.files[0]);
-                        }
-                      }}
-                      className={`peer block w-full appearance-none rounded-t-lg py-1  focus:outline-none focus:ring-0 dark:text-white ${touched.images && errors.images ? 'error-input border-b-2 border-red-500' : ''}`}
-                      disabled={isLoading}
-                    />
-                    <ErrorMessage
-                      name="images"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                  </div> */}
                   <Button
-                    style="w-40 rounded-md bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
+                    style="w-full rounded-md bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                     type="submit"
                     disabled={isLoading}
                   >
                     <div className="flex items-center justify-center gap-2">
                       <span>
-                        {isLoading ? 'در حال ثبت...' : 'ثبت اقامتگاه'}
+                        {isLoading ? 'در حال ویرایش...' : 'ویرایش اقامتگاه'}
                       </span>
                       {isLoading && (
                         <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
@@ -468,4 +418,4 @@ function AdminPNewRoom() {
   );
 }
 
-export default AdminPNewRoom;
+export default AdminPEditRoom;
