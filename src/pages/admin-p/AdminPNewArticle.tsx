@@ -80,10 +80,10 @@ function AdminPNewArticle() {
 
   return (
     <div>
-      <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
+      <h2 className="py-8 font-vazirBold text-2xl dark:text-white text-gray-600">
         افزودن مقاله جدید
       </h2>
-      <div className="container rounded-md bg-white">
+      <div className="rounded-md bg-white dark:bg-gray-800">
         <div className="p-5">
           <Formik
             initialValues={initialValues}

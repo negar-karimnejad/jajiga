@@ -41,28 +41,28 @@ function AdminPRoom({ room }: { room: Room }) {
 
   return (
     <>
-      <tr key={room.id} className="hover:bg-gray-100">
-        <td className="border-blue-gray-50 border-b p-4">
+      <tr key={room.id} className="dark:hover:bg-gray-700 hover:bg-gray-100">
+        <td className="dark:border-gray-700 border-b p-4">
           <img
             src={room.images[0]}
             alt={room.title}
-            className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-center"
+            className="dark:border-gray-700 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-center"
           />
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">
+        <td className="dark:border-gray-700 border-b p-4">
+          <p className="text-blue-gray-900 dark:text-white block font-sans text-sm font-bold leading-normal antialiased">
             {room.title}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
+        <td className="dark:border-gray-700 border-b p-4">
+          <p className="text-blue-gray-900 dark:text-white block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
             {room.code}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased">
+        <td className="dark:border-gray-700 border-b p-4">
+          <p className="text-blue-gray-900 dark:text-white block font-persianNums text-sm font-normal leading-normal antialiased">
             {room.price.toLocaleString()}{' '}
-            <span className="font-sans text-[12px] text-gray-500">تومان</span>
+            <span className="font-sans text-[12px] text-gray-500 dark:text-gray-100">تومان</span>
           </p>
         </td>
         <td className="flex items-center gap-2 p-4">
@@ -71,17 +71,17 @@ function AdminPRoom({ room }: { room: Room }) {
             className="h-10 w-10 rounded-full object-cover"
             alt=""
           />
-          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
+          <p className="text-blue-gray-900 dark:text-white block font-sans text-sm font-normal  leading-normal antialiased">
             {room?.host?.fullname}
           </p>
         </td>
 
-        <td className="border-blue-gray-50 border-b p-4">
+        <td className="dark:border-gray-700 border-b p-4">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-circle btn-ghost m-1"
+              className="btn btn-circle dark:btn-neutral m-1"
             >
               ...
             </div>

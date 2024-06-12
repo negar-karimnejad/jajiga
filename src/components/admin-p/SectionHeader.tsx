@@ -13,7 +13,7 @@ function SectionHeader({
   return (
     <>
       <div className="flex items-center justify-between">
-        <h2 className="py-8 font-vazirBold text-2xl text-gray-600">{title}</h2>
+        <h2 className="py-8 font-vazirBold text-2xl dark:text-white text-gray-600">{title}</h2>
         {btnTitle && (
           <Link
             to={to}

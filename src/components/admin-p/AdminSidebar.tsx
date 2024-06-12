@@ -24,11 +24,11 @@ function AdminSidebar({
     <>
       <div
         onClick={() => closeMenu()}
-        className={`fixed right-0 top-0 z-50 h-screen w-full ${isPushMenu ? 'visible' : 'invisible'}`}
+        className={`fixed right-0 top-0 z-50 h-screen w-full md:hidden ${isPushMenu ? 'visible' : 'invisible'}`}
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`fixed top-28 z-40 w-72 overflow-hidden rounded-lg border bg-white shadow-lg shadow-gray-500 transition-all duration-500 dark:bg-gray-800 md:hidden ${isPushMenu ? 'right-3' : '-right-96'}`}
+          className={`fixed top-28 z-40 w-72 overflow-hidden rounded-lg border bg-white shadow-lg shadow-gray-500 transition-all duration-500 dark:bg-gray-800 ${isPushMenu ? 'right-3' : '-right-96'}`}
         >
           <div className="p-5">
             <ul className="my-4 flex flex-col gap-7 text-base">

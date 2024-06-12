@@ -43,45 +43,45 @@ function AdminPArticle({ article }: { article: Article }) {
 
   return (
     <>
-      <tr className="hover:bg-gray-100">
-        <td className="border-blue-gray-50 border-b p-4">
+      <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
           {typeof article.cover === 'string' && (
             <img
               src={article.cover}
               alt={article.title}
-              className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top"
+              className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top dark:border-gray-600"
             />
           )}
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">
+        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+          <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased dark:text-white">
             {article.title}
           </p>
         </td>
 
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
+        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {author ? author.fullname : 'ناشناس'}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
+        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {article.category.title}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm leading-normal antialiased">
+        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+          <p className="text-blue-gray-900 block font-sans text-sm leading-normal antialiased dark:text-white">
             <span className="font-persianNums">{article.readingMinutes}</span>{' '}
             دقیقه
           </p>
         </td>
 
-        <td className="border-blue-gray-50 border-b p-4">
+        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn-garticle btn btn-circle m-1"
+              className="btn btn-circle m-1 dark:btn-neutral"
             >
               ...
             </div>

@@ -31,47 +31,39 @@ function AdminPHost({ host }: AdminPHostProps) {
 
   return (
     <>
-      <tr key={host?.id} className="hover:bg-gray-100">
-        <td className="border-blue-gray-50 border-b p-4">
+      <tr key={host?.id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
+        <td className="border-blue-gray-50 dark:text-white border-b p-4">
           <img
             src={host?.profile}
             alt={host?.fullname}
-            className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top"
+            className="border-blue-gray-50 dark:text-white bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top"
           />
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
+        <td className="border-blue-gray-50 dark:text-white border-b p-4">
           <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">
             {host?.fullname}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b py-4">
-          <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
+        <td className="border-blue-gray-50 dark:text-white border-b py-4">
+          <p className="text-blue-gray-900 block rounded-lg bg-green-300 dark:text-gray-900 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
             {host?.id}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
-            <span className="font-persianNums">
-              {host?.reservation_confirmation}
-            </span>{' '}
-            درصد
-          </p>
-        </td>
-        <td className="border-blue-gray-50 border-b p-4">
+        <td className="border-blue-gray-50 dark:text-white border-b p-4">
           <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
             کمتر از{' '}
             <span className="font-persianNums">{host?.response_time}</span>{' '}
             دقیقه
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4">
+        <td className="border-blue-gray-50 dark:text-white border-b p-4">
           <p className="text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased">
             {host?.registery_date && convertToPersianDate(host?.registery_date)}
           </p>
         </td>
         <td
           onClick={() => setIsShowHostModal(true)}
-          className="border-blue-gray-50 border-b p-4"
+          className="border-blue-gray-50 dark:text-white border-b p-4"
         >
           <p className="text-blue-gray-900 ml-5 flex cursor-pointer justify-center font-sans text-sm font-normal leading-normal antialiased hover:text-violet-500">
             <RiSearchEyeLine size={24} />
