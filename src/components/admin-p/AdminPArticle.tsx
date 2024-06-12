@@ -119,11 +119,9 @@ function AdminPArticle({ article }: { article: Article }) {
           </div>
         </td>
       </tr>
-      {isShowEditModal && (
-        <Modal closeModalHandler={closeModal} isOpen={isShowEditModal}>
-          <AdminPEditArticle article={article} closeModal={closeModal}/>
-        </Modal>
-      )}
+      <Modal closeModalHandler={closeModal} isOpen={isShowEditModal}>
+        <AdminPEditArticle article={article} closeModal={closeModal} />
+      </Modal>
     </>
   );
 }

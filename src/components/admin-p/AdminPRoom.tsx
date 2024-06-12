@@ -117,11 +117,11 @@ function AdminPRoom({ room }: { room: Room }) {
             </ul>
           </div>
         </td>
-          {isShowEditModal && (
+          {/* {isShowEditModal && ( */}
             <Modal editRoom={true} closeModalHandler={closeModal} isOpen={isShowEditModal}>
               <AdminPEditRoom room={room} closeModal={closeModal} />
             </Modal>
-          )}
+          {/* )} */}
       </tr>
     </>
   );
