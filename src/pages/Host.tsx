@@ -14,8 +14,8 @@ function Host() {
   const { id } = useParams();
   const { rooms } = useRooms();
 
-  const userRooms = rooms.filter((room) => room.host.id === Number(id));
-  const host = rooms.find((room) => room.host.id === Number(id))?.host;
+  const userRooms = rooms.filter((room) => room?.host?.id === Number(id));
+  const host = rooms.find((room) => room?.host?.id === Number(id))?.host;
   const active_residences = userRooms.length;
 
   if (!host) return null;
