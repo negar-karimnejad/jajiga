@@ -115,6 +115,8 @@ export const addRoomToServer = createAsyncThunk(
 export const editRoomFromServer = createAsyncThunk(
   'rooms/editRoomFromServer',
   async (room: Room) => {
+    console.log(room);
+    
     const { error } = await supabase
       .from('rooms')
       .update({

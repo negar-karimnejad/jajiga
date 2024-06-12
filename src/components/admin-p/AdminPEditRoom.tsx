@@ -87,12 +87,12 @@ function AdminPEditRoom({
   };
 
   return (
-    <div>
+    <div className="h-full overflow-y-auto">
       <h2 className="pt-5 font-vazirBold text-2xl text-gray-600">
         ویرایش اقامتگاه
       </h2>
       <div className="container rounded-md bg-white">
-        <div className="p-5">
+        <div className="py-5">
           <Formik
             initialValues={initialValues}
             validationSchema={RoomSchema}
@@ -100,9 +100,9 @@ function AdminPEditRoom({
           >
             {({ errors, touched }) => (
               <Form>
-                <div className=" w-full items-center max-md:flex-col md:gap-5">
+                <div className="w-full items-center gap-5">
                   <Field className="hidden" id="id" name="id" />
-                  <div className="relative h-20 w-full">
+                  <div className="relative h-16 w-full">
                     <Field
                       type="text"
                       id="title"
@@ -123,53 +123,74 @@ function AdminPEditRoom({
                       عنوان اقامتگاه
                     </label>
                   </div>
-
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.zone && errors.zone ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="text"
-                      id="zone"
-                      name="zone"
-                      disabled={isLoading}
-                      placeholder=""
-                    />
-                    <ErrorMessage
-                      name="zone"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="zone"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      منطقه
-                    </label>
+                  <div className="flex w-full items-center  gap-5">
+                    <div className="relative h-16 w-full">
+                      <Field
+                        className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.zone && errors.zone ? 'error-input border-b-2 border-red-500' : ''}`}
+                        type="text"
+                        id="zone"
+                        name="zone"
+                        disabled={isLoading}
+                        placeholder=""
+                      />
+                      <ErrorMessage
+                        name="zone"
+                        component="div"
+                        className="text-[11px] text-error"
+                      />
+                      <label
+                        htmlFor="zone"
+                        className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+                      >
+                        منطقه
+                      </label>
+                    </div>
+                    <div className="relative h-16 w-full">
+                      <Field
+                        className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.residence_type && errors.residence_type ? 'error-input border-b-2 border-red-500' : ''}`}
+                        type="text"
+                        id="residence_type"
+                        name="residence_type"
+                        placeholder=""
+                        disabled={isLoading}
+                      />
+                      <ErrorMessage
+                        name="residence_type"
+                        component="div"
+                        className="text-[11px] text-error"
+                      />
+                      <label
+                        htmlFor="residence_type"
+                        className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+                      >
+                        نوع اقامتگاه
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div className="flex w-full items-center max-md:flex-col md:gap-5">
-                  <div className="relative h-20 w-full">
+                <div className="flex w-full items-center  gap-5">
+                  <div className="relative h-16 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.reserved && errors.reserved ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.price && errors.price ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
-                      id="reserved"
-                      name="reserved"
-                      placeholder=""
+                      id="price"
+                      name="price"
                       disabled={isLoading}
+                      placeholder=""
                     />
                     <ErrorMessage
-                      name="reserved"
+                      name="price"
                       component="div"
                       className="text-[11px] text-error"
                     />
                     <label
-                      htmlFor="reserved"
+                      htmlFor="price"
                       className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
                     >
-                      تعداد رزرو
+                      نرخ هر شب
                     </label>
                   </div>
-
-                  <div className="relative h-20 w-full">
+                  <div className="relative h-16 w-full">
                     <Field
                       className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.code && errors.code ? 'error-input border-b-2 border-error' : ''}`}
                       type="number"
@@ -191,30 +212,8 @@ function AdminPEditRoom({
                     </label>
                   </div>
                 </div>
-                <div className="flex w-full items-center max-md:flex-col md:gap-5">
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.residence_type && errors.residence_type ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="text"
-                      id="residence_type"
-                      name="residence_type"
-                      placeholder=""
-                      disabled={isLoading}
-                    />
-                    <ErrorMessage
-                      name="residence_type"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="residence_type"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      نوع اقامتگاه
-                    </label>
-                  </div>
-
-                  <div className="relative h-20 w-full">
+                <div className="flex w-full items-center  gap-5">
+                  <div className="relative h-16 w-full">
                     <Field
                       className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.capacity && errors.capacity ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
@@ -235,76 +234,7 @@ function AdminPEditRoom({
                       ظرفیت استاندارد
                     </label>
                   </div>
-                </div>
-                <div className="flex w-full items-center max-md:flex-col md:gap-5">
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.max_capacity && errors.max_capacity ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="number"
-                      id="max_capacity"
-                      name="max_capacity"
-                      placeholder=""
-                      disabled={isLoading}
-                    />
-                    <ErrorMessage
-                      name="max_capacity"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="max_capacity"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      حداکثر ظرفیت
-                    </label>
-                  </div>
-
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.foundation_meterage && errors.foundation_meterage ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="number"
-                      id="foundation_meterage"
-                      name="foundation_meterage"
-                      disabled={isLoading}
-                      placeholder=""
-                    />
-                    <ErrorMessage
-                      name="foundation_meterage"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="foundation_meterage"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      متراژ زیربنا
-                    </label>
-                  </div>
-                </div>
-                <div className="flex w-full items-center max-md:flex-col md:gap-5">
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.area_meterage && errors.area_meterage ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="number"
-                      id="area_meterage"
-                      name="area_meterage"
-                      placeholder=""
-                      disabled={isLoading}
-                    />
-                    <ErrorMessage
-                      name="area_meterage"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="area_meterage"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      متراژ محوطه
-                    </label>
-                  </div>
-
-                  <div className="relative h-20 w-full">
+                  <div className="relative h-16 w-full">
                     <Field
                       className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.bedroom && errors.bedroom ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
@@ -326,59 +256,14 @@ function AdminPEditRoom({
                     </label>
                   </div>
                 </div>
-                <div className="flex w-full items-center max-md:flex-col md:gap-5">
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.price && errors.price ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="number"
-                      id="price"
-                      name="price"
-                      placeholder=""
-                      disabled={isLoading}
-                    />
-                    <ErrorMessage
-                      name="price"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="price"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      متراژ محوطه
-                    </label>
-                  </div>
-
-                  <div className="relative h-20 w-full">
-                    <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.max_stay && errors.max_stay ? 'error-input border-b-2 border-red-500' : ''}`}
-                      type="number"
-                      id="max_stay"
-                      name="max_stay"
-                      disabled={isLoading}
-                      placeholder=""
-                    />
-                    <ErrorMessage
-                      name="max_stay"
-                      component="div"
-                      className="text-[11px] text-error"
-                    />
-                    <label
-                      htmlFor="max_stay"
-                      className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                    >
-                      حداکثر اقامت
-                    </label>
-                  </div>
-                </div>
                 <div className="relative w-full">
                   <Field
-                    className={`peer block min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
+                    className={`peer block max-h-40 min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
                     type="text"
                     id="description"
                     name="description"
                     disabled={isLoading}
-                    placeholder=""
+                    placeholder="توضیحات اقامتگاه"
                     as="textarea"
                   />
                   <ErrorMessage
@@ -386,14 +271,8 @@ function AdminPEditRoom({
                     component="div"
                     className="text-[11px] text-error"
                   />
-                  <label
-                    htmlFor="title"
-                    className="absolute right-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-                  >
-                    توضیحات اقامتگاه
-                  </label>
                 </div>
-                <div className="my-5 flex items-center justify-between">
+                <div className="mt-5 flex items-center justify-between">
                   <Button
                     style="w-full rounded-md bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                     type="submit"

@@ -38,7 +38,7 @@ function AdminPRoom({ room }: { room: Room }) {
       }
     });
   };
-  
+
   return (
     <>
       <tr key={room.id} className="hover:bg-gray-100">
@@ -117,11 +117,11 @@ function AdminPRoom({ room }: { room: Room }) {
             </ul>
           </div>
         </td>
-        {isShowEditModal && (
-          <Modal closeModalHandler={closeModal} isOpen={isShowEditModal}>
-            <AdminPEditRoom room={room} closeModal={closeModal} />
-          </Modal>
-        )}
+          {isShowEditModal && (
+            <Modal editRoom={true} closeModalHandler={closeModal} isOpen={isShowEditModal}>
+              <AdminPEditRoom room={room} closeModal={closeModal} />
+            </Modal>
+          )}
       </tr>
     </>
   );
