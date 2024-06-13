@@ -14,7 +14,7 @@ const useAuth = () => {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.auth);
 
-  const { error, isLoading, user, users } = data;
+  const { error, isLoading, user, users, isFetched } = data;
 
   const signupFunc = async ({ email, password, fullname }: UserProps) => {
     await dispatch(signupUser({ email, password, fullname })).unwrap();
@@ -38,7 +38,16 @@ const useAuth = () => {
     dispatch(restoreSession());
   }, [dispatch]);
 
-  return { error, isLoading, user, users, signoutFunc, signinFunc, signupFunc };
+  return {
+    error,
+    isLoading,
+    user,
+    users,
+    isFetched,
+    signoutFunc,
+    signinFunc,
+    signupFunc,
+  };
 };
 
 export { useAuth };

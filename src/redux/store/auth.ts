@@ -21,6 +21,7 @@ interface UserState {
   users: SupabaseUser[];
   user: SupabaseUser | null;
   isLoading: boolean;
+  isFetched: boolean;
   error: string | null;
 }
 
@@ -28,6 +29,7 @@ const initialState: UserState = {
   users: [],
   user: null,
   isLoading: false,
+  isFetched: false,
   error: null,
 };
 
@@ -99,8 +101,8 @@ export const signinUser = createAsyncThunk(
   },
 );
 
-export const fetchUsers = createAsyncThunk(
-  'auth/fetchUsers',
+export const getUsers = createAsyncThunk(
+  'auth/getUsers',
   async (): Promise<SupabaseUser[]> => {
     const { data, error } = await supabase.auth.admin.listUsers();
 
@@ -157,6 +159,9 @@ export const authSlice = createSlice({
     setLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
+    setFetched(state, action: PayloadAction<boolean>) {
+      state.isFetched = action.payload;
+    },
     setError(state, action: PayloadAction<string | null>) {
       state.error = action.payload;
     },
@@ -200,36 +205,39 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message || 'An error occurred';
       })
-      // Fetch Users
-      .addCase(fetchUsers.pending, (state) => {
+      // Get Users
+      .addCase(getUsers.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(
-        fetchUsers.fulfilled,
+        getUsers.fulfilled,
         (state, action: PayloadAction<SupabaseUser[]>) => {
           state.isLoading = false;
           state.users = action.payload;
         },
       )
-      .addCase(fetchUsers.rejected, (state, action) => {
+      .addCase(getUsers.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || 'An error occurred';
       })
       // restoreSession
       .addCase(restoreSession.pending, (state) => {
         state.isLoading = true;
+        state.isFetched = false;
         state.error = null;
       })
       .addCase(
         restoreSession.fulfilled,
         (state, action: PayloadAction<SupabaseUser | null>) => {
           state.isLoading = false;
+          state.isFetched = true;
           state.user = action.payload;
         },
       )
       .addCase(restoreSession.rejected, (state, action) => {
         state.isLoading = false;
+        state.isFetched = true;
         state.error = action.error.message || 'An error occurred';
       })
       // Signout
@@ -249,6 +257,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setUser, setLoading, setError, clearError } = authSlice.actions;
+export const { setUser, setLoading, setError, clearError, setFetched } =
+  authSlice.actions;
 
 export default authSlice.reducer;
