@@ -3,11 +3,10 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import AdminHeader from '../../components/admin-p/AdminHeader';
 import AdminSidebar from '../../components/admin-p/AdminSidebar';
 import { useAuth } from '../../hooks/useAuth';
-import Loader from '../../components/ui/skeleton/Loader';
 
 function AdminPLayout() {
   const navigate = useNavigate();
-  const { user, isFetched, isLoading } = useAuth();
+  const { user, isFetched } = useAuth();
   const [isPushMenu, setIsPushMenu] = useState(false);
 
   const toggleMenu = () => setIsPushMenu((prev) => !prev);
@@ -18,8 +17,6 @@ function AdminPLayout() {
       navigate('/');
     }
   }, [isFetched, navigate, user]);
-
-  if (isLoading) return <Loader />;
 
   if (!user) {
     return null;

@@ -75,12 +75,14 @@ export interface Room {
 
 interface RoomState {
   loading: boolean;
+  isFetched: boolean;
   error: string | null;
   rooms: Room[];
 }
 
 const initialState: RoomState = {
   loading: false,
+  isFetched: false,
   error: null,
   rooms: [],
 };
@@ -116,7 +118,7 @@ export const editRoomFromServer = createAsyncThunk(
   'rooms/editRoomFromServer',
   async (room: Room) => {
     console.log(room);
-    
+
     const { error } = await supabase
       .from('rooms')
       .update({
@@ -164,14 +166,17 @@ const roomSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getRoomsFromServer.pending, (state) => {
       state.loading = true;
+      state.isFetched = false;
     });
     builder.addCase(getRoomsFromServer.fulfilled, (state, action) => {
       state.loading = false;
+      state.isFetched = true;
       state.rooms = action.payload;
       state.error = null;
     });
     builder.addCase(getRoomsFromServer.rejected, (state, action) => {
       state.loading = false;
+      state.isFetched = true;
       state.rooms = [];
       state.error =
         action.error.message ?? 'Something went wrong. Please try again later.';

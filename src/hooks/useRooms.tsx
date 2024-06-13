@@ -13,7 +13,7 @@ import {
 function useRooms() {
   const dispatch: AppDispatch = useDispatch();
   const data = useAppSelector((state) => state.rooms);
-  const { error, loading, rooms } = data;
+  const { error, loading, rooms, isFetched } = data;
 
   const addRoom = (roomData: Room) => {
     dispatch(addRoomToServer(roomData));
@@ -31,7 +31,7 @@ function useRooms() {
     dispatch(getRoomsFromServer());
   }, [dispatch]);
 
-  return { error, loading, rooms, addRoom, removeRoom, editRoom };
+  return { error, loading, rooms, isFetched, addRoom, removeRoom, editRoom };
 }
 
 export default useRooms;

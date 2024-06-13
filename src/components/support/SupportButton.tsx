@@ -26,7 +26,7 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             fillRule="evenodd"
@@ -39,7 +39,7 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             fillRule="evenodd"
@@ -52,7 +52,7 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             fillRule="evenodd"
@@ -65,7 +65,7 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             fillRule="evenodd"
@@ -78,7 +78,7 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
         </svg>
       )}
@@ -97,7 +97,7 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             fillRule="evenodd"
@@ -107,14 +107,14 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             d="M18.5 10V9.5C18.5 5.91 15.59 3 12 3V3C8.41 3 5.5 5.91 5.5 9.5V10"
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             fillRule="evenodd"
@@ -124,14 +124,14 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             d="M13.875 20H16C17.105 20 18 19.105 18 18V17"
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
         </svg>
       )}
@@ -150,14 +150,14 @@ function SupportButton({
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
           <path
             d="M3 7.55103V17C3 18.657 4.343 20 6 20H18C19.657 20 21 18.657 21 17V7.55203"
             stroke="#323232"
             strokeWidth="1.5"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           ></path>
         </svg>
       )}

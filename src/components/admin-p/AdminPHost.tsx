@@ -31,7 +31,7 @@ function AdminPHost({ host }: AdminPHostProps) {
 
   return (
     <>
-      <tr key={host?.id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
+      <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
         <td className="dark:text-white p-4">
           <img
             src={host?.profile}

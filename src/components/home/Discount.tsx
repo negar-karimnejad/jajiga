@@ -4,10 +4,10 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useRooms from '../../hooks/useRooms';
-import SwiperButtons from '../ui/SwiperButtons';
-import SectionHeading from './SectionHeading';
 import RoomInfoCard from '../room/RoomInfoCard';
+import SwiperButtons from '../ui/SwiperButtons';
 import RoomCardSkeleton from '../ui/skeleton/RoomCardSkeleton';
+import SectionHeading from './SectionHeading';
 
 function Discount() {
   const { rooms, loading } = useRooms();
@@ -91,7 +91,7 @@ function Discount() {
                         </span>
                         <span className="flex gap-1 font-persianNums">
                           <BsStarFill className="text-yellow-500" />
-                          {room.rating.total}
+                          {room?.rating?.total}
                         </span>
                         <span className="font-persianNums">
                           ({room.reviews} نظر)
