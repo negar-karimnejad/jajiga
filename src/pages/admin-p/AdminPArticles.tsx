@@ -12,37 +12,37 @@ function AdminPArticles() {
         btnTitle="افزودن مقاله"
         title="مقالات"
       />
-      <div className="flex w-full items-center justify-center bg-white dark:bg-gray-800">
-        <table className="table w-full">
+      <div className="overflow-x-auto overflow-y-hidden bg-white dark:bg-gray-800">
+      <table className="table">
           <thead>
             <tr>
               <th className="bg-blue-gray-50/50 p-4">
-                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70"></p>
+                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100"></p>
               </th>
               <th className="bg-blue-gray-50/50 p-4">
-                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
+                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
                   نام
                 </p>
               </th>
 
               <th className="bg-blue-gray-50/50 p-4">
-                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
+                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
                   نویسنده
                 </p>
               </th>
               <th className="bg-blue-gray-50/50 p-4">
-                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
+                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
                   دسته بندی
                 </p>
               </th>
               <th className="bg-blue-gray-50/50 p-4">
-                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
+                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
                   مدت مطالعه
                 </p>
               </th>
 
               <th className="bg-blue-gray-50/50 p-4">
-                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70"></p>
+                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100"></p>
               </th>
             </tr>
           </thead>

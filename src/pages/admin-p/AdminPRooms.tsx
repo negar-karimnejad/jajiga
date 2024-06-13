@@ -12,45 +12,45 @@ function AdminPRooms() {
         title="اقامتگاه ها"
         to="/admin-p/new-room"
       />
-      <div className="flex w-full items-center justify-center bg-white dark:bg-gray-800">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th className="bg-blue-gray-50/50 p-4">
-                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100"></p>
-              </th>
-              <th className="bg-blue-gray-50/50 p-4">
-                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
-                  نام
-                </p>
-              </th>
+      <div className="overflow-x-auto overflow-y-hidden bg-white dark:bg-gray-800">
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="bg-blue-gray-50/50 p-4">
+                  <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100"></p>
+                </th>
+                <th className="bg-blue-gray-50/50 p-4">
+                  <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
+                    نام
+                  </p>
+                </th>
 
-              <th className="bg-blue-gray-50/50 p-4">
-                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
-                  کد
-                </p>
-              </th>
-              <th className="bg-blue-gray-50/50 p-4">
-                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
-                  نرخ هر شب
-                </p>
-              </th>
-              <th className="bg-blue-gray-50/50 p-4">
-                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
-                  میزبان
-                </p>
-              </th>
-              <th className="bg-blue-gray-50/50 p-4">
-                <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100"></p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rooms.map((room) => (
-              <AdminPRoom room={room} key={room.id} />
-            ))}
-          </tbody>
-        </table>
+                <th className="bg-blue-gray-50/50 p-4">
+                  <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
+                    کد
+                  </p>
+                </th>
+                <th className="bg-blue-gray-50/50 p-4">
+                  <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
+                    نرخ هر شب
+                  </p>
+                </th>
+                <th className="bg-blue-gray-50/50 p-4">
+                  <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100">
+                    میزبان
+                  </p>
+                </th>
+                <th className="bg-blue-gray-50/50 p-4">
+                  <p className="block font-sans text-sm leading-none text-gray-700 antialiased opacity-70 dark:text-gray-100"></p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {rooms.map((room) => (
+                <AdminPRoom room={room} key={room.id} />
+              ))}
+            </tbody>
+          </table>
       </div>
     </>
   );

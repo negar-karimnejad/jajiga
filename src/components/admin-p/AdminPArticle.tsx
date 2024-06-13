@@ -45,27 +45,29 @@ function AdminPArticle({ article }: { article: Article }) {
     <>
       <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
         <td className="p-4">
-          {typeof article.cover === 'string' && (
-            <img
-              src={article.cover}
-              alt={article.title}
-              className="bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg object-cover object-top"
-            />
-          )}
+          <div className="flex h-12 w-12">
+            {typeof article.cover === 'string' && (
+              <img
+                src={article.cover}
+                alt={article.title}
+                className="rounded-lg object-cover object-center"
+              />
+            )}
+          </div>
         </td>
         <td className="p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased dark:text-white">
+          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased dark:text-white">
             {article.title}
           </p>
         </td>
 
         <td className="p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
+          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {author ? author.fullname : 'ناشناس'}
           </p>
         </td>
         <td className="p-4">
-          <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
+          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {article.category.title}
           </p>
         </td>

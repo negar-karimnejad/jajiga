@@ -41,25 +41,27 @@ function AdminPRoom({ room }: { room: Room }) {
 
   return (
     <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
-      <td className=" p-4">
-        <img
-          src={room.images[0]}
-          alt={room.title}
-          className="gray-50/50 relative inline-block h-12 w-12 rounded-lg object-cover object-center"
-        />
+      <td className="p-4">
+        <div className='h-12 w-12 flex'>
+          <img
+            src={room.images[0]}
+            alt={room.title}
+            className="rounded-lg object-cover object-center"
+          />
+        </div>
       </td>
-      <td className=" p-4">
-        <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased dark:text-white">
+      <td className="p-4">
+        <p className="text-blue-gray-900 block whitespace-nowrap font-sans text-sm font-bold leading-normal antialiased dark:text-white">
           {room.title}
         </p>
       </td>
-      <td className=" p-4">
+      <td className="p-4">
         <p className="text-blue-gray-900 block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow dark:text-gray-900">
           {room.code}
         </p>
       </td>
-      <td className=" p-4">
-        <p className="text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased dark:text-white">
+      <td className="p-4">
+        <p className="text-blue-gray-900 block whitespace-nowrap font-persianNums text-sm font-normal leading-normal antialiased dark:text-white">
           {room.price.toLocaleString()}{' '}
           <span className="font-sans text-[12px] text-gray-500 dark:text-gray-100">
             تومان
@@ -77,7 +79,7 @@ function AdminPRoom({ room }: { room: Room }) {
         </p>
       </td>
 
-      <td className=" p-4">
+      <td className="p-4">
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
