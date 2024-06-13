@@ -33,7 +33,7 @@ const initialState: UserState = {
 
 export const signupUser = createAsyncThunk(
   'auth/signupUser',
-  async (credentials: UserProps) => {
+  async (credentials: UserProps): Promise<SupabaseUser> => {
     const { email, password, fullname } = credentials;
     const role = password.startsWith('admin') ? 'admin' : 'user';
 
@@ -55,13 +55,28 @@ export const signupUser = createAsyncThunk(
       throw Error('متاسفانه ثبت نام انجام نشد');
     }
 
-    return data.user;
+    const user: SupabaseUser = {
+      id: data.user?.id || '',
+      email: data.user?.email,
+      user_metadata: {
+        fullname: fullname!,
+        role,
+      },
+    };
+
+    return user;
   },
 );
 
 export const signinUser = createAsyncThunk(
   'auth/signinUser',
-  async ({ email, password }: { email: string; password: string }) => {
+  async ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }): Promise<SupabaseUser> => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -70,7 +85,17 @@ export const signinUser = createAsyncThunk(
     if (error) {
       throw Error('متاسفانه ثبت نام انجام نشد');
     }
-    return data.user;
+
+    const user: SupabaseUser = {
+      id: data.user?.id,
+      email: data.user?.email,
+      user_metadata: data.user?.user_metadata as {
+        fullname: string;
+        role: string;
+      },
+    };
+
+    return user;
   },
 );
 
@@ -89,11 +114,23 @@ export const fetchUsers = createAsyncThunk(
 
 export const restoreSession = createAsyncThunk(
   'auth/restoreSession',
-  async () => {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-    return session?.user || null;
+  async (): Promise<SupabaseUser | null> => {
+    const { data } = await supabase.auth.getSession();
+    const sessionUser = data.session?.user;
+
+    if (sessionUser) {
+      const { id, email, user_metadata } = sessionUser;
+      const user: SupabaseUser = {
+        id,
+        email,
+        user_metadata: {
+          fullname: user_metadata.fullname,
+          role: user_metadata.role,
+        },
+      };
+      return user;
+    }
+    return null;
   },
 );
 

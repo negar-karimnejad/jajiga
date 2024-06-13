@@ -1584,7 +1584,7 @@ export const mobileNavMenuLinks = [
     to: '/',
   },
   {
-    id: 14,
+    id: 9,
     title: 'کیف پول',
     icon: <IoWalletOutline />,
     to: '/finance',

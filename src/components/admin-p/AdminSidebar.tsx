@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { CgChevronDown } from 'react-icons/cg';
 import { Link, useLocation } from 'react-router-dom';
 import { adminPMenus } from '../../data/data';
 import { useAuth } from '../../hooks/useAuth';
@@ -11,7 +12,7 @@ function AdminSidebar({
   isPushMenu: boolean;
   closeMenu: () => void;
 }) {
-  const { user } = useAuth();
+  const { user, signoutFunc } = useAuth();
   const location = useLocation();
 
   const [activeItem, setActiveItem] = useState('');
@@ -99,12 +100,41 @@ function AdminSidebar({
                     d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                   ></path>
                 </svg>
-                <div>
-                  <p className="text-lg">
-                    پنل مدیریت{' '}
-                      {user?.user_metadata.fullname}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
+                <div className="w-full">
+                  <div className="flex items-center justify-between text-lg">
+                    {user?.user_metadata.fullname}
+                    <div className="dropdown dropdown-end">
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        className="avatar btn btn-circle btn-ghost"
+                      >
+                        <div>
+                          <CgChevronDown />
+                        </div>
+                      </div>
+                      <ul
+                        tabIndex={0}
+                        className="menu dropdown-content z-[1] mt-3 w-40 overflow-hidden rounded-xl border bg-white shadow dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:shadow-lg"
+                      >
+                        <li className="px-2 py-1 dark:hover:bg-gray-800">
+                          <Link to="/profile" className="justify-between">
+                            پروفایل
+                          </Link>
+                        </li>
+                        <li className="px-2 py-1 dark:hover:bg-gray-800">
+                          <Link to="/finance">کیف پول</Link>
+                        </li>
+                        <li
+                          onClick={() => signoutFunc()}
+                          className="mt-2 border-t px-2 py-1 dark:border-t-gray-500 dark:hover:bg-gray-800"
+                        >
+                          <a>خروج</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm text-gray-400">
                     {user?.user_metadata.role === 'admin' ? 'مدیر' : ''}
                   </p>
                 </div>
