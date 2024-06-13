@@ -16,32 +16,32 @@ function AdminPRooms() {
         <table className="table w-full">
           <thead>
             <tr>
-              <th className="border-blue-gray-100 dark:border-gray-700 bg-blue-gray-50/50 border-y p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70"></p>
+              <th className="bg-blue-gray-50/50 p-4">
+                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70"></p>
               </th>
-              <th className="border-blue-gray-100 dark:border-gray-700 bg-blue-gray-50/50 border-y p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
+              <th className="bg-blue-gray-50/50 p-4">
+                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
                   نام
                 </p>
               </th>
 
-              <th className="border-blue-gray-100 dark:border-gray-700 bg-blue-gray-50/50 border-y p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
+              <th className="bg-blue-gray-50/50 p-4">
+                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
                   کد
                 </p>
               </th>
-              <th className="border-blue-gray-100 dark:border-gray-700 bg-blue-gray-50/50 border-y p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
+              <th className="bg-blue-gray-50/50 p-4">
+                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
                   نرخ هر شب
                 </p>
               </th>
-              <th className="border-blue-gray-100 dark:border-gray-700 bg-blue-gray-50/50 border-y p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70">
+              <th className="bg-blue-gray-50/50 p-4">
+                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70">
                   میزبان
                 </p>
               </th>
-              <th className="border-blue-gray-100 dark:border-gray-700 bg-blue-gray-50/50 border-y p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm leading-none antialiased opacity-70"></p>
+              <th className="bg-blue-gray-50/50 p-4">
+                <p className="text-gray-700 dark:text-gray-100 block font-sans text-sm leading-none antialiased opacity-70"></p>
               </th>
             </tr>
           </thead>

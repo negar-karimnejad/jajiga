@@ -88,11 +88,11 @@ function AdminPEditRoom({
 
   return (
     <div className="h-full overflow-y-auto">
-      <h2 className="pt-5 font-vazirBold text-2xl text-gray-600">
+      <h2 className="pt-5 font-vazirBold text-2xl dark:text-white text-gray-600">
         ویرایش اقامتگاه
       </h2>
-      <div className="container rounded-md bg-white">
-        <div className="py-5">
+      <div className="container rounded-md bg-white dark:bg-gray-700">
+        <div className="py-3">
           <Formik
             initialValues={initialValues}
             validationSchema={RoomSchema}
@@ -102,14 +102,14 @@ function AdminPEditRoom({
               <Form>
                 <div className="w-full items-center gap-5">
                   <Field className="hidden" id="id" name="id" />
-                  <div className="relative h-16 w-full">
+                  <div className="relative h-[4.5rem] w-full">
                     <Field
                       type="text"
                       id="title"
                       name="title"
                       placeholder=""
                       disabled={isLoading}
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
                     />
                     <ErrorMessage
                       name="title"
@@ -124,9 +124,9 @@ function AdminPEditRoom({
                     </label>
                   </div>
                   <div className="flex w-full items-center  gap-5">
-                    <div className="relative h-16 w-full">
+                    <div className="relative h-[4.5rem] w-full">
                       <Field
-                        className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.zone && errors.zone ? 'error-input border-b-2 border-red-500' : ''}`}
+                        className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.zone && errors.zone ? 'error-input border-b-2 border-red-500' : ''}`}
                         type="text"
                         id="zone"
                         name="zone"
@@ -145,9 +145,9 @@ function AdminPEditRoom({
                         منطقه
                       </label>
                     </div>
-                    <div className="relative h-16 w-full">
+                    <div className="relative h-[4.5rem] w-full">
                       <Field
-                        className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.residence_type && errors.residence_type ? 'error-input border-b-2 border-red-500' : ''}`}
+                        className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.residence_type && errors.residence_type ? 'error-input border-b-2 border-red-500' : ''}`}
                         type="text"
                         id="residence_type"
                         name="residence_type"
@@ -169,9 +169,9 @@ function AdminPEditRoom({
                   </div>
                 </div>
                 <div className="flex w-full items-center  gap-5">
-                  <div className="relative h-16 w-full">
+                  <div className="relative h-[4.5rem] w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.price && errors.price ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.price && errors.price ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="price"
                       name="price"
@@ -190,9 +190,9 @@ function AdminPEditRoom({
                       نرخ هر شب
                     </label>
                   </div>
-                  <div className="relative h-16 w-full">
+                  <div className="relative h-[4.5rem] w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.code && errors.code ? 'error-input border-b-2 border-error' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.code && errors.code ? 'error-input border-b-2 border-error' : ''}`}
                       type="number"
                       id="code"
                       name="code"
@@ -213,9 +213,9 @@ function AdminPEditRoom({
                   </div>
                 </div>
                 <div className="flex w-full items-center  gap-5">
-                  <div className="relative h-16 w-full">
+                  <div className="relative h-[4.5rem] w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.capacity && errors.capacity ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.capacity && errors.capacity ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="capacity"
                       name="capacity"
@@ -234,9 +234,9 @@ function AdminPEditRoom({
                       ظرفیت استاندارد
                     </label>
                   </div>
-                  <div className="relative h-16 w-full">
+                  <div className="relative h-[4.5rem] w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.bedroom && errors.bedroom ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.bedroom && errors.bedroom ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="bedroom"
                       name="bedroom"
@@ -258,7 +258,7 @@ function AdminPEditRoom({
                 </div>
                 <div className="relative w-full">
                   <Field
-                    className={`peer block max-h-40 min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
+                    className={`peer block max-h-40 min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
                     type="text"
                     id="description"
                     name="description"

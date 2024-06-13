@@ -135,7 +135,7 @@ function AdminPNewRoom() {
                       name="title"
                       placeholder=""
                       disabled={isLoading}
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
                     />
                     <ErrorMessage
                       name="title"
@@ -152,7 +152,7 @@ function AdminPNewRoom() {
 
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.zone && errors.zone ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.zone && errors.zone ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="text"
                       id="zone"
                       name="zone"
@@ -175,7 +175,7 @@ function AdminPNewRoom() {
                 <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.reserved && errors.reserved ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.reserved && errors.reserved ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="reserved"
                       name="reserved"
@@ -197,7 +197,7 @@ function AdminPNewRoom() {
 
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.code && errors.code ? 'error-input border-b-2 border-error' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.code && errors.code ? 'error-input border-b-2 border-error' : ''}`}
                       type="number"
                       id="code"
                       name="code"
@@ -220,7 +220,7 @@ function AdminPNewRoom() {
                 <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.residence_type && errors.residence_type ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.residence_type && errors.residence_type ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="text"
                       id="residence_type"
                       name="residence_type"
@@ -242,7 +242,7 @@ function AdminPNewRoom() {
 
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.capacity && errors.capacity ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.capacity && errors.capacity ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="capacity"
                       name="capacity"
@@ -265,7 +265,7 @@ function AdminPNewRoom() {
                 <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.max_capacity && errors.max_capacity ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.max_capacity && errors.max_capacity ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="max_capacity"
                       name="max_capacity"
@@ -287,7 +287,7 @@ function AdminPNewRoom() {
 
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.foundation_meterage && errors.foundation_meterage ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.foundation_meterage && errors.foundation_meterage ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="foundation_meterage"
                       name="foundation_meterage"
@@ -310,7 +310,7 @@ function AdminPNewRoom() {
                 <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.area_meterage && errors.area_meterage ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.area_meterage && errors.area_meterage ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="area_meterage"
                       name="area_meterage"
@@ -332,7 +332,7 @@ function AdminPNewRoom() {
 
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.bedroom && errors.bedroom ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.bedroom && errors.bedroom ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="bedroom"
                       name="bedroom"
@@ -355,7 +355,7 @@ function AdminPNewRoom() {
                 <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.price && errors.price ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.price && errors.price ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="price"
                       name="price"
@@ -377,7 +377,7 @@ function AdminPNewRoom() {
 
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.max_stay && errors.max_stay ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.max_stay && errors.max_stay ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="max_stay"
                       name="max_stay"
@@ -399,7 +399,7 @@ function AdminPNewRoom() {
                 </div>
                 <div className="relative w-full">
                   <Field
-                    className={`peer block min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
+                    className={`peer block min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
                     type="text"
                     id="description"
                     name="description"

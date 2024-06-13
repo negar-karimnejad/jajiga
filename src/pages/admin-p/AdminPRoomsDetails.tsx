@@ -22,10 +22,10 @@ function AdminPRoomsDetails() {
 
   return (
     <div>
-      <h2 className="py-8 font-vazirBold text-2xl text-gray-600">
+      <h2 className="py-8 font-vazirBold text-2xl text-gray-600 dark:text-white">
         جزئیات اقامتگاه
       </h2>
-      <div className="grid grid-cols-12 gap-5 rounded-md bg-white p-5">
+      <div className="grid grid-cols-12 gap-5 rounded-md bg-white p-5 dark:bg-gray-800">
         <div className="col-span-4 rounded-md ">
           <Swiper
             spaceBetween={250}
@@ -78,10 +78,14 @@ function AdminPRoomsDetails() {
               {room.title}
             </Link>
             <div className="flex items-center gap-2">
-              <p className="text-sm text-gray-500">نرخ هر شب: </p>
-              <p className="font-persianNums text-xl">
+              <p className="text-sm text-gray-500 dark:text-gray-200">
+                نرخ هر شب:{' '}
+              </p>
+              <p className="font-persianNums text-xl dark:text-white">
                 {room.price.toLocaleString()}
-                <span className="text-sm text-gray-500">تومان</span>
+                <span className="text-sm text-gray-500 dark:text-gray-200">
+                  تومان
+                </span>
               </p>
             </div>
           </div>
@@ -101,33 +105,33 @@ function AdminPRoomsDetails() {
                 className="text-yellow-400"
               />
             </div>
-            <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
+            <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-200">
               {room.rating?.total}
             </span>
-            <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-300">
+            <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-200">
               ({room.reviews} نظر)
             </span>
           </div>
 
           <div className="my-8 h-[1px] w-full bg-gray-100"></div>
           <div>
-            <h4 className="mb-5 font-vazirBold text-lg">درباره اقامتگاه</h4>
-            <strong className="text-gray-900 dark:text-gray-100">
+            <h4 className="mb-5 font-vazirBold text-lg dark:text-gray-200">درباره اقامتگاه</h4>
+            <strong className="text-gray-900 dark:text-white">
               {room.title}
             </strong>
             <div
-              className="mt-1 text-sm leading-7 text-gray-600 dark:text-gray-400 max-md:text-justify"
+              className="mt-1 text-sm leading-7 text-gray-600 dark:text-gray-200 max-md:text-justify"
               dangerouslySetInnerHTML={{ __html: room.description }}
             ></div>
-            <div className="my-8 h-[1px] w-full bg-gray-100"></div>
+            <div className="my-8 h-[1px] w-full bg-gray-100 dark:bg-gray-700"></div>
             <div>
-              <p className="mb-3 text-lg">ویژگی های بارز</p>
+              <p className="mb-3 text-lg dark:text-gray-200">ویژگی های بارز</p>
               <ul className="mr-2">
-                <li className="mb-1 flex items-center gap-2">
+                <li className="mb-1 flex items-center gap-2 dark:text-white">
                   <BiCheck className="text-green-500" size={20} />
                   {room.share_house ? 'نیمه دربست' : 'دربست'}
                 </li>
-                <li className="mb-1 flex items-center gap-2">
+                <li className="mb-1 flex items-center gap-2 dark:text-white">
                   <BiCheck className="text-green-500" size={20} />
                   {room.zone}
                   <span className="font-persianNums">
@@ -135,13 +139,13 @@ function AdminPRoomsDetails() {
                   </span>
                   متری
                 </li>
-                <li className="mb-1 flex items-center gap-2">
+                <li className="mb-1 flex items-center gap-2 dark:text-white">
                   <BiCheck className="text-green-500" size={20} />
                   ظرفیت تا
                   <span className="font-persianNums">{room.max_capacity}</span>
                   مهمان
                 </li>
-                <li className="mb-1 flex items-center gap-2">
+                <li className="mb-1 flex items-center gap-2 dark:text-white">
                   <BiCheck className="text-green-500" size={20} />
                   دارای<span className="font-persianNums">{room.bedroom}</span>
                   اتاق خواب
@@ -151,24 +155,28 @@ function AdminPRoomsDetails() {
           </div>
         </div>
         <div className="col-span-12 mt-10">
-          <h4 className="box-title mb-8 text-lg">اطلاعات کلی</h4>
+          <h4 className="box-title mb-8 text-lg dark:text-gray-200">اطلاعات کلی</h4>
           <div className="flex justify-between">
             <div className="flex w-full flex-col justify-between">
               <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500">ظرفیت استاندارد:</div>
-                <div className="text-black">
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                  ظرفیت استاندارد:
+                </div>
+                <div className="text-black dark:text-white">
                   <span className="font-persianNums">{room.capacity} </span>نفر
                 </div>
               </div>
               <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500">منطقه :</div>{' '}
-                <div className="text-black">{room.residence_type}</div>
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                  منطقه :
+                </div>{' '}
+                <div className="text-black dark:text-white">{room.residence_type}</div>
               </div>
               <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500">
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                   نرخ هر نفر اضافه :
                 </div>
-                <div className="text-black">
+                <div className="text-black dark:text-white">
                   <span className="font-persianNums">
                     {room.extra_person_charge.toLocaleString()}
                   </span>{' '}
@@ -178,22 +186,28 @@ function AdminPRoomsDetails() {
             </div>
             <div className="flex w-full flex-col justify-between">
               <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500">ساعت ورود:</div>
-                <div className="text-black">
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                  ساعت ورود:
+                </div>
+                <div className="text-black dark:text-white">
                   <span className="font-persianNums">{room.entrance_hour}</span>{' '}
                   ظهر
                 </div>
               </div>
               <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500">متراژ محوطه:</div>
-                <div className="text-black">
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                  متراژ محوطه:
+                </div>
+                <div className="text-black dark:text-white">
                   <span className="font-persianNums">{room.area_meterage}</span>{' '}
                   متر
                 </div>
               </div>
               <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500">ساعت خروج:</div>
-                <div className="text-black">
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                  ساعت خروج:
+                </div>
+                <div className="text-black dark:text-white">
                   <span className="font-persianNums">{room.leaving_hour}</span>{' '}
                   ظهر
                 </div>
@@ -202,8 +216,10 @@ function AdminPRoomsDetails() {
           </div>
           <div className="flex flex-col justify-between">
             <div className="flex w-full pt-8">
-              <div className="ml-10 w-32 text-gray-500">تگ:</div>
-              <div className="text-black">{room.category.join(' , ')}</div>
+              <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                تگ:
+              </div>
+              <div className="text-black dark:text-white">{room.category.join(' , ')}</div>
             </div>
           </div>
         </div>

@@ -108,7 +108,7 @@ function AdminPNewArticle() {
                       name="title"
                       placeholder=""
                       disabled={isLoading}
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
                     />
                     <ErrorMessage
                       name="title"
@@ -124,7 +124,7 @@ function AdminPNewArticle() {
                   </div>
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.author_id && errors.author_id ? 'error-input border-b-2 border-error' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.author_id && errors.author_id ? 'error-input border-b-2 border-error' : ''}`}
                       type="number"
                       id="author_id"
                       name="author_id"
@@ -147,7 +147,7 @@ function AdminPNewArticle() {
                 <div className="flex w-full items-center max-md:flex-col md:gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.readingMinutes && errors.readingMinutes ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.readingMinutes && errors.readingMinutes ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="readingMinutes"
                       name="readingMinutes"
@@ -168,7 +168,7 @@ function AdminPNewArticle() {
                   </div>
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.keyword && errors.keyword ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.keyword && errors.keyword ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="text"
                       id="keyword"
                       name="keyword"
@@ -190,7 +190,7 @@ function AdminPNewArticle() {
                 </div>
                 <div className="relative w-full">
                   <Field
-                    className={`peer block min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
+                    className={`peer block min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
                     type="text"
                     id="description"
                     name="description"

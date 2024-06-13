@@ -84,10 +84,10 @@ function AdminPEditArticle({
 
   return (
     <div>
-      <h2 className="pt-5 font-vazirBold text-2xl text-gray-600">
+      <h2 className="pt-5 font-vazirBold text-2xl dark:text-white text-gray-600">
         ویرایش مقاله
       </h2>
-      <div className="container rounded-md bg-white">
+      <div className="container rounded-md bg-white dark:bg-gray-700">
         <div className="p-5">
           <Formik
             initialValues={initialValues}
@@ -96,7 +96,7 @@ function AdminPEditArticle({
           >
             {({ errors, touched, setFieldValue }) => (
               <Form>
-                <div className=" w-full items-center max-md:flex-col md:gap-5">
+                <div className="w-full items-center max-md:flex-col md:gap-5">
                   <Field className="hidden" id="id" name="id" />
                   <div className="relative h-20 w-full">
                     <Field
@@ -105,7 +105,7 @@ function AdminPEditArticle({
                       name="title"
                       placeholder=""
                       disabled={isLoading}
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.title && errors.title ? 'error-input border-b-2 border-red-500' : ''}`}
                     />
                     <ErrorMessage
                       name="title"
@@ -121,7 +121,7 @@ function AdminPEditArticle({
                   </div>
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.keyword && errors.keyword ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.keyword && errors.keyword ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="text"
                       id="keyword"
                       name="keyword"
@@ -144,7 +144,7 @@ function AdminPEditArticle({
                 <div className="flex w-full items-center gap-5">
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.author_id && errors.author_id ? 'error-input border-b-2 border-error' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.author_id && errors.author_id ? 'error-input border-b-2 border-error' : ''}`}
                       type="number"
                       id="author_id"
                       name="author_id"
@@ -165,7 +165,7 @@ function AdminPEditArticle({
                   </div>
                   <div className="relative h-20 w-full">
                     <Field
-                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.readingMinutes && errors.readingMinutes ? 'error-input border-b-2 border-red-500' : ''}`}
+                      className={`peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.readingMinutes && errors.readingMinutes ? 'error-input border-b-2 border-red-500' : ''}`}
                       type="number"
                       id="readingMinutes"
                       name="readingMinutes"
@@ -187,7 +187,7 @@ function AdminPEditArticle({
                 </div>
                 <div>
                   <Field
-                    className={`peer block max-h-44 min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
+                    className={`peer block max-h-44 min-h-32 w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 ${touched.description && errors.description ? 'error-input border-b-2 border-red-500' : ''}`}
                     type="text"
                     id="description"
                     name="description"
@@ -215,7 +215,7 @@ function AdminPEditArticle({
                           setFieldValue('cover', event.currentTarget.files[0]);
                         }
                       }}
-                      className={`dark:bg-white dark:text-gray-800 ${touched.cover && errors.cover ? 'error-input border-2 border-error' : ''}`}
+                      className={`dark:text-gray-200 ${touched.cover && errors.cover ? 'error-input border-2 border-error' : ''}`}
                       disabled={isLoading}
                     />
                     <ErrorMessage

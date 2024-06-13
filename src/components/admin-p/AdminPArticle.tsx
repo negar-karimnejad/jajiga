@@ -44,39 +44,39 @@ function AdminPArticle({ article }: { article: Article }) {
   return (
     <>
       <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
-        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+        <td className="p-4">
           {typeof article.cover === 'string' && (
             <img
               src={article.cover}
               alt={article.title}
-              className="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-top dark:border-gray-600"
+              className="bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg object-cover object-top"
             />
           )}
         </td>
-        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+        <td className="p-4">
           <p className="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased dark:text-white">
             {article.title}
           </p>
         </td>
 
-        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+        <td className="p-4">
           <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {author ? author.fullname : 'ناشناس'}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+        <td className="p-4">
           <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {article.category.title}
           </p>
         </td>
-        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+        <td className="p-4">
           <p className="text-blue-gray-900 block font-sans text-sm leading-normal antialiased dark:text-white">
             <span className="font-persianNums">{article.readingMinutes}</span>{' '}
             دقیقه
           </p>
         </td>
 
-        <td className="border-blue-gray-50 border-b p-4 dark:border-gray-600">
+        <td className="p-4">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -89,7 +89,8 @@ function AdminPArticle({ article }: { article: Article }) {
               tabIndex={0}
               className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
             >
-              <li className="py-0.5 hover:text-violet-500">
+              <li className="dark:text-white
+dark:hover:text-violet-500 py-0.5 hover:text-violet-500">
                 <Link
                   to={`/admin-p/articles/${article.title.replaceAll(' ', '-')}`}
                 >
@@ -99,7 +100,8 @@ function AdminPArticle({ article }: { article: Article }) {
               </li>
               <li
                 onClick={() => setIsShowEditModal(true)}
-                className="py-0.5 hover:text-violet-500"
+                className="dark:text-white
+dark:hover:text-violet-500 py-0.5 hover:text-violet-500"
               >
                 <a>
                   <BiEdit />
@@ -108,7 +110,8 @@ function AdminPArticle({ article }: { article: Article }) {
               </li>
               <li
                 onClick={removeHandler}
-                className="py-0.5 hover:text-violet-500"
+                className="dark:text-white
+dark:hover:text-violet-500 py-0.5 hover:text-violet-500"
               >
                 <a>
                   <BiTrash />

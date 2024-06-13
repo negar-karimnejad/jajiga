@@ -42,24 +42,24 @@ function AdminPRoom({ room }: { room: Room }) {
   return (
     <>
       <tr key={room.id} className="dark:hover:bg-gray-700 hover:bg-gray-100">
-        <td className="dark:border-gray-700 border-b p-4">
+        <td className=" p-4">
           <img
             src={room.images[0]}
             alt={room.title}
-            className="dark:border-gray-700 bg-blue-gray-50/50 relative inline-block h-12 w-12 rounded-lg border object-cover object-center"
+            className="gray-50/50 relative inline-block h-12 w-12 rounded-lg object-cover object-center"
           />
         </td>
-        <td className="dark:border-gray-700 border-b p-4">
+        <td className=" p-4">
           <p className="text-blue-gray-900 dark:text-white block font-sans text-sm font-bold leading-normal antialiased">
             {room.title}
           </p>
         </td>
-        <td className="dark:border-gray-700 border-b p-4">
-          <p className="text-blue-gray-900 dark:text-white block rounded-lg bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
+        <td className=" p-4">
+          <p className="text-blue-gray-900 block rounded-lg dark:text-gray-900 bg-green-300 p-1 text-center font-sans text-sm font-normal leading-normal antialiased shadow">
             {room.code}
           </p>
         </td>
-        <td className="dark:border-gray-700 border-b p-4">
+        <td className=" p-4">
           <p className="text-blue-gray-900 dark:text-white block font-persianNums text-sm font-normal leading-normal antialiased">
             {room.price.toLocaleString()}{' '}
             <span className="font-sans text-[12px] text-gray-500 dark:text-gray-100">تومان</span>
@@ -76,7 +76,7 @@ function AdminPRoom({ room }: { room: Room }) {
           </p>
         </td>
 
-        <td className="dark:border-gray-700 border-b p-4">
+        <td className=" p-4">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -90,7 +90,7 @@ function AdminPRoom({ room }: { room: Room }) {
               className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
             >
               {' '}
-              <li className="py-0.5 hover:text-violet-500">
+              <li className="py-0.5 hover:text-violet-500 dark:hover:text-violet-500 dark:text-white">
                 <Link to={`/admin-p/rooms/${room.code}`}>
                   <FaEye />
                   مشاهده اقامتگاه
@@ -98,7 +98,7 @@ function AdminPRoom({ room }: { room: Room }) {
               </li>
               <li
                 onClick={() => setIsShowEditModal(true)}
-                className="py-0.5 hover:text-violet-500"
+                className="py-0.5 dark:text-white hover:text-violet-500 dark:hover:text-violet-500"
               >
                 <a>
                   <BiEdit />
@@ -107,7 +107,7 @@ function AdminPRoom({ room }: { room: Room }) {
               </li>
               <li
                 onClick={() => removeHandler(room.id)}
-                className="py-0.5 hover:text-violet-500"
+                className="py-0.5 dark:text-white hover:text-violet-500 dark:hover:text-violet-500"
               >
                 <a>
                   <BiTrash />
