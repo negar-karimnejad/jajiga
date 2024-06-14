@@ -9,7 +9,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
   return (
     <div className="navbar sticky top-5 z-20 h-20 rounded-md bg-white shadow dark:border-b-2 dark:border-b-gray-950 dark:bg-gray-800">
       <div className="navbar-start">
-        <div className="">
+        <div>
           <div
             tabIndex={0}
             role="button"
@@ -52,7 +52,6 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </svg>
         </label>
       </div>
-
       <div className="navbar-end">
         <div className="dropdown dropdown-end ">
           <div
