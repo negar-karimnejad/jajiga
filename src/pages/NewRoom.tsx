@@ -15,7 +15,7 @@ function NewRoom() {
           <Breadcrumb pageLink="ثبت اقامتگاه" />
         </div>
       </div>
-      <div className="-mt-5 rounded-t-2xl bg-white dark:bg-gray-800">
+      <div className="-mt-5 h-screen rounded-t-2xl bg-white dark:bg-gray-800">
         <div className="container flex items-center justify-center gap-5 py-16 text-center">
           <div className="mt-10 flex gap-x-5 gap-y-14 max-md:flex-col">
             <div className="relative flex-1 rounded-3xl border-t-2 border-t-yellow-400 px-4 pb-5 pt-16 text-center shadow-lg dark:shadow-gray-950">

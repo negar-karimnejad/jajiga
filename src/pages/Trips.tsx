@@ -1,3 +1,4 @@
+import { BiSearch } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Application from '../components/home/Application';
@@ -54,7 +55,7 @@ function Trips() {
           <WhiteBgNavbar />
         </div>
       </div>
-      <div className="relative">
+      <div className="relative h-screen bg-white dark:bg-gray-800">
         <div className="h-24 w-full bg-yellow-400">
           <div className="h-full w-full bg-[url(/images/patterns/pattern.png)]">
             <Breadcrumb pageLink="سفرها" />
@@ -87,12 +88,13 @@ function Trips() {
                   </clipPath>
                 </defs>
               </svg>
-              <p className="font-vazirMedium text-lg">
+              <p className="font-vazirMedium text-lg dark:text-white">
                 در حال حاضر سفری ندارید.
               </p>
 
               <Button style="rounded-md mt-3 bg-gray-100 px-3 py-2 transition-all hover:bg-gray-300 dark:text-black">
-                <Link className="flex items-center gap-2" to="/s">
+                <Link className="flex items-center gap-4" to="/s">
+                  <BiSearch />
                   جستجو
                 </Link>
               </Button>

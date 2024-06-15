@@ -3,8 +3,10 @@ import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2';
 import FaqList from '../components/ui/FaqList';
 import { faqDate } from '../data/data';
 import Button from '../components/ui/Button';
+import { useAuth } from '../hooks/useAuth';
 
 function Invite() {
+  const { user } = useAuth();
   return (
     <div>
       <div className="h-56 w-full bg-[url(/images/invite-landing1920.webp)] bg-cover bg-center bg-no-repeat max-sm:h-52 max-sm:bg-[70%]"></div>
@@ -54,17 +56,18 @@ function Invite() {
               </div>
             </div>
           </div>
-          <div>
-            <p className="mb-4 text-center dark:text-gray-100">
-              برای شروع باید در سایت جاجیگا ثبت نام کنید
-            </p>
-            <div className="mx-auto w-32">
-              <Button style="w-full rounded-md bg-yellow-400 text-gray-700 hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
-                ورود و ثبت نام
-              </Button>
+          {!user && (
+            <div>
+              <p className="mb-4 text-center dark:text-gray-100">
+                برای شروع باید در سایت جاجیگا ثبت نام کنید
+              </p>
+              <div className="mx-auto w-32">
+                <Button style="w-full rounded-md bg-yellow-400 text-gray-700 hover:bg-yellow-500 hover:text-gray-800 dark:text-black">
+                  ورود و ثبت نام
+                </Button>
+              </div>
             </div>
-          </div>
-
+          )}
           <div>
             <h2 className="mb-3 text-center font-vazirBold text-lg dark:text-white md:text-2xl">
               سوالات متداول
