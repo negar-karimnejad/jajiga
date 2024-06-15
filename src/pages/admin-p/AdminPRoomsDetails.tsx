@@ -26,7 +26,7 @@ function AdminPRoomsDetails() {
         جزئیات اقامتگاه
       </h2>
       <div className="grid grid-cols-12 gap-5 rounded-md bg-white p-5 dark:bg-gray-800">
-        <div className="col-span-4 rounded-md ">
+        <div className="col-span-4 rounded-md max-sm:col-span-12">
           <Swiper
             spaceBetween={250}
             noSwipingClass="swiper-slide"
@@ -42,8 +42,8 @@ function AdminPRoomsDetails() {
                 <img
                   loading="lazy"
                   src={image}
-                  className="h-[27rem] w-[700px] rounded-xl object-cover"
-                  alt=""
+                  className="h-48 w-[700px] rounded-xl object-cover sm:h-[27rem]"
+                  alt="jajiga-room"
                 />
               </SwiperSlide>
             ))}
@@ -69,8 +69,8 @@ function AdminPRoomsDetails() {
             ))}
           </Swiper>
         </div>
-        <div className="col-span-8">
-          <div className="mt-1 flex items-center justify-between gap-2">
+        <div className="col-span-8 max-sm:col-span-12">
+          <div className="mt-1 flex justify-between gap-2 max-sm:flex-col sm:items-center">
             <Link
               to={`/room/${room.code}`}
               className="text-xl text-sky-600 hover:underline"
@@ -82,40 +82,44 @@ function AdminPRoomsDetails() {
                 نرخ هر شب:{' '}
               </p>
               <p className="font-persianNums text-xl dark:text-white">
-                {room.price.toLocaleString()}
+                {room.price ? room.price.toLocaleString() : 0}
                 <span className="text-sm text-gray-500 dark:text-gray-200">
                   تومان
                 </span>
               </p>
             </div>
           </div>
-          <div className="mt-5 flex items-center gap-2">
+          <div className="mt-5 flex items-start gap-2 max-sm:flex-col-reverse sm:items-center">
             <Button style="font-persianNums text-[13px] bg-yellow-500 rounded-full py-1 hover:shadow-none ">
               کد: {room.code}
             </Button>
             <Button style="cursor-default font-persianNums text-[13px] bg-gray-200 rounded-full py-1 hover:shadow-none ">
               {room.reserved}+ رزرو موفق
             </Button>
-            <div className="flex gap-0.5">
-              <Rating
-                initialRating={room.rating?.total}
-                fullSymbol={<BsStarFill />}
-                emptySymbol={<BsStar />}
-                readonly={true}
-                className="text-yellow-400"
-              />
+            <div className="flex gap-2">
+              <div className="flex gap-0.5">
+                <Rating
+                  initialRating={room.rating?.total}
+                  fullSymbol={<BsStarFill />}
+                  emptySymbol={<BsStar />}
+                  readonly={true}
+                  className="text-yellow-400"
+                />
+              </div>
+              <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-200">
+                {room.rating?.total}
+              </span>
+              <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-200">
+                ({room.reviews} نظر)
+              </span>
             </div>
-            <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-200">
-              {room.rating?.total}
-            </span>
-            <span className="font-persianNums text-[12px] text-gray-500 dark:text-gray-200">
-              ({room.reviews} نظر)
-            </span>
           </div>
 
           <div className="my-8 h-[1px] w-full bg-gray-100"></div>
           <div>
-            <h4 className="mb-5 font-vazirBold text-lg dark:text-gray-200">درباره اقامتگاه</h4>
+            <h4 className="mb-5 font-vazirBold text-lg dark:text-gray-200">
+              درباره اقامتگاه
+            </h4>
             <strong className="text-gray-900 dark:text-white">
               {room.title}
             </strong>
@@ -155,10 +159,12 @@ function AdminPRoomsDetails() {
           </div>
         </div>
         <div className="col-span-12 mt-10">
-          <h4 className="box-title mb-8 text-lg dark:text-gray-200">اطلاعات کلی</h4>
-          <div className="flex justify-between">
+          <h4 className="box-title mb-8 text-lg dark:text-gray-200">
+            اطلاعات کلی
+          </h4>
+          <div className="flex justify-between max-sm:flex-col">
             <div className="flex w-full flex-col justify-between">
-              <div className="flex w-full border-b pt-8">
+              <div className="flex w-full border-b pt-8 max-sm:justify-between">
                 <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                   ظرفیت استاندارد:
                 </div>
@@ -166,26 +172,15 @@ function AdminPRoomsDetails() {
                   <span className="font-persianNums">{room.capacity} </span>نفر
                 </div>
               </div>
-              <div className="flex w-full border-b pt-8">
+              <div className="flex w-full border-b pt-8 max-sm:justify-between">
                 <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                   منطقه :
                 </div>{' '}
-                <div className="text-black dark:text-white">{room.residence_type}</div>
-              </div>
-              <div className="flex w-full border-b pt-8">
-                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
-                  نرخ هر نفر اضافه :
-                </div>
                 <div className="text-black dark:text-white">
-                  <span className="font-persianNums">
-                    {room.extra_person_charge.toLocaleString()}
-                  </span>{' '}
-                  تومان
+                  {room.residence_type}
                 </div>
               </div>
-            </div>
-            <div className="flex w-full flex-col justify-between">
-              <div className="flex w-full border-b pt-8">
+              <div className="flex w-full border-b pt-8 max-sm:justify-between">
                 <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                   ساعت ورود:
                 </div>
@@ -194,7 +189,22 @@ function AdminPRoomsDetails() {
                   ظهر
                 </div>
               </div>
-              <div className="flex w-full border-b pt-8">
+            </div>
+            <div className="flex w-full flex-col justify-between">
+              <div className="flex w-full border-b pt-8 max-sm:justify-between">
+                <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
+                  نرخ هر نفر اضافه :
+                </div>
+                <div className="text-black dark:text-white">
+                  <span className="font-persianNums">
+                    {room.extra_person_charge
+                      ? room.extra_person_charge.toLocaleString()
+                      : 0}
+                  </span>{' '}
+                  تومان
+                </div>
+              </div>
+              <div className="flex w-full border-b pt-8 max-sm:justify-between">
                 <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                   متراژ محوطه:
                 </div>
@@ -203,7 +213,7 @@ function AdminPRoomsDetails() {
                   متر
                 </div>
               </div>
-              <div className="flex w-full border-b pt-8">
+              <div className="flex w-full border-b pt-8 max-sm:justify-between">
                 <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                   ساعت خروج:
                 </div>
@@ -219,7 +229,9 @@ function AdminPRoomsDetails() {
               <div className="ml-10 w-32 text-gray-500 dark:text-gray-400">
                 تگ:
               </div>
-              <div className="text-black dark:text-white">{room.category.join(' , ')}</div>
+              <div className="text-left text-black dark:text-white">
+                {room.category.join(' , ')}
+              </div>
             </div>
           </div>
         </div>

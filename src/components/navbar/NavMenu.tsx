@@ -73,7 +73,7 @@ function NavMenu() {
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
           <Button
-            style={`absolute top-2 font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none ${isMenuOpen ? 'right-[22rem]' : '-right-[420px]'}`}
+            style={`absolute top-2 font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none ${isMenuOpen ? 'sm:right-[22rem] right-[20rem]' : '-right-[420px]'}`}
           >
             &times;
           </Button>
@@ -125,7 +125,7 @@ function NavMenu() {
                     {user.user_metadata.role === 'admin' && (
                       <Link
                         to="/admin-p"
-                        className="rounded-full bg-yellow-300 px-2 py-1.5 text-center text-[10px] text-gray-600 hover:bg-yellow-400 hover:shadow-md dark:bg-gray-600 dark:text-white"
+                        className="rounded-full bg-yellow-300 px-2 py-1.5 text-center text-[10px] text-gray-600 hover:bg-yellow-400 hover:shadow-md"
                       >
                         پنل مدیریت
                       </Link>
@@ -158,7 +158,7 @@ function NavMenu() {
                               {item.title}
                             </span>
                           </Link>
-                          {item.title === 'سفرها' && (
+                          {item.title === 'سفرها' && trips.length > 0 && (
                             <div className="absolute bottom-0 left-5 top-0 m-auto flex h-5 w-5 items-center justify-center rounded-full bg-gray-200 pt-1 font-persianNums dark:text-gray-950">
                               {trips.length}
                             </div>

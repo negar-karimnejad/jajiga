@@ -6,7 +6,7 @@ import NavSearch from './NavSearch';
 
 function WhiteBgNavbar() {
   return (
-    <>
+    <div className='flex items-center justify-between w-full'>
       <div className="cursor-pointer rounded-full border px-2 dark:border-gray-500">
         <NavMenu />
       </div>
@@ -78,17 +78,12 @@ function WhiteBgNavbar() {
         <NavSearch />
       </div>
       <Link to="/" className="max-lg:hidden sm:shrink-0">
-        <img
-          loading="lazy"
-          src="/images/logo/logo2.png"
-          className="w-36"
-          alt=""
-        />
+        <img src="/images/logo/logo2.png" className="w-36" alt="logo" />
       </Link>
-      <div className=" sm:shrink-0 lg:hidden">
+      <div className="sm:shrink-0 lg:hidden">
         <Logo withTitle={false} />
       </div>
-    </>
+    </div>
   );
 }
 

@@ -20,8 +20,6 @@ function Trips() {
     navigate(-1);
   }
 
-  // if (loading) return <Loader />;
-
   const deleteHandler = (id: number) => {
     Swal.fire({
       title: 'آیا از حذف رزرو مطمئنید؟',
@@ -62,7 +60,11 @@ function Trips() {
           </div>
         </div>
         <div className="container mt-5 grid grid-cols-1 gap-8 pb-20 sm:grid-cols-2 lg:grid-cols-3">
-          {trips?.length === 0 ? (
+          {loading ? (
+            Array.from({ length: trips?.length || 3 }).map((_, index) => (
+              <RoomCardSkeleton key={index} />
+            ))
+          ) : trips?.length === 0 ? (
             <div className="col-span-12 flex flex-col items-center justify-center gap-3">
               <svg
                 className="h-36 w-36"
@@ -99,10 +101,6 @@ function Trips() {
                 </Link>
               </Button>
             </div>
-          ) : loading ? (
-            Array.from({ length: trips?.length }).map((_, index) => (
-              <RoomCardSkeleton key={index} />
-            ))
           ) : (
             trips?.map((trip) => (
               <TripCard
