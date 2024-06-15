@@ -142,6 +142,7 @@ function Rooms() {
                   {QuickSearchArray.map((item) => (
                     <Link
                       to={`/s/${item.to}`}
+                      key={item.id}
                       className="flex w-52 justify-between rounded-full bg-white py-0.5 pl-0.5 pr-3 text-[13px]"
                     >
                       <div className="">اجاره {item.title}</div>

@@ -18,10 +18,10 @@ function SearchResultModal({
       </h3>
       <div className="h-fit max-h-[30rem] overflow-y-auto">
         {searchResult.map((room, index) => (
-          <div onClick={resetForm}>
+          <div onClick={resetForm} key={room.id}>
             <Link
               to={`/s/${room.category[0]}`}
-              key={room.id}
+              
               className="flex items-center justify-between px-1 py-2.5 text-sm text-gray-700 transition-all hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               <p className="flex items-center gap-1">

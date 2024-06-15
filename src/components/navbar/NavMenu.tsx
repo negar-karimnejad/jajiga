@@ -92,7 +92,7 @@ function NavMenu() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="#ccc"
-                className="h-16 w-16"
+                className="h-14 w-14"
               >
                 <path
                   strokeLinecap="round"
@@ -112,15 +112,23 @@ function NavMenu() {
                 </Button>
               ) : (
                 <div>
-                  <p className="mb-2 mr-2 text-gray-600 dark:text-gray-300">
+                  <div className="mb-2 mr-2 text-gray-600 dark:text-gray-300">
                     {user.user_metadata.fullname}
-                  </p>
-                  <Link
-                    to="/profile"
-                    className="rounded-full bg-gray-100 px-3 py-2 text-[10px] text-gray-600 hover:bg-gray-300 hover:shadow-md dark:bg-gray-600 dark:text-white"
-                  >
-                    ویرایش حساب کاربری
-                  </Link>
+                  </div>
+                  <div className="flex gap-2">
+                    <Link
+                      to="/profile"
+                      className="rounded-full bg-gray-100 px-2 py-1.5 text-center text-[10px] text-gray-600 hover:bg-gray-300 hover:shadow-md dark:bg-gray-600 dark:text-white"
+                    >
+                      ویرایش حساب کاربری
+                    </Link>
+                    <Link
+                      to="/admin-p"
+                      className="rounded-full bg-yellow-300 px-2 py-1.5 text-center text-[10px] text-gray-600 hover:bg-yellow-400 hover:shadow-md dark:bg-gray-600 dark:text-white"
+                    >
+                      پنل مدیریت
+                    </Link>
+                  </div>
                 </div>
               )}
             </header>
