@@ -6,7 +6,15 @@ function AdminPReserves() {
   const reserves: Room[] = [];
   return (
     <>
-      <SectionHeader btnTitle="" title="رزروها" to="/admin-p/new-room" />
+      <div className="flex items-center justify-between">
+        <SectionHeader btnTitle="" title="رزروها" to="/admin-p/new-room" />
+        {reserves.length === 0 && (
+          <div className="btn bg-violet-500 font-vazirBold text-white hover:bg-violet-600">
+            هیچ رزروی ثبت نشده است
+          </div>
+        )}
+      </div>
+
       <div className="overflow-x-auto overflow-y-hidden bg-white dark:bg-gray-800">
         <table className="table">
           <thead>
@@ -33,7 +41,7 @@ function AdminPReserves() {
               </th>
             </tr>
           </thead>
-          <tbody className='h-80'>
+          <tbody>
             {reserves.map((room) => (
               <AdminPRoom room={room} key={room.id} />
             ))}

@@ -64,12 +64,13 @@ function JajigaArticle() {
                         <Link
                           to={`/article/${article.title.replaceAll(' ', '-')}`}
                         >
-                          <img
-                            // loading="lazy"
-                            src={article.cover}
-                            className="h-64 w-full rounded-3xl object-cover"
-                            alt={article.title}
-                          />
+                          {typeof article.cover === 'string' && (
+                            <img
+                              src={article.cover}
+                              className="h-64 w-full rounded-3xl object-cover"
+                              alt={article.title}
+                            />
+                          )}
                         </Link>
                         <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
                           <div className="mt-2 flex flex-col gap-2">
@@ -88,7 +89,7 @@ function JajigaArticle() {
                             </Link>
                           </div>
                           <ArticleAuthor
-                            id={article.author_id}
+                            id={article.author_id ? article.author_id : 0}
                             lightColor={true}
                           />
                         </div>

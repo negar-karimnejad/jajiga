@@ -33,7 +33,7 @@ function RoomAbout({ hostRef }: { hostRef: RefObject<HTMLDivElement> }) {
           }
         >
           <img
-            src={room.host.profile}
+            src={room?.host?.profile}
             className="h-full w-full rounded-full object-cover object-top"
             alt=""
           />

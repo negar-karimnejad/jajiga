@@ -15,12 +15,14 @@ function ArticleNews({ article }: { article: Article }) {
           }
         >
           <div className="h-full w-full">
-            <img
-              loading="lazy"
-              src={article.cover}
-              alt={article.title}
-              className="h-full w-screen object-cover"
-            />
+            {typeof article.cover === 'string' && (
+              <img
+                loading="lazy"
+                src={article.cover}
+                alt={article.title}
+                className="h-full w-screen object-cover"
+              />
+            )}
           </div>
           <div
             title={article.title}
@@ -41,7 +43,7 @@ function ArticleNews({ article }: { article: Article }) {
                 </Link>
               </div>
               <div className="mt-8 flex items-center gap-3 text-[14px]">
-                <ArticleAuthor id={article.author_id} />
+                <ArticleAuthor id={article.author_id ? article.author_id : 0} />
               </div>
             </div>
           </div>
@@ -69,7 +71,7 @@ function ArticleNews({ article }: { article: Article }) {
           {article.description.slice(0, 120)}...
         </p>
         <div className="mt-8 flex items-center gap-3 text-[14px]">
-          <ArticleAuthor id={article.author_id} />
+          <ArticleAuthor id={article.author_id ? article.author_id : 0} />
         </div>
       </div>
     </div>

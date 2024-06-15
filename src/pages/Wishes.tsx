@@ -18,7 +18,9 @@ function Wishes() {
   const [wishesRooms, setWishesRooms] = useState<Room[]>([]);
 
   useEffect(() => {
-    setWishesRooms(rooms.filter((room) => wishes.includes(room.code)));
+    setWishesRooms(
+      rooms.filter((room) => wishes.includes(room.code ? room.code : 0)),
+    );
   }, [rooms, wishes]);
 
   return (
@@ -86,7 +88,7 @@ function Wishes() {
                 به این لیست اضافه کن، تا وقتی تخفیف میخوره خبرت کنیم
               </div>
               <Button style="rounded-md bg-yellow-400 px-3 py-2 transition-all hover:bg-yellow-500 dark:text-black">
-                <Link className='flex items-center gap-2' to="/s">
+                <Link className="flex items-center gap-2" to="/s">
                   <BiSearch />
                   جستجو
                 </Link>

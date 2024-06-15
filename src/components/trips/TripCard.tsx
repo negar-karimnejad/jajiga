@@ -41,8 +41,8 @@ function TripCard({ trip, deleteHandler }: TripCardProps) {
           </div>
           <div className="absolute -bottom-7 left-2 z-10">
             <img
-              alt={trip.room.host.fullname}
-              src={trip.room.host.profile}
+              alt={trip?.room?.host?.fullname}
+              src={trip?.room?.host?.profile}
               className="h-14 w-14 rounded-full border-2 border-white object-cover object-top"
             />
           </div>
@@ -76,7 +76,7 @@ function TripCard({ trip, deleteHandler }: TripCardProps) {
             </div>
           </div>
           <div className="space-y-5 text-left">
-            <p>{trip.room.host.fullname}</p>
+            <p>{trip?.room?.host?.fullname}</p>
             <p className="text-sm ">
               <span className="font-persianNums">
                 مبلغ: {trip.cost.toLocaleString()}

@@ -42,7 +42,7 @@ function AdminPRoom({ room }: { room: Room }) {
   return (
     <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
       <td className="p-4">
-        <div className='h-12 w-12 flex'>
+        <div className="flex h-12 w-12">
           <img
             src={room.images[0]}
             alt={room.title}
@@ -62,7 +62,7 @@ function AdminPRoom({ room }: { room: Room }) {
       </td>
       <td className="p-4">
         <p className="text-blue-gray-900 block whitespace-nowrap font-persianNums text-sm font-normal leading-normal antialiased dark:text-white">
-          {room.price.toLocaleString()}{' '}
+          {room.price ? room.price.toLocaleString() : 0}{' '}
           <span className="font-sans text-[12px] text-gray-500 dark:text-gray-100">
             تومان
           </span>

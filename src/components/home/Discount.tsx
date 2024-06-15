@@ -12,8 +12,12 @@ import SectionHeading from './SectionHeading';
 function Discount() {
   const { rooms, loading } = useRooms();
 
-  const selectedRooms = rooms.slice().sort((a, b) => a.price - b.price);
-
+  const selectedRooms = rooms.slice().sort((a, b) => {
+    if (a.price == null) return 1;
+    if (b.price == null) return -1;
+    return a.price - b.price;
+  });
+  
   return (
     <div className="group relative mt-10 overflow-hidden rounded-t-2xl bg-[#cc0001] pb-12 text-white dark:bg-red-700">
       <div
@@ -72,7 +76,8 @@ function Discount() {
                           fastbooking={room.category.includes('fastbooking')}
                         />
                         <p className="font-persianNums">
-                          از {room.price.toLocaleString()} تومان
+                          از {room.price ? room.price.toLocaleString() : 0}{' '}
+                          تومان
                         </p>
                       </div>
                     </Link>

@@ -12,7 +12,7 @@ const initialValues: Article = {
   title: '',
   description: '',
   cover: '',
-  author_id: 0,
+  author_id: null,
   category: {
     id: Math.floor(Math.random() * 100),
     color: 'sky',
@@ -20,7 +20,7 @@ const initialValues: Article = {
     en_title: 'wherewhy',
   },
   published_at: new Date(),
-  readingMinutes: 0,
+  readingMinutes: null,
   keyword: '',
 };
 

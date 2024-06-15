@@ -62,8 +62,8 @@ function RoomsContainer({ room, isHost }: { room: Room; isHost: boolean }) {
             {!isHost && (
               <div className="absolute -bottom-7 left-2 z-10">
                 <img
-                  alt={room.host.fullname}
-                  src={room.host.profile}
+                  alt={room?.host?.fullname}
+                  src={room?.host?.profile}
                   className="h-14 w-14 rounded-full border-2 border-white object-cover object-top"
                 />
               </div>
@@ -79,7 +79,7 @@ function RoomsContainer({ room, isHost }: { room: Room; isHost: boolean }) {
       </Link>
       <RoomInfosLink titleWidth="70%" room={room} />
       <div className="absolute left-2 top-2 ">
-        <LikeAndShareButtons id={room.code} />
+        <LikeAndShareButtons id={room.code ? room.code : 0} />
       </div>
     </div>
   );

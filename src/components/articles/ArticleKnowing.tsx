@@ -14,12 +14,14 @@ function ArticleKnowing({ article }: { article: Article }) {
             navigate(`/article/${article.title.replaceAll(' ', '-')}`)
           }
         >
-          <img
-            loading="lazy"
-            src={article.cover}
-            alt={article.title}
-            className="h-full w-full object-cover"
-          />
+          {typeof article.cover === 'string' && (
+            <img
+              loading="lazy"
+              src={article.cover}
+              alt={article.title}
+              className="h-full w-full object-cover"
+            />
+          )}
           <div
             title={article.title}
             className="absolute right-0 top-0 h-full w-full bg-black/35 transition-all duration-500 hover:bg-black/70 sm:bg-black/10 sm:hover:bg-black/50"
@@ -39,7 +41,7 @@ function ArticleKnowing({ article }: { article: Article }) {
                 </Link>
               </div>
               <div className="mt-8 flex items-center gap-3 text-[14px]">
-                <ArticleAuthor id={article.author_id} />
+                <ArticleAuthor id={article.author_id ? article.author_id : 0} />
               </div>
             </div>
           </div>
@@ -66,7 +68,7 @@ function ArticleKnowing({ article }: { article: Article }) {
           {article.description.slice(0, 80)}...
         </p>
         <div className="mt-8 flex items-center gap-3 text-[14px]">
-          <ArticleAuthor id={article.author_id} />
+          <ArticleAuthor id={article.author_id ? article.author_id : 0} />
         </div>
       </div>
     </div>

@@ -31,7 +31,6 @@ function ReservationForm({
   const { id } = useParams();
   const { room } = useRoom(Number(id));
 
-
   const {
     isShowCalendar,
     numbersError,
@@ -161,9 +160,10 @@ function ReservationForm({
   if (!room) return null;
 
   const totalPrice =
-    numbers > room?.capacity
-      ? room?.extra_person_charge + nights * room?.price
-      : nights * room?.price;
+    numbers > (room.capacity ? room.capacity : 0)
+      ? (room.extra_person_charge ? room.extra_person_charge : 0) +
+        nights * (room.price ? room.price : 0)
+      : nights * (room.price ? room.price : 0);
 
   return (
     <>
@@ -234,15 +234,17 @@ function ReservationForm({
               <option value={-1} className="text-gray-500">
                 تعداد نفرات را مشخص کنید
               </option>
-              {Array.from({ length: room.max_capacity }).map((_, index) => (
+              {Array.from({
+                length: room.max_capacity ? room.max_capacity : 0,
+              }).map((_, index) => (
                 <option
                   key={index}
                   value={index + 1}
                   className="font-persianNums text-gray-700"
                 >
-                  {room.capacity >= index + 1
+                  {(room.capacity ? room.capacity : 0) >= index + 1
                     ? `${index + 1} نفر`
-                    : `${index + 1} نفر (${room.capacity} نفر + ${index + 1 - room.capacity} نفر اضافه)`}
+                    : `${index + 1} نفر (${room.capacity} نفر + ${index + 1 - (room.capacity ? room.capacity : 0)} نفر اضافه)`}
                 </option>
               ))}
             </select>
@@ -270,29 +272,34 @@ function ReservationForm({
                     <span className="font-persianNums">{nights}</span> شب{' '}
                     <IoIosClose />{' '}
                     <span className="font-persianNums">
-                      {room.price.toLocaleString()}{' '}
+                      {room.price ? room.price.toLocaleString() : 0}{' '}
                     </span>
                     تومان
                   </p>
                   <p>
                     <span className="font-persianNums">
-                      {(numbers > room.max_capacity
-                        ? room.extra_person_charge + room.price * nights
-                        : room.price * nights
+                      {(numbers > (room.max_capacity ? room.max_capacity : 0)
+                        ? (room.extra_person_charge
+                            ? room.extra_person_charge
+                            : 0) +
+                          (room.price ? room.price : 0) * nights
+                        : (room.price ? room.price : 0) * nights
                       ).toLocaleString()}
                     </span>{' '}
                     تومان
                   </p>
                 </div>
-                {numbers > room.capacity && (
+                {numbers > (room.capacity ? room.capacity : 0) && (
                   <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-600">
                     <p>هزینه نفرات اضافه</p>
                     <p>
                       <span className="font-persianNums">
-                        {numbers > room.capacity &&
+                        {numbers > (room.capacity ? room.capacity : 0) &&
                           (
-                            (numbers - room.capacity) *
-                            room?.extra_person_charge
+                            (numbers - (room.capacity ? room.capacity : 0)) *
+                            (room.extra_person_charge
+                              ? room.extra_person_charge
+                              : 0)
                           ).toLocaleString()}
                       </span>{' '}
                       تومان

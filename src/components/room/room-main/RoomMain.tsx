@@ -47,7 +47,12 @@ function RoomMain() {
   };
 
   if (!room) return null;
-  const roomsGeo: [number, number][] = [[room.location.lat, room.location.lng]];
+  const roomsGeo: [number, number][] = [
+    [
+      room.location.lat ? room.location.lat : 0,
+      room.location.lng ? room.location.lng : 0,
+    ],
+  ];
 
   return (
     <>

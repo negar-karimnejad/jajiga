@@ -26,12 +26,14 @@ function ArticlesHero() {
           <div
             onClick={() => navigate(`${article.title.replaceAll(' ', '-')}`)}
           >
-            <img
-              loading="lazy"
-              src={article.cover}
-              className="h-[500px] w-screen object-cover max-xl:h-[400px]"
-              alt="hero"
-            />
+            {typeof article.cover === 'string' && (
+              <img
+                loading="lazy"
+                src={article.cover}
+                alt="hero"
+                className="h-[500px] w-screen object-cover max-xl:h-[400px]"
+              />
+            )}
             <div className="absolute right-0 top-0 h-full w-full cursor-pointer bg-black/40 transition-all duration-700 hover:bg-black/75 max-xl:p-5 xl:px-24 xl:pt-16">
               <div className="">
                 <Link

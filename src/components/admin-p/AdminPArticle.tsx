@@ -10,7 +10,7 @@ import Modal from '../ui/Modal';
 import AdminPEditArticle from './AdminPEditArticle';
 
 function AdminPArticle({ article }: { article: Article }) {
-  const { author } = useAuthor(article.author_id);
+  const { author } = useAuthor(article.author_id ? article.author_id : 0);
   const [isShowEditModal, setIsShowEditModal] = useState(false);
   const { removeArticle } = useArticles();
 
@@ -56,18 +56,18 @@ function AdminPArticle({ article }: { article: Article }) {
           </div>
         </td>
         <td className="p-4">
-          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased dark:text-white">
+          <p className="text-blue-gray-900 block whitespace-nowrap font-sans text-sm font-bold leading-normal antialiased dark:text-white">
             {article.title}
           </p>
         </td>
 
         <td className="p-4">
-          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
+          <p className="text-blue-gray-900 block whitespace-nowrap font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {author ? author.fullname : 'ناشناس'}
           </p>
         </td>
         <td className="p-4">
-          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased dark:text-white">
+          <p className="text-blue-gray-900 block whitespace-nowrap font-sans text-sm font-normal leading-normal antialiased dark:text-white">
             {article.category.title}
           </p>
         </td>

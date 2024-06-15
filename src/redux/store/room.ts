@@ -5,28 +5,28 @@ export interface Room {
   id: number;
   title: string;
   description: string;
-  code: number;
-  reserved: number;
+  code: number | null;
+  reserved: number | null;
   images: string[];
-  capacity: number;
-  max_capacity: number;
-  foundation_meterage: number;
-  area_meterage: number;
+  capacity: number | null;
+  max_capacity: number | null;
+  foundation_meterage: number | null;
+  area_meterage: number | null;
   zone: string;
   residence_type: string;
-  bedroom: number;
+  bedroom: number | null;
   share_house: boolean;
   features: string[];
-  min_stay: number;
-  max_stay: number;
-  extra_person_charge: number;
+  min_stay: number | null;
+  max_stay: number | null;
+  extra_person_charge: number | null;
   location: {
-    lat: number;
-    lng: number;
+    lat: number | null;
+    lng: number | null;
   };
   discount: {
-    day: number;
-    off: number;
+    day: number | null;
+    off: number | null;
   }[];
   housing_space: {
     title: string;
@@ -34,8 +34,8 @@ export interface Room {
   }[];
   cancellation_policy: string;
   residence_policy: string[];
-  entrance_hour: number;
-  leaving_hour: number;
+  entrance_hour: number| null;
+  leaving_hour: number| null;
   host?: {
     id: number;
     fullname: string;
@@ -44,7 +44,7 @@ export interface Room {
     reservation_confirmation: number;
     profile: string;
   };
-  price: number;
+  price: number | null;
   category: string[];
   rating?: {
     total: number;
@@ -55,7 +55,7 @@ export interface Room {
     Delivery: number;
     quality: number;
   };
-  reviews: number;
+  reviews: number| null;
   comments?: [
     {
       id: number;

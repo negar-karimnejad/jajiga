@@ -10,30 +10,30 @@ const initialValues: Room = {
   id: Math.floor(Math.random() * 10000),
   title: '',
   description: '',
-  code: 0,
-  reserved: 0,
+  code: null,
+  reserved: null,
   images: [''],
-  capacity: 0,
-  max_capacity: 0,
-  foundation_meterage: 0,
-  area_meterage: 0,
+  capacity: null,
+  max_capacity: null,
+  foundation_meterage: null,
+  area_meterage: null,
   zone: '',
   residence_type: '',
-  bedroom: 0,
+  bedroom: null,
   share_house: false,
-  extra_person_charge: 0,
+  extra_person_charge: null,
   features: [''],
-  min_stay: 0,
-  max_stay: 0,
-  price: 0,
+  min_stay: null,
+  max_stay: null,
+  price: null,
   location: {
-    lat: 0,
-    lng: 0,
+    lat: null,
+    lng: null,
   },
   discount: [
     {
-      day: 0,
-      off: 0,
+      day: null,
+      off: null,
     },
   ],
   housing_space: [
@@ -44,10 +44,10 @@ const initialValues: Room = {
   ],
   cancellation_policy: '',
   residence_policy: [''],
-  entrance_hour: 0,
-  leaving_hour: 0,
+  entrance_hour: null,
+  leaving_hour: null,
   category: [''],
-  reviews: 0,
+  reviews: null,
 };
 
 export const RoomSchema = Yup.object().shape({
@@ -113,7 +113,7 @@ function AdminPNewRoom() {
 
   return (
     <div>
-      <h2 className="py-8 font-vazirBold text-2xl dark:text-white text-gray-600">
+      <h2 className="py-8 font-vazirBold text-2xl text-gray-600 dark:text-white">
         افزودن اقامتگاه جدید
       </h2>
       <div className="rounded-md bg-white dark:bg-gray-800">

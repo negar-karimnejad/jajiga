@@ -31,7 +31,7 @@ function RoomSidebar() {
         <header className="flex justify-between bg-neutral-700 p-4 text-white dark:bg-gray-900">
           <span className="font-vazirMedium text-base">نرخ هر شب از:</span>
           <span className="font-persianNums text-base">
-            {room.price.toLocaleString()} تومان
+            {room.price ? room.price.toLocaleString() : 0} تومان
           </span>
         </header>
         <ReservationForm />

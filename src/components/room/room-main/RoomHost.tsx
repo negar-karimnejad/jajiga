@@ -10,13 +10,15 @@ function RoomHost({
   room: Room;
   hostRef: RefObject<HTMLDivElement>;
 }) {
+  if (!room?.host) return null;
+
   const {
     id,
     fullname,
-    profile,
     registery_date,
-    reservation_confirmation,
     response_time,
+    reservation_confirmation,
+    profile,
   } = room.host;
 
   return (

@@ -7,7 +7,7 @@ export interface Article {
   title: string;
   description: string;
   cover: string | File;
-  author_id: number;
+  author_id: number | null;
   comments?: {
     id: number | null | undefined;
     email: string;
@@ -22,7 +22,7 @@ export interface Article {
     en_title: string;
   };
   published_at: Date;
-  readingMinutes: number;
+  readingMinutes: number | null;
   keyword: string;
 }
 

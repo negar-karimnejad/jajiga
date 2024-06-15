@@ -56,7 +56,7 @@ function RoomComments() {
                   <div className="flex items-center gap-2">
                     <img
                       alt=""
-                      src={room.host.profile}
+                      src={room?.host?.profile}
                       className="h-10 w-10 rounded-full"
                     />
                     <div>

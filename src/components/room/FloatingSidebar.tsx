@@ -23,7 +23,7 @@ function FloatingSidebar({
           <div className="font-vazirMedium text-[11px]">
             هر شب از{' '}
             <span className="font-persianNums text-lg">
-              {room.price.toLocaleString()}
+              {room.price ? room.price.toLocaleString() : 0}
             </span>{' '}
             تومان
           </div>
