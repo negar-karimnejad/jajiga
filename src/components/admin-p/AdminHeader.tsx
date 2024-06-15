@@ -66,7 +66,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu-sm z-[1] mt-3 w-72 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-700 dark:text-white"
+            className="dropdown-content menu-sm z-[1] mt-3 sm:w-72 w-56 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-700 dark:text-white"
           >
             <li className="py-4">گفتگوهای اخیر</li>
             <div className="h-64 overflow-y-auto">
@@ -216,7 +216,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu-sm z-[1] mt-3 w-72 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-700 dark:text-white"
+            className="dropdown-content menu-sm z-[1] mt-3 sm:w-72 w-64 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-700 dark:text-white"
           >
             <li className="py-4">اطلاع رسانی ها</li>
             <div className="h-64 overflow-y-auto">

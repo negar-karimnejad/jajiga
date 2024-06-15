@@ -210,7 +210,7 @@ function AdminPNewArticle() {
                     توضیحات مقاله
                   </label>
                 </div>
-                <div className="my-5 flex items-center justify-between">
+                <div className="my-5 flex max-sm:flex-col max-sm:gap-2 sm:items-center justify-between">
                   <div>
                     <input
                       id="cover"
@@ -234,7 +234,7 @@ function AdminPNewArticle() {
                     />
                   </div>
                   <Button
-                    style="w-40 rounded-md bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
+                    style="w-40 rounded-md max-sm:w-full bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
                     type="submit"
                     disabled={isLoading}
                   >

@@ -15,7 +15,7 @@ function AdminPReserves() {
         )}
       </div>
 
-      <div className="overflow-x-auto overflow-y-hidden bg-white dark:bg-gray-800">
+      <div className="overflow-x-auto overflow-y-hidden h-screen bg-white dark:bg-gray-800">
         <table className="table">
           <thead>
             <tr>
