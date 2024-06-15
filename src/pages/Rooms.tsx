@@ -115,7 +115,10 @@ function Rooms() {
                   ))
                 ) : (
                   sRooms.map((room) => {
-                    roomsGeo.push([room.location.lat, room.location.lng]);
+                    roomsGeo.push([
+                      room.location.lat ? room.location.lat : 0,
+                      room.location.lng ? room.location.lng : 0,
+                    ]);
                     return (
                       <RoomsContainer
                         isHost={false}

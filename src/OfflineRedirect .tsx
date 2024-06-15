@@ -35,6 +35,7 @@ export function OfflineProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useOfflineCheck = () => {
   const context = useContext(OfflineContext);
   if (!context) {

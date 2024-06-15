@@ -5,7 +5,6 @@ import SigningModal from './components/auth/SigningModal';
 import DarkMode from './components/ui/DarkMode';
 import MobileNavigationMenu from './components/ui/MobileNavigationMenu ';
 import About from './pages/About';
-import AddNewRoom from './pages/AddNewRoom';
 import AppLayout from './pages/AppLayout';
 import Appstore from './pages/Appstore';
 import Article from './pages/Article';
@@ -30,17 +29,17 @@ import Rules from './pages/Rules';
 import Support from './pages/Support';
 import Trips from './pages/Trips';
 import Wishes from './pages/Wishes';
+import AdminPArticleDetails from './pages/admin-p/AdminPArticleDetails';
 import AdminPArticles from './pages/admin-p/AdminPArticles';
 import AdminPDashboard from './pages/admin-p/AdminPDashboard';
 import AdminPHosts from './pages/admin-p/AdminPHosts';
 import AdminPLayout from './pages/admin-p/AdminPLayout';
+import AdminPNewArticle from './pages/admin-p/AdminPNewArticle';
+import AdminPNewRoom from './pages/admin-p/AdminPNewRoom';
 import AdminPReserves from './pages/admin-p/AdminPReserves';
 import AdminPRooms from './pages/admin-p/AdminPRooms';
 import AdminPRoomsDetails from './pages/admin-p/AdminPRoomsDetails';
 import { store } from './redux/store';
-import AdminPArticleDetails from './pages/admin-p/AdminPArticleDetails';
-import AdminPNewRoom from './pages/admin-p/AdminPNewRoom';
-import AdminPNewArticle from './pages/admin-p/AdminPNewArticle';
 
 function App() {
   const { isOnline } = useOfflineCheck();
@@ -86,7 +85,6 @@ function App() {
           <Route path="/s/:id" element={<Rooms />} />
           <Route path="/finance" element={<Finance />} />
           <Route path="/article" element={<Articles />} />
-          <Route path="/create" element={<AddNewRoom />} />
           <Route path="/article/:id" element={<Article />} />
           <Route path="/article/category/:id" element={<CategoryArticle />} />
           <Route path="/article/author/:id" element={<Author />} />

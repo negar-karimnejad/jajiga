@@ -84,11 +84,13 @@ function Article() {
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
       <ArticlesHeader id={id} />
-      <img
-        src={article.cover}
-        alt=""
-        className="h-72 w-full object-cover sm:h-80 md:h-96 lg:h-[500px]"
-      />
+      {article.cover === 'string' && (
+        <img
+          src={article.cover}
+          alt=""
+          className="h-72 w-full object-cover sm:h-80 md:h-96 lg:h-[500px]"
+        />
+      )}
       <div className="container">
         <div className="my-10">
           <div className="flex grid-cols-12 flex-col-reverse max-lg:gap-10 lg:grid lg:gap-12">
@@ -135,12 +137,14 @@ function Article() {
                           className="group flex"
                         >
                           <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                            <img
-                              className="h-full w-24 object-cover"
-                              loading="lazy"
-                              src={article.cover}
-                              alt=""
-                            />
+                            {article.cover === 'string' && (
+                              <img
+                                className="h-full w-24 object-cover"
+                                loading="lazy"
+                                src={article.cover}
+                                alt=""
+                              />
+                            )}
                           </div>
                           <div className="mr-3 flex flex-1 items-center">
                             <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
@@ -184,12 +188,14 @@ function Article() {
                           className="group flex"
                         >
                           <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                            <img
-                              className="h-full w-24 object-cover"
-                              loading="lazy"
-                              src={article.cover}
-                              alt=""
-                            />
+                            {article.cover === 'string' && (
+                              <img
+                                className="h-full w-24 object-cover"
+                                loading="lazy"
+                                src={article.cover}
+                                alt=""
+                              />
+                            )}
                           </div>
                           <div className="mr-3 flex flex-1 items-center">
                             <p className="flex w-full flex-col font-vazirMedium text-sm leading-6 text-gray-600 transition-all group-hover:text-sky-500 dark:text-gray-200">
@@ -230,7 +236,9 @@ function Article() {
                 </h2>
                 <div className="flex gap-3 text-[13px] max-sm:flex-col sm:items-center">
                   <div className="flex items-center gap-3">
-                    <ArticleAuthor id={article.author_id} />
+                    <ArticleAuthor
+                      id={article.author_id ? article.author_id : 0}
+                    />
                     <div className="flex items-center gap-1">
                       <CiCalendarDate
                         size={17}
@@ -332,8 +340,9 @@ function Article() {
                   )}
                 </Formik>
 
-                {article.comments?.length > 0 &&
-                  article.comments.map((comment) => (
+                {article.comments &&
+                  article.comments.length > 0 &&
+                  article?.comments?.map((comment) => (
                     <div key={comment.id} className="container py-6">
                       <div className="flex justify-between">
                         <div className="flex items-center gap-5">
