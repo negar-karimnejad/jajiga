@@ -32,10 +32,10 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
             </svg>
           </div>
         </div>
-        <label className="input flex items-center gap-2 bg-gray-100 dark:bg-gray-700">
+        {/* <label className="input flex items-center gap-2 bg-gray-100 dark:bg-gray-700">
           <input
             type="text"
-            className="grow dark:text-gray-100"
+            className="dark:text-gray-100 max-sm:w-32"
             placeholder="جستجو..."
           />
           <svg
@@ -50,10 +50,10 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
               clipRule="evenodd"
             />
           </svg>
-        </label>
+        </label> */}
       </div>
       <div className="navbar-end">
-        <div className="dropdown dropdown-end ">
+        <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
             role="button"
@@ -326,7 +326,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
           <ul
             tabIndex={0}
-            className="menu dropdown-content z-[1] mt-3 w-72 overflow-hidden rounded-xl border bg-white shadow dark:bg-gray-700 dark:text-white"
+            className="menu dropdown-content relative z-[1] mt-3 w-72 overflow-hidden rounded-xl border bg-white shadow dark:bg-gray-700 dark:text-white"
           >
             <li>
               <div className="mb-2 border-b bg-gray-100 p-2">
@@ -360,6 +360,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
             <li className="px-4 py-1">
               <Link to="/finance">کیف پول</Link>
             </li>
+
             <li
               onClick={() => signoutFunc()}
               className="mt-2 border-t px-4 py-1"
