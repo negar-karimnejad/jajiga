@@ -37,7 +37,7 @@ function AdminPHost({ host }: AdminPHostProps) {
             <img
               src={host?.profile}
               alt={host?.fullname}
-              className="rounded-lg object-cover object-center"
+              className="rounded-lg object-cover w-full object-top"
             />
           </div>
         </td>

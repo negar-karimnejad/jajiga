@@ -139,7 +139,7 @@ function AdminSidebar({
                   </p>
                 </div>
               </div>
-              <ul className="my-6 flex flex-col gap-7 text-base">
+              <ul className="my-4 flex flex-col gap-7 text-base">
                 {adminPMenus.map((item) => (
                   <li
                     key={item.id}

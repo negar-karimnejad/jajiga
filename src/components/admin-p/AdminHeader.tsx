@@ -66,7 +66,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu-sm z-[1] mt-3 sm:w-72 w-56 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-700 dark:text-white"
+            className="dropdown-content menu-sm z-[1] mt-3 sm:w-72 w-56 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-900 dark:text-white"
           >
             <li className="py-4">گفتگوهای اخیر</li>
             <div className="h-64 overflow-y-auto">
@@ -216,7 +216,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu-sm z-[1] mt-3 sm:w-72 w-64 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-700 dark:text-white"
+            className="dropdown-content menu-sm z-[1] mt-3 sm:w-72 w-64 divide-y rounded-box border bg-white p-2 shadow shadow-gray-300 dark:bg-gray-900 dark:text-white"
           >
             <li className="py-4">اطلاع رسانی ها</li>
             <div className="h-64 overflow-y-auto">
@@ -336,10 +336,10 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
           </div>
           <ul
             tabIndex={0}
-            className="menu dropdown-content relative z-[1] mt-3 w-72 overflow-hidden rounded-xl border bg-white shadow dark:bg-gray-700 dark:text-white"
+            className="menu dropdown-content relative z-[1] mt-3 w-72 overflow-hidden rounded-xl border bg-white shadow dark:bg-gray-900 dark:text-white"
           >
             <li>
-              <div className="mb-2 border-b bg-gray-100 p-2">
+              <div className="mb-2 border-b bg-gray-100 dark:bg-gray-900 p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -362,18 +362,18 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
                 </div>
               </div>
             </li>
-            <li className="px-4 py-1">
+            <li className="px-4 py-1 dark:hover:bg-gray-800">
               <Link to="/profile" className="justify-between">
                 مشاهده پروفایل
               </Link>
             </li>
-            <li className="px-4 py-1">
+            <li className="px-4 py-1 dark:hover:bg-gray-800">
               <Link to="/finance">کیف پول</Link>
             </li>
 
             <li
               onClick={() => signoutFunc()}
-              className="mt-2 border-t px-4 py-1"
+              className="mt-2 border-t px-4 py-1 dark:hover:bg-gray-800"
             >
               <a>خروج</a>
             </li>
