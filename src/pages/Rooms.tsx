@@ -41,7 +41,6 @@ function Rooms() {
   return (
     <div className="bg-white dark:bg-gray-700">
       <Navbar />
-      {/* <div className="sticky top-[4.8rem] z-30 h-12 bg-gray-200">1</div> */}
       <div>
         <div className="flex grid-cols-12 flex-col-reverse rounded-t-2xl bg-gray-50 shadow-inner shadow-gray-500/50 dark:bg-gray-800 md:grid">
           <div className="md:col-span-7 lg:col-span-8">

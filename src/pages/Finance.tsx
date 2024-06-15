@@ -6,6 +6,7 @@ import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Button from '../components/ui/Button';
+import { useAuth } from '../hooks/useAuth';
 
 function Finance() {
   const [showInfo, setShowInfo] = useState(0);
@@ -15,6 +16,8 @@ function Finance() {
   const [money, setMoney] = useState('');
   const [gift, setGift] = useState('');
   const [activeButton, setActiveButton] = useState('transaction');
+
+  const { user } = useAuth();
 
   useEffect(() => {
     if (value.length > 0 && value.length !== 24) {
@@ -99,16 +102,20 @@ function Finance() {
         <div className="-mt-5 rounded-t-2xl bg-gray-100 dark:bg-gray-800">
           <div className="container flex flex-col gap-4 py-10">
             <div className="flex gap-4 max-lg:flex-col">
-              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900">
+              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:shadow-gray-900">
                 <div className="mb-5 flex items-center gap-2">
                   <div className="rounded-full bg-amber-200 p-2 text-black">
                     <IoWalletOutline size={18} />
                   </div>
-                  <h5 className="mb-2 font-vazirMedium text-lg dark:text-white">موجودی</h5>
+                  <h5 className="mb-2 font-vazirMedium text-lg dark:text-white">
+                    موجودی
+                  </h5>
                 </div>
                 <div className="mt-2 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1">
-                    <div className="text-sm dark:text-gray-100">موجودی قابل برداشت</div>
+                    <div className="text-sm dark:text-gray-100">
+                      موجودی قابل برداشت
+                    </div>
                     <div
                       className="relative"
                       onMouseEnter={() => setShowInfo(1)}
@@ -133,7 +140,9 @@ function Finance() {
                 </div>
                 <div className="mt-3 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1">
-                    <div className="text-sm dark:text-gray-100">موجودی بلوکه شده</div>
+                    <div className="text-sm dark:text-gray-100">
+                      موجودی بلوکه شده
+                    </div>
                     <div
                       className="relative"
                       onMouseEnter={() => setShowInfo(2)}
@@ -157,8 +166,10 @@ function Finance() {
                   </div>
                 </div>
               </div>
-              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900">
-                <h5 className="mb-2 font-vazirMedium text-lg dark:text-white">شماره شبا</h5>
+              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:shadow-gray-900">
+                <h5 className="mb-2 font-vazirMedium text-lg dark:text-white">
+                  شماره شبا
+                </h5>
                 <form onSubmit={shabaSubmitHandler}>
                   <div
                     className={`flex items-end justify-between gap-3 rounded-lg border px-4 py-2 ${error ? 'border-2 border-red-500' : ''}`}
@@ -178,7 +189,7 @@ function Finance() {
                           setValue(inputValue.slice(0, 24)); // Truncate the value to 24 characters
                         }
                       }}
-                      className="w-full font-persianNums text-sm outline-none bg-transparent dark:text-gray-50"
+                      className="w-full bg-transparent font-persianNums text-sm outline-none dark:text-gray-50"
                     />
                     <div className="text-gray-500 dark:text-gray-300">IR</div>
                   </div>
@@ -187,8 +198,7 @@ function Finance() {
                   <span className="text-[12px] text-gray-500 dark:text-gray-300">
                     توجه: شماره شبای ثبت شده می‌بایست به نام{' '}
                     <span className="font-vazirBold text-[13px] text-gray-600 dark:text-gray-100">
-                      «سارا نظری»
-                      {/* TASK:نام یوزر را قرار بده */}
+                      «{user?.user_metadata.fullname}»
                     </span>{' '}
                     باشد؛ در غیر این صورت واریز وجه قابل انجام نخواهد بود.
                   </span>
@@ -203,7 +213,7 @@ function Finance() {
               </div>
             </div>
             <div className="flex gap-4 max-lg:flex-col">
-              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900">
+              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:shadow-gray-900">
                 <h5 className="mb-2 font-vazirMedium text-lg dark:text-white">
                   درخواست برداشت
                 </h5>
@@ -216,9 +226,11 @@ function Finance() {
                       name="shaba"
                       value={money}
                       onChange={(e) => setMoney(e.target.value)}
-                      className="w-full font-persianNums text-sm outline-none bg-transparent dark:text-gray-50"
+                      className="w-full bg-transparent font-persianNums text-sm outline-none dark:text-gray-50"
                     />
-                    <div className="text-gray-500 dark:text-gray-300">تومان</div>
+                    <div className="text-gray-500 dark:text-gray-300">
+                      تومان
+                    </div>
                   </div>
                   <span className="text-[12px] text-gray-500 dark:text-gray-300">
                     وجه درخواست‌شده، حداکثر ظرف 48 ساعت در روزهای کاری هفته به
@@ -232,7 +244,7 @@ function Finance() {
                   </Button>
                 </form>
               </div>
-              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900">
+              <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:shadow-gray-900">
                 <h5 className="mb-2 font-vazirMedium text-lg dark:text-white">
                   اعتبار سفر/هدیه
                 </h5>
@@ -245,7 +257,7 @@ function Finance() {
                       name="shaba"
                       value={gift}
                       onChange={(e) => setGift(e.target.value)}
-                      className="w-full font-persianNums text-sm outline-none bg-transparent dark:text-gray-50"
+                      className="w-full bg-transparent font-persianNums text-sm outline-none dark:text-gray-50"
                     />
                   </div>
                   <span className="text-[12px] text-gray-500 dark:text-gray-300">
@@ -276,7 +288,7 @@ function Finance() {
               اعتبار/هدیه
             </button>
           </div>
-          <div className="dark:bg-gray-900 pb-20 flex flex-col items-center justify-center gap-5 rounded-t-2xl bg-white py-16">
+          <div className="flex flex-col items-center justify-center gap-5 rounded-t-2xl bg-white py-16 pb-20 dark:bg-gray-900">
             <svg
               className="h-28 w-28"
               fill="currentColor"

@@ -122,12 +122,14 @@ function NavMenu() {
                     >
                       ویرایش حساب کاربری
                     </Link>
-                    <Link
-                      to="/admin-p"
-                      className="rounded-full bg-yellow-300 px-2 py-1.5 text-center text-[10px] text-gray-600 hover:bg-yellow-400 hover:shadow-md dark:bg-gray-600 dark:text-white"
-                    >
-                      پنل مدیریت
-                    </Link>
+                    {user.user_metadata.role === 'admin' && (
+                      <Link
+                        to="/admin-p"
+                        className="rounded-full bg-yellow-300 px-2 py-1.5 text-center text-[10px] text-gray-600 hover:bg-yellow-400 hover:shadow-md dark:bg-gray-600 dark:text-white"
+                      >
+                        پنل مدیریت
+                      </Link>
+                    )}
                   </div>
                 </div>
               )}

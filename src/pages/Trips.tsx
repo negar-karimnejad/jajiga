@@ -1,13 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import TripCard from '../components/trips/TripCard';
 import Breadcrumb from '../components/ui/Breadcrumb';
+import Button from '../components/ui/Button';
 import RoomCardSkeleton from '../components/ui/skeleton/RoomCardSkeleton';
 import { useAuth } from '../hooks/useAuth';
 import useTrips from '../hooks/useTrips';
-import Swal from 'sweetalert2';
-import Button from '../components/ui/Button';
 
 function Trips() {
   const navigate = useNavigate();
@@ -75,8 +75,8 @@ function Trips() {
                     fill="#9B9B9B"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M37.2 15.7V35.2H15.7C7.6 35.2 0.9 41.4 0.1 49.3C0 49.8 0 50.4 0 50.9V113.7C0 122.4 7 129.4 15.7 129.4C15.7 135.4 20.6 140.2 26.5 140.2C32.5 140.2 37.3 135.3 37.3 129.4H84.3C84.3 133.7 86.9 137.6 90.9 139.3C92.1983 139.845 93.5921 140.125 95 140.125C96.4079 140.125 97.8017 139.845 99.1 139.3C103.1 137.7 105.7 133.8 105.7 129.4H106.7C115.4 129.4 122.4 122.4 122.4 113.7V51C122.4 42.3 115.4 35.3 106.7 35.3H85.2V15.7C85.2 7 78.2 0 69.5 0H52.9C44.2 0 37.2 7 37.2 15.7ZM8.8 51C8.8 47.2 11.9 44.1 15.7 44.1H106.7C110.5 44.1 113.6 47.2 113.6 51V56.9H8.8V51ZM113.6 65.6V113.6C113.6 117.4 110.5 120.4 106.7 120.5H15.7C11.9 120.5 8.8 117.4 8.8 113.6V65.6H113.6ZM54 9C49.5817 9 46 12.5817 46 17V35H76V17C76 12.5817 72.4183 9 68 9H54Z"
                     fill="#E1E0E1"
                   ></path>
@@ -93,7 +93,6 @@ function Trips() {
 
               <Button style="rounded-md mt-3 bg-gray-100 px-3 py-2 transition-all hover:bg-gray-300 dark:text-black">
                 <Link className="flex items-center gap-2" to="/s">
-                  {/* <BiSearch /> */}
                   جستجو
                 </Link>
               </Button>
