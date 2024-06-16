@@ -1,5 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import supabase, { supabaseUrl } from '../../services/supabase';
+import supabase from '../../services/supabase';
 
 export interface Article {
   id: number;
@@ -71,7 +71,7 @@ export const addArticleToServer = createAsyncThunk(
         '',
       );
 
-      const imagePath = `${supabaseUrl}/storage/v1/object/public/articles/${imageName}`;
+      const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/articles/${imageName}`;
 
       const { data, error } = await supabase
         .from('articles')
@@ -109,7 +109,7 @@ export const editArticlesFromServer = createAsyncThunk(
         '',
       );
 
-      const imagePath = `${supabaseUrl}/storage/v1/object/public/articles/${imageName}`;
+      const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/articles/${imageName}`;
 
       const { error } = await supabase
         .from('articles')
