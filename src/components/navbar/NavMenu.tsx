@@ -73,7 +73,7 @@ function NavMenu() {
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
           <Button
-            style={`absolute top-2 font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none ${isMenuOpen ? 'sm:right-[22rem] right-[20rem]' : '-right-[420px]'}`}
+            style={`absolute font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none ${isMenuOpen ? ' left-0 top-2' : '-left-[420px] -top-20'}`}
           >
             &times;
           </Button>
