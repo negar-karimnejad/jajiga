@@ -99,6 +99,7 @@ function Signin({ closeModalHandler }: { closeModalHandler: () => void }) {
               />
               <button
                 onClick={() => setShowPassword((prev) => !prev)}
+                type="button"
                 className="absolute left-5 top-5 text-gray-700"
               >
                 {showpassword ? <BsEye size={20} /> : <BsEyeSlash size={20} />}
