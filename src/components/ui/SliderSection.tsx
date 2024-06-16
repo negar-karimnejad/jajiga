@@ -84,7 +84,7 @@ function SliderSection({
                 slidesPerView: 3.3,
               },
             }}
-            className="h-[17rem] cursor-default"
+            className="h-[20rem] cursor-default"
           >
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (
@@ -119,7 +119,7 @@ function SliderSection({
                       className="text-sm dark:text-white"
                     >
                       <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                      <p className="mt-2 flex gap-2 text-[13px] text-gray-500 dark:text-gray-300">
+                      <p className="mt-2 flex gap-2 text-[13px] text-gray-700 dark:text-gray-50 max-sm:flex-col">
                         <span className="font-persianNums">
                           {room.bedroom === 0
                             ? 'بدون اتاق خواب'
@@ -127,12 +127,9 @@ function SliderSection({
                           . {room.foundation_meterage} متر . تا{' '}
                           {room.max_capacity} مهمان
                         </span>
-                        <span className="flex gap-1 font-persianNums">
+                        <span className="flex  gap-2 font-persianNums">
                           <BsStarFill className="text-yellow-500" />
-                          {room.rating?.total}
-                        </span>
-                        <span className="font-persianNums">
-                          ({room.reviews} نظر)
+                          {room?.rating?.total} ({room.reviews} نظر)
                         </span>
                       </p>
                     </Link>
