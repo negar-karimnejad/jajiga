@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../services/supabase';
 
-interface SupabaseUser {
+export interface SupabaseUser {
   user_metadata: {
     fullname: string;
     role: string;
@@ -114,6 +114,30 @@ export const getUsers = createAsyncThunk(
   },
 );
 
+export const editUser = createAsyncThunk(
+  'auth/editUser',
+  async (newUser: SupabaseUser) => {
+    const { data, error } = await supabase.auth.updateUser({
+      email: newUser.email,
+      data: { fullname: newUser.user_metadata.fullname },
+    });
+
+    if (error) {
+      throw Error('Error updating full name');
+    }
+
+    const user: SupabaseUser = {
+      id: data.user?.id || '',
+      email: data.user?.email,
+      user_metadata: {
+        fullname: data.user?.user_metadata.fullname || '',
+        role: data.user?.user_metadata.role || 'user',
+      },
+    };
+
+    return user;
+  },
+);
 export const restoreSession = createAsyncThunk(
   'auth/restoreSession',
   async (): Promise<SupabaseUser | null> => {
@@ -205,6 +229,24 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message || 'An error occurred';
       })
+      // Update
+      .addCase(editUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(
+        editUser.fulfilled,
+        (state, action: PayloadAction<SupabaseUser | undefined>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.user = action.payload ?? null; // Handle undefined case
+        },
+      )
+      .addCase(editUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'An error occurred';
+      })
+
       // Get Users
       .addCase(getUsers.pending, (state) => {
         state.isLoading = true;

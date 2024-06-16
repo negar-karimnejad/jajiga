@@ -14,7 +14,7 @@ const initialValues: UserProps = {
   password: '',
 };
 
-const SignupSchema = Yup.object().shape({
+export const SignupSchema = Yup.object().shape({
   fullname: Yup.string()
     .min(3, 'نام باید حداقل 3 کاراکتر باشد')
     .required('لطفا نام و نام خانوادگی خود را وارد کنید'),
