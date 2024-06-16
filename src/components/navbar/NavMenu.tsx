@@ -100,7 +100,7 @@ function NavMenu({
               {!user ? (
                 <Button
                   onClick={() => {
-                    closeMenu()
+                    closeMenu();
                     openModalHandler();
                   }}
                   style="rounded-full bg-gray-100 px-3 py-2 font-vazirBold text-[12px] text-gray-600 hover:shadow-md hover:bg-gray-300 dark:bg-gray-600 dark:text-white"
