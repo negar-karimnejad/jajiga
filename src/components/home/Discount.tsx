@@ -17,7 +17,7 @@ function Discount() {
     if (b.price == null) return -1;
     return a.price - b.price;
   });
-  
+
   return (
     <div className="group relative mt-10 overflow-hidden rounded-t-2xl bg-[#cc0001] pb-12 text-white dark:bg-red-700">
       <div
@@ -86,7 +86,7 @@ function Discount() {
                       className="text-sm dark:text-white"
                     >
                       <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                      <p className="mt-2 flex gap-2 text-[13px] text-gray-50">
+                      <p className="mt-2 flex gap-2 text-[13px] text-gray-50 max-sm:flex-col">
                         <span className="font-persianNums">
                           {room.bedroom === 0
                             ? 'بدون اتاق خواب'
@@ -94,12 +94,9 @@ function Discount() {
                           . {room.foundation_meterage} متر . تا{' '}
                           {room.max_capacity} مهمان
                         </span>
-                        <span className="flex gap-1 font-persianNums">
+                        <span className="flex gap-2 font-persianNums">
                           <BsStarFill className="text-yellow-500" />
-                          {room?.rating?.total}
-                        </span>
-                        <span className="font-persianNums">
-                          ({room.reviews} نظر)
+                          {room?.rating?.total} ({room.reviews} نظر)
                         </span>
                       </p>
                     </Link>
