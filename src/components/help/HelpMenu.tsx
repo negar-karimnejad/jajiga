@@ -236,7 +236,7 @@ function HelpMenu({ isActive, resetActive, modal }: HelpMenuProps) {
               برای ارسال بازخورد، ابتدا به حساب کاربری خود وارد شوید و سپس{' '}
               <a
                 className="text-blue-600"
-                href="https://https://jajiga-nu.vercel.app/support"
+                href="https://jajiga-nu.vercel.app/support"
               >
                 پشتیبانی
               </a>{' '}
