@@ -16,9 +16,6 @@ function SigningModal() {
     } else {
       document.body.style.overflow = 'auto';
     }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, [isOpen]);
 
   return (
@@ -41,7 +38,7 @@ function SigningModal() {
             {isRegistered ? 'ورود' : 'ثبت نام'}
           </h2>
           <button
-            className="text-[12px] text-blue-500 hover:underline dark:text-yellow-300"
+            className="text-[12px] hover:underline text-blue-500 dark:text-yellow-300"
             onClick={() => setIsRegistered((prev) => !prev)}
           >
             {isRegistered ? 'هنوز ثبت نام نکرده ام' : 'از قبل حساب کاربری دارم'}
