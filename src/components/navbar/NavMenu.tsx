@@ -73,14 +73,14 @@ function NavMenu() {
       >
         <div className="relative w-[450px] max-[490px]:w-[330px] sm:w-[350px]">
           <Button
-            style={`absolute font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none ${isMenuOpen ? ' left-0 top-2 visible' : 'invisible left-0 -top-20'}`}
+            style={`absolute font-vazirBold text-4xl text-white px-0 py-0 duration-700 transition-all hover:shadow-none left-0 ${isMenuOpen ? 'top-2' : '-top-10'}`}
           >
             &times;
           </Button>
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
-            className={`absolute flex flex-col justify-between top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-5 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+            className={`absolute top-0 z-50 flex h-screen w-[420px] flex-col justify-between overflow-y-scroll rounded-s-xl bg-white pt-5 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
           >
             <header
               style={{ direction: 'rtl' }}
