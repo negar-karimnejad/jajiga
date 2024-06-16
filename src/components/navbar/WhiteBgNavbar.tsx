@@ -7,7 +7,7 @@ import NavSearch from './NavSearch';
 function WhiteBgNavbar() {
   return (
     <div className='flex items-center justify-between w-full'>
-      <div className="cursor-pointer rounded-full border px-2 ml-2 dark:border-gray-500">
+      <div className="cursor-pointer rounded-full border px-2 md:ml-2 dark:border-gray-500">
         <NavMenu />
       </div>
       <div className="flex shrink-0 gap-8 text-gray-500 dark:text-white max-md:hidden">

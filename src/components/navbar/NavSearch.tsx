@@ -32,7 +32,7 @@ function NavSearch() {
   
   return (
     <>
-      <form className="relative max-w-7xl flex-1 max-sm:w-48">
+      <form className="relative max-w-7xl flex-1 max-sm:w-44">
         <label className="relative flex w-full rounded-full border p-2 dark:border-gray-500 ">
           <input
             onClick={() => setIsOpenSearchModal(true)}
