@@ -17,7 +17,7 @@ function ShareModal({
   const handleClick = () => {
     // TODOLIST: CHANGE WEB ADDRESS AFTER ONLINE
     navigator.clipboard
-      .writeText(id ? `http://localhost:5173/room/${id}` : window.location.href)
+      .writeText(id ? `https://jajiga-taupe.vercel.app/room/${id}` : window.location.href)
       .then(() =>
         Swal.fire({
           text: 'با موفقیت کپی شد',
