@@ -80,7 +80,7 @@ function NavMenu() {
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
-            className={`absolute top-0 z-50 flex h-screen w-[420px] flex-col justify-between overflow-y-scroll rounded-s-xl bg-white pt-5 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+            className={`absolute top-0 z-50 flex h-screen w-[420px] flex-col justify-between rounded-s-xl bg-white pt-5 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
           >
             <header
               style={{ direction: 'rtl' }}
@@ -134,8 +134,8 @@ function NavMenu() {
                 </div>
               )}
             </header>
-            <div className="border-b"></div>
-            <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">
+            <div className="border-b my-2"></div>
+            <ul style={{ direction: 'rtl' }} className="pr-5 text-sm overflow-y-scroll h-[32rem]">
               {mobileNavMenuLinks.map((item) => {
                 if (
                   item.title === 'کیف پول' ||
