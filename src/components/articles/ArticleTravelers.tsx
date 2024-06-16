@@ -23,7 +23,7 @@ function ArticleTravelers({ article }: { article: Article }) {
         {article.description.slice(0, 200)}...
       </p>
       <div className="mt-8 flex items-center gap-3 text-[14px]">
-        <ArticleAuthor id={article.author_id} />
+        <ArticleAuthor id={article.author_id ? article.author_id : 0} />
       </div>
     </div>
   );

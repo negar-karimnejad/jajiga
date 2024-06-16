@@ -13,12 +13,14 @@ function ArticlePost({ article }: { article: Article }) {
             to={`/article/${article.title.replaceAll(' ', '-')}`}
             className="h-full w-full"
           >
-            <img
-              loading="lazy"
-              src={article.cover}
-              alt={article.title}
-              className="h-full w-full object-cover brightness-90 transition-all duration-500 hover:brightness-75"
-            />
+            {typeof article.cover === 'string' && (
+              <img
+                loading="lazy"
+                src={article.cover}
+                alt={article.title}
+                className="h-full w-full object-cover brightness-90 transition-all duration-500 hover:brightness-75"
+              />
+            )}
           </Link>
           <div title={article.title} className="absolute right-5 top-5">
             <Link
@@ -41,7 +43,7 @@ function ArticlePost({ article }: { article: Article }) {
           </Link>
         </h2>
         <div className="mt-8 flex items-center gap-3 text-[13px]">
-          <ArticleAuthor id={article.author_id} />
+          <ArticleAuthor id={article.author_id ? article.author_id : 0} />
           <div className="flex items-center gap-1">
             <CiCalendarDate
               size={17}
