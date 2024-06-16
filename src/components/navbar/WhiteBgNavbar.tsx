@@ -3,12 +3,31 @@ import Logo from './Logo';
 import NavLinks from './NavLinks';
 import NavMenu from './NavMenu';
 import NavSearch from './NavSearch';
+import { useEffect, useState } from 'react';
 
 function WhiteBgNavbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
+  const openMenu = () => setIsMenuOpen(true);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <div className='flex items-center justify-between w-full'>
-      <div className="cursor-pointer rounded-full border px-2 md:ml-2 dark:border-gray-500">
-        <NavMenu />
+    <div className="flex w-full items-center justify-between">
+      <div className="cursor-pointer rounded-full border px-2 dark:border-gray-500 md:ml-2">
+        <NavMenu
+          isMenuOpen={isMenuOpen}
+          openMenu={openMenu}
+          closeMenu={closeMenu}
+        />
       </div>
       <div className="flex shrink-0 gap-8 text-gray-500 dark:text-white max-md:hidden">
         <NavLinks whiteBg={true} />

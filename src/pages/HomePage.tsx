@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useRef } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 import Footer from '../components/footer/Footer';
 import Advantages from '../components/home/Advantages';
@@ -25,9 +25,23 @@ function HomePage() {
   const { scrollYPosition } = useScroll();
   const { searchResult, searchHandler, searchValue } = useSearch();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const openMenu = () => setIsMenuOpen(true);
+  const closeMenu = () => setIsMenuOpen(false);
+
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     searchHandler(e.target.value);
   };
+
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
 
   useEffect(() => {
     searchHandler(searchValue);
@@ -39,7 +53,11 @@ function HomePage() {
       <div className="container navbar fixed left-0 right-0 top-0 z-30 mx-auto">
         <div className="flex-1 gap-10">
           <div className="cursor-pointer rounded-full bg-gray-300/50 px-2">
-            <NavMenu />
+            <NavMenu
+              isMenuOpen={isMenuOpen}
+              openMenu={openMenu}
+              closeMenu={closeMenu}
+            />
           </div>
           <div className="flex shrink-0 gap-8 text-white max-md:hidden">
             <NavLinks />
