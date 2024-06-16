@@ -80,7 +80,7 @@ function NavMenu() {
           <div
             style={{ direction: 'ltr' }}
             onClick={(e) => e.stopPropagation()}
-            className={`absolute top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-3 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
+            className={`absolute flex flex-col justify-between top-0 z-50 h-screen w-[420px] overflow-y-scroll rounded-s-xl bg-white pt-5 shadow transition-all duration-500 dark:border-l-4 dark:border-l-gray-800 dark:bg-gray-900 max-[490px]:w-[300px] sm:w-[320px] ${isMenuOpen ? 'right-0' : '-right-[420px]'}`}
           >
             <header
               style={{ direction: 'rtl' }}
@@ -134,7 +134,7 @@ function NavMenu() {
                 </div>
               )}
             </header>
-            <div className="my-3 border-b"></div>
+            <div className="border-b"></div>
             <ul style={{ direction: 'rtl' }} className="pr-5 text-sm">
               {mobileNavMenuLinks.map((item) => {
                 if (
