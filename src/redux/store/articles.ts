@@ -109,7 +109,7 @@ export const editArticlesFromServer = createAsyncThunk(
         '',
       );
 
-      const imagePath = `https://yazyhwunsvceubbnfjjo.supabase.co/storage/v1/object/public/articles/${imageName}`;
+      const imagePath = `${supabaseUrl}/storage/v1/object/public/articles/${imageName}`;
 
       const { error } = await supabase
         .from('articles')
