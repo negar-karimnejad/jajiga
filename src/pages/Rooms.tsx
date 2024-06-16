@@ -43,7 +43,7 @@ function Rooms() {
       <Navbar />
       <div>
         <div className="flex grid-cols-12 flex-col-reverse rounded-t-2xl bg-gray-50 shadow-inner shadow-gray-500/50 dark:bg-gray-800 md:grid">
-          <div className="flex h-screen flex-col justify-between md:col-span-7 lg:col-span-8">
+          <div className="flex min-h-screen flex-col justify-between md:col-span-7 lg:col-span-8">
             <div>
               <header className="container">
                 <div
@@ -109,7 +109,7 @@ function Rooms() {
                 </div>
               </header>
 
-              <main className="container grid grid-cols-1 gap-5 pb-20 lg:grid-cols-2 xl:grid-cols-3">
+              <main className="container grid grid-cols-1 gap-8 pb-20 lg:grid-cols-2 xl:grid-cols-3">
                 {sRooms.length > 0 ? (
                   roomsLoading ? (
                     Array.from({ length: sRooms.length }).map((_, index) => (
