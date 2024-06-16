@@ -124,7 +124,7 @@ function HomePage() {
       </div>
 
       {/* Homepage hero content */}
-      <div className="absolute left-0 right-0 top-36 z-20 mx-auto w-96">
+      <div className="absolute left-0 right-0 top-36 z-20 mx-auto sm:w-96">
         <div className="relative">
           <form
             onSubmit={(e) => e.preventDefault()}
@@ -157,7 +157,7 @@ function HomePage() {
             </div>
           </form>
           {searchResult.length > 0 && (
-            <div className="absolute left-0 right-0 z-40 mx-auto mt-2 w-96">
+            <div className="absolute left-0 right-0 z-40 mx-auto mt-2 sm:w-96">
               <div className="rounded-lg border bg-white px-2 py-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                 <SearchResultModal searchResult={searchResult} />
               </div>

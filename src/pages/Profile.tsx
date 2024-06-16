@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { useState } from 'react';
 import { GrEdit } from 'react-icons/gr';
 import Swal from 'sweetalert2';
-import { SignupSchema } from '../components/auth/Signup';
+import * as Yup from 'yup';
 import Application from '../components/home/Application';
 import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
@@ -24,6 +24,12 @@ const StyledDiv = ({
     </div>
   );
 };
+
+export const UpdateSchema = Yup.object().shape({
+  fullname: Yup.string()
+    .min(3, 'نام باید حداقل 3 کاراکتر باشد')
+    .required('لطفا نام و نام خانوادگی خود را وارد کنید'),
+});
 
 function Profile() {
   const { user, isLoading, updateFunc } = useAuth();
@@ -60,6 +66,7 @@ function Profile() {
         }
       });
     } catch (error: any) {
+      console.error('Update failed:', error); // Add this log
       Swal.fire({
         text: error.message,
         toast: true,
@@ -102,7 +109,7 @@ function Profile() {
             {isEditing ? (
               <Formik
                 initialValues={initialValues}
-                validationSchema={SignupSchema}
+                validationSchema={UpdateSchema}
                 onSubmit={submitUpdateHandler}
               >
                 {({ errors, touched }) => (
@@ -169,7 +176,7 @@ function Profile() {
                     </div>
                     <div className="z-20 mt-8 flex gap-2 text-center">
                       <Button
-                        style="w-32 rounded-md bg-gray-200 p-2 text-gray-800 transition-all hover:bg-gray-300"
+                        style="min-w-32 rounded-md bg-gray-200 p-3 text-gray-800 transition-all hover:bg-gray-300"
                         type="button"
                         disabled={isLoading}
                         onClick={closeEditingForm}
@@ -179,13 +186,13 @@ function Profile() {
                         </div>
                       </Button>
                       <Button
-                        style="w-32 rounded-md bg-yellow-400 p-2 text-gray-800 transition-all hover:bg-yellow-500"
+                        style="min-w-32 rounded-md bg-yellow-400 p-3 text-gray-800 transition-all hover:bg-yellow-500"
                         type="submit"
                         disabled={isLoading}
                       >
                         <div className="flex items-center justify-center gap-2">
                           <span>
-                            {isLoading ? 'در حال ثبت نام...' : 'ویرایش'}
+                            {isLoading ? 'در حال ویرایش...' : 'ویرایش'}
                           </span>
                           {isLoading && (
                             <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
@@ -197,7 +204,7 @@ function Profile() {
                 )}
               </Formik>
             ) : (
-              <div className="container grid w-full grid-cols-1 gap-x-20 md:grid-cols-2">
+              <div className="container grid w-full grid-cols-1 gap-x-20 gap-y-10 md:grid-cols-2">
                 <StyledDiv
                   title={'نام و نام خانوادگی'}
                   value={user?.user_metadata?.fullname}

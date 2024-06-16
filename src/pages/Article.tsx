@@ -84,10 +84,10 @@ function Article() {
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
       <ArticlesHeader id={id} />
-      {article.cover === 'string' && (
+      {typeof article.cover === 'string' && (
         <img
           src={article.cover}
-          alt=""
+          alt={article.title}
           className="h-72 w-full object-cover sm:h-80 md:h-96 lg:h-[500px]"
         />
       )}
@@ -137,7 +137,7 @@ function Article() {
                           className="group flex"
                         >
                           <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                            {article.cover === 'string' && (
+                            {typeof article.cover === 'string' && (
                               <img
                                 className="h-full w-24 object-cover"
                                 loading="lazy"
@@ -188,7 +188,7 @@ function Article() {
                           className="group flex"
                         >
                           <div className="h-16 w-24 overflow-hidden transition-all group-hover:brightness-75">
-                            {article.cover === 'string' && (
+                            {typeof article.cover === 'string' && (
                               <img
                                 className="h-full w-24 object-cover"
                                 loading="lazy"

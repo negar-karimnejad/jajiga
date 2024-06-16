@@ -9,10 +9,10 @@ function Hero() {
         preventInteractionOnTransition={true}
         spaceBetween={0}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 20000,
-        //   disableOnInteraction: true,
-        // }}
+        autoplay={{
+          delay: 20000,
+          disableOnInteraction: true,
+        }}
         loop={true}
         allowTouchMove={false}
         modules={[Autoplay]}
