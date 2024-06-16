@@ -31,7 +31,7 @@ function NavLinks({ whiteBg }: { whiteBg?: boolean }) {
         </Button>
       ) : (
         <button
-          className={`py-0 pr-2 font-vazirBold text-base hover:shadow-none ${whiteBg ? 'text-neutral-500 dark:text-white' : 'text-white'}`}
+          className={`px-0 py-0 font-vazirBold text-base hover:shadow-none ${whiteBg ? 'text-neutral-500 dark:text-white' : 'text-white'}`}
           onClick={openModalHandler}
         >
           ورود / ثبت نام
