@@ -116,10 +116,9 @@ export const getUsers = createAsyncThunk(
 
 export const editUser = createAsyncThunk(
   'auth/editUser',
-  async (newUser: SupabaseUser) => {
+  async (fullname: string): Promise<SupabaseUser> => {
     const { data, error } = await supabase.auth.updateUser({
-      email: newUser.email,
-      data: { fullname: newUser.user_metadata.fullname },
+      data: { fullname },
     });
 
     if (error) {
@@ -138,6 +137,7 @@ export const editUser = createAsyncThunk(
     return user;
   },
 );
+
 export const restoreSession = createAsyncThunk(
   'auth/restoreSession',
   async (): Promise<SupabaseUser | null> => {
@@ -240,6 +240,14 @@ export const authSlice = createSlice({
           state.isLoading = false;
           state.error = null;
           state.user = action.payload ?? null; // Handle undefined case
+
+          // Also update the user in the users array if it exists there
+          const userIndex = state.users.findIndex(
+            (user) => user.id === action.payload?.id,
+          );
+          if (userIndex >= 0 && action.payload) {
+            state.users[userIndex] = action.payload;
+          }
         },
       )
       .addCase(editUser.rejected, (state, action) => {

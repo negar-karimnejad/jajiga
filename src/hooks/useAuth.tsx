@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../hooks';
 import { AppDispatch } from '../redux/store';
 import {
-  SupabaseUser,
   UserProps,
   editUser,
   restoreSession,
@@ -21,8 +20,9 @@ const useAuth = () => {
   const signupFunc = async ({ email, password, fullname }: UserProps) => {
     await dispatch(signupUser({ email, password, fullname })).unwrap();
   };
-  const updateFunc = async (newUser: SupabaseUser) => {
-    await dispatch(editUser(newUser)).unwrap();
+
+  const updateFunc = async ({ fullname }: { fullname: string }) => {
+    await dispatch(editUser(fullname)).unwrap();
   };
 
   const signinFunc = async ({

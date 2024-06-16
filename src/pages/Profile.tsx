@@ -9,7 +9,6 @@ import WhiteBgNavbar from '../components/navbar/WhiteBgNavbar';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Button from '../components/ui/Button';
 import { useAuth } from '../hooks/useAuth';
-import { SupabaseUser } from '../redux/store/auth';
 
 const StyledDiv = ({
   title,
@@ -27,26 +26,25 @@ const StyledDiv = ({
 };
 
 function Profile() {
-  const { user, isLoading ,updateFunc} = useAuth();
+  const { user, isLoading, updateFunc } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
 
-  const initialValues: SupabaseUser = {
-    user_metadata: {
-      fullname: user?.user_metadata.fullname || '',
-      role: user?.user_metadata.role || '',
-    },
-    id: user?.id || '',
+  const closeEditingForm = () => setIsEditing(false);
+  interface InitialValuesProps {
+    fullname: string;
+    email: string;
+  }
+  const initialValues: InitialValuesProps = {
+    fullname: user?.user_metadata?.fullname || '',
     email: user?.email || '',
   };
 
-  const submitSignupHandler = async (
-    values: SupabaseUser,
-    { resetForm }: FormikHelpers<SupabaseUser>,
+  const submitUpdateHandler = async (
+    values: InitialValuesProps,
+    { resetForm }: FormikHelpers<InitialValuesProps>,
   ) => {
-    console.log(values);
     try {
-
-      await updateFunc(values);
+      await updateFunc({ fullname: values.fullname });
       Swal.fire({
         title: 'ویرایش با موفقیت انجام شد',
         toast: false,
@@ -58,6 +56,7 @@ function Profile() {
       }).then((result) => {
         if (result.isConfirmed) {
           resetForm();
+          closeEditingForm();
         }
       });
     } catch (error: any) {
@@ -104,15 +103,19 @@ function Profile() {
               <Formik
                 initialValues={initialValues}
                 validationSchema={SignupSchema}
-                onSubmit={submitSignupHandler}
+                onSubmit={submitUpdateHandler}
               >
                 {({ errors, touched }) => (
                   <Form>
                     <p className="pb-10 text-sm text-gray-400">
                       لطفا مشخصات صحیح خود را وارد کنید
                     </p>
-                    <input type="text" hidden name="id" />
-                    <input type="text" hidden name="user_metadata.role" />
+                    <input
+                      type="text"
+                      name="id"
+                      hidden
+                      defaultValue={user.id}
+                    />
                     <div className="grid w-full grid-cols-1 gap-x-20 md:grid-cols-2">
                       <div>
                         <label className="block w-full text-sm text-gray-700 dark:text-white">
@@ -121,19 +124,18 @@ function Profile() {
 
                         <Field
                           className={`input input-bordered my-2 w-full dark:bg-white dark:text-gray-800 ${
-                            touched.user_metadata?.fullname &&
-                            errors.user_metadata?.fullname
+                            touched.fullname && errors.fullname
                               ? 'error-input border-2 border-error'
                               : ''
                           }`}
                           type="text"
-                          id="user_metadata.fullname"
-                          name="user_metadata.fullname"
+                          id="fullname"
+                          name="fullname"
                           placeholder="نام و نام خانوادگی"
                           disabled={isLoading}
                         />
                         <ErrorMessage
-                          name="user_metadata.fullname"
+                          name="fullname"
                           component="div"
                           className="text-[11px] text-error"
                         />
@@ -170,7 +172,7 @@ function Profile() {
                         style="w-32 rounded-md bg-gray-200 p-2 text-gray-800 transition-all hover:bg-gray-300"
                         type="button"
                         disabled={isLoading}
-                        onClick={() => setIsEditing(false)}
+                        onClick={closeEditingForm}
                       >
                         <div className="flex items-center justify-center gap-2">
                           لغو ویرایش
@@ -183,7 +185,7 @@ function Profile() {
                       >
                         <div className="flex items-center justify-center gap-2">
                           <span>
-                            {isLoading ? 'در حال ویرایش...' : 'ویرایش'}
+                            {isLoading ? 'در حال ثبت نام...' : 'ویرایش'}
                           </span>
                           {isLoading && (
                             <div className="h-5 w-5 animate-spin rounded-full border-2 border-dotted border-gray-800"></div>
