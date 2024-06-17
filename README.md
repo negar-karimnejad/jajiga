@@ -25,15 +25,21 @@ I appreciate your support in advance. ❤</p>
   
 ![react](https://img.shields.io/badge/react-8b5cf6?style=for-the-badge&logo=react&logoColor=white)
 ![redux](https://img.shields.io/badge/redux-8b5cf6?style=for-the-badge&logo=redux&logoColor=white)
+![typescript](https://img.shields.io/badge/typescript-8b5cf6?style=for-the-badge&logo=typescript&logoColor=white)
 ![supabase](https://img.shields.io/badge/supabase-8b5cf6?style=for-the-badge&logo=supabase&logoColor=white)
 ![tailwindcss](https://img.shields.io/badge/tailwindcss-8b5cf6?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![chartjs](https://img.shields.io/badge/chartjs-8b5cf6?style=for-the-badge&logo=chart.js&logoColor=white)
+![formik](https://img.shields.io/badge/formik-8b5cf6?style=for-the-badge&logo=formik&logoColor=white)
+![leaflet](https://img.shields.io/badge/leaflet-8b5cf6?style=for-the-badge&logo=leaflet&logoColor=white)
+![swiper](https://img.shields.io/badge/swiper-8b5cf6?style=for-the-badge&logo=swiper&logoColor=white)
+![daisyui](https://img.shields.io/badge/daisyui-8b5cf6?style=for-the-badge&logo=daisyui&logoColor=white)
+![vite](https://img.shields.io/badge/vite-8b5cf6?style=for-the-badge&logo=vite&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-8b5cf6?style=for-the-badge&logo=npm&logoColor=white)
   
 </div>
 
 <p align="center">--------------------------------------------------------------</p>
   
-<p align="center">You can visit and explore in the <a href="https://shopper-taupe.vercel.app/" target="_blank">Shopper</a>.</p>
+<p align="center">You can visit and explore in the <a href="https://jajiga-taupe.vercel.app/" target="_blank">Jajiga</a>.</p>
 <p align="center">📌Please Use VPN to see the site.</p>
 
