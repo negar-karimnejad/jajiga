@@ -40,6 +40,6 @@ I appreciate your support in advance. ❤</p>
 
 <p align="center">--------------------------------------------------------------</p>
   
-<p align="center">You can visit and explore in the <a href="https://shopper-taupe.vercel.app/" target="_blank">Shopper</a>.</p>
+<p align="center">You can visit and explore in the <a href="https://jajiga-taupe.vercel.app/" target="_blank">Jajiga</a>.</p>
 <p align="center">📌Please Use VPN to see the site.</p>
 
