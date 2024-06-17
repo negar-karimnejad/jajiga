@@ -12,8 +12,9 @@ I appreciate your support in advance. ❤</p>
 <section width="100%" display="flex" align="center" justify-content="center" gap="2rem">
 <img src="public/Screenshot (20).png" width="410"/>
 <img src="public/Screenshot (21).png" width="410"/>
-<img src="public/Screenshot (22).png" width="410"/>
 <img src="public/Screenshot (25).png" width="410"/>
+<img src="public/Screenshot (27).png" width="410"/>
+<img src="public/Screenshot (28).png" width="410"/>
 </section>
 
 <hr/>
