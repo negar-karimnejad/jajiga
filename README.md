@@ -15,6 +15,7 @@ I appreciate your support in advance. ❤</p>
 <img src="public/Screenshot (25).png" width="410"/>
 <img src="public/Screenshot (27).png" width="410"/>
 <img src="public/Screenshot (28).png" width="410"/>
+<img src="public/Screenshot (29).png" width="410"/>
 </section>
 
 <hr/>
