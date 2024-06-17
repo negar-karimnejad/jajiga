@@ -30,6 +30,7 @@ I appreciate your support in advance. ❤</p>
 ![chartjs](https://img.shields.io/badge/chartjs-8b5cf6?style=for-the-badge&logo=chart.js&logoColor=white)
 ![chartjs](https://img.shields.io/badge/formik-8b5cf6?style=for-the-badge&logo=formik&logoColor=white)
 ![chartjs](https://img.shields.io/badge/leaflet-8b5cf6?style=for-the-badge&logo=leaflet&logoColor=white)
+![chartjs](https://img.shields.io/badge/swiper-8b5cf6?style=for-the-badge&logo=swiper&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-8b5cf6?style=for-the-badge&logo=npm&logoColor=white)
   
 </div>
