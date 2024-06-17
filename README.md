@@ -29,6 +29,7 @@ I appreciate your support in advance. ❤</p>
 ![tailwindcss](https://img.shields.io/badge/tailwindcss-8b5cf6?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![chartjs](https://img.shields.io/badge/chartjs-8b5cf6?style=for-the-badge&logo=chart.js&logoColor=white)
 ![chartjs](https://img.shields.io/badge/formik-8b5cf6?style=for-the-badge&logo=formik&logoColor=white)
+![chartjs](https://img.shields.io/badge/leaflet-8b5cf6?style=for-the-badge&logo=leaflet&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-8b5cf6?style=for-the-badge&logo=npm&logoColor=white)
   
 </div>
