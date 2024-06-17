@@ -3,8 +3,8 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import Button from '../../components/ui/Button';
-import { Article } from '../../redux/store/articles';
 import { useArticles } from '../../hooks/useArticles';
+import { Article } from '../../redux/store/articles';
 
 const SigninSchema = Yup.object().shape({
   title: Yup.string()
@@ -84,7 +84,7 @@ function AdminPEditArticle({
 
   return (
     <div>
-      <h2 className="pt-5 font-vazirBold text-2xl dark:text-white text-gray-600">
+      <h2 className="pt-5 font-vazirBold text-2xl text-gray-600 dark:text-white">
         ویرایش مقاله
       </h2>
       <div className="container rounded-md bg-white dark:bg-gray-700">
@@ -201,7 +201,7 @@ function AdminPEditArticle({
                     className="text-[11px] text-error"
                   />
                 </div>
-                <div className="my-5 flex items-center justify-between">
+                <div className="my-5 flex items-center justify-between max-sm:flex-col max-sm:gap-5">
                   <div>
                     <input
                       id="cover"
