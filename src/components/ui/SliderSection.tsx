@@ -118,7 +118,9 @@ function SliderSection({
                       to={`/room/${room.code}`}
                       className="text-sm dark:text-white"
                     >
-                      <p className="mb-1 mt-3 font-vazirBold overflow-hidden text-ellipsis whitespace-nowrap">{room.title}</p>
+                      <p className="mb-1 mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-vazirBold">
+                        {room.title}
+                      </p>
                       <p className="mt-2 flex gap-2 whitespace-nowrap text-[13px] text-gray-700 dark:text-gray-50">
                         <span className="font-persianNums">
                           {room.bedroom === 0
@@ -130,6 +132,9 @@ function SliderSection({
                         <span className="flex gap-1 font-persianNums">
                           <BsStarFill className="mt-0.5 text-yellow-500" />
                           {room?.rating?.total}
+                          <span className="max-sm:hidden font-persianNums">
+                            ({room.reviews} نظر)
+                          </span>
                         </span>
                       </p>
                     </Link>
