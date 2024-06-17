@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -38,6 +38,15 @@ function AdminPRoom({ room }: { room: Room }) {
       }
     });
   };
+
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isShowEditModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isShowEditModal]);
 
   return (
     <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -90,7 +99,7 @@ function AdminPRoom({ room }: { room: Room }) {
           </div>
           <ul
             tabIndex={0}
-            className="menu dark:bg-gray-900 dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+            className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow dark:bg-gray-900"
           >
             {' '}
             <li className="py-0.5 hover:text-violet-500 dark:text-white dark:hover:text-violet-500">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsJournalCheck } from 'react-icons/bs';
 import { FiHome } from 'react-icons/fi';
 import { RiSearchEyeLine } from 'react-icons/ri';
@@ -29,6 +29,14 @@ function AdminPHost({ host }: AdminPHostProps) {
   const userRooms = rooms.filter((room) => room?.host?.id === host?.id);
   const active_residences = userRooms?.length;
 
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isShowHostModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isShowHostModal]);
   return (
     <>
       <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -37,7 +45,7 @@ function AdminPHost({ host }: AdminPHostProps) {
             <img
               src={host?.profile}
               alt={host?.fullname}
-              className="rounded-lg object-cover w-full object-top"
+              className="w-full rounded-lg object-cover object-top"
             />
           </div>
         </td>
@@ -52,14 +60,14 @@ function AdminPHost({ host }: AdminPHostProps) {
           </p>
         </td>
         <td className="p-4 dark:text-white">
-          <p className="whitespace-nowrap text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
+          <p className="text-blue-gray-900 block whitespace-nowrap font-sans text-sm font-normal leading-normal antialiased">
             کمتر از{' '}
             <span className="font-persianNums">{host?.response_time}</span>{' '}
             دقیقه
           </p>
         </td>
         <td className="p-4 dark:text-white">
-          <p className="whitespace-nowrap text-blue-gray-900 block font-persianNums text-sm font-normal leading-normal antialiased">
+          <p className="text-blue-gray-900 block whitespace-nowrap font-persianNums text-sm font-normal leading-normal antialiased">
             {host?.registery_date && convertToPersianDate(host?.registery_date)}
           </p>
         </td>

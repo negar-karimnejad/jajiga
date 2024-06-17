@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -40,7 +40,15 @@ function AdminPArticle({ article }: { article: Article }) {
       }
     });
   };
-
+  useEffect(() => {
+    // Disable body scroll when the modal is open
+    if (isShowEditModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isShowEditModal]);
+  
   return (
     <>
       <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
