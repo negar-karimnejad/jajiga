@@ -42,24 +42,24 @@ function AdminPArticleDetails() {
           <div className="table-responsive">
             <table className="table">
               <tbody>
-                <tr>
-                  <td>
+                <tr className='max-lg:flex flex-col max-lg:border-0'>
+                  <td className='max-lg:flex justify-between border-b dark:border-b-gray-700'>
                     <span className="ml-10 text-gray-500 dark:text-gray-300">نویسنده:</span>{' '}
                     <span className="text-black dark:text-white">{author?.fullname}</span>
                   </td>
-                  <td>
+                  <td className='max-lg:flex justify-between border-b dark:border-b-gray-700'>
                     <span className="ml-10 text-gray-500 dark:text-gray-300">دسته بندی:</span>{' '}
                     <span className="text-black dark:text-white">{article.category.title}</span>
                   </td>
                 </tr>
-                <tr>
-                  <td>
+                <tr className='max-lg:flex flex-col'>
+                  <td className='max-lg:flex justify-between border-b dark:border-b-gray-700'>
                     <span className="ml-10 text-gray-500 dark:text-gray-300">تاریخ انتشار:</span>{' '}
                     <span className="font-persianNums text-black dark:text-white">
                       {convertToPersianDate(article?.created_at)}
                     </span>
                   </td>
-                  <td>
+                  <td className='max-lg:flex justify-between border-b dark:border-b-gray-700'>
                     <span className="ml-10 text-gray-500 dark:text-gray-300">
                       مدت زمان مطالعه:
                     </span>{' '}
