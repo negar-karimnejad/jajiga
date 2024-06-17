@@ -16,11 +16,11 @@ function About() {
               <h3 className="mb-5 text-2xl dark:text-white">
                 رویکرد جدید گردشگران
               </h3>
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 امروزه بسیاری از گردشگران داخلی و خارجی ترجیح میدهند تا با اقامت
                 در منازل شخصی مردم و در کنار ایشان فضای صمیمی تری را تجربه کنند
               </p>
-              <p className="text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify text-lg leading-7 text-gray-700 dark:text-gray-400">
                 این رویکرد در کشوری همچون ایران به واسطه سنت دیرین میهمان پذیری
                 و میهمان نوازی بسیار پررنگتر و چشمگیرتر می‌باشد
               </p>
@@ -44,7 +44,7 @@ function About() {
               />
             </div>
             <div className="flex-1">
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 به اعتراف اکثر گردشگرانی که از ایران دیدن کرده اند, در کنار آثار
                 باستانی اعجاب انگیز و طبیعت زیبای ایران, این مردم کوچه و بازار
                 هستند که با مهمان نوازی ایرانی خاطره ای خوش از خود و سرزمین
@@ -60,7 +60,7 @@ function About() {
               data-aos="fade-right"
               data-aos-duration="4000"
             >
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 این رویکرد جدید با افزایش آگاهی گردشگران و پایبندی ایشان به
                 هنجار های جامعه میزبان به رویکرد قالب در میان گردشگران بین
                 المللی بدل گشته است.
@@ -96,7 +96,7 @@ function About() {
               <h3 className="mb-5 text-2xl dark:text-white">
                 لمس زندگی روزمره مردم محلی
               </h3>
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 اقامت در خانه های محلی فرصتی است مغتنم تا گردشگران از نزدیک با
                 زندگی روزمره جامعه میزبان آشنا شوند, فرصتی که هیچگاه با اقامت در
                 هتل ها و اقامتگاههای استاندارد فراهم نمیگردد.
@@ -107,7 +107,7 @@ function About() {
                 src="/images/about/about_img6.jpg"
                 alt=""
               />
-              <p className="pt-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pt-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 این کسب و کار به گونه ای طراحی گردیده تا گردشگران با اقامت در
                 خانه هایی راحت, جذاب و دوست داشتنی که معمولا با حضور صاحب
                 اقامتگاه نیز همراه می‌شود , موقعیت های دوستانه و زمان خوبی را
@@ -134,7 +134,7 @@ function About() {
               data-aos="fade-right"
               data-aos-duration="4000"
             >
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400 max-md:pt-5">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400 max-md:pt-5">
                 و در این فضای صمیمی با مشارکت در زندگی روزمره مردم محلی , از
                 آداب و رسوم , لباس ها , غذاها و جشنهای محلی بهره ببرند{' '}
               </p>
@@ -152,7 +152,7 @@ function About() {
                 src="/images/about/about_img8.jpg"
                 alt=""
               />
-              <p className="pt-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pt-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 خلق چنین موقعیتی به دلیل ایجاد حسی مشابه با بودن در خانه دوستان
                 و اقوام, به طور معنی داری سبب افزایش رضایت گردشگران و همچنین
                 افزایش میزان اقامت ایشان در مقاصد گردشگری می‌شود{' '}
@@ -165,7 +165,7 @@ function About() {
               data-aos="fade-right"
               data-aos-duration="4000"
             >
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 بهره گیری از طعم خوش غذا های محلی که با مواد اولیه سالم و
                 ارگانیک تهیه شده اند از دیگر مزایای اقامت در کنار مردم محلی است.
               </p>
@@ -218,7 +218,7 @@ function About() {
                 تنوع در انتخاب محل اقامت
               </h3>
 
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 این کسب و کار , هر گونه اقامتگاه قابل سکونتی که برای گردشگران
                 جذاب باشد را به مخاطبان خود ارائه می کند , می خواهد یک کلبه چوبی
                 دنج در کنار دریاچه ای کوهستانی باشد یا اتاقی کوچک در خانه ی
@@ -234,7 +234,7 @@ function About() {
               data-aos="fade-right"
               data-aos-duration="4000"
             >
-              <p className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
+              <p className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 مهم آن است که گردشگر بتواند مکان مناسب با سلیقه , بودجه و علاقه
                 خود را به سهولت یافته و به صورت اینترنتی رزرو کند و در زمان مورد
                 نظر با خیالی آسوده به مکان اجاره شده رفته و اقامت خوبی را چنانکه
