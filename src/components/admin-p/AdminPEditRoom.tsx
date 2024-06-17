@@ -87,7 +87,7 @@ function AdminPEditRoom({
   };
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div>
       <h2 className="pt-5 font-vazirBold text-2xl dark:text-white text-gray-600">
         ویرایش اقامتگاه
       </h2>
