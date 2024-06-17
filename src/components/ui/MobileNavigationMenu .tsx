@@ -140,11 +140,11 @@ function MobileNavigationMenu() {
         )}
       </div>
       <div
-        className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center justify-center bg-black/60 transition-all duration-500 max-md:justify-end ${isShowNotification ? 'visible' : 'invisible'}`}
+        className={`fixed right-0 top-0 z-50 flex h-screen w-full cursor-default flex-col items-center justify-center bg-black/60 transition-all duration-500 max-md:justify-end md:hidden ${isShowNotification ? 'visible' : 'invisible'}`}
       >
         <div className="relative">
           <Button
-            style={`fixed w-5 h-5 font-vazirBold text-4xl text-white transition-all duration-700 ${isShowNotification ? 'top-60 left-4' : '-left-10 top-60'}`}
+            style={`fixed w-5 h-5 font-vazirBold text-4xl text-white transition-all duration-700 ${isShowNotification ? 'sm:top-60 top-[22rem] left-4' : '-left-10 sm:top-60 top-[22rem]'}`}
           >
             &times;
           </Button>
