@@ -25,7 +25,7 @@ function SigningModal() {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`fixed bottom-0 right-0 rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:bg-gray-800 dark:text-white max-md:w-full min-[600px]:w-[500px] ${isOpen ? 'translate-y-0' : 'translate-y-96'}`}
+        className={`max-md:fixed bottom-0 right-0 rounded-lg bg-white px-5 py-10 shadow transition-all duration-500 dark:bg-gray-800 dark:text-white max-md:w-full min-[600px]:w-[500px] ${isOpen ? 'translate-y-0' : 'translate-y-96'}`}
       >
         <Button
           style="absolute w-5 h-5 -top-10 left-2 font-vazirBold text-4xl text-white"
