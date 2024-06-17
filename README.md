@@ -23,7 +23,7 @@ I appreciate your support in advance. ❤</p>
 ### <p align="center">🔧Technologies:</p>
 <div align="center" >
   
-![react](https://img.shields.io/badge/react-e11d48?style=for-the-badge&logo=react&logoColor=white)
+![react](https://img.shields.io/badge/react-red?style=for-the-badge&logo=react&logoColor=white)
 ![supabase](https://img.shields.io/badge/supabase-e11d48?style=for-the-badge&logo=supabase&logoColor=white)
 ![tailwindcss](https://img.shields.io/badge/tailwindcss-e11d48?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-e11d48?style=for-the-badge&logo=npm&logoColor=white)
