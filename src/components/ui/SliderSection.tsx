@@ -118,8 +118,8 @@ function SliderSection({
                       to={`/room/${room.code}`}
                       className="text-sm dark:text-white"
                     >
-                      <p className="mb-1 mt-3 font-vazirBold">{room.title}</p>
-                      <p className="mt-2 flex gap-2 text-[13px] text-gray-700 dark:text-gray-50 max-sm:flex-col">
+                      <p className="mb-1 mt-3 font-vazirBold overflow-hidden text-ellipsis whitespace-nowrap">{room.title}</p>
+                      <p className="mt-2 flex gap-2 whitespace-nowrap text-[13px] text-gray-700 dark:text-gray-50">
                         <span className="font-persianNums">
                           {room.bedroom === 0
                             ? 'بدون اتاق خواب'
@@ -127,9 +127,9 @@ function SliderSection({
                           . {room.foundation_meterage} متر . تا{' '}
                           {room.max_capacity} مهمان
                         </span>
-                        <span className="flex  gap-2 font-persianNums">
-                          <BsStarFill className="text-yellow-500" />
-                          {room?.rating?.total} ({room.reviews} نظر)
+                        <span className="flex gap-1 font-persianNums">
+                          <BsStarFill className="mt-0.5 text-yellow-500" />
+                          {room?.rating?.total}
                         </span>
                       </p>
                     </Link>
