@@ -99,7 +99,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
                 </div>
               </li>
               <li className="flex flex-row items-center py-4">
-                <div className="text-violet-500 flex h-10 w-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-violet-100">
+                <div className="text-violet-500 bg-violet-100 flex h-10 w-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full">
                   م ن
                 </div>
                 <div className="flex w-10/12 shrink-0 flex-col items-start gap-2">
@@ -155,7 +155,7 @@ function AdminHeader({ toggleMenu }: { toggleMenu: () => void }) {
                 </div>
               </li>
               <li className="flex flex-row items-center py-4">
-                <div className="text-violebg-violet-500 flex h-10 w-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-violet-100">
+                <div className="text-violet-500 bg-violet-100 flex h-10 w-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-violet-100">
                   م ن
                 </div>
                 <div className="flex w-10/12 shrink-0 flex-col items-start gap-2">
