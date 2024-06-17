@@ -271,7 +271,7 @@ function About() {
               <p
                 data-aos="fade-down"
                 data-aos-duration="4000"
-                className="pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400"
+                className="text-justify pb-5 text-lg leading-7 text-gray-700 dark:text-gray-400"
               >
                 تنوع مکانهای اقامتی این کسب و کار به وسعت تنوع سکونتگاه های
                 سرزمین ایران است. سکونتگاه هایی واقع در شهر و روستا و ساحل دریا
