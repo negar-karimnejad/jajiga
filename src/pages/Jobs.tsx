@@ -41,7 +41,7 @@ function Jobs() {
             <img
               loading="lazy"
               src="images/jobs/job-1.png"
-              alt=""
+              alt="فرصت های شغلی"
               className="rounded-lg shadow-lg dark:shadow-gray-950"
             />
 
@@ -63,14 +63,14 @@ function Jobs() {
         </div>
         <div className="relative md:px-10">
           <div className="absolute -top-24 right-12 w-52 opacity-10 max-xl:hidden">
-            <img loading="lazy" src="/images/patterns/dot.png" alt="" />
+            <img loading="lazy" src="/images/patterns/dot.png" alt="patterns" />
           </div>
           <div className="container relative">
             <img
               loading="lazy"
               src="/images/jobs/job-2.png"
               className="rounded-md shadow-lg shadow-gray-300 dark:shadow-gray-950"
-              alt=""
+              alt="فرصت های شغلی"
             />
             <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
               خانواده جاجیگا | پاییز 1400
@@ -80,14 +80,14 @@ function Jobs() {
 
         <div className="relative md:px-10">
           <div className="absolute -top-2 left-16 z-0 w-36 opacity-10 max-xl:hidden">
-            <img loading="lazy" src="/images/patterns/dot.png" alt="" />
+            <img loading="lazy" src="/images/patterns/dot.png" alt="patterns" />
           </div>
           <div className="container grid-cols-12 items-end justify-between gap-10 max-sm:space-y-10 sm:grid">
             <div className="relative col-span-12 md:col-span-7">
               <img
                 loading="lazy"
                 src="/images/jobs/job-3.png"
-                alt=""
+                alt="دفتر جاجیگا"
                 className="rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
               <p className="righ-5 absolute -bottom-6 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
@@ -103,7 +103,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-4.png"
-                alt=""
+                alt="لاهیجان"
                 className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
               />
               <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
@@ -123,7 +123,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-5.png"
-                alt=""
+                alt="لاهیجان"
                 className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
               />
               <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
@@ -136,7 +136,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-6.png"
-                alt=""
+                alt="الکامپ"
                 className="w-full rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
               <p className="righ-5 absolute -bottom-6 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
@@ -149,7 +149,7 @@ function Jobs() {
                 <img
                   loading="lazy"
                   src="/images/jobs/job-7.png"
-                  alt=""
+                  alt="لاهیجان"
                   className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
                 />
                 <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
@@ -160,7 +160,7 @@ function Jobs() {
                 <img
                   loading="lazy"
                   src="/images/jobs/job-8.png"
-                  alt=""
+                  alt="الکامپ"
                   className="rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
                 />
                 <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
@@ -174,7 +174,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-10.png"
-                alt=""
+                alt="هویج بستنی"
                 className="w-full rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
               <p className="righ-5 absolute -bottom-6 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-right-16 md:bottom-14 md:-rotate-90">
@@ -187,7 +187,7 @@ function Jobs() {
                 <img
                   loading="lazy"
                   src="/images/jobs/job-9.png"
-                  alt=""
+                  alt="لاهیجان"
                   className="w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950 lg:h-80"
                 />
                 <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
@@ -210,7 +210,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-11.png"
-                alt=""
+                alt="گیله بوم"
                 className="rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
               <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500 md:-left-16 md:bottom-14 md:-rotate-90">
@@ -223,7 +223,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-12.png"
-                alt=""
+                alt="ویلای چمخاله"
                 className="h-80 w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
               <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500">
@@ -234,7 +234,7 @@ function Jobs() {
               <img
                 loading="lazy"
                 src="/images/jobs/job-13.png"
-                alt=""
+                alt="تراس جاجیگا"
                 className="h-80 w-full rounded-2xl object-cover shadow-lg shadow-gray-300 dark:shadow-gray-950"
               />
               <p className="absolute -bottom-6 left-5 font-persianNums text-[12px] text-gray-400 dark:text-gray-500">

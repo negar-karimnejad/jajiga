@@ -42,7 +42,7 @@ function RoomHeader() {
                 : 'grayscale-0'
             }`}
             src={room.images.at(0)}
-            alt=""
+            alt={room.title}
           />
         </div>
         <div className="flex w-full flex-1 gap-2">
@@ -57,7 +57,7 @@ function RoomHeader() {
                   : 'grayscale-0'
               }`}
               src={room.images.at(1)}
-              alt=""
+              alt={room.title}
             />
             <img
               onClick={() => setIsOpen(2)}
@@ -69,7 +69,7 @@ function RoomHeader() {
                   : 'grayscale-0'
               }`}
               src={room.images.at(2)}
-              alt=""
+              alt={room.title}
             />
           </div>
           <div className="relative flex w-full flex-col gap-1">
@@ -83,7 +83,7 @@ function RoomHeader() {
                   : 'grayscale-0'
               }`}
               src={room.images.at(3)}
-              alt=""
+              alt={room.title}
             />
             <img
               onClick={() => setIsOpen(4)}
@@ -95,7 +95,7 @@ function RoomHeader() {
                   : 'grayscale-0'
               }`}
               src={room.images.at(4)}
-              alt=""
+              alt={room.title}
             />
             <div className="absolute left-2 top-2 z-40">
               <LikeAndShareButtons id={Number(id)} />
@@ -125,7 +125,7 @@ function RoomHeader() {
                 loading="lazy"
                 src={image}
                 className="h-full w-full object-cover"
-                alt=""
+                alt={room.title}
               />
             </SwiperSlide>
           ))}

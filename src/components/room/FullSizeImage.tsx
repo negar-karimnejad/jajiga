@@ -65,7 +65,7 @@ function FullSizeImage({
                   loading="lazy"
                   src={image}
                   className="h-[27rem] w-[700px] rounded-xl object-cover"
-                  alt=""
+                  alt={room.title}
                 />
               </SwiperSlide>
             ))}
@@ -85,7 +85,7 @@ function FullSizeImage({
                   loading="lazy"
                   src={image}
                   className="h-20 w-28 rounded-md border-2 border-black object-cover object-top"
-                  alt=""
+                  alt={room.title}
                 />
               </SwiperSlide>
             ))}

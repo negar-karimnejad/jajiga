@@ -142,7 +142,7 @@ function Article() {
                                 className="h-full w-24 object-cover"
                                 loading="lazy"
                                 src={article.cover}
-                                alt=""
+                                alt={article.title}
                               />
                             )}
                           </div>
@@ -193,7 +193,7 @@ function Article() {
                                 className="h-full w-24 object-cover"
                                 loading="lazy"
                                 src={article.cover}
-                                alt=""
+                                alt={article.title}
                               />
                             )}
                           </div>

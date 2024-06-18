@@ -81,7 +81,7 @@ function AdminPRoom({ room }: { room: Room }) {
         <img
           src={room?.host?.profile}
           className="h-10 w-10 rounded-full object-cover"
-          alt=""
+          alt={room.title}
         />
         <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal  antialiased dark:text-white">
           {room?.host?.fullname}

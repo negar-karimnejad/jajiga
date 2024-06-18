@@ -19,7 +19,7 @@ function ArticleAuthor({ id, lightColor }: ArticleAuthorProps) {
       <img
         loading="lazy"
         src={author?.profile}
-        alt=""
+        alt={author.fullname}
         className="h-7 w-7 cursor-pointer rounded-full object-cover"
       />
       <p

@@ -55,7 +55,7 @@ function Popular() {
                         loading="lazy"
                         src={city.cover}
                         className="rounded-xl lg:rounded-[30px]"
-                        alt=""
+                        alt={city.name}
                       />
                     </div>
                     <div className="mr-2 flex flex-1 items-center">

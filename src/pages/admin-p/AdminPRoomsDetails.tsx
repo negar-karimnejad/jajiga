@@ -63,7 +63,7 @@ function AdminPRoomsDetails() {
                   loading="lazy"
                   src={image}
                   className="h-20 w-28 rounded-md object-cover object-top"
-                  alt=""
+                  alt={room.title}
                 />
               </SwiperSlide>
             ))}

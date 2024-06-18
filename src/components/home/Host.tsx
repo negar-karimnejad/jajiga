@@ -27,7 +27,7 @@ function Host() {
             <img
               loading="lazy"
               src="/images/becomeHost.jpg"
-              alt=""
+              alt="میزبان شو"
               className="h-full w-full rounded-2xl object-cover"
             />
           </div>

@@ -27,7 +27,7 @@ function RoomComments() {
             <div className="flex justify-between">
               <div className="flex items-center gap-5">
                 <img
-                  alt=""
+                  alt={room.title}
                   src={comment.avatar}
                   className="h-14 w-14 rounded-full object-cover"
                 />
@@ -55,7 +55,7 @@ function RoomComments() {
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <img
-                      alt=""
+                      alt={room.title}
                       src={room?.host?.profile}
                       className="h-10 w-10 rounded-full"
                     />

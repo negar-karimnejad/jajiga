@@ -48,7 +48,7 @@ function Comments() {
                     <img
                       loading="lazy"
                       src={comment.profile}
-                      alt=""
+                      alt={comment.name}
                       className="h-full w-full rounded-full object-cover"
                     />
                   </div>

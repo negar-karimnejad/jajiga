@@ -30,7 +30,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img1.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
           </div>
@@ -40,7 +40,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img2.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
             <div className="flex-1">
@@ -75,7 +75,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img3.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
           </div>
@@ -85,7 +85,7 @@ function About() {
             <img
               loading="lazy"
               src="/images/about/about_img4.jpg"
-              alt=""
+              alt="درباره جاجیگا"
               className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
             />
           </div>
@@ -105,7 +105,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img6.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
               <p className="text-justify pt-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 این کسب و کار به گونه ای طراحی گردیده تا گردشگران با اقامت در
@@ -123,7 +123,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 md:w-[800px]"
                 src="/images/about/about_img5.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
           </div>
@@ -142,7 +142,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 md:w-64"
                 src="/images/about/about_img7.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
             <div data-aos="fade-left" data-aos-duration="4000">
@@ -150,7 +150,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img8.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
               <p className="text-justify pt-5 text-lg leading-7 text-gray-700 dark:text-gray-400">
                 خلق چنین موقعیتی به دلیل ایجاد حسی مشابه با بودن در خانه دوستان
@@ -179,7 +179,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img9.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
           </div>
@@ -190,7 +190,7 @@ function About() {
             <img
               loading="lazy"
               src="/images/about/about_img10.jpg"
-              alt=""
+              alt="درباره جاجیگا"
               className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
             />
           </div>
@@ -206,7 +206,7 @@ function About() {
                 loading="lazy"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 md:w-72"
                 src="/images/about/about_img11.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
             <div
@@ -250,7 +250,7 @@ function About() {
                 loading="lazy"
                 className="w-[500px] rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img12.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
           </div>
@@ -264,7 +264,7 @@ function About() {
                 data-aos-duration="4000"
                 className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950"
                 src="/images/about/about_img13.jpg"
-                alt=""
+                alt="درباره جاجیگا"
               />
             </div>
             <div>
@@ -286,7 +286,7 @@ function About() {
               data-aos-duration="4000"
               className="mx-auto rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 max-md:my-5 md:-mt-14 md:w-60"
               src="/images/about/about_img14.jpg"
-              alt=""
+              alt="درباره جاجیگا"
             />
           </div>
           <div>
@@ -296,7 +296,7 @@ function About() {
               data-aos-duration="4000"
               className="rounded-xl shadow-lg shadow-gray-400 dark:shadow-gray-950 max-md:mx-auto md:float-end md:-mt-10 md:w-60"
               src="/images/about/about_img15.jpg"
-              alt=""
+              alt="درباره جاجیگا"
             />
           </div>
         </section>

@@ -101,7 +101,7 @@ function SliderSection({
                           loading="lazy"
                           src={room.images?.at(0)}
                           className="block h-52 w-full rounded-3xl object-cover"
-                          alt=""
+                          alt={room.title}
                         />
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 z-40 mx-auto flex h-full flex-col items-start justify-between px-4 pb-4 text-sm text-white">
