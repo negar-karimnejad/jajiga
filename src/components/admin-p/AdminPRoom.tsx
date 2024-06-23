@@ -27,7 +27,7 @@ function AdminPRoom({ room }: { room: Room }) {
       cancelButtonText: 'انصراف',
     }).then((result) => {
       if (result.isConfirmed) {
-        removeRoom(roomId);
+        // removeRoom(roomId);
         Swal.fire({
           title: 'اقامتگاه با موفقیت حذف شد',
           toast: false,

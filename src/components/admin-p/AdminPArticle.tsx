@@ -29,7 +29,7 @@ function AdminPArticle({ article }: { article: Article }) {
       cancelButtonText: 'انصراف',
     }).then((result) => {
       if (result.isConfirmed) {
-        removeArticle(article.id);
+        // removeArticle(article.id);
         Swal.fire({
           title: 'مقاله با موفقیت حذف شد',
           toast: false,
