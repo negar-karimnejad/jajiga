@@ -100,8 +100,7 @@ function AdminPArticle({ article }: { article: Article }) {
               className="menu dark:bg-gray-900 dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
             >
               <li
-                className="py-0.5
-hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
+                className="py-0.5 hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
               >
                 <Link
                   to={`/admin-p/articles/${article.title.replaceAll(' ', '-')}`}
@@ -112,8 +111,7 @@ hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
               </li>
               <li
                 onClick={() => setIsShowEditModal(true)}
-                className="py-0.5
-hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
+                className="py-0.5 hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
               >
                 <a>
                   <BiEdit />
@@ -122,8 +120,7 @@ hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
               </li>
               <li
                 // onClick={removeHandler}
-                className="py-0.5
-hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
+                className="py-0.5 hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
               >
                 <a>
                   <BiTrash />
