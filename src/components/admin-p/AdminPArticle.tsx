@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { useArticles } from '../../hooks/useArticles';
+// import Swal from 'sweetalert2';
+// import { useArticles } from '../../hooks/useArticles';
 import { useAuthor } from '../../hooks/useAuthor';
 import { Article } from '../../redux/store/articles';
 import Modal from '../ui/Modal';
@@ -12,34 +12,34 @@ import AdminPEditArticle from './AdminPEditArticle';
 function AdminPArticle({ article }: { article: Article }) {
   const { author } = useAuthor(article.author_id ? article.author_id : 0);
   const [isShowEditModal, setIsShowEditModal] = useState(false);
-  const { removeArticle } = useArticles();
+  // const { removeArticle } = useArticles();
 
   const closeModal = () => setIsShowEditModal(false);
 
-  const removeHandler = () => {
-    Swal.fire({
-      title: 'آیا از حذف مقاله مطمئنید؟',
-      toast: false,
-      position: 'center',
-      showConfirmButton: true,
-      showCancelButton: true,
-      icon: 'warning',
-      customClass: { icon: 'm-auto mt-4' },
-      confirmButtonText: 'بله',
-      cancelButtonText: 'انصراف',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // removeArticle(article.id);
-        Swal.fire({
-          title: 'مقاله با موفقیت حذف شد',
-          toast: false,
-          position: 'center',
-          icon: 'success',
-          customClass: { icon: 'm-auto mt-4' },
-        });
-      }
-    });
-  };
+  // const removeHandler = () => {
+  //   Swal.fire({
+  //     title: 'آیا از حذف مقاله مطمئنید؟',
+  //     toast: false,
+  //     position: 'center',
+  //     showConfirmButton: true,
+  //     showCancelButton: true,
+  //     icon: 'warning',
+  //     customClass: { icon: 'm-auto mt-4' },
+  //     confirmButtonText: 'بله',
+  //     cancelButtonText: 'انصراف',
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       removeArticle(article.id);
+  //       Swal.fire({
+  //         title: 'مقاله با موفقیت حذف شد',
+  //         toast: false,
+  //         position: 'center',
+  //         icon: 'success',
+  //         customClass: { icon: 'm-auto mt-4' },
+  //       });
+  //     }
+  //   });
+  // };
   useEffect(() => {
     // Disable body scroll when the modal is open
     if (isShowEditModal) {
@@ -121,7 +121,7 @@ hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
                 </a>
               </li>
               <li
-                onClick={removeHandler}
+                // onClick={removeHandler}
                 className="py-0.5
 hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
               >
