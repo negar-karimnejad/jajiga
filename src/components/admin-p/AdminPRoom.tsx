@@ -2,42 +2,42 @@ import { useEffect, useState } from 'react';
 import { BiEdit, BiTrash } from 'react-icons/bi';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import useRooms from '../../hooks/useRooms';
+// import Swal from 'sweetalert2';
+// import useRooms from '../../hooks/useRooms';
 import { Room } from '../../redux/store/room';
 import Modal from '../ui/Modal';
 import AdminPEditRoom from './AdminPEditRoom';
 
 function AdminPRoom({ room }: { room: Room }) {
   const [isShowEditModal, setIsShowEditModal] = useState(false);
-  const { removeRoom } = useRooms();
+  // const { removeRoom } = useRooms();
 
   const closeModal = () => setIsShowEditModal(false);
 
-  const removeHandler = (roomId: number) => {
-    Swal.fire({
-      title: 'آیا از حذف اقامتگاه مطمئنید؟',
-      toast: false,
-      position: 'center',
-      showConfirmButton: true,
-      showCancelButton: true,
-      icon: 'warning',
-      customClass: { icon: 'm-auto mt-4' },
-      confirmButtonText: 'بله',
-      cancelButtonText: 'انصراف',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // removeRoom(roomId);
-        Swal.fire({
-          title: 'اقامتگاه با موفقیت حذف شد',
-          toast: false,
-          position: 'center',
-          icon: 'success',
-          customClass: { icon: 'm-auto mt-4' },
-        });
-      }
-    });
-  };
+  // const removeHandler = (roomId: number) => {
+  //   Swal.fire({
+  //     title: 'آیا از حذف اقامتگاه مطمئنید؟',
+  //     toast: false,
+  //     position: 'center',
+  //     showConfirmButton: true,
+  //     showCancelButton: true,
+  //     icon: 'warning',
+  //     customClass: { icon: 'm-auto mt-4' },
+  //     confirmButtonText: 'بله',
+  //     cancelButtonText: 'انصراف',
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       removeRoom(roomId);
+  //       Swal.fire({
+  //         title: 'اقامتگاه با موفقیت حذف شد',
+  //         toast: false,
+  //         position: 'center',
+  //         icon: 'success',
+  //         customClass: { icon: 'm-auto mt-4' },
+  //       });
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
     // Disable body scroll when the modal is open
@@ -118,7 +118,7 @@ function AdminPRoom({ room }: { room: Room }) {
               </a>
             </li>
             <li
-              onClick={() => removeHandler(room.id)}
+              // onClick={() => removeHandler(room.id)}
               className="py-0.5 hover:text-violet-500 dark:text-white dark:hover:text-violet-500"
             >
               <a>
