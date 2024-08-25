@@ -1,4 +1,5 @@
-import { Map } from 'leaflet';
+import { Icon, Map } from 'leaflet';
+import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
 import { useRef, useState } from 'react';
 import { CircleMarker, MapContainer, Marker, TileLayer } from 'react-leaflet';
@@ -61,13 +62,20 @@ function RoomMap({
               }}
               key={latlngIndex}
               position={[lat, lng]}
+              icon={
+                new Icon({
+                  iconUrl: markerIconPng,
+                  iconSize: [25, 41],
+                  iconAnchor: [12, 41],
+                })
+              }
             ></Marker>
           ))
         )}
       </MapContainer>
       {!blueCircleMarker && (
         <div
-          className={`absolute left-2 right-2 z-40 flex justify-between rounded-xl border bg-white shadow-lg shadow-gray-400 transition-all dark:border-gray-900 dark:bg-gray-800 ${markedRoom ? 'visible bottom-10 max-md:bottom-10' : 'invisible -bottom-32 max-md:-bottom-32'} ${fullsize ? 'visible w-96 mx-auto' : 'max-md:invisible'}`}
+          className={`absolute left-2 right-2 z-40 flex justify-between rounded-xl border bg-white shadow-lg shadow-gray-400 transition-all dark:border-gray-900 dark:bg-gray-800 ${markedRoom ? 'visible bottom-10 max-md:bottom-10' : 'invisible -bottom-32 max-md:-bottom-32'} ${fullsize ? 'visible mx-auto w-96' : 'max-md:invisible'}`}
         >
           <Link to={`/room/${markedRoom?.code}`}>
             <img
